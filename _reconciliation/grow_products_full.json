@@ -1,0 +1,10224 @@
+[
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0546702551",
+  "ref_grow": "518159315",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0533435240",
+  "ref_grow": "510044594",
+  "total_paid": 2.3,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2347.7
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0533435240",
+  "ref_grow": "510039745",
+  "total_paid": 2.3,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2347.7
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0533435240",
+  "ref_grow": "510028071",
+  "total_paid": 2.3,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2347.7
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0524255574",
+  "ref_grow": "175184103",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0542329302",
+  "ref_grow": "175179276",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0585101983",
+  "ref_grow": "518091051",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-19",
+  "phone": "0524734737",
+  "ref_grow": "518085725",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0558813226",
+  "ref_grow": "175148323",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0509962166",
+  "ref_grow": "175146874",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0523954466",
+  "ref_grow": "175146100",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0545215204",
+  "ref_grow": "175145888",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0528928479",
+  "ref_grow": "175135702",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0524088882",
+  "ref_grow": "175131235",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0542348318",
+  "ref_grow": "517985584",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0525628337",
+  "ref_grow": "175105160",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0524234777",
+  "ref_grow": "175090723",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0523384783",
+  "ref_grow": "517956436",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0507552666",
+  "ref_grow": "175085124",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0528430954",
+  "ref_grow": "517947344",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0546202151",
+  "ref_grow": "175084266",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0508640305",
+  "ref_grow": "175080251",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-18",
+  "phone": "0503442350",
+  "ref_grow": "517933910",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0544908836",
+  "ref_grow": "175062682",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0545883237",
+  "ref_grow": "175058289",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0549022893",
+  "ref_grow": "517866471",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0523044528",
+  "ref_grow": "175048342",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0506236551",
+  "ref_grow": "517753818",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0522682017",
+  "ref_grow": "174991530",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0547292291",
+  "ref_grow": "174991448",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0509376887",
+  "ref_grow": "517718390",
+  "total_paid": 2850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": "006",
+    "qty": 1,
+    "total": 2850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0542007662",
+  "ref_grow": "517708814",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0524898677",
+  "ref_grow": "517703835",
+  "total_paid": 285.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 285.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0504727690",
+  "ref_grow": "517694768",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0524898677",
+  "ref_grow": "517662551",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0546767136",
+  "ref_grow": "174951462",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-17",
+  "phone": "0523636496",
+  "ref_grow": "517582489",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0545607707",
+  "ref_grow": "174928364",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0502018744",
+  "ref_grow": "174922481",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0523468650",
+  "ref_grow": "174916375",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0523164851",
+  "ref_grow": "517527158",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0528704905",
+  "ref_grow": "174851906",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0524388384",
+  "ref_grow": "174823143",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0545741278",
+  "ref_grow": "517344422",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-16",
+  "phone": "0508598888",
+  "ref_grow": "517278011",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-15",
+  "phone": "0549536747",
+  "ref_grow": "174780553",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-15",
+  "phone": "0535002122",
+  "ref_grow": "174726481",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-15",
+  "phone": "0502905902",
+  "ref_grow": "517052514",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0533435240",
+  "ref_grow": "516891724",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 1.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0533435240",
+  "ref_grow": "516889963",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 1.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0533435240",
+  "ref_grow": "516885818",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 1.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0533435240",
+  "ref_grow": "516879709",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 1.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0528741341",
+  "ref_grow": "174639329",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0504905111",
+  "ref_grow": "516808532",
+  "total_paid": 425.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 425.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0508845778",
+  "ref_grow": "516806919",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0545242343",
+  "ref_grow": "508661939",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0525935796",
+  "ref_grow": "508649970",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0525255756",
+  "ref_grow": "508649257",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0542779595",
+  "ref_grow": "516735702",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0555640777",
+  "ref_grow": "174571798",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0522682017",
+  "ref_grow": "174571575",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-14",
+  "phone": "0502877072",
+  "ref_grow": "516634406",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0525520852",
+  "ref_grow": "516588778",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0502143184",
+  "ref_grow": "174556228",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0543535127",
+  "ref_grow": "174551837",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0524388384",
+  "ref_grow": "174544243",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0522878938",
+  "ref_grow": "516548558",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0546616568",
+  "ref_grow": "516545382",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0509851262",
+  "ref_grow": "516542645",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0546579083",
+  "ref_grow": "508467973",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0549989063",
+  "ref_grow": "508464598",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0524467798",
+  "ref_grow": "174536515",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0547292291",
+  "ref_grow": "174534230",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0546423050",
+  "ref_grow": "174533608",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0542202950",
+  "ref_grow": "508441452",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0504727690",
+  "ref_grow": "174533140",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0542299155",
+  "ref_grow": "508419332",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0525088322",
+  "ref_grow": "174526520",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0505585323",
+  "ref_grow": "174523556",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0507473116",
+  "ref_grow": "174517285",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0503605429",
+  "ref_grow": "174516076",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-13",
+  "phone": "0544339515",
+  "ref_grow": "174514757",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-12",
+  "phone": "0533435240",
+  "ref_grow": "516401456",
+  "total_paid": 0.2,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -158.8
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-12",
+  "phone": "0546401483",
+  "ref_grow": "174479676",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-11",
+  "phone": "0544805199",
+  "ref_grow": "516358471",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-11",
+  "phone": "0532819432",
+  "ref_grow": "174372385",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-11",
+  "phone": "0549498275",
+  "ref_grow": "516233060",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-11",
+  "phone": "0526707116",
+  "ref_grow": "174364082",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-11",
+  "phone": "0526777433",
+  "ref_grow": "516214717",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-11",
+  "phone": "0506255866",
+  "ref_grow": "516180936",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-11",
+  "phone": "0546444312",
+  "ref_grow": "174357626",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0503445900",
+  "ref_grow": "174331654",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0524898677",
+  "ref_grow": "516126634",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0522336470",
+  "ref_grow": "516050476",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0526144811",
+  "ref_grow": "516047953",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0544778323",
+  "ref_grow": "516035866",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0524285055",
+  "ref_grow": "174271616",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0506997778",
+  "ref_grow": "516024912",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0526999336",
+  "ref_grow": "516005996",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0507723774",
+  "ref_grow": "516005237",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0545639147",
+  "ref_grow": "174258725",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0508488892",
+  "ref_grow": "515982368",
+  "total_paid": 475.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 475.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0545639147",
+  "ref_grow": "174231075",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0544498088",
+  "ref_grow": "174223567",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0502195979",
+  "ref_grow": "515903798",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-10",
+  "phone": "0523488409",
+  "ref_grow": "174213211",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0508552293",
+  "ref_grow": "515800515",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0527503390",
+  "ref_grow": "174172410",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0544720337",
+  "ref_grow": "515705029",
+  "total_paid": 495.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 495.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0544887929",
+  "ref_grow": "515703441",
+  "total_paid": 482.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 482.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0544545162",
+  "ref_grow": "174135440",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0506220243",
+  "ref_grow": "174132507",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0524240988",
+  "ref_grow": "515617773",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0527271993",
+  "ref_grow": "174096029",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0544554985",
+  "ref_grow": "174095226",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0508576996",
+  "ref_grow": "515609168",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0502247318",
+  "ref_grow": "174092287",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-09",
+  "phone": "0508826621",
+  "ref_grow": "174091200",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0546602268",
+  "ref_grow": "174055771",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0528476308",
+  "ref_grow": "174026192",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0544563199",
+  "ref_grow": "515397478",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0507977127",
+  "ref_grow": "174009073",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0548150725",
+  "ref_grow": "515360008",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0548150725",
+  "ref_grow": "515359500",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0548150725",
+  "ref_grow": "515358631",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0526070486",
+  "ref_grow": "515355731",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0549982114",
+  "ref_grow": "173985107",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-08",
+  "phone": "0509376887",
+  "ref_grow": "515232562",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-07",
+  "phone": "0558818080",
+  "ref_grow": "515137917",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-07",
+  "phone": "0506270583",
+  "ref_grow": "515133195",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-07",
+  "phone": "0542070907",
+  "ref_grow": "515132679",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-07",
+  "phone": "0506831831",
+  "ref_grow": "515028993",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-07",
+  "phone": "0555584034",
+  "ref_grow": "515024156",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-07",
+  "phone": "0504074286",
+  "ref_grow": "173863548",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-07",
+  "phone": "0528550882",
+  "ref_grow": "514981166",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0545431409",
+  "ref_grow": "173841463",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0549756446",
+  "ref_grow": "514906982",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0509939202",
+  "ref_grow": "514881593",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0523276003",
+  "ref_grow": "514823968",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0523254110",
+  "ref_grow": "173786099",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0522307570",
+  "ref_grow": "514794771",
+  "total_paid": 425.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 425.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0504140165",
+  "ref_grow": "514790968",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0544887929",
+  "ref_grow": "514784626",
+  "total_paid": 482.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 482.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0528310341",
+  "ref_grow": "514783735",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0556692177",
+  "ref_grow": "514649523",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-06",
+  "phone": "0548083096",
+  "ref_grow": "173717281",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0508488892",
+  "ref_grow": "514552718",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0544759897",
+  "ref_grow": "514515033",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0547850821",
+  "ref_grow": "173675645",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0507900751",
+  "ref_grow": "514504614",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0528684425",
+  "ref_grow": "514502486",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין רגיל",
+    "code": null,
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0505481812",
+  "ref_grow": "514490384",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0506778412",
+  "ref_grow": "514476679",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0545422438",
+  "ref_grow": "173657374",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0509628967",
+  "ref_grow": "173656221",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0502300247",
+  "ref_grow": "173653387",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0508367646",
+  "ref_grow": "514458450",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0542857885",
+  "ref_grow": "173652149",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0546754539",
+  "ref_grow": "173651683",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0523946138",
+  "ref_grow": "514455116",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-05",
+  "phone": "0542779595",
+  "ref_grow": "173649920",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0549801588",
+  "ref_grow": "514423172",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0502560083",
+  "ref_grow": "173634546",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0506323949",
+  "ref_grow": "173633714",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0532396979",
+  "ref_grow": "173633105",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0549461651",
+  "ref_grow": "173626739",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0527254005",
+  "ref_grow": "173574358",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0506002040",
+  "ref_grow": "173573279",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0509768900",
+  "ref_grow": "173572236",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-04",
+  "phone": "0504451451",
+  "ref_grow": "514287340",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0505918392",
+  "ref_grow": "514234986",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0524880979",
+  "ref_grow": "173540664",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0545746063",
+  "ref_grow": "173533868",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0506210003",
+  "ref_grow": "173521209",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0508335655",
+  "ref_grow": "173516315",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0503442272",
+  "ref_grow": "173505642",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0502555007",
+  "ref_grow": "514139900",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0525776404",
+  "ref_grow": "514125371",
+  "total_paid": 495.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 495.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0543465931",
+  "ref_grow": "514124612",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0506997778",
+  "ref_grow": "514108407",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0523403019",
+  "ref_grow": "514107443",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0528336722",
+  "ref_grow": "514105873",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0522643108",
+  "ref_grow": "514103932",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0542176599",
+  "ref_grow": "173485527",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0528996532",
+  "ref_grow": "173478625",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0533017953",
+  "ref_grow": "173472392",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0545425663",
+  "ref_grow": "173469054",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0544778323",
+  "ref_grow": "173457143",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0526449624",
+  "ref_grow": "173445925",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-03",
+  "phone": "0547704588",
+  "ref_grow": "173444532",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0545850655",
+  "ref_grow": "173435005",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0506873697",
+  "ref_grow": "513936787",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0504905111",
+  "ref_grow": "173431242",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0544224344",
+  "ref_grow": "173430655",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0505274167",
+  "ref_grow": "173409465",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0505191635",
+  "ref_grow": "173398848",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0587811216",
+  "ref_grow": "505077046",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0526130115",
+  "ref_grow": "505073070",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0507211351",
+  "ref_grow": "505047908",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0545981879",
+  "ref_grow": "173368989",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0505722523",
+  "ref_grow": "173357957",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0525311568",
+  "ref_grow": "513738991",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0506935573",
+  "ref_grow": "173337143",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0522837795",
+  "ref_grow": "513698224",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-02",
+  "phone": "0522961535",
+  "ref_grow": "173330884",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0545929539",
+  "ref_grow": "173322630",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0508845778",
+  "ref_grow": "173317983",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0507110469",
+  "ref_grow": "173309974",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0528457102",
+  "ref_grow": "173302051",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0524734774",
+  "ref_grow": "513598337",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0504545441",
+  "ref_grow": "173286633",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0524658016",
+  "ref_grow": "513488712",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0549333991",
+  "ref_grow": "513450393",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0502401115",
+  "ref_grow": "173241115",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0522564307",
+  "ref_grow": "173218638",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-09-01",
+  "phone": "0523766740",
+  "ref_grow": "513305946",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0542399932",
+  "ref_grow": "173178794",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0522768913",
+  "ref_grow": "513176073",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0508560688",
+  "ref_grow": "173165567",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0504727838",
+  "ref_grow": "173163043",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0506567221",
+  "ref_grow": "513133276",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0555584034",
+  "ref_grow": "513128816",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0503559137",
+  "ref_grow": "173161092",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0542007662",
+  "ref_grow": "173154770",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0533435240",
+  "ref_grow": "513101344",
+  "total_paid": 0.2,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -158.8
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0528978544",
+  "ref_grow": "173143722",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0505911080",
+  "ref_grow": "173139125",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0525263131",
+  "ref_grow": "513043615",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0526310551",
+  "ref_grow": "173126151",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0549982282",
+  "ref_grow": "513013341",
+  "total_paid": 2850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": "006",
+    "qty": 1,
+    "total": 2850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0528558184",
+  "ref_grow": "513007105",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0523238923",
+  "ref_grow": "513005464",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0502340840",
+  "ref_grow": "513005250",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0545723345",
+  "ref_grow": "513003754",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0509306652",
+  "ref_grow": "512996129",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0546801599",
+  "ref_grow": "173108298",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-31",
+  "phone": "0548658484",
+  "ref_grow": "173105364",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0546706150",
+  "ref_grow": "173064550",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0524723718",
+  "ref_grow": "512827625",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0523993292",
+  "ref_grow": "512814135",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0549470194",
+  "ref_grow": "173017523",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0503209920",
+  "ref_grow": "173012960",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0535343340",
+  "ref_grow": "512677634",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0505599094",
+  "ref_grow": "172996425",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0542323820",
+  "ref_grow": "512663944",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-30",
+  "phone": "0526070486",
+  "ref_grow": "172992982",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0523812174",
+  "ref_grow": "172986362",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0544488790",
+  "ref_grow": "512599181",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0508680114",
+  "ref_grow": "512597094",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0534474497",
+  "ref_grow": "172968923",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0547387676",
+  "ref_grow": "172952712",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0534566203",
+  "ref_grow": "512531335",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0506584884",
+  "ref_grow": "172950074",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-29",
+  "phone": "0545306375",
+  "ref_grow": "512511312",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0544964866",
+  "ref_grow": "512477265",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0525521725",
+  "ref_grow": "172924261",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0506226402",
+  "ref_grow": "172921917",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0506270583",
+  "ref_grow": "172914492",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0526339889",
+  "ref_grow": "504297104",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0547235212",
+  "ref_grow": "504535112",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0523651402",
+  "ref_grow": "172905975",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0524398560",
+  "ref_grow": "512441421",
+  "total_paid": 565.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 565.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0546374763",
+  "ref_grow": "512435528",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0584387777",
+  "ref_grow": "512424500",
+  "total_paid": 566.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 566.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0544485957",
+  "ref_grow": "504236882",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0544375773",
+  "ref_grow": "512419332",
+  "total_paid": 5660.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 22 שבועות",
+    "code": "007",
+    "qty": 1,
+    "total": 5660.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0543020529",
+  "ref_grow": "504226444",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0542461064",
+  "ref_grow": "172883606",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0542265645",
+  "ref_grow": "512387041",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0507554779",
+  "ref_grow": "172879479",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0535311475",
+  "ref_grow": "512381453",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0545411600",
+  "ref_grow": "172878736",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0523441415",
+  "ref_grow": "512358397",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0526588899",
+  "ref_grow": "504443698",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0545595295",
+  "ref_grow": "172867029",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0545602469",
+  "ref_grow": "512350044",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-28",
+  "phone": "0542191843",
+  "ref_grow": "172865646",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0558818080",
+  "ref_grow": "512294736",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0538280309",
+  "ref_grow": "512293013",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0525702741",
+  "ref_grow": "512265104",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0525208687",
+  "ref_grow": "512255585",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0506845480",
+  "ref_grow": "503301423",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0546270829",
+  "ref_grow": "503298491",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0523633806",
+  "ref_grow": "503275051",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0528911106",
+  "ref_grow": "512192855",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0523988391",
+  "ref_grow": "512186119",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0527977773",
+  "ref_grow": "172764367",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-27",
+  "phone": "0537506686",
+  "ref_grow": "172763575",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0502708675",
+  "ref_grow": "512028191",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0507609411",
+  "ref_grow": "172753012",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0544992939",
+  "ref_grow": "172748087",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0507633018",
+  "ref_grow": "511976398",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0523297497",
+  "ref_grow": "511962717",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0524780006",
+  "ref_grow": "172719229",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0556676714",
+  "ref_grow": "511944450",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0542228847",
+  "ref_grow": "172715013",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0507641111",
+  "ref_grow": "511918552",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0523403019",
+  "ref_grow": "172704648",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0522761579",
+  "ref_grow": "172678126",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0544627914",
+  "ref_grow": "511840003",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0523464664",
+  "ref_grow": "172672507",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0523286250",
+  "ref_grow": "511817373",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-26",
+  "phone": "0547370547",
+  "ref_grow": "172667685",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0524421172",
+  "ref_grow": "172645533",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0529200022",
+  "ref_grow": "172626291",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0526775414",
+  "ref_grow": "172621433",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0523217969",
+  "ref_grow": "172616739",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0545420786",
+  "ref_grow": "172598959",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0504140165",
+  "ref_grow": "511593286",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0544580629",
+  "ref_grow": "172586907",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0502251111",
+  "ref_grow": "172585195",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0527582234",
+  "ref_grow": "511493439",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0534294820",
+  "ref_grow": "172573793",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0505223229",
+  "ref_grow": "172565367",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0545635304",
+  "ref_grow": "172564044",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-25",
+  "phone": "0545236696",
+  "ref_grow": "511240506",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0547714449",
+  "ref_grow": "511235514",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0503560560",
+  "ref_grow": "172549181",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0528310341",
+  "ref_grow": "172538691",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0506569753",
+  "ref_grow": "511196662",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0528122282",
+  "ref_grow": "172530697",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0528575080",
+  "ref_grow": "172526368",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0533435240",
+  "ref_grow": "511123213",
+  "total_paid": 0.2,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -158.8
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0542070907",
+  "ref_grow": "511105946",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0528336722",
+  "ref_grow": "172490686",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0505550502",
+  "ref_grow": "511051855",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0504437757",
+  "ref_grow": "172472820",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0528328499",
+  "ref_grow": "511012704",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-24",
+  "phone": "0523893484",
+  "ref_grow": "172464682",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0524160024",
+  "ref_grow": "172458222",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0528239467",
+  "ref_grow": "172443671",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0547377025",
+  "ref_grow": "172431543",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0549806313",
+  "ref_grow": "510869638",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0584428802",
+  "ref_grow": "510859883",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0506255206",
+  "ref_grow": "172403576",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0533435240",
+  "ref_grow": "510785307",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "טסט",
+    "code": null,
+    "qty": 1,
+    "total": 1.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0546778991",
+  "ref_grow": "172370584",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0509225012",
+  "ref_grow": "172364561",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0502555007",
+  "ref_grow": "172364327",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0506279617",
+  "ref_grow": "172363412",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0507654244",
+  "ref_grow": "510732976",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-23",
+  "phone": "0526612126",
+  "ref_grow": "510722555",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0547865834",
+  "ref_grow": "510593372",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0506410102",
+  "ref_grow": "510582669",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0522307580",
+  "ref_grow": "172309970",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0528302227",
+  "ref_grow": "172306200",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0522897826",
+  "ref_grow": "172304869",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0527555157",
+  "ref_grow": "510568487",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0522761579",
+  "ref_grow": "172300190",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0528694096",
+  "ref_grow": "172298195",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-22",
+  "phone": "0526779272",
+  "ref_grow": "172297849",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-21",
+  "phone": "0546639592",
+  "ref_grow": "510529448",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-21",
+  "phone": "0544887929",
+  "ref_grow": "172279400",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-21",
+  "phone": "0549988833",
+  "ref_grow": "172248254",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-21",
+  "phone": "0509169662",
+  "ref_grow": "172242562",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-21",
+  "phone": "0549436545",
+  "ref_grow": "172235706",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-21",
+  "phone": "0524829780",
+  "ref_grow": "172231314",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0528797124",
+  "ref_grow": "172211362",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0533435240",
+  "ref_grow": "510329037",
+  "total_paid": 2.8,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": "006",
+    "qty": 1,
+    "total": 2850.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2847.2
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0533435240",
+  "ref_grow": "510328901",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "טסט",
+    "code": null,
+    "qty": 1,
+    "total": 1.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0528342186",
+  "ref_grow": "172202613",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0526471553",
+  "ref_grow": "172197831",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0533435240",
+  "ref_grow": "510300502",
+  "total_paid": 0.2,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -158.8
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0533435240",
+  "ref_grow": "510290799",
+  "total_paid": 0.2,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -158.8
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0533435240",
+  "ref_grow": "510263673",
+  "total_paid": 0.2,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -158.8
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0523266996",
+  "ref_grow": "510238950",
+  "total_paid": 385.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 385.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0509911665",
+  "ref_grow": "172159517",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0524317412",
+  "ref_grow": "510164441",
+  "total_paid": 1238.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": null,
+    "qty": 1,
+    "total": 1238.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-20",
+  "phone": "0549468700",
+  "ref_grow": "172135203",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0528072043",
+  "ref_grow": "172120311",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0533435240",
+  "ref_grow": "510061318",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "טסט",
+    "code": null,
+    "qty": 1,
+    "total": 1.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0533435240",
+  "ref_grow": "510044594",
+  "total_paid": 2.3,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2347.7
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0533435240",
+  "ref_grow": "510039745",
+  "total_paid": 2.3,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2347.7
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0533435240",
+  "ref_grow": "510036326",
+  "total_paid": 2.8,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": "006",
+    "qty": 1,
+    "total": 2850.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2847.2
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0525776404",
+  "ref_grow": "510033218",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0533435240",
+  "ref_grow": "510028071",
+  "total_paid": 2.3,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -2347.7
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0502237962",
+  "ref_grow": "510006920",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0543199226",
+  "ref_grow": "172089394",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0533435240",
+  "ref_grow": "509980235",
+  "total_paid": 0.2,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   },
+   {
+    "name": "הנחה (קוד קופון: VitrueTest)",
+    "code": null,
+    "qty": 1,
+    "total": -158.8
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0522345340",
+  "ref_grow": "172064353",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0526070317",
+  "ref_grow": "172054442",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0524500297",
+  "ref_grow": "509882766",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0536844000",
+  "ref_grow": "172042356",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0548113044",
+  "ref_grow": "172037429",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0528229301",
+  "ref_grow": "509846488",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0528870977",
+  "ref_grow": "509845929",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0549225392",
+  "ref_grow": "509844987",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0504316663",
+  "ref_grow": "509844653",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0546833530",
+  "ref_grow": "509844066",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0543465931",
+  "ref_grow": "172035711",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0546203006",
+  "ref_grow": "509842800",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0507770474",
+  "ref_grow": "509841415",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0524153323",
+  "ref_grow": "509840125",
+  "total_paid": 325.0,
+  "products": [
+   {
+    "name": "ייעוץ תזונה",
+    "code": null,
+    "qty": 1,
+    "total": 325.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-19",
+  "phone": "0547669443",
+  "ref_grow": "509839614",
+  "total_paid": 325.0,
+  "products": [
+   {
+    "name": "ייעוץ תזונה",
+    "code": null,
+    "qty": 1,
+    "total": 325.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0509588958",
+  "ref_grow": "509704602",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0502705915",
+  "ref_grow": "509701154",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0502894565",
+  "ref_grow": "171991669",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0502025110",
+  "ref_grow": "171990274",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0522485525",
+  "ref_grow": "171987367",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0533333092",
+  "ref_grow": "171966222",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0508774766",
+  "ref_grow": "171945732",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0504460854",
+  "ref_grow": "171941822",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0526700863",
+  "ref_grow": "509545304",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0522643108",
+  "ref_grow": "171935296",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-18",
+  "phone": "0502716503",
+  "ref_grow": "171931087",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0525027000",
+  "ref_grow": "171927929",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0549498275",
+  "ref_grow": "509487385",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0523249455",
+  "ref_grow": "509484622",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0537231488",
+  "ref_grow": "171904039",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0507427097",
+  "ref_grow": "171892638",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0547665549",
+  "ref_grow": "171891337",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0522214704",
+  "ref_grow": "171871924",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0542749772",
+  "ref_grow": "509374125",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0525602072",
+  "ref_grow": "171865691",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0524433505",
+  "ref_grow": "171863557",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0528308253",
+  "ref_grow": "509278138",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0527044854",
+  "ref_grow": "509270194",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0547280507",
+  "ref_grow": "171831755",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0527475022",
+  "ref_grow": "509256257",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-17",
+  "phone": "0542400896",
+  "ref_grow": "171828921",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0528308253",
+  "ref_grow": "509197131",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0528264302",
+  "ref_grow": "171812242",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0584479687",
+  "ref_grow": "509180405",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0549147041",
+  "ref_grow": "509179472",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0503560530",
+  "ref_grow": "171804257",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0527475022",
+  "ref_grow": "509137276",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0502910880",
+  "ref_grow": "509081347",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0507365122",
+  "ref_grow": "171733506",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0528328499",
+  "ref_grow": "508995383",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0507694955",
+  "ref_grow": "508982653",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0526582994",
+  "ref_grow": "171724132",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0524574526",
+  "ref_grow": "171723277",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0542272821",
+  "ref_grow": "171723199",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0526688630",
+  "ref_grow": "171715847",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0546542645",
+  "ref_grow": "508883431",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-16",
+  "phone": "0509664567",
+  "ref_grow": "171704895",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0544375773",
+  "ref_grow": "171696584",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0546709333",
+  "ref_grow": "508847304",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0548065205",
+  "ref_grow": "171695851",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0543167405",
+  "ref_grow": "508842389",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0524398560",
+  "ref_grow": "171693496",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0549982282",
+  "ref_grow": "508822195",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0526017263",
+  "ref_grow": "171685918",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0542804814",
+  "ref_grow": "171671198",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0548780408",
+  "ref_grow": "171670230",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0544407154",
+  "ref_grow": "171659860",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-15",
+  "phone": "0527022603",
+  "ref_grow": "508713210",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0508655388",
+  "ref_grow": "171618609",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0545242343",
+  "ref_grow": "508661939",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0544208306",
+  "ref_grow": "171615218",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0523266996",
+  "ref_grow": "171612983",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0525935796",
+  "ref_grow": "508649970",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0525255756",
+  "ref_grow": "508649257",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0505063656",
+  "ref_grow": "171611134",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0506858296",
+  "ref_grow": "171606375",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0507234470",
+  "ref_grow": "171599161",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0523414171",
+  "ref_grow": "171590886",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0508281190",
+  "ref_grow": "171588875",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-14",
+  "phone": "0522560583",
+  "ref_grow": "171580619",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0535540848",
+  "ref_grow": "171569248",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0507447797",
+  "ref_grow": "171560419",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0523993292",
+  "ref_grow": "171557722",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0522984980",
+  "ref_grow": "171554621",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0546579083",
+  "ref_grow": "508467973",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0549989063",
+  "ref_grow": "508464598",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0545850508",
+  "ref_grow": "508448554",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0547646280",
+  "ref_grow": "171541041",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0522500366",
+  "ref_grow": "508442536",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0542202950",
+  "ref_grow": "508441452",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0542299155",
+  "ref_grow": "508419332",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0547991873",
+  "ref_grow": "171504692",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0546417518",
+  "ref_grow": "171487823",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0543377877",
+  "ref_grow": "171486340",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-13",
+  "phone": "0523345553",
+  "ref_grow": "171485691",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0544555856",
+  "ref_grow": "171472576",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0545290803",
+  "ref_grow": "508182463",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0526747409",
+  "ref_grow": "171455865",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0524317412",
+  "ref_grow": "508175679",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0532808883",
+  "ref_grow": "171452156",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0545323860",
+  "ref_grow": "171451553",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0504407077",
+  "ref_grow": "171448135",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0507404082",
+  "ref_grow": "508090182",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0544640281",
+  "ref_grow": "508075921",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0523988391",
+  "ref_grow": "171404531",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0523704905",
+  "ref_grow": "171404523",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "",
+  "ref_grow": "171391517",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0503897518",
+  "ref_grow": "171374782",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0522564307",
+  "ref_grow": "171368420",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-12",
+  "phone": "0544671017",
+  "ref_grow": "171366094",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0522422147",
+  "ref_grow": "507853722",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0549562212",
+  "ref_grow": "171339100",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0525138265",
+  "ref_grow": "171306649",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0522817702",
+  "ref_grow": "171302036",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0527799517",
+  "ref_grow": "171269812",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0503055580",
+  "ref_grow": "171264185",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0509301367",
+  "ref_grow": "507655740",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0523263474",
+  "ref_grow": "171253665",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0523878480",
+  "ref_grow": "171247633",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0526777433",
+  "ref_grow": "507598041",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0547750083",
+  "ref_grow": "171241549",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-11",
+  "phone": "0533516158",
+  "ref_grow": "507543986",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0524723718",
+  "ref_grow": "171224293",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0584387777",
+  "ref_grow": "507523409",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0522922539",
+  "ref_grow": "171212795",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0547481355",
+  "ref_grow": "171209743",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0528089405",
+  "ref_grow": "171204697",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0503500079",
+  "ref_grow": "171200510",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0549438799",
+  "ref_grow": "507434040",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0526898070",
+  "ref_grow": "507428693",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0523042002",
+  "ref_grow": "171165106",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0506351122",
+  "ref_grow": "171162403",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0507694955",
+  "ref_grow": "507339346",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0522367310",
+  "ref_grow": "171134539",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0506248041",
+  "ref_grow": "171128480",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "",
+  "ref_grow": "4787688977",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0542345778",
+  "ref_grow": "507291610",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0506216252",
+  "ref_grow": "171116202",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0502195979",
+  "ref_grow": "507254631",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0547551778",
+  "ref_grow": "171112907",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-10",
+  "phone": "0587949906",
+  "ref_grow": "507235916",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0524300991",
+  "ref_grow": "171096043",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0506927356",
+  "ref_grow": "171083297",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0526551824",
+  "ref_grow": "171065719",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0507951559",
+  "ref_grow": "171041646",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0547750083",
+  "ref_grow": "171022392",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0528462395",
+  "ref_grow": "171019638",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0528755238",
+  "ref_grow": "171019166",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0506866626",
+  "ref_grow": "506968022",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0523303399",
+  "ref_grow": "506906474",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0527467366",
+  "ref_grow": "506902647",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0544736136",
+  "ref_grow": "170989128",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0502255968",
+  "ref_grow": "170988274",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "",
+  "ref_grow": "170987066",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0545848683",
+  "ref_grow": "170984726",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-09",
+  "phone": "0506388861",
+  "ref_grow": "170984172",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0532319090",
+  "ref_grow": "170983206",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0528343946",
+  "ref_grow": "506843028",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0525217477",
+  "ref_grow": "170974117",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0537678637",
+  "ref_grow": "170972196",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0546610916",
+  "ref_grow": "170960658",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0547551778",
+  "ref_grow": "170960488",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0506261023",
+  "ref_grow": "506736486",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0504831666",
+  "ref_grow": "170956833",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0544284281",
+  "ref_grow": "170952140",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0547678206",
+  "ref_grow": "170937968",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0527998433",
+  "ref_grow": "170937869",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-08",
+  "phone": "0504602003",
+  "ref_grow": "170937522",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0529468475",
+  "ref_grow": "170929656",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0507242852",
+  "ref_grow": "506633242",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0544763112",
+  "ref_grow": "4781916838",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0542568866",
+  "ref_grow": "170910981",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0542299155",
+  "ref_grow": "170908935",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "",
+  "ref_grow": "4781767657",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "",
+  "ref_grow": "4781702736",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0549989063",
+  "ref_grow": "170899775",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0528481027",
+  "ref_grow": "506575000",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0523931012",
+  "ref_grow": "170881739",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0526636879",
+  "ref_grow": "170880929",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0533663773",
+  "ref_grow": "506547727",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0529215775",
+  "ref_grow": "170870534",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-07",
+  "phone": "0526889918",
+  "ref_grow": "170867386",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0508938866",
+  "ref_grow": "170836026",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0522351730",
+  "ref_grow": "170829892",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0544495373",
+  "ref_grow": "170826327",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0506204366",
+  "ref_grow": "170817931",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0528571116",
+  "ref_grow": "170799613",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0525642615",
+  "ref_grow": "506320428",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0523620243",
+  "ref_grow": "170790116",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0506871996",
+  "ref_grow": "506281427",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0507316433",
+  "ref_grow": "170779574",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0504844656",
+  "ref_grow": "170778985",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0526238260",
+  "ref_grow": "170766166",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0549203340",
+  "ref_grow": "170766075",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0509160975",
+  "ref_grow": "170765435",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-06",
+  "phone": "0506778252",
+  "ref_grow": "170763346",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-05",
+  "phone": "0506394633",
+  "ref_grow": "170749710",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-05",
+  "phone": "0546579083",
+  "ref_grow": "170743761",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-05",
+  "phone": "0506241601",
+  "ref_grow": "170742546",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-05",
+  "phone": "0528858583",
+  "ref_grow": "506064395",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-05",
+  "phone": "0544646737",
+  "ref_grow": "170707809",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-05",
+  "phone": "0544393936",
+  "ref_grow": "506012149",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-05",
+  "phone": "0504346660",
+  "ref_grow": "505935695",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0508434015",
+  "ref_grow": "170662587",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0523217182",
+  "ref_grow": "170626295",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0547524848",
+  "ref_grow": "170626011",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0542288448",
+  "ref_grow": "170616321",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0528033046",
+  "ref_grow": "4771372475",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0503328306",
+  "ref_grow": "505635039",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: 8878)",
+    "code": null,
+    "qty": 1,
+    "total": -2349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0503328306",
+  "ref_grow": "505634447",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 6 שבועות",
+    "code": "006",
+    "qty": 1,
+    "total": 2850.0
+   },
+   {
+    "name": "הנחה (קוד קופון: 9)",
+    "code": null,
+    "qty": 1,
+    "total": -2849.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0503328306",
+  "ref_grow": "505630650",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: 8878)",
+    "code": null,
+    "qty": 1,
+    "total": -2349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0503328306",
+  "ref_grow": "505624424",
+  "total_paid": 1.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 5 שבועות",
+    "code": "005",
+    "qty": 1,
+    "total": 2350.0
+   },
+   {
+    "name": "הנחה (קוד קופון: 8878)",
+    "code": null,
+    "qty": 1,
+    "total": -2349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0542215297",
+  "ref_grow": "505597019",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0509940402",
+  "ref_grow": "170583685",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0524782944",
+  "ref_grow": "505591252",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0503530530",
+  "ref_grow": "170580436",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0503333056",
+  "ref_grow": "4770156762",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0523522547",
+  "ref_grow": "505571339",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "",
+  "ref_grow": "4770028879",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0526144811",
+  "ref_grow": "170572663",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0733821907",
+  "ref_grow": "4769958821",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-04",
+  "phone": "0525720747",
+  "ref_grow": "505549794",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0528684311",
+  "ref_grow": "170546237",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0508710412",
+  "ref_grow": "170542787",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0523594637",
+  "ref_grow": "170534360",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0528474865",
+  "ref_grow": "170531557",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0543550820",
+  "ref_grow": "170526579",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0508669808",
+  "ref_grow": "170521017",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0528033046",
+  "ref_grow": "4768541443",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0543323002",
+  "ref_grow": "170501250",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0506328362",
+  "ref_grow": "170473360",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0528911106",
+  "ref_grow": "170464550",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-03",
+  "phone": "0545635523",
+  "ref_grow": "170464024",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0542469966",
+  "ref_grow": "170440388",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0587811216",
+  "ref_grow": "505077046",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0526130115",
+  "ref_grow": "505073070",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0544484914",
+  "ref_grow": "170408203",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0507211351",
+  "ref_grow": "505047908",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0546350300",
+  "ref_grow": "170404517",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0545823232",
+  "ref_grow": "170399408",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0505488306",
+  "ref_grow": "170388143",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0522837795",
+  "ref_grow": "504987315",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0506768733",
+  "ref_grow": "504986265",
+  "total_paid": 649.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - מנטורית אישית",
+    "code": "010",
+    "qty": 1,
+    "total": 649.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0503808388",
+  "ref_grow": "170372285",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0526550332",
+  "ref_grow": "170363703",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0527001941",
+  "ref_grow": "170358541",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0528680158",
+  "ref_grow": "170357395",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0523398829",
+  "ref_grow": "170354743",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-02",
+  "phone": "0542202950",
+  "ref_grow": "170353011",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0528799939",
+  "ref_grow": "170345266",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0504777643",
+  "ref_grow": "170331962",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0502720952",
+  "ref_grow": "170325672",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0523716864",
+  "ref_grow": "4762849157",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0522469310",
+  "ref_grow": "504694578",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0525534503",
+  "ref_grow": "4762530018",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0526849354",
+  "ref_grow": "170310290",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0522821885",
+  "ref_grow": "504671127",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0547961266",
+  "ref_grow": "504662976",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0506983230",
+  "ref_grow": "170300614",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-08-01",
+  "phone": "0528466766",
+  "ref_grow": "170298525",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0505682682",
+  "ref_grow": "170292573",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0525935796",
+  "ref_grow": "504571014",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0506282548",
+  "ref_grow": "170284138",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0505854754",
+  "ref_grow": "504549857",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0547235212",
+  "ref_grow": "504535112",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0525811604",
+  "ref_grow": "170265117",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0508824204",
+  "ref_grow": "4760933388",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0545688433",
+  "ref_grow": "170251768",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0523869693",
+  "ref_grow": "170247453",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0587795792",
+  "ref_grow": "170247281",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0505435282",
+  "ref_grow": "170246357",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0544780883",
+  "ref_grow": "504462679",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "",
+  "ref_grow": "4759851939",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0526588899",
+  "ref_grow": "504443698",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0525255756",
+  "ref_grow": "170224658",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0524500664",
+  "ref_grow": "170224371",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-31",
+  "phone": "0543262204",
+  "ref_grow": "504414453",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0503336933",
+  "ref_grow": "170214248",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0545445818",
+  "ref_grow": "170197465",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0526932285",
+  "ref_grow": "4758734801",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0506282850",
+  "ref_grow": "170187853",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0525405091",
+  "ref_grow": "170185665",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0509220071",
+  "ref_grow": "170184361",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0526339889",
+  "ref_grow": "504297104",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0522500366",
+  "ref_grow": "4757697211",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0506255951",
+  "ref_grow": "4757503347",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0523573806",
+  "ref_grow": "504262552",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0507433749",
+  "ref_grow": "170149439",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0544566931",
+  "ref_grow": "504244244",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0544485957",
+  "ref_grow": "504236882",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0543020529",
+  "ref_grow": "504226444",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0526021400",
+  "ref_grow": "170123703",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0506255951",
+  "ref_grow": "4756143809",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0508390398",
+  "ref_grow": "504160832",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0528508848",
+  "ref_grow": "4756086550",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0528379705",
+  "ref_grow": "170115481",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0548150725",
+  "ref_grow": "170109344",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-30",
+  "phone": "0525673120",
+  "ref_grow": "504131747",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0544457223",
+  "ref_grow": "170096550",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0545411727",
+  "ref_grow": "170095420",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0523542957",
+  "ref_grow": "504069844",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0549992747",
+  "ref_grow": "4755500046",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0505995156",
+  "ref_grow": "170082646",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0545299087",
+  "ref_grow": "170082077",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0542265645",
+  "ref_grow": "504034675",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0546717896",
+  "ref_grow": "504031505",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0544641110",
+  "ref_grow": "170067311",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0545221602",
+  "ref_grow": "170067066",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0524333880",
+  "ref_grow": "4754435678",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0506427012",
+  "ref_grow": "4754038190",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0524300671",
+  "ref_grow": "503880788",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0509805095",
+  "ref_grow": "170017942",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0522639598",
+  "ref_grow": "503856118",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0507858618",
+  "ref_grow": "170003254",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-29",
+  "phone": "0523550968",
+  "ref_grow": "503762811",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0546255462",
+  "ref_grow": "169987929",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0545404487",
+  "ref_grow": "169983066",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0504987116",
+  "ref_grow": "503603245",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0544714141",
+  "ref_grow": "169939002",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0545602469",
+  "ref_grow": "503574810",
+  "total_paid": 349.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - אונליין מתקדמות",
+    "code": "008",
+    "qty": 1,
+    "total": 349.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0523896228",
+  "ref_grow": "169926455",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0528508848",
+  "ref_grow": "169926382",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0543344271",
+  "ref_grow": "4750263286",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0509977887",
+  "ref_grow": "169913321",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0502797842",
+  "ref_grow": "503491632",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0529547445",
+  "ref_grow": "169901894",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0507300547",
+  "ref_grow": "4749721510",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0528634442",
+  "ref_grow": "503465880",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0522525208",
+  "ref_grow": "503456364",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0508582889",
+  "ref_grow": "503451519",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-28",
+  "phone": "0544345522",
+  "ref_grow": "169887948",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0522212485",
+  "ref_grow": "169884001",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0507903118",
+  "ref_grow": "4749244635",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0545406484",
+  "ref_grow": "503366350",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0502662752",
+  "ref_grow": "4749031210",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0503349136",
+  "ref_grow": "4749017027",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0508390398",
+  "ref_grow": "503352295",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0528508848",
+  "ref_grow": "4748527376",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0506845480",
+  "ref_grow": "503301423",
+  "total_paid": 4950.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 17 שבועות",
+    "code": "004",
+    "qty": 1,
+    "total": 4950.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0546270829",
+  "ref_grow": "503298491",
+  "total_paid": 3850.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 8 שבועות",
+    "code": "003",
+    "qty": 1,
+    "total": 3850.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0534254020",
+  "ref_grow": "169834713",
+  "total_paid": 159.0,
+  "products": [
+   {
+    "name": "סדנת בוסט לירידה במשקל",
+    "code": null,
+    "qty": 1,
+    "total": 159.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0523633806",
+  "ref_grow": "503275051",
+  "total_paid": 4250.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 12 שבועות",
+    "code": "002",
+    "qty": 1,
+    "total": 4250.0
+   }
+  ]
+ },
+ {
+  "charge_date": "2026-07-27",
+  "phone": "0527123916",
+  "ref_grow": "503240993",
+  "total_paid": 6770.0,
+  "products": [
+   {
+    "name": "תוכנית ליווי - 28 שבועות",
+    "code": "009",
+    "qty": 1,
+    "total": 6770.0
+   }
+  ]
+ }
+]

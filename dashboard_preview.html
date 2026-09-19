@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>דשבורד רויטל · הצצה מתוקננת (לא הדשבורד הרשמי)</title>
+<style>
+:root{
+  --brand:#FF004F; --bg:#0E1116; --card:#171B22; --card2:#1D232D;
+  --text:#EDF0F4; --muted:#8B94A3; --border:#262D38;
+  --ok:#2ECC8F; --warn:#F5A623; --chart1:#FF004F; --chart2:#4C9AFF; --chart3:#2ECC8F; --chart4:#B37FEB;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Rubik,Arial,sans-serif;padding:24px;max-width:1200px;margin:0 auto}
+.banner{background:linear-gradient(90deg,rgba(255,0,79,.12),rgba(255,0,79,.03));border:1px solid rgba(255,0,79,.35);border-radius:12px;padding:14px 18px;margin-bottom:22px;font-size:14px;line-height:1.6}
+.banner b{color:var(--brand)}
+h1{font-size:22px;margin-bottom:4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:20px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.tab{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:9px 20px;border-radius:8px;cursor:pointer;font-size:14px;font-family:inherit}
+.tab.active{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-bottom:20px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+.kpi .v{font-size:26px;font-weight:700;margin-top:4px}
+.kpi .l{font-size:12.5px;color:var(--muted)}
+.kpi.brand .v{color:var(--brand)}
+.kpi.ok .v{color:var(--ok)}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:18px}
+.panel h2{font-size:15px;margin-bottom:2px}
+.panel .note{font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.5}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:var(--muted);font-weight:600;text-align:right;padding:8px 10px;border-bottom:1px solid var(--border);font-size:12.5px;white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--border);white-space:nowrap}
+td.num,th.num{text-align:left;direction:ltr}
+tr:hover td{background:var(--card2)}
+.bar{height:8px;border-radius:4px;background:var(--chart1);min-width:2px;display:inline-block;vertical-align:middle}
+.bar.b2{background:var(--chart2)}.bar.b3{background:var(--chart3)}.bar.b4{background:var(--chart4)}.bar.b5{background:var(--warn)}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin:10px 0}
+.legend span{display:flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
+.tag{font-size:11px;padding:2px 8px;border-radius:6px;border:1px solid var(--border);color:var(--muted)}
+.tag.red{color:var(--brand);border-color:rgba(255,0,79,.4)}
+footer{color:var(--muted);font-size:12px;line-height:1.7;margin-top:24px;border-top:1px solid var(--border);padding-top:14px}
+.missing{background:rgba(255,0,79,.06);border:1px dashed rgba(255,0,79,.4);border-radius:10px;padding:12px 16px;font-size:13px;margin-bottom:18px;line-height:1.6}
+.missing b{color:var(--brand)}
+</style>
+</head>
+<body>
+<div class="banner">
+  <b>זהו דשבורד הצצה בלבד</b> · נבנה מחוץ לדשבורד הרשמי, לצורך השוואה ואישור.
+  הנתונים: <b>גרואו</b> (ייצוא 01/01/2026 עד 19/09/2026, כ-7,758 עסקאות), <b>CRM ישן</b> ו-<b>CRM חדש</b> (קריאה בלבד).
+  מקור האמת התזרימית כאן הוא החיובים בפועל בגרואו, לא תיעודי המיגרציה.
+</div>
+
+<h1>לוח הכסף והמכירות · רויטל יעיש</h1>
+<div class="sub">תקציר תזרים לפי חיובים אמיתיים בגרואו · מכירות לפי תאריך פתיחת העסקה · לידים מסוננים</div>
+
+<div class="tabs">
+  <button class="tab active" data-t="cash">תזרים חודשי</button>
+  <button class="tab" data-t="sales">מכירות</button>
+  <button class="tab" data-t="leads">לידים</button>
+  <button class="tab" data-t="products">מוצרים</button>
+</div>
+
+<div id="view"></div>
+
+<footer>
+הגדרות מדדים (לפי החלטות 19/09):<br>
+· <b>תזרים</b> = חיוב אמיתי שבוצע בגרואו באותו חודש (רגיל + תשלומים + הו"ק), בניכוי זיכויים<br>
+· <b>מכירה</b> = עסקה נספרת בחודש החיוב הראשון שלה; שווי מכירה = סך כל החיובים של העסקה (עבור הו"ק: החיוב החודשי). המשמעות: עסקה שנפתחה בדצמבר נספרת כולה בדצמבר, והחיובים שלה בינואר ואילך מופיעים רק בתזרים<br>
+· <b>לידים</b> = CRM ישן עד המעבר, CRM חדש (סוג רשומה = ליד חדש בלבד) אחריו<br>
+· <b>מוצרים</b> = פילוח הכנסות לפי עסקאות מוצרים בגרואו (זמין רק מיולי 2026)
+</footer>
+
+<script>
+const D = {"cash": [{"m": "2026-01", "label": "ינואר 26", "reg": 47589, "reg_n": 273, "inst": 139307, "inst_n": 256, "hk": 80289, "hk_n": 172, "refund": -2726, "total": 264459}, {"m": "2026-02", "label": "פברואר 26", "reg": 66835, "reg_n": 366, "inst": 165105, "inst_n": 290, "hk": 79842, "hk_n": 169, "refund": -5540, "total": 306242}, {"m": "2026-03", "label": "מרץ 26", "reg": 61861, "reg_n": 283, "inst": 173468, "inst_n": 298, "hk": 111272, "hk_n": 219, "refund": -4864, "total": 341737}, {"m": "2026-04", "label": "אפריל 26", "reg": 61184, "reg_n": 306, "inst": 167837, "inst_n": 297, "hk": 108161, "hk_n": 221, "refund": -5166, "total": 332016}, {"m": "2026-05", "label": "מאי 26", "reg": 60434, "reg_n": 325, "inst": 180471, "inst_n": 318, "hk": 111501, "hk_n": 240, "refund": -6368, "total": 346038}, {"m": "2026-06", "label": "יוני 26", "reg": 69762, "reg_n": 355, "inst": 187311, "inst_n": 341, "hk": 122275, "hk_n": 261, "refund": -5834, "total": 373514}, {"m": "2026-07", "label": "יולי 26", "reg": 83195, "reg_n": 382, "inst": 188715, "inst_n": 354, "hk": 124587, "hk_n": 268, "refund": -5174, "total": 391323}, {"m": "2026-08", "label": "אוגוסט 26", "reg": 65215, "reg_n": 352, "inst": 177497, "inst_n": 343, "hk": 118070, "hk_n": 257, "refund": -3321, "total": 357461}, {"m": "2026-09", "label": "ספטמבר 26", "reg": 25905, "reg_n": 147, "inst": 109278, "inst_n": 209, "hk": 73150, "hk_n": 158, "refund": -3387, "total": 204946}], "sales": [{"m": "2026-01", "label": "ינואר 26", "n_reg": 529, "sum_reg": 715238, "n_hk": 172, "sum_hk": 80289}, {"m": "2026-02", "label": "פברואר 26", "n_reg": 423, "sum_reg": 276693, "n_hk": 169, "sum_hk": 79842}, {"m": "2026-03", "label": "מרץ 26", "n_reg": 324, "sum_reg": 189059, "n_hk": 219, "sum_hk": 111272}, {"m": "2026-04", "label": "אפריל 26", "n_reg": 343, "sum_reg": 160456, "n_hk": 221, "sum_hk": 108161}, {"m": "2026-05", "label": "מאי 26", "n_reg": 381, "sum_reg": 200072, "n_hk": 240, "sum_hk": 111501}, {"m": "2026-06", "label": "יוני 26", "n_reg": 416, "sum_reg": 189615, "n_hk": 261, "sum_hk": 122275}, {"m": "2026-07", "label": "יולי 26", "n_reg": 437, "sum_reg": 158994, "n_hk": 268, "sum_hk": 124587}, {"m": "2026-08", "label": "אוגוסט 26", "n_reg": 379, "sum_reg": 95155, "n_hk": 257, "sum_hk": 118070}, {"m": "2026-09", "label": "ספטמבר 26", "n_reg": 181, "sum_reg": 45686, "n_hk": 158, "sum_hk": 73150}], "leads": [{"m": "2025-01", "label": "ינואר 25", "old": 1701, "new": 0}, {"m": "2025-02", "label": "פברואר 25", "old": 1680, "new": 0}, {"m": "2025-03", "label": "מרץ 25", "old": 1142, "new": 0}, {"m": "2025-04", "label": "אפריל 25", "old": 2040, "new": 0}, {"m": "2025-05", "label": "מאי 25", "old": 727, "new": 0}, {"m": "2025-06", "label": "יוני 25", "old": 1325, "new": 0}, {"m": "2025-07", "label": "יולי 25", "old": 12647, "new": 0}, {"m": "2025-08", "label": "אוגוסט 25", "old": 202, "new": 0}, {"m": "2025-09", "label": "ספטמבר 25", "old": 243, "new": 0}, {"m": "2025-10", "label": "אוקטובר 25", "old": 323, "new": 0}, {"m": "2025-11", "label": "נובמבר 25", "old": 614, "new": 0}, {"m": "2025-12", "label": "דצמבר 25", "old": 593, "new": 0}, {"m": "2026-01", "label": "ינואר 26", "old": 748, "new": 0}, {"m": "2026-02", "label": "פברואר 26", "old": 1112, "new": 0}, {"m": "2026-03", "label": "מרץ 26", "old": 833, "new": 0}, {"m": "2026-04", "label": "אפריל 26", "old": 943, "new": 0}, {"m": "2026-05", "label": "מאי 26", "old": 1132, "new": 0}, {"m": "2026-06", "label": "יוני 26", "old": 1073, "new": 0}, {"m": "2026-07", "label": "יולי 26", "old": 1404, "new": 162}, {"m": "2026-08", "label": "אוגוסט 26", "old": 1404, "new": 987}, {"m": "2026-09", "label": "ספטמבר 26", "old": 342, "new": 360}], "productMonths": ["2026-07", "2026-08", "2026-09"], "productSeries": [{"name": "תוכנית ליווי - 17 שבועות", "values": [0, 35888, 80190]}, {"name": "סדנת בוסט לירידה במשקל", "values": [11448, 57399, 23850]}, {"name": "תוכנית ליווי - 28 שבועות", "values": [6770, 1131, 54160]}, {"name": "תוכנית ליווי - 12 שבועות", "values": [0, 29750, 22100]}, {"name": "תוכנית ליווי - 22 שבועות", "values": [0, 11320, 37922]}, {"name": "תוכנית ליווי - 8 שבועות", "values": [0, 23485, 16364]}, {"name": "תוכנית ליווי - 5 שבועות", "values": [0, 7050, 14575]}, {"name": "תוכנית ליווי - 6 שבועות", "values": [0, 11400, 3139]}], "productLabels": ["יולי 26", "אוגוסט 26", "ספטמבר 26"], "hkMissing": {"count": 1741, "pre_aug_count": 1550, "pre_aug_amount": 737926}};
+const fmt = n => new Intl.NumberFormat('he-IL').format(Math.round(n));
+const view = document.getElementById('view');
+
+function tab(name){ document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.t===name)); render(name); }
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>tab(t.dataset.t));
+
+function render(name){
+  if(name==='cash') return renderCash();
+  if(name==='sales') return renderSales();
+  if(name==='leads') return renderLeads();
+  if(name==='products') return renderProducts();
+}
+
+function renderCash(){
+  const rows = D.cash;
+  const tot = rows.reduce((a,r)=>a+r.total,0);
+  const last = rows[rows.length-2]||rows[rows.length-1];
+  const cur = rows[rows.length-1];
+  const hkMiss = D.hkMissing;
+  view.innerHTML = `
+  <div class="missing">
+    <b>מה השתנה מול הדשבורד הקיים:</b> התזרים כאן מחושב מחיובי גרואו אמיתיים. בחדשה כרגע חסרים
+    <b>${fmt(hkMiss.count)}</b> תיעודי תשלום הו"ק (מתוכם ${fmt(hkMiss.pre_aug_count)} חיובים בשווי
+    <b>₪${fmt(hkMiss.pre_aug_amount)}</b> מלפני 08/2026) - הדשבורד הקיים מציג תזרים על בסיס לוח מיגרציה שאינו תואם את המציאות.
+  </div>
+  <div class="grid">
+    <div class="kpi brand"><div class="l">סך כסף שנגבה (2026)</div><div class="v">₪${fmt(tot)}</div></div>
+    <div class="kpi"><div class="l">חודש שלם אחרון (אוגוסט)</div><div class="v">₪${fmt(rows.find(r=>r.m==='2026-08').total)}</div></div>
+    <div class="kpi ok"><div class="l">ספטמבר (עד 19/9)</div><div class="v">₪${fmt(cur.total)}</div></div>
+    <div class="kpi"><div class="l">מספר חיובים (2026)</div><div class="v">${fmt(rows.reduce((a,r)=>a+r.reg_n+r.inst_n+r.hk_n,0))}</div></div>
+  </div>
+  <div class="panel">
+    <h2>תזרים חודשי לפי סוג חיוב</h2>
+    <div class="note">מקור: חיובים בפועל בגרואו. זיכויים מנוכים מהסכום אך מוצגים בנפרד.</div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--chart1)"></span>רגיל</span>
+      <span><span class="dot" style="background:var(--chart2)"></span>תשלומים (חיובי המשך)</span>
+      <span><span class="dot" style="background:var(--chart3)"></span>הו"ק (חיוב חודשי)</span>
+      <span><span class="dot" style="background:var(--warn)"></span>זיכויים</span>
+    </div>
+    <table>
+      <tr><th>חודש</th><th class="num">רגיל</th><th class="num">תשלומים</th><th class="num">הו"ק</th><th class="num">זיכויים</th><th class="num">סה"כ תזרים</th><th style="width:160px">חלוקה</th></tr>
+      ${rows.map(r=>{
+        const t=Math.max(1,r.total);
+        const seg=(v,c)=>`<div class="bar ${c}" style="width:${Math.max(1,Math.round(v/t*150))}px"></div>`;
+        return `<tr><td>${r.label}</td>
+        <td class="num">₪${fmt(r.reg)}</td><td class="num">₪${fmt(r.inst)}</td><td class="num">₪${fmt(r.hk)}</td>
+        <td class="num" style="color:${r.refund?'var(--warn)':'inherit'}">${r.refund?'₪'+fmt(r.refund):''}</td>
+        <td class="num"><b>₪${fmt(r.total)}</b></td>
+        <td>${seg(r.reg,'')}${seg(r.inst,'b2')}${seg(r.hk,'b3')}</td></tr>`}).join('')}
+    </table>
+  </div>`;
+}
+
+function renderSales(){
+  const rows = D.sales;
+  const totN = rows.reduce((a,r)=>a+r.n_reg+r.n_hk,0);
+  const totS = rows.reduce((a,r)=>a+r.sum_reg+r.sum_hk,0);
+  view.innerHTML = `
+  <div class="missing"><b>מה השתנה:</b> מכירה נספרת בחודש הפתיחה של העסקה (לא בכל חיוב). עסקת הו"ק נספרת בחודש הקמתה עם שווי החיוב החודשי, והחיובים ההמשכיים שלה מופיעים בתזרים - כך אין כפילות בין מכירות לתזרים.</div>
+  <div class="grid">
+    <div class="kpi brand"><div class="l">סך מכירות 2026</div><div class="v">${fmt(totN)}</div></div>
+    <div class="kpi"><div class="l">שווי מכירות 2026</div><div class="v">₪${fmt(totS)}</div></div>
+    <div class="kpi"><div class="l">מכירות רגילות/פריסה</div><div class="v">${fmt(rows.reduce((a,r)=>a+r.n_reg,0))}</div></div>
+    <div class="kpi ok"><div class="l">הקמות הו"ק</div><div class="v">${fmt(rows.reduce((a,r)=>a+r.n_hk,0))}</div></div>
+  </div>
+  <div class="panel">
+    <h2>מכירות לפי חודש פתיחת עסקה</h2>
+    <div class="note">שווי = סך כל החיובים הצפויים של העסקה (לפריסה: התוכנית המלאה; להו"ק: החיוב החודשי).</div>
+    <table>
+      <tr><th>חודש</th><th class="num">מכירות רגיל/פריסה</th><th class="num">שווי</th><th class="num">הקמות הו"ק</th><th class="num">שווי חודשי</th><th class="num">סה"כ שווי</th></tr>
+      ${rows.map(r=>`<tr><td>${r.label}</td>
+        <td class="num">${fmt(r.n_reg)}</td><td class="num">₪${fmt(r.sum_reg)}</td>
+        <td class="num">${fmt(r.n_hk)}</td><td class="num">₪${fmt(r.sum_hk)}</td>
+        <td class="num"><b>₪${fmt(r.sum_reg+r.sum_hk)}</b></td></tr>`).join('')}
+    </table>
+  </div>`;
+}
+
+function renderLeads(){
+  const rows = D.leads;
+  const mx = Math.max(...rows.map(r=>Math.max(r.old,r.new)),1);
+  view.innerHTML = `
+  <div class="missing"><b>מה השתנה:</b> לידים בחדשה מסוננים לסוג רשומה "ליד חדש" בלבד. בלי הסינון, ספטמבר היה מציג 39,152 "לידים" כי המיגרציה הזריקה 38,792 רשומות היסטוריות עם תאריך יצירה ספטמבר 2026.</div>
+  <div class="panel">
+    <h2>לידים חודשי · ישן מול חדש</h2>
+    <div class="note">ישן (עד המעבר) = כל רישום שיווקי ב-1004 · חדש = רישום 1002 מסוג "ליד חדש" בלבד.</div>
+    <table>
+      <tr><th>חודש</th><th class="num">ישן</th><th class="num">חדש</th><th style="width:220px">השוואה</th></tr>
+      ${rows.map(r=>`<tr><td>${r.label}</td>
+        <td class="num">${fmt(r.old)}</td><td class="num">${fmt(r.new)}</td>
+        <td><div class="bar b2" style="width:${Math.round(r.old/mx*100)}px;margin-bottom:3px"></div>
+            <div class="bar" style="width:${Math.round(r.new/mx*100)}px"></div></td></tr>`).join('')}
+    </table>
+    <div class="note" style="margin-top:12px">פער בחודשים 07-08/2026 (1,404 בישן מול 162/987 בחדש) - דורש בדיקה אם סוג הרשומה בקליטה החיה נרשם שונה בחלק מהלידים.</div>
+  </div>`;
+}
+
+function renderProducts(){
+  const labels = D.productLabels;
+  const series = D.productSeries;
+  const mx = Math.max(...series.flatMap(s=>s.values),1);
+  view.innerHTML = `
+  <div class="missing"><b>הגבלה:</b> נתוני המוצרים בגרואו זמינים רק מיולי 2026 (גיליון "עסקאות מוצרים"). עבור רטרו מלא נדרש ייצוא מוצרים מלא.</div>
+  <div class="panel">
+    <h2>הכנסות לפי מוצר (יולי-ספטמבר 2026)</h2>
+    <div class="legend">${series.map((s,i)=>`<span><span class="dot" style="background:${['var(--chart1)','var(--chart2)','var(--chart3)','var(--chart4)','var(--warn)','#7FDBCA','#E4C580','#C0C8D4'][i]}"></span>${s.name}</span>`).join('')}</div>
+    <table>
+      <tr><th>מוצר</th>${labels.map(l=>`<th class="num">${l}</th>`).join('')}<th class="num">סה"כ</th></tr>
+      ${series.map((s,i)=>{
+        const tot=s.values.reduce((a,b)=>a+b,0);
+        return `<tr><td>${s.name}</td>${s.values.map(v=>`<td class="num">${v?fmt(v):''}</td>`).join('')}<td class="num"><b>${fmt(tot)}</b></td></tr>`}).join('')}
+    </table>
+  </div>`;
+}
+
+render('cash');
+</script>
+</body>
+</html>
