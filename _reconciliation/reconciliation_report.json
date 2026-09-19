@@ -1,0 +1,1152 @@
+{
+ "grow_monthly": {
+  "2026-06": {
+   "n_charged": 341,
+   "cash": 128493.43000000005,
+   "refunds": -1820.0,
+   "regular": 133,
+   "installments_first": 120,
+   "standing": 83,
+   "refunded": 6
+  },
+  "2026-07": {
+   "n_charged": 1031,
+   "cash": 401626.78,
+   "refunds": -5174.0,
+   "regular": 382,
+   "installments_first": 354,
+   "standing": 268,
+   "refunded": 26
+  },
+  "2026-08": {
+   "n_charged": 968,
+   "cash": 363659.07000000007,
+   "refunds": -3321.01,
+   "regular": 352,
+   "installments_first": 343,
+   "standing": 257,
+   "refunded": 17
+  },
+  "2026-09": {
+   "n_charged": 505,
+   "cash": 204550.37999999998,
+   "refunds": -3387.0,
+   "regular": 145,
+   "installments_first": 201,
+   "standing": 151,
+   "refunded": 13
+  }
+ },
+ "old_leads_monthly": {
+  "2024-07": 3,
+  "2024-08": 687,
+  "2024-09": 1780,
+  "2024-10": 1962,
+  "2024-11": 1333,
+  "2024-12": 1002,
+  "2025-01": 1701,
+  "2025-02": 1680,
+  "2025-03": 1142,
+  "2025-04": 2040,
+  "2025-05": 727,
+  "2025-06": 1325,
+  "2025-07": 12647,
+  "2025-08": 202,
+  "2025-09": 243,
+  "2025-10": 323,
+  "2025-11": 614,
+  "2025-12": 593,
+  "2026-01": 748,
+  "2026-02": 1112,
+  "2026-03": 833,
+  "2026-04": 943,
+  "2026-05": 1132,
+  "2026-06": 1073,
+  "2026-07": 1404,
+  "2026-08": 1404,
+  "2026-09": 342
+ },
+ "old_payments_monthly": {
+  "2024-02": {
+   "n": 1,
+   "sum": 298.0
+  },
+  "2024-04": {
+   "n": 2,
+   "sum": 598.0
+  },
+  "2024-05": {
+   "n": 1,
+   "sum": 299.0
+  },
+  "2024-06": {
+   "n": 4,
+   "sum": 897.0
+  },
+  "2024-07": {
+   "n": 5,
+   "sum": 319.0
+  },
+  "2024-08": {
+   "n": 177,
+   "sum": 30886.079999999998
+  },
+  "2024-09": {
+   "n": 252,
+   "sum": 72967.06
+  },
+  "2024-10": {
+   "n": 207,
+   "sum": 55077.66
+  },
+  "2024-11": {
+   "n": 217,
+   "sum": 67570.25
+  },
+  "2024-12": {
+   "n": 209,
+   "sum": 50505.83
+  },
+  "2025-01": {
+   "n": 259,
+   "sum": 59798.65
+  },
+  "2025-02": {
+   "n": 246,
+   "sum": 70580.32
+  },
+  "2025-03": {
+   "n": 295,
+   "sum": 98292.31000000001
+  },
+  "2025-04": {
+   "n": 266,
+   "sum": 73457.84000000001
+  },
+  "2025-05": {
+   "n": 205,
+   "sum": 78211.91
+  },
+  "2025-06": {
+   "n": 169,
+   "sum": 53654.66
+  },
+  "2025-07": {
+   "n": 212,
+   "sum": 76374.30000000002
+  },
+  "2025-08": {
+   "n": 178,
+   "sum": 66711.57
+  },
+  "2025-09": {
+   "n": 175,
+   "sum": 63134.880000000005
+  },
+  "2025-10": {
+   "n": 215,
+   "sum": 93009.72000000002
+  },
+  "2025-11": {
+   "n": 377,
+   "sum": 129600.71
+  },
+  "2025-12": {
+   "n": 332,
+   "sum": 112912.88
+  },
+  "2026-01": {
+   "n": 357,
+   "sum": 126068.62000000001
+  },
+  "2026-02": {
+   "n": 484,
+   "sum": 186559.88999999998
+  },
+  "2026-03": {
+   "n": 350,
+   "sum": 139235.98
+  },
+  "2026-04": {
+   "n": 398,
+   "sum": 154009.82
+  },
+  "2026-05": {
+   "n": 428,
+   "sum": 165312.55
+  },
+  "2026-06": {
+   "n": 475,
+   "sum": 213341.5
+  },
+  "2026-07": {
+   "n": 489,
+   "sum": 211775.72
+  },
+  "2026-08": {
+   "n": 417,
+   "sum": 166902.00000000003
+  },
+  "2026-09": {
+   "n": 139,
+   "sum": 102552.0
+  }
+ },
+ "new_leads_monthly": {
+  "2026-07": 162,
+  "2026-08": 987,
+  "2026-09": 39152
+ },
+ "new_sales_monthly": {
+  "2024-02": {
+   "n": 1,
+   "total": 298.000032
+  },
+  "2024-04": {
+   "n": 2,
+   "total": 597.999928
+  },
+  "2024-05": {
+   "n": 1,
+   "total": 298.999964
+  },
+  "2024-06": {
+   "n": 4,
+   "total": 896.9998919999999
+  },
+  "2024-07": {
+   "n": 2,
+   "total": 0.0
+  },
+  "2024-08": {
+   "n": 104,
+   "total": 93783.00278000005
+  },
+  "2024-09": {
+   "n": 164,
+   "total": 132216.50489000004
+  },
+  "2024-10": {
+   "n": 204,
+   "total": 129105.00725800004
+  },
+  "2024-11": {
+   "n": 217,
+   "total": 174216.0075919993
+  },
+  "2024-12": {
+   "n": 208,
+   "total": 152369.00744999966
+  },
+  "2025-01": {
+   "n": 259,
+   "total": 161978.00893799978
+  },
+  "2025-02": {
+   "n": 246,
+   "total": 158693.00882599948
+  },
+  "2025-03": {
+   "n": 295,
+   "total": 253292.00968999884
+  },
+  "2025-04": {
+   "n": 266,
+   "total": 145393.0099359997
+  },
+  "2025-05": {
+   "n": 205,
+   "total": 174312.00601999962
+  },
+  "2025-06": {
+   "n": 169,
+   "total": 106010.00536800001
+  },
+  "2025-07": {
+   "n": 211,
+   "total": 167721.00710599957
+  },
+  "2025-08": {
+   "n": 177,
+   "total": 180395.00655599943
+  },
+  "2025-09": {
+   "n": 174,
+   "total": 157811.00637999966
+  },
+  "2025-10": {
+   "n": 215,
+   "total": 177332.0078679994
+  },
+  "2025-11": {
+   "n": 375,
+   "total": 248080.01352799806
+  },
+  "2025-12": {
+   "n": 332,
+   "total": 255792.01232399803
+  },
+  "2026-01": {
+   "n": 356,
+   "total": 244247.01291999884
+  },
+  "2026-02": {
+   "n": 482,
+   "total": 341828.0164459964
+  },
+  "2026-03": {
+   "n": 350,
+   "total": 246273.01356599826
+  },
+  "2026-04": {
+   "n": 397,
+   "total": 231786.0131459982
+  },
+  "2026-05": {
+   "n": 428,
+   "total": 340457.01491999725
+  },
+  "2026-06": {
+   "n": 475,
+   "total": 358908.0156539976
+  },
+  "2026-07": {
+   "n": 489,
+   "total": 324485.01789399685
+  },
+  "2026-08": {
+   "n": 484,
+   "total": 230313.01536999774
+  },
+  "2026-09": {
+   "n": 499,
+   "total": 261564.00014199913
+  }
+ },
+ "new_cash_monthly": {
+  "2024-02": {
+   "n": 1,
+   "sum": 298.000032
+  },
+  "2024-04": {
+   "n": 2,
+   "sum": 597.999928
+  },
+  "2024-05": {
+   "n": 1,
+   "sum": 298.999964
+  },
+  "2024-06": {
+   "n": 4,
+   "sum": 896.9998919999999
+  },
+  "2024-07": {
+   "n": 2,
+   "sum": 0.0
+  },
+  "2024-08": {
+   "n": 176,
+   "sum": 28404.097538000016
+  },
+  "2024-09": {
+   "n": 268,
+   "sum": 72871.17151800005
+  },
+  "2024-10": {
+   "n": 247,
+   "sum": 77040.34032000002
+  },
+  "2024-11": {
+   "n": 277,
+   "sum": 90947.58974800006
+  },
+  "2024-12": {
+   "n": 295,
+   "sum": 96140.25633000002
+  },
+  "2025-01": {
+   "n": 369,
+   "sum": 115994.424446
+  },
+  "2025-02": {
+   "n": 377,
+   "sum": 132666.424022
+  },
+  "2025-03": {
+   "n": 444,
+   "sum": 159626.43578999952
+  },
+  "2025-04": {
+   "n": 458,
+   "sum": 163053.06528399928
+  },
+  "2025-05": {
+   "n": 413,
+   "sum": 165196.0972679995
+  },
+  "2025-06": {
+   "n": 393,
+   "sum": 152705.0023019997
+  },
+  "2025-07": {
+   "n": 432,
+   "sum": 171270.9554499994
+  },
+  "2025-08": {
+   "n": 399,
+   "sum": 171203.02509199944
+  },
+  "2025-09": {
+   "n": 384,
+   "sum": 156574.76285999967
+  },
+  "2025-10": {
+   "n": 420,
+   "sum": 174882.45507199937
+  },
+  "2025-11": {
+   "n": 577,
+   "sum": 200190.3305499988
+  },
+  "2025-12": {
+   "n": 558,
+   "sum": 214114.3526159983
+  },
+  "2026-01": {
+   "n": 575,
+   "sum": 208774.93651399823
+  },
+  "2026-02": {
+   "n": 721,
+   "sum": 259378.51635999727
+  },
+  "2026-03": {
+   "n": 614,
+   "sum": 253189.2269699981
+  },
+  "2026-04": {
+   "n": 666,
+   "sum": 258375.96475999794
+  },
+  "2026-05": {
+   "n": 700,
+   "sum": 265361.56806399766
+  },
+  "2026-06": {
+   "n": 770,
+   "sum": 292701.6935859979
+  },
+  "2026-07": {
+   "n": 810,
+   "sum": 299112.2797039971
+  },
+  "2026-08": {
+   "n": 828,
+   "sum": 304518.1783039979
+  },
+  "2026-09": {
+   "n": 684,
+   "sum": 295462.25343599933
+  },
+  "2026-10": {
+   "n": 315,
+   "sum": 155287.19240800015
+  },
+  "2026-11": {
+   "n": 268,
+   "sum": 128313.71684000017
+  },
+  "2026-12": {
+   "n": 223,
+   "sum": 103260.4905540001
+  },
+  "2027-01": {
+   "n": 193,
+   "sum": 85717.45521600015
+  },
+  "2027-02": {
+   "n": 163,
+   "sum": 73531.60430200004
+  },
+  "2027-03": {
+   "n": 124,
+   "sum": 55524.87132599998
+  },
+  "2027-04": {
+   "n": 84,
+   "sum": 37264.621486000025
+  },
+  "2027-05": {
+   "n": 43,
+   "sum": 20011.166172000016
+  },
+  "2027-06": {
+   "n": 27,
+   "sum": 11934.166472
+  }
+ },
+ "new_cash_docs_without_date": 20,
+ "new_opps_by_status": {
+  "11": 7184,
+  "12": 11672,
+  "2": 3542,
+  "8": 300,
+  "9": 2,
+  "13": 1,
+  "3": 1
+ },
+ "migration": {
+  "old_leads_total": 38995,
+  "old_leads_migrated": 38821,
+  "old_pays_total": 7541,
+  "old_pays_migrated": 7527,
+  "new_pays_total": 7791,
+  "new_docs_total": 14325
+ },
+ "comparison_cash": [
+  {
+   "month": "2024-02",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 1,
+   "old_pay_sum": 298,
+   "new_cash_n": 1,
+   "new_cash_sum": 298,
+   "new_sales_n": 1,
+   "new_sales_total": 298,
+   "gap_grow_vs_new_cash": -298
+  },
+  {
+   "month": "2024-04",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 2,
+   "old_pay_sum": 598,
+   "new_cash_n": 2,
+   "new_cash_sum": 598,
+   "new_sales_n": 2,
+   "new_sales_total": 598,
+   "gap_grow_vs_new_cash": -598
+  },
+  {
+   "month": "2024-05",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 1,
+   "old_pay_sum": 299,
+   "new_cash_n": 1,
+   "new_cash_sum": 299,
+   "new_sales_n": 1,
+   "new_sales_total": 299,
+   "gap_grow_vs_new_cash": -299
+  },
+  {
+   "month": "2024-06",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 4,
+   "old_pay_sum": 897,
+   "new_cash_n": 4,
+   "new_cash_sum": 897,
+   "new_sales_n": 4,
+   "new_sales_total": 897,
+   "gap_grow_vs_new_cash": -897
+  },
+  {
+   "month": "2024-07",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 5,
+   "old_pay_sum": 319,
+   "new_cash_n": 2,
+   "new_cash_sum": 0,
+   "new_sales_n": 2,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": 0
+  },
+  {
+   "month": "2024-08",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 177,
+   "old_pay_sum": 30886,
+   "new_cash_n": 176,
+   "new_cash_sum": 28404,
+   "new_sales_n": 104,
+   "new_sales_total": 93783,
+   "gap_grow_vs_new_cash": -28404
+  },
+  {
+   "month": "2024-09",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 252,
+   "old_pay_sum": 72967,
+   "new_cash_n": 268,
+   "new_cash_sum": 72871,
+   "new_sales_n": 164,
+   "new_sales_total": 132217,
+   "gap_grow_vs_new_cash": -72871
+  },
+  {
+   "month": "2024-10",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 207,
+   "old_pay_sum": 55078,
+   "new_cash_n": 247,
+   "new_cash_sum": 77040,
+   "new_sales_n": 204,
+   "new_sales_total": 129105,
+   "gap_grow_vs_new_cash": -77040
+  },
+  {
+   "month": "2024-11",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 217,
+   "old_pay_sum": 67570,
+   "new_cash_n": 277,
+   "new_cash_sum": 90948,
+   "new_sales_n": 217,
+   "new_sales_total": 174216,
+   "gap_grow_vs_new_cash": -90948
+  },
+  {
+   "month": "2024-12",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 209,
+   "old_pay_sum": 50506,
+   "new_cash_n": 295,
+   "new_cash_sum": 96140,
+   "new_sales_n": 208,
+   "new_sales_total": 152369,
+   "gap_grow_vs_new_cash": -96140
+  },
+  {
+   "month": "2025-01",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 259,
+   "old_pay_sum": 59799,
+   "new_cash_n": 369,
+   "new_cash_sum": 115994,
+   "new_sales_n": 259,
+   "new_sales_total": 161978,
+   "gap_grow_vs_new_cash": -115994
+  },
+  {
+   "month": "2025-02",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 246,
+   "old_pay_sum": 70580,
+   "new_cash_n": 377,
+   "new_cash_sum": 132666,
+   "new_sales_n": 246,
+   "new_sales_total": 158693,
+   "gap_grow_vs_new_cash": -132666
+  },
+  {
+   "month": "2025-03",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 295,
+   "old_pay_sum": 98292,
+   "new_cash_n": 444,
+   "new_cash_sum": 159626,
+   "new_sales_n": 295,
+   "new_sales_total": 253292,
+   "gap_grow_vs_new_cash": -159626
+  },
+  {
+   "month": "2025-04",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 266,
+   "old_pay_sum": 73458,
+   "new_cash_n": 458,
+   "new_cash_sum": 163053,
+   "new_sales_n": 266,
+   "new_sales_total": 145393,
+   "gap_grow_vs_new_cash": -163053
+  },
+  {
+   "month": "2025-05",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 205,
+   "old_pay_sum": 78212,
+   "new_cash_n": 413,
+   "new_cash_sum": 165196,
+   "new_sales_n": 205,
+   "new_sales_total": 174312,
+   "gap_grow_vs_new_cash": -165196
+  },
+  {
+   "month": "2025-06",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 169,
+   "old_pay_sum": 53655,
+   "new_cash_n": 393,
+   "new_cash_sum": 152705,
+   "new_sales_n": 169,
+   "new_sales_total": 106010,
+   "gap_grow_vs_new_cash": -152705
+  },
+  {
+   "month": "2025-07",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 212,
+   "old_pay_sum": 76374,
+   "new_cash_n": 432,
+   "new_cash_sum": 171271,
+   "new_sales_n": 211,
+   "new_sales_total": 167721,
+   "gap_grow_vs_new_cash": -171271
+  },
+  {
+   "month": "2025-08",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 178,
+   "old_pay_sum": 66712,
+   "new_cash_n": 399,
+   "new_cash_sum": 171203,
+   "new_sales_n": 177,
+   "new_sales_total": 180395,
+   "gap_grow_vs_new_cash": -171203
+  },
+  {
+   "month": "2025-09",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 175,
+   "old_pay_sum": 63135,
+   "new_cash_n": 384,
+   "new_cash_sum": 156575,
+   "new_sales_n": 174,
+   "new_sales_total": 157811,
+   "gap_grow_vs_new_cash": -156575
+  },
+  {
+   "month": "2025-10",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 215,
+   "old_pay_sum": 93010,
+   "new_cash_n": 420,
+   "new_cash_sum": 174882,
+   "new_sales_n": 215,
+   "new_sales_total": 177332,
+   "gap_grow_vs_new_cash": -174882
+  },
+  {
+   "month": "2025-11",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 377,
+   "old_pay_sum": 129601,
+   "new_cash_n": 577,
+   "new_cash_sum": 200190,
+   "new_sales_n": 375,
+   "new_sales_total": 248080,
+   "gap_grow_vs_new_cash": -200190
+  },
+  {
+   "month": "2025-12",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 332,
+   "old_pay_sum": 112913,
+   "new_cash_n": 558,
+   "new_cash_sum": 214114,
+   "new_sales_n": 332,
+   "new_sales_total": 255792,
+   "gap_grow_vs_new_cash": -214114
+  },
+  {
+   "month": "2026-01",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 357,
+   "old_pay_sum": 126069,
+   "new_cash_n": 575,
+   "new_cash_sum": 208775,
+   "new_sales_n": 356,
+   "new_sales_total": 244247,
+   "gap_grow_vs_new_cash": -208775
+  },
+  {
+   "month": "2026-02",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 484,
+   "old_pay_sum": 186560,
+   "new_cash_n": 721,
+   "new_cash_sum": 259379,
+   "new_sales_n": 482,
+   "new_sales_total": 341828,
+   "gap_grow_vs_new_cash": -259379
+  },
+  {
+   "month": "2026-03",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 350,
+   "old_pay_sum": 139236,
+   "new_cash_n": 614,
+   "new_cash_sum": 253189,
+   "new_sales_n": 350,
+   "new_sales_total": 246273,
+   "gap_grow_vs_new_cash": -253189
+  },
+  {
+   "month": "2026-04",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 398,
+   "old_pay_sum": 154010,
+   "new_cash_n": 666,
+   "new_cash_sum": 258376,
+   "new_sales_n": 397,
+   "new_sales_total": 231786,
+   "gap_grow_vs_new_cash": -258376
+  },
+  {
+   "month": "2026-05",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 428,
+   "old_pay_sum": 165313,
+   "new_cash_n": 700,
+   "new_cash_sum": 265362,
+   "new_sales_n": 428,
+   "new_sales_total": 340457,
+   "gap_grow_vs_new_cash": -265362
+  },
+  {
+   "month": "2026-06",
+   "grow_cash": 128493,
+   "grow_n": 341,
+   "old_pay_n": 475,
+   "old_pay_sum": 213342,
+   "new_cash_n": 770,
+   "new_cash_sum": 292702,
+   "new_sales_n": 475,
+   "new_sales_total": 358908,
+   "gap_grow_vs_new_cash": -164208
+  },
+  {
+   "month": "2026-07",
+   "grow_cash": 401627,
+   "grow_n": 1031,
+   "old_pay_n": 489,
+   "old_pay_sum": 211776,
+   "new_cash_n": 810,
+   "new_cash_sum": 299112,
+   "new_sales_n": 489,
+   "new_sales_total": 324485,
+   "gap_grow_vs_new_cash": 102515
+  },
+  {
+   "month": "2026-08",
+   "grow_cash": 363659,
+   "grow_n": 968,
+   "old_pay_n": 417,
+   "old_pay_sum": 166902,
+   "new_cash_n": 828,
+   "new_cash_sum": 304518,
+   "new_sales_n": 484,
+   "new_sales_total": 230313,
+   "gap_grow_vs_new_cash": 59141
+  },
+  {
+   "month": "2026-09",
+   "grow_cash": 204550,
+   "grow_n": 505,
+   "old_pay_n": 139,
+   "old_pay_sum": 102552,
+   "new_cash_n": 684,
+   "new_cash_sum": 295462,
+   "new_sales_n": 499,
+   "new_sales_total": 261564,
+   "gap_grow_vs_new_cash": -90912
+  },
+  {
+   "month": "2026-10",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 315,
+   "new_cash_sum": 155287,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -155287
+  },
+  {
+   "month": "2026-11",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 268,
+   "new_cash_sum": 128314,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -128314
+  },
+  {
+   "month": "2026-12",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 223,
+   "new_cash_sum": 103260,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -103260
+  },
+  {
+   "month": "2027-01",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 193,
+   "new_cash_sum": 85717,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -85717
+  },
+  {
+   "month": "2027-02",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 163,
+   "new_cash_sum": 73532,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -73532
+  },
+  {
+   "month": "2027-03",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 124,
+   "new_cash_sum": 55525,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -55525
+  },
+  {
+   "month": "2027-04",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 84,
+   "new_cash_sum": 37265,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -37265
+  },
+  {
+   "month": "2027-05",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 43,
+   "new_cash_sum": 20011,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -20011
+  },
+  {
+   "month": "2027-06",
+   "grow_cash": 0,
+   "grow_n": 0,
+   "old_pay_n": 0,
+   "old_pay_sum": 0,
+   "new_cash_n": 27,
+   "new_cash_sum": 11934,
+   "new_sales_n": 0,
+   "new_sales_total": 0,
+   "gap_grow_vs_new_cash": -11934
+  }
+ ],
+ "comparison_leads": [
+  {
+   "month": "2024-07",
+   "old": 3,
+   "new": 0,
+   "gap": -3
+  },
+  {
+   "month": "2024-08",
+   "old": 687,
+   "new": 0,
+   "gap": -687
+  },
+  {
+   "month": "2024-09",
+   "old": 1780,
+   "new": 0,
+   "gap": -1780
+  },
+  {
+   "month": "2024-10",
+   "old": 1962,
+   "new": 0,
+   "gap": -1962
+  },
+  {
+   "month": "2024-11",
+   "old": 1333,
+   "new": 0,
+   "gap": -1333
+  },
+  {
+   "month": "2024-12",
+   "old": 1002,
+   "new": 0,
+   "gap": -1002
+  },
+  {
+   "month": "2025-01",
+   "old": 1701,
+   "new": 0,
+   "gap": -1701
+  },
+  {
+   "month": "2025-02",
+   "old": 1680,
+   "new": 0,
+   "gap": -1680
+  },
+  {
+   "month": "2025-03",
+   "old": 1142,
+   "new": 0,
+   "gap": -1142
+  },
+  {
+   "month": "2025-04",
+   "old": 2040,
+   "new": 0,
+   "gap": -2040
+  },
+  {
+   "month": "2025-05",
+   "old": 727,
+   "new": 0,
+   "gap": -727
+  },
+  {
+   "month": "2025-06",
+   "old": 1325,
+   "new": 0,
+   "gap": -1325
+  },
+  {
+   "month": "2025-07",
+   "old": 12647,
+   "new": 0,
+   "gap": -12647
+  },
+  {
+   "month": "2025-08",
+   "old": 202,
+   "new": 0,
+   "gap": -202
+  },
+  {
+   "month": "2025-09",
+   "old": 243,
+   "new": 0,
+   "gap": -243
+  },
+  {
+   "month": "2025-10",
+   "old": 323,
+   "new": 0,
+   "gap": -323
+  },
+  {
+   "month": "2025-11",
+   "old": 614,
+   "new": 0,
+   "gap": -614
+  },
+  {
+   "month": "2025-12",
+   "old": 593,
+   "new": 0,
+   "gap": -593
+  },
+  {
+   "month": "2026-01",
+   "old": 748,
+   "new": 0,
+   "gap": -748
+  },
+  {
+   "month": "2026-02",
+   "old": 1112,
+   "new": 0,
+   "gap": -1112
+  },
+  {
+   "month": "2026-03",
+   "old": 833,
+   "new": 0,
+   "gap": -833
+  },
+  {
+   "month": "2026-04",
+   "old": 943,
+   "new": 0,
+   "gap": -943
+  },
+  {
+   "month": "2026-05",
+   "old": 1132,
+   "new": 0,
+   "gap": -1132
+  },
+  {
+   "month": "2026-06",
+   "old": 1073,
+   "new": 0,
+   "gap": -1073
+  },
+  {
+   "month": "2026-07",
+   "old": 1404,
+   "new": 162,
+   "gap": -1242
+  },
+  {
+   "month": "2026-08",
+   "old": 1404,
+   "new": 987,
+   "gap": -417
+  },
+  {
+   "month": "2026-09",
+   "old": 342,
+   "new": 39152,
+   "gap": 38810
+  }
+ ]
+}
