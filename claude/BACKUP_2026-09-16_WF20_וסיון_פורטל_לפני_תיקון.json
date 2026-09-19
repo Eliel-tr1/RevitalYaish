@@ -1,0 +1,59 @@
+{
+ "description": "גיבוי לפני תיקון 16/09/2026 — סיון פורטל + WF-20 + מילוי אימייל רטרו. להחזרת WF-20: להפעיל את ה-diff בהיפוך על הצומת 'בניית תוכנית פעולה'. WF-20 לפני התיקון: updatedAt 2026-09-16T08:38:31.888Z.",
+ "records_before": [
+  {
+   "accountid": "1b3d8e83-1c48-470f-b047-3c12bec541a0",
+   "accountname": null,
+   "firstname": null,
+   "lastname": null,
+   "modifiedon": "2026-09-16T04:28:31"
+  },
+  {
+   "accountid": "1b3d8e83-1c48-470f-b047-3c12bec541a0",
+   "opportunityid": "3411e98b-9fd6-4d88-85d1-4a4a737a1c4c",
+   "accountname": null,
+   "name": "העסקה של סיון פורטל",
+   "pcfTelephone1": null,
+   "pcfemailaddress": null,
+   "modifiedon": "2026-09-16T04:28:31"
+  },
+  {
+   "customobject1038id": "ecbd7e5a-8933-482d-b6db-d8928fb308b9",
+   "name": "קבלה - 50140 - לקוחה לא מזוהה",
+   "modifiedon": "2026-09-16T04:28:36"
+  }
+ ],
+ "retro_email_opps": [
+  {
+   "id": "9e538eb4-49e8-4c20-874a-0b6a1ff424a5",
+   "name": "העסקה של דגנית אביטן",
+   "account": "דגנית אביטן",
+   "write": {
+    "pcfemailaddress": "dganita98@walla.co.il"
+   },
+   "source_exec": "254464",
+   "after": "dganita98@walla.co.il"
+  },
+  {
+   "id": "369e82c0-e01b-450f-a288-aef35ef24344",
+   "name": "העסקה של אורית אלחרל",
+   "account": "אורית אלחרל",
+   "write": {
+    "pcfemailaddress": "oritalharal@gmail.com"
+   },
+   "source_exec": "250037",
+   "after": "oritalharal@gmail.com"
+  },
+  {
+   "id": "f1ca0c2a-aa78-48fe-81eb-f4fb7ebf0ba5",
+   "name": "העסקה של מירב",
+   "account": "מירב",
+   "write": {
+    "pcfemailaddress": "bohbotmerav@gmail.com"
+   },
+   "source_exec": "250791",
+   "after": "bohbotmerav@gmail.com"
+  }
+ ],
+ "wf20_node_diff": "--- before\n+++ after\n@@ -140,4 +140,26 @@\n   }\n \n+  // ---------- 1ב. השלמת שם/אימייל ללקוחה קיימת — תיקון 16/09/2026 ----------\n+  // 🔴 מקרה סיון פורטל 16/09: הלקוחה נמצאה לפי טלפון, אבל כרטיס ההגירה שלה היה\n+  //    בלי שם — שדה הלקוחה בתהליך המכירה נראה ריק והמסמך נקרא \"לקוחה לא מזוהה\".\n+  //    כשגרואו שולח שם מלא / אימייל והשדה בכרטיס ריק — משלימים. לא דורסים ערך קיים לעולם.\n+  if (accountFound && !accountNewlyCreated && account\n+      && ev.eventType === 'PAYMENT' && ev.isSuccess === true\n+      && /^[0-9a-fA-F-]{30,}$/.test(S(accountid))) {\n+    const fill = {};\n+    if (!S(account.accountname) && S(ev.fullName)) fill.accountname = S(ev.fullName);\n+    if (!S(account.emailaddress1) && S(ev.email) && S(ev.email).indexOf('@') > 0) fill.emailaddress1 = S(ev.email);\n+    if (Object.keys(fill).length) {\n+      add({\n+        ref: 'accountFill', kind: 'update', object: '1', recordId: S(accountid),\n+        label: 'השלמת שם/אימייל חסרים בכרטיס הלקוחה (1) — תיקון 16/09/2026',\n+        body: fill,\n+      });\n+      if (fill.accountname) accountName = fill.accountname;\n+      if (fill.emailaddress1) accountEmail = fill.emailaddress1;\n+      decisions.push('בכרטיס הלקוחה חסרו פרטים — הושלמו מגרואו: ' + Object.keys(fill).map((k) => `${k}=\"${fill[k]}\"`).join(', ') + '.');\n+    }\n+  }\n+\n   // ---------- 2. תהליך מכירה פתוח ----------\n   // \"פתוח\" = כל סטטוס שאינו 11 (נסגרה) / 12 (הופסדה) / 13 (בוטלה). החדש ביותר לפי תאריך פתיחה.\n@@ -394,5 +416,8 @@\n         { name: `העסקה של ${accountName || ev.fullName || 'לקוחה לא מזוהה'}`,\n           accountid, ownerid: accountOwner || '', statuscode: 2, pcfCreatedByPersonOrSystem: 2 },\n-        productId ? { pcfProduct: productId } : {}\n+        productId ? { pcfProduct: productId } : {},\n+        // 🔴 16/09/2026 — פיירברי לא מעתיקה טלפון/אימייל מהלקוחה לעסקה. כותבים במפורש.\n+        (S(ev.phone) || (account && S(account.telephone1))) ? { pcfTelephone1: S(ev.phone) || S(account.telephone1) } : {},\n+        (S(ev.email) || accountEmail) ? { pcfemailaddress: S(ev.email) || accountEmail } : {}\n       ),\n     });\n"
+}

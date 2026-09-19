@@ -1,0 +1,1580 @@
+[
+  {
+    "opportunityid": "B417B1C7-06D0-450E-8A90-042E41917ED5",
+    "accountid": "FC373AA2-5C99-417E-AD9B-2AA47D8154AD",
+    "accountname": "אתי בראל",
+    "name_before_fix_context": "עסקה - אתי בר אל | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0507979047"
+    },
+    "write_status": "already_done_in_test"
+  },
+  {
+    "opportunityid": "95620F3F-93D0-4842-A2A4-06E906DDD251",
+    "accountid": "62F9F18E-1898-4276-9846-B020EDDEE4B0",
+    "accountname": "אנה",
+    "name_before_fix_context": "עסקה - אנה | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528289421"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "FB657285-4353-4ECD-9BEE-0A36ED849F5D",
+    "accountid": "6D5A5F96-EE88-4837-AE91-02598C1BEBBF",
+    "accountname": "שניידר גלינה",
+    "name_before_fix_context": "עסקה - שניידר גלינה | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523968827"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "6647861E-8BBF-4A9B-A2A5-0C0DEC80E49A",
+    "accountid": "49FB4745-92F9-4BCF-BFF9-2F45EB68F35C",
+    "accountname": "ענבל רז",
+    "name_before_fix_context": "עסקה - ענבל רז | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0549987078"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "90CC1A4D-2BA7-44F7-876B-0CA268D5909A",
+    "accountid": "26684542-13BD-42D2-AC30-9B4CDB921C03",
+    "accountname": "יהודית ביג'אוי",
+    "name_before_fix_context": "עסקה - יהודית ביג'אוי | תוכנית ליווי 17 שבועות",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0544766213"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "484482E8-E619-4372-9D01-0D896607CEF4",
+    "accountid": "A12E4FD5-E1FA-46D1-BD3E-9FD4E4369CCB",
+    "accountname": "דנה שמר ישראלי",
+    "name_before_fix_context": "עסקה - דנה שמר ישראלי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0507977567"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "93231381-E347-4341-8102-0E33EB1CF236",
+    "accountid": "95FCF01D-6FED-425A-96B2-4BC06DD5B8D3",
+    "accountname": "מרב רז",
+    "name_before_fix_context": "העסקה של מרב רז",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0543975425"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "CD14E556-55F5-4F06-BE98-0E9B21060B11",
+    "accountid": "504C40FE-1CED-4202-8744-65109CCB41CB",
+    "accountname": "גילה גל",
+    "name_before_fix_context": "העסקה של גילה גל",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0522437557"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "8BF2B02D-2D46-4A1F-B931-120C14A06309",
+    "accountid": "B825315A-38B1-4DF2-AF5F-B947230FA032",
+    "accountname": "צילה ניר",
+    "name_before_fix_context": "עסקה - צילה ניר | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528694158"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "8315E81C-2947-42E3-8495-14C60558DADE",
+    "accountid": "114FDDB6-9C1E-42A1-916B-56AFCA811CFD",
+    "accountname": "זיוה שביט",
+    "name_before_fix_context": "העסקה של זיוה שביט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0542615371"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "A71B5C4A-056A-429D-AD0E-1681466BF058",
+    "accountid": "3829D6F3-33C4-4F64-9E21-93E89CC4DFB1",
+    "accountname": "מסרט היילה",
+    "name_before_fix_context": "עסקה - מסרט היילה | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0539260533"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "D340A82C-6629-4850-92E8-173D3C0A7B42",
+    "accountid": "FC1224B7-E0E7-4D88-85E0-10460AF4D097",
+    "accountname": "אוסנת מדר",
+    "name_before_fix_context": "העסקה של אוסנת מדר",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528113119"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "BF419A54-79DA-4B0E-B12F-1D1E71901FC0",
+    "accountid": "300AD4A3-C3CE-4410-A13F-A4C6E2EADB13",
+    "accountname": "חן פיניאן",
+    "name_before_fix_context": "עסקה - חן פיניאן | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0504469603"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "C6DF1224-B093-4E49-8D13-1F562CE36EF6",
+    "accountid": "29B0F408-48F2-4C98-ABD7-031E81286927",
+    "accountname": "ריין בן לולו",
+    "name_before_fix_context": "עסקה - ריין בן לולו | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0508814747"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "C33F271B-1641-4D06-802A-24FC7DBE46D5",
+    "accountid": "D77F86A4-2FDE-49D4-9BA1-E9D067261DB9",
+    "accountname": "שיר",
+    "name_before_fix_context": "עסקה - שיר | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0559803664"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "E056893A-377D-4D41-BAE2-259889E3BB9A",
+    "accountid": "75D9B5EF-09C0-4E7C-82C3-0831537D4608",
+    "accountname": "זהר",
+    "name_before_fix_context": "עסקה - זהר | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0525998885"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "FB1B628D-2A36-481D-A26A-25F3FC7AE410",
+    "accountid": "E091598C-80F3-4B3C-84C7-F83E9B22D029",
+    "accountname": "בתיה יאזדי",
+    "name_before_fix_context": "עסקה - בתיה יאזדי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0526075373"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "C4E83BF2-6ED9-4966-8D7E-2A072BED8BCA",
+    "accountid": "6E39DBDB-CB96-4CBA-8D58-5D507E4A0763",
+    "accountname": "שלהבת שרה ביטון",
+    "name_before_fix_context": "עסקה - שלהבת שרה ביטון | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0543053351"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "8BEB91DC-A610-4C8B-9355-2A7599D03A9A",
+    "accountid": "DDC5156F-2327-4672-ACFB-B4DE60F30E5D",
+    "accountname": "אורלי",
+    "name_before_fix_context": "עסקה - אורלי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523337073"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5654A9CA-77B8-452C-90E7-2A9AD90F168D",
+    "accountid": "2183E0D6-8270-4616-B6B8-0439854C1640",
+    "accountname": "סוזי",
+    "name_before_fix_context": "עסקה - סוזי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528880604"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "6EC6A14E-00EA-4AC7-88C8-2B128EE7BD04",
+    "accountid": "E3326688-0523-4A7A-AFCD-B7C32B9F3385",
+    "accountname": "שושי",
+    "name_before_fix_context": "העסקה של שושי",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545229339"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "545CD07F-5EA2-442F-8CD7-31AB556830E8",
+    "accountid": "A12E4FD5-E1FA-46D1-BD3E-9FD4E4369CCB",
+    "accountname": "דנה שמר ישראלי",
+    "name_before_fix_context": "עסקה - דנה שמר ישראלי | תוכנית ליווי 22 שבועות",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0507977567"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "928BEE15-D1FC-436D-840C-356233DF8569",
+    "accountid": "5A2CC219-FF7F-4C6E-9F69-60A9B8F0391B",
+    "accountname": "טלי",
+    "name_before_fix_context": "עסקה - טלי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523762372"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "6C4D1D62-C510-435E-950D-379F88D2B222",
+    "accountid": "652C95FD-CED7-4FC9-8EC1-A83A9606B61B",
+    "accountname": "מירי",
+    "name_before_fix_context": "עסקה - מירי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0502666835"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "822BED41-4CDE-4DF3-BDF9-3D030C5BE5B3",
+    "accountid": "FA786F5C-4482-4A3A-99D2-3D58341199FF",
+    "accountname": "רחל אוקה0",
+    "name_before_fix_context": "עסקה - רחל אוקה0 | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0524042412"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "D82000A5-F168-45D1-92BB-3E7A1B258234",
+    "accountid": "594240B4-7808-43DB-B486-B5AC9AACCF94",
+    "accountname": "ויולט",
+    "name_before_fix_context": "עסקה - ויולט | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0505556369"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "8DFEE4F4-CAAC-49DA-86B0-43C1A5B32A2C",
+    "accountid": "344AB7F5-87FB-4EDA-A2E6-A541FAA9E924",
+    "accountname": "קטיה בר-און",
+    "name_before_fix_context": "העסקה של קטיה בר-און",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0506555760"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "E3C88B29-1D05-4B9D-AD0C-4639067EAE2D",
+    "accountid": "8A077B29-C744-4B3C-A39A-2AFF751B6453",
+    "accountname": "נינה ציוני",
+    "name_before_fix_context": "עסקה - נינה ציוני | תוכנית ליווי 8 שבועות",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545838186"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "ADFB7E35-754F-4479-A28E-475A75F6142D",
+    "accountid": "3FCDE5A8-79D3-42ED-9E25-F33A124EFFC2",
+    "accountname": "עדי צ'פניק וייניש",
+    "name_before_fix_context": "העסקה של עדי צ'פניק וייניש",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0529244643"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5F7FCDEF-6C5B-4389-A199-48663477A439",
+    "accountid": "DE44E723-2A09-4B08-A99A-6778D950D6A8",
+    "accountname": "עפרי",
+    "name_before_fix_context": "עסקה - עפרי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0525841945"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "344B5DB3-8291-45AE-9871-4A7C0DD26B15",
+    "accountid": "C072B168-8FD7-4B05-93B9-BE16D35FA07B",
+    "accountname": "אילה אליהו",
+    "name_before_fix_context": "העסקה של אילה אליהו",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0502896935"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "25EB4CD3-C615-47FA-9C5F-4AB8352D6588",
+    "accountid": "C280FB12-7EB6-44D7-9D1E-32647D7B4F41",
+    "accountname": "מרגריטה ריפקין",
+    "name_before_fix_context": "עסקה - מרגריטה ריפקין | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528322411"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "3607A981-9EB0-4A32-ADB2-5262E37F7EC9",
+    "accountid": "978E5FFA-63D2-4191-AAC3-3055BE01E758",
+    "accountname": "ליאור שירי",
+    "name_before_fix_context": "עסקה - ליאור שירי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0502731640"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "D1C2F50D-2ECD-46F8-8AFC-561824EA28AE",
+    "accountid": "4D24CE57-B07C-4E89-BE24-265CC0FA66F8",
+    "accountname": "יפית מויאל",
+    "name_before_fix_context": "העסקה של יפית מויאל",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545889306"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "6F04845D-5280-4442-9A06-59E0EBE6C556",
+    "accountid": "6F1BDBF2-0D17-4EA4-B1B8-A8022B49649C",
+    "accountname": "ענת חזן",
+    "name_before_fix_context": "עסקה - ענת חזן | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0508877042"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "F163E418-956D-4EE0-9851-5BCFF2E7BFC0",
+    "accountid": "7CB2A18E-02D5-452F-A49C-A774D86ED18F",
+    "accountname": "H E",
+    "name_before_fix_context": "עסקה - הלל | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545684974"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "8BCD2B2D-435E-4D23-AF99-5BF520B9EEB7",
+    "accountid": "B5CADFC7-4EF9-4574-B122-87C1D00B8469",
+    "accountname": "כל",
+    "name_before_fix_context": "עסקה - כל | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0522856039"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "D41517C8-0FE1-4B56-BB8E-5D423B1A456D",
+    "accountid": "9CAECD5F-1EEE-4342-B54F-6D5BCAE787A0",
+    "accountname": "שירן",
+    "name_before_fix_context": "עסקה - שירן | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528698822"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "33C6F54C-00E9-4915-9DC5-5EF3ADCE101F",
+    "accountid": "E911F5F0-2CB4-44F8-8C0A-B4739164D409",
+    "accountname": "שרה מסיל",
+    "name_before_fix_context": "העסקה של שרה מסיל",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0548449361"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5DDA5FDC-7096-4504-8050-60E205D9646C",
+    "accountid": "26684542-13BD-42D2-AC30-9B4CDB921C03",
+    "accountname": "יהודית ביג'אוי",
+    "name_before_fix_context": "עסקה - יהודית ביג'אוי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0544766213"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5A972368-742B-4BA3-A4E1-6138608AE8AE",
+    "accountid": "AEC5F9F4-BD05-4E9B-9E7B-9FA408DBD2D0",
+    "accountname": "זוהר וידר",
+    "name_before_fix_context": "העסקה של זוהר וידר",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0546203006"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5CC1284C-7E47-4B97-8D79-685F95597FB0",
+    "accountid": "623D701A-79A5-46AF-BBAF-631887A4E1CA",
+    "accountname": "שרי נחשוני",
+    "name_before_fix_context": "העסקה של שרי נחשוני",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0526344722"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "3997F450-90DF-48DE-A1EA-69FEBA61095F",
+    "accountid": "95FEC370-E753-4528-8462-7CEA209BDBE0",
+    "accountname": "שירן מרגי",
+    "name_before_fix_context": "עסקה - שירן מרגי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0543920643"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "CF3E37AF-DEDE-4418-AB0E-6C4E4D9A1F19",
+    "accountid": "A07EC99A-6EBA-4053-94C7-1D283BD942CD",
+    "accountname": "שושי משה",
+    "name_before_fix_context": "עסקה - שושי משה | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0524714076"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "D2DC7FD5-697A-40F9-B6CA-6C6AE814C942",
+    "accountid": "215EECA9-4440-490F-993E-B0444B40E5ED",
+    "accountname": "אורטל סרלקאר",
+    "name_before_fix_context": "העסקה של אורטל סרלקאר",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0543345708"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "4F188241-8413-4866-9F17-6D92B2D31FCA",
+    "accountid": "C06CFEC0-DC06-49F9-9C2A-46A062686E85",
+    "accountname": "רחל רוזיליו",
+    "name_before_fix_context": "העסקה של רחל רוזיליו",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0507586822"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "A447C075-CF3D-44AC-84F7-6F109030D6AC",
+    "accountid": "F09DC9A1-9154-4FB9-B057-45EA26BD44AC",
+    "accountname": "תמי",
+    "name_before_fix_context": "עסקה - תמי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "+32489587025"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "0E0028B5-1DD4-4BC1-933C-70F8A86F5F81",
+    "accountid": "7E27DF54-656D-4A9D-844F-1FA9DB48D227",
+    "accountname": "אדווה אפרתי",
+    "name_before_fix_context": "העסקה של אדווה אפרתי",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0506238546"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "11A2A6E6-693B-4DC4-95A4-734960BDCF70",
+    "accountid": "6E39DBDB-CB96-4CBA-8D58-5D507E4A0763",
+    "accountname": "שלהבת שרה ביטון",
+    "name_before_fix_context": "עסקה - שלהבת שרה ביטון | תוכנית המשך אונליין",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0543053351"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "877C051F-25D9-4C03-B8FC-7476ED917A17",
+    "accountid": "69261112-07EC-4C61-8ED5-F1C01DD5F740",
+    "accountname": "יפה בר",
+    "name_before_fix_context": "עסקה - יפה בר | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0508526909"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "1B775004-F890-4CFA-A810-7ACABED4383A",
+    "accountid": "6E39DBDB-CB96-4CBA-8D58-5D507E4A0763",
+    "accountname": "שלהבת שרה ביטון",
+    "name_before_fix_context": "עסקה - שלהבת שרה ביטון | תוכנית ליווי 8 שבועות",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0543053351"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "27659BCD-5E21-4727-945E-7BCEE42D7D75",
+    "accountid": "6301C502-9E97-42A3-ABFA-6A9E025D60BE",
+    "accountname": "רותי ישי",
+    "name_before_fix_context": "עסקה - רותי ישי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0527360442"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "89A1CDA6-4AE5-46E9-BD3F-7C1FF3A90B3B",
+    "accountid": "4E0C9FBE-D75C-4FD3-85A4-04272A7E84E1",
+    "accountname": "דקלה",
+    "name_before_fix_context": "עסקה - דקלה | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528710555"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5C66CE1A-49F3-47BC-B684-828564ED7B64",
+    "accountid": "59D335EB-26E3-4DDA-9608-F9A43E1ECD7A",
+    "accountname": "אריאלה חזק",
+    "name_before_fix_context": "עסקה - אריאלה חזק | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0549755507"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "FB0530EA-7F71-418D-880E-84D4A0BC7B3F",
+    "accountid": "2BCB33BA-2B46-4756-B7A1-A7BB74E1382A",
+    "accountname": "ענת דרורי",
+    "name_before_fix_context": "העסקה של ענת דרורי",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0509257656"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "2CF7A314-29A7-483B-B3EA-8817B78D6B08",
+    "accountid": "C76F6183-0E60-459E-B1C3-4FF4834C4D2C",
+    "accountname": "הדס",
+    "name_before_fix_context": "עסקה - הדס | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0556664436"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "D4BF5E60-8F3C-4132-8888-882ED8855D8D",
+    "accountid": "C09CC2C9-7AAE-41B1-A4C0-FD18E17CA0A8",
+    "accountname": "סיון",
+    "name_before_fix_context": "העסקה של סיון",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0524508621"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "6B41649F-87BF-4155-A546-88E19681A02C",
+    "accountid": "5C87ACE4-D420-4EF0-8714-BE993BD3DC46",
+    "accountname": "חסיה פרידמן",
+    "name_before_fix_context": "עסקה - חסיה פרידמן | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0522587183"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "F90B35F5-D936-4B49-AC47-89877CBAC7D1",
+    "accountid": "0985F308-BADC-48A7-BF97-CBEFE20B3EF0",
+    "accountname": "ליאת יעקב",
+    "name_before_fix_context": "עסקה - ליאת יעקב | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523718554"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "9E7CE177-2CBF-4CEA-87A2-8AE25C357CD8",
+    "accountid": "FC373AA2-5C99-417E-AD9B-2AA47D8154AD",
+    "accountname": "אתי בראל",
+    "name_before_fix_context": "העסקה של אתי בראל",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0507979047"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "13AE9C85-01E2-49A3-BC44-8C3CBF18B2D6",
+    "accountid": "246AFEF7-3576-4E55-A393-F29EB29F42DE",
+    "accountname": "ליהי ורד קיסיליוף",
+    "name_before_fix_context": "עסקה - ליהי ורד קיסיליוף | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0526954969"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "766E6D9C-59DD-42F6-93D0-8C46A7AA5DAE",
+    "accountid": "DA221344-91C4-4EBA-ACAA-B7F9D2B1364F",
+    "accountname": "חן מנשורי",
+    "name_before_fix_context": "עסקה - חן מנשורי | תוכנית המשך אונליין",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0509795077"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "EB97F5CE-63D6-43E0-85A5-8C8DB3B824F5",
+    "accountid": "3FBE8C90-951C-4045-9B02-2E108B8C4D4C",
+    "accountname": null,
+    "name_before_fix_context": "עסקה - 0545612521 | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545612521"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "117FD3E6-4435-401B-B08B-8D83EDE875BD",
+    "accountid": "96F997E5-C6F4-4BE1-AEF2-D683C5F25694",
+    "accountname": "מיכל",
+    "name_before_fix_context": "עסקה - מיכל | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0524666676"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "8BDEF24A-CCF6-4B70-9E89-8EFE4101271C",
+    "accountid": "49BF9936-BA9B-4105-AD0B-71F843413EF3",
+    "accountname": "איילת בן שמחון",
+    "name_before_fix_context": "העסקה של איילת בן שמחון",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528198332"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "4BD80E6A-B052-40B8-8205-91118F8B220C",
+    "accountid": "ED657A49-C16F-4306-8016-4AFDBA890342",
+    "accountname": "?לאה לסרי",
+    "name_before_fix_context": "עסקה - ?לאה לסרי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0584071572"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "B1695C7C-4466-47F1-9DED-92DD0389F31B",
+    "accountid": "BBE4F858-D025-4F5A-AA85-42CCD7F67D9D",
+    "accountname": "שירלי",
+    "name_before_fix_context": "עסקה - שירלי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528119371"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "7E24D064-0D43-420D-B42A-946E9DC3C43C",
+    "accountid": "4BAC2A31-891F-4A37-95E3-9EE36C18D93E",
+    "accountname": "שני דוד",
+    "name_before_fix_context": "עסקה - שני דוד | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0547989869"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "3D8DC739-11C1-47FD-AA4F-9483934FCB09",
+    "accountid": "4CB80F3F-200A-4920-8487-B89681EABFDC",
+    "accountname": "ציפי",
+    "name_before_fix_context": "עסקה - ציפי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528872504"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "232B43AB-8B94-4F43-B7B5-94B6CCBFD296",
+    "accountid": "F6A6AD71-F3D7-446D-B1E8-0A8D477D6DA3",
+    "accountname": "גלית אליוביץ",
+    "name_before_fix_context": "עסקה - גלית אליוביץ | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0508361629"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "753355C0-B96A-4469-BB57-96067215914B",
+    "accountid": "70D96615-63E9-4346-8318-7D5A6B535753",
+    "accountname": "מעיין חזן",
+    "name_before_fix_context": "עסקה - מעיין חזן | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0522940950"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "CA14F64B-D105-4CA7-AA7A-9EDFE16D29E4",
+    "accountid": "5EA91598-A1CA-4369-9100-6995AE8409E1",
+    "accountname": "זיוה",
+    "name_before_fix_context": "עסקה - זיוה | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0508318519"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "1878D49F-18B8-41CF-8482-A31B5A09531C",
+    "accountid": "F56953BD-423B-453B-88BE-4E8862EE2207",
+    "accountname": "נורה רייס",
+    "name_before_fix_context": "העסקה של נורה רייס",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545879372"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "281812EE-7573-48AE-9297-A42FD7035BE5",
+    "accountid": "8A077B29-C744-4B3C-A39A-2AFF751B6453",
+    "accountname": "נינה ציוני",
+    "name_before_fix_context": "עסקה - נינה ציוני | תוכנית המשך אונליין",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545838186"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "C49E779C-2A4B-45BB-9F39-A71B0AC300E0",
+    "accountid": "1F53A203-3C9F-4571-8D8F-F37BEE3B715A",
+    "accountname": "אילנה כתר",
+    "name_before_fix_context": "עסקה - אילנה כתר | תוכנית ליווי 17 שבועות",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528118818"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "CE6F2B30-4FB3-4D85-8012-A8B22FD65968",
+    "accountid": "C20AC17E-C912-4D87-9979-6A9D472B60EE",
+    "accountname": "Merav Nov",
+    "name_before_fix_context": "עסקה - 0545728588 | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545728588"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "751849B3-9E7A-406C-9733-AAF9F429E3F5",
+    "accountid": "0985F308-BADC-48A7-BF97-CBEFE20B3EF0",
+    "accountname": "ליאת יעקב",
+    "name_before_fix_context": "עסקה - ליאת יעקב | תוכנית ליווי 22 שבועות",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523718554"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "50FADE46-097C-4C6F-A9A1-AC375BD45EC6",
+    "accountid": "A12E4FD5-E1FA-46D1-BD3E-9FD4E4369CCB",
+    "accountname": "דנה שמר ישראלי",
+    "name_before_fix_context": "עסקה - דנה שמר ישראלי | תוכנית המשך אישית",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0507977567"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "0903D909-9205-4A53-BC2C-AC480CF464FC",
+    "accountid": "08518B0E-0034-40E1-8515-1411FC7436B7",
+    "accountname": "רבקה",
+    "name_before_fix_context": "עסקה - רבקה | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523598409"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "369E82C0-E01B-450F-A288-AEF35EF24344",
+    "accountid": "5119395D-638A-48CA-B99F-25E3F879EEE8",
+    "accountname": "אורית אלחרל",
+    "name_before_fix_context": "העסקה של אורית אלחרל",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0502421220"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "21A494C5-0C26-44D7-B662-B2529EB9C1D6",
+    "accountid": "2EA6328B-FB04-495F-8C38-FB6DCE99B366",
+    "accountname": "חני סולומון",
+    "name_before_fix_context": "העסקה של חני סולומון",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0549339251"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5F2C1D71-520C-43D2-A79C-B7F338FD4558",
+    "accountid": "557127C4-9840-4371-B4D0-DBB6BC6853D1",
+    "accountname": "תמי פיטוסי",
+    "name_before_fix_context": "העסקה של תמי פיטוסי",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0506551386"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "2F783C41-25C8-4F77-81B5-BBBC51BFC4B0",
+    "accountid": "B3071AA5-896C-47DE-990C-8821B5106F36",
+    "accountname": "אבישג בושארי",
+    "name_before_fix_context": "עסקה - אבישג בושארי | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528791190"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "FF1421F7-81F0-4B21-A7E2-BC85FB7EF7AE",
+    "accountid": "2D8878B8-7D2F-4A80-883A-D4DBC1DA6133",
+    "accountname": "אברגיל ויקי",
+    "name_before_fix_context": "עסקה - אברגיל ויקי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0503645181"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "77F8063B-329B-4F33-AE93-BD943DAC8C34",
+    "accountid": "BA747470-6381-4E74-BB18-B6547B6D0E53",
+    "accountname": "מזי פאר",
+    "name_before_fix_context": "עסקה - מזי פאר | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528208967"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "ED08B52B-8348-4A0B-BEF5-BF0005699CB8",
+    "accountid": "C8DA52B1-2758-40C2-8F53-AA22EF5AC7B8",
+    "accountname": "זהבית.",
+    "name_before_fix_context": "עסקה - זהבית. | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0502220620"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "66C17957-71CE-4D93-BFC8-C209F666EB6E",
+    "accountid": "A59C295C-BE42-4DBC-A2F6-96C8550957B6",
+    "accountname": "דהן ידידה",
+    "name_before_fix_context": "עסקה - דהן ידידה | תוכנית ליווי 12 שבועות",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0506409710"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "9DE4D2D4-8D41-4B6B-9984-C2298AEA25A9",
+    "accountid": "F9128494-6C97-4B5B-9FDE-589D633E6123",
+    "accountname": "סורינה גרושקו",
+    "name_before_fix_context": "העסקה של סורינה גרושקו",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523265507"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "467A097B-03A4-40E7-B5EA-C6A0C1F4DB42",
+    "accountid": "B49E4A8E-C073-4C09-84BC-D83E005D079D",
+    "accountname": "יפית",
+    "name_before_fix_context": "עסקה - יפית | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0506991688"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "B1B887A7-E595-4CA6-A8BE-C9BAE1F3B3DA",
+    "accountid": "89F6A1AF-10E8-4F2F-8473-F352FCD5D12C",
+    "accountname": "יפעת מזרחי",
+    "name_before_fix_context": "עסקה - יפעת מזרחי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0503459988"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "BDC16E3D-AAF3-4B4B-A32B-CF3CDB82785E",
+    "accountid": "D1D15DAD-8D5F-44CA-BA17-55C7CF28181A",
+    "accountname": "נורית",
+    "name_before_fix_context": "עסקה - נורית | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0527906016"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "89763A4B-E267-41A1-8E28-D12B03D800B4",
+    "accountid": "9F42BAEC-3C55-419C-B2C7-C94536E3B077",
+    "accountname": "איילת בירק לוי",
+    "name_before_fix_context": "העסקה של איילת בירק לוי",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528346469"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "B08310D3-7CB6-4B3C-870A-D6F14CACE4DF",
+    "accountid": "E451BC83-41D8-406B-A94E-E5C4229FCB01",
+    "accountname": "מיכל כהן",
+    "name_before_fix_context": "עסקה - מיכל כהן | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0503231058"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "BEAF9750-DF09-48FF-8E4D-D7F21312181D",
+    "accountid": "A0036EA6-924C-4DCD-ACB1-CC5B72CA0968",
+    "accountname": "צמרת פשחור",
+    "name_before_fix_context": "עסקה - צמרת | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0507211352"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "BC52D5DF-39C4-45C3-AC7B-D801F6147E1E",
+    "accountid": "B2D48621-6095-436C-A2EA-83418F15BB3B",
+    "accountname": "שירלי טובול",
+    "name_before_fix_context": "עסקה - שירלי טובול | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0522598404"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "559277AB-7373-47D6-A1A0-DA09F16EF146",
+    "accountid": "AE4772A2-485A-4D57-97F6-9C6ABAD47D0A",
+    "accountname": "טל אור",
+    "name_before_fix_context": "עסקה - טל אור | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0506657153"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "E18D25AC-553A-4354-BCC1-DBCF8CFECC23",
+    "accountid": "4E43AE1D-3025-400E-949C-1C9CC043E6A2",
+    "accountname": "ספיר סעדון",
+    "name_before_fix_context": "עסקה - ספיר סעדון | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0545417100"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "2E566C58-349E-4F77-BB15-DC050F52D94D",
+    "accountid": "1F53A203-3C9F-4571-8D8F-F37BEE3B715A",
+    "accountname": "אילנה כתר",
+    "name_before_fix_context": "עסקה - אילנה כתר | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528118818"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "0364CB0F-1B7C-4846-A62C-DC29DA0CC0B5",
+    "accountid": "80596EAF-B9A6-4ADE-9F12-B1281CBE98BE",
+    "accountname": "מיכל שץ",
+    "name_before_fix_context": "עסקה - מיכל שץ | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523066485"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "CA714160-538C-4077-A5B1-E05B70C8ECC6",
+    "accountid": "6D4BA4E2-F208-4975-9718-333D6C868BE5",
+    "accountname": "סיון",
+    "name_before_fix_context": "עסקה - סיון | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528089771"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "5402DA61-CE67-4753-8BFA-E1D22DDFD10B",
+    "accountid": "2AB0E73A-4F55-4108-B7FC-A9D510C83FCC",
+    "accountname": "אודיה איפרגן",
+    "name_before_fix_context": "העסקה של אודיה איפרגן",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0523027838"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "E48A42FD-901E-4390-AE6A-EB90E9446413",
+    "accountid": "CCDD099D-3905-4E9B-BB26-3FAF3FEAB5AE",
+    "accountname": "חגית גרינברג חומן",
+    "name_before_fix_context": "עסקה - חגית גרינברג חומן | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0522307580"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "991C951F-F50B-44C8-A9C1-ED249F262DA6",
+    "accountid": "39B9FDF2-4381-42BD-B67F-4A1310671B85",
+    "accountname": "Liz",
+    "name_before_fix_context": "עסקה - Liz | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "08528651180"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "EF5944B5-AE79-4174-A669-F218C59D659F",
+    "accountid": "4C58E926-8FD2-46DD-9344-E553AF7FFB35",
+    "accountname": "ליאה",
+    "name_before_fix_context": "עסקה - ליאה | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528621628"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "B001C181-9D1E-4235-A93D-F35679D24200",
+    "accountid": "A2220A72-D67C-4CE1-8631-2EF95F201803",
+    "accountname": "סיגל",
+    "name_before_fix_context": "עסקה - סיגל | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0542100928"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "1261DC98-5FC5-4C63-8872-F474641A3A01",
+    "accountid": "34E0B6B9-02A1-47CA-905B-9EA64960A020",
+    "accountname": "אפרים רבקה",
+    "name_before_fix_context": "העסקה של אפרים רבקה",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0528982120"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "F1CA0C2A-AA78-48FE-81EB-F4FB7EBF0BA5",
+    "accountid": "705972BF-DFD5-47B3-958F-706CA65B9713",
+    "accountname": "מירב",
+    "name_before_fix_context": "העסקה של מירב",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0505585323"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "3CAF9581-7972-4961-882A-F571459E17E0",
+    "accountid": "5A13A098-343F-4CB4-B69E-F62927F7C965",
+    "accountname": "שני",
+    "name_before_fix_context": "עסקה - שני | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0509919082"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "B2905B84-636E-44C8-B48F-F65823F9FA38",
+    "accountid": "D35F9BB9-0AB3-4B10-BF1B-F5E83D227F2C",
+    "accountname": "שני אברהמי",
+    "name_before_fix_context": "העסקה של שני אברהמי",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0502568188"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "C6A895E6-1CE2-40FC-ABDD-FE57D8EF1E83",
+    "accountid": "102FE55D-CC44-489D-84B2-29F9D072D4B8",
+    "accountname": null,
+    "name_before_fix_context": "עסקה - 0526005051 | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0526005051"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "6E98448E-C9F5-4B52-943A-FEB058FCD26E",
+    "accountid": "28C146B6-1173-4A6C-9A32-E07690B5AD7E",
+    "accountname": "מיכל מלכה",
+    "name_before_fix_context": "עסקה - מיכל | סדנה בוסט",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": {
+      "pcfTelephone1": "0543154414"
+    },
+    "write_status": "ok"
+  },
+  {
+    "opportunityid": "D785C910-7C78-4ED5-95DF-42410DEFB927",
+    "accountid": "5B203E23-6C82-4A3B-AFC0-F0799D9D2028",
+    "accountname": "עדי",
+    "name_before_fix_context": "עסקה - עדי | ליד",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": null,
+    "write_status": "skipped_customer_has_no_phone_either"
+  },
+  {
+    "opportunityid": "19886F7F-2B08-4A2E-8D8E-4E315E10C368",
+    "accountid": "08F13C6F-8AFE-4488-A7F2-E173508F659A",
+    "accountname": "ריקי",
+    "name_before_fix_context": "העסקה של ריקי",
+    "phone_before_fix": {
+      "pcfTelephone1": null,
+      "pcfTelephone2": null
+    },
+    "phone_written": null,
+    "write_status": "skipped_customer_has_no_phone_either"
+  }
+]

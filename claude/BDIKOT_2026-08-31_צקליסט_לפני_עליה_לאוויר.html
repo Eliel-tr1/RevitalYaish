@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>צ'קליסט בדיקות</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Assistant","Rubik",Arial,sans-serif;background:#f4f6f8;color:#1a1f24;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding:22px 16px 70px}
+header{background:linear-gradient(135deg,#16324f,#2d6a9f);color:#fff;border-radius:14px;padding:24px 28px;margin-bottom:16px}
+header h1{margin:0 0 6px;font-size:25px}
+header p{margin:0;opacity:.93;font-size:15px;max-width:72ch}
+.bar{margin-top:16px;background:rgba(255,255,255,.18);border-radius:20px;height:9px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#7ddc9a;transition:width .25s}
+.cnt{margin-top:8px;font-size:13px;font-weight:600;opacity:.95}
+.rules{background:#fff8e6;border:1px solid #f0d089;border-right:5px solid #f0ad2e;border-radius:11px;padding:14px 18px;margin-bottom:16px}
+.rules h2{margin:0 0 8px;font-size:16px}
+.rules ol{margin:0;padding-right:20px;font-size:14.5px}
+.rules li{margin-bottom:5px}
+.sec{margin:26px 0 10px;font-size:13px;font-weight:700;color:#5c6975;letter-spacing:.4px}
+.t{background:#fff;border:1px solid #e2e6ea;border-radius:12px;margin-bottom:12px;overflow:hidden}
+.t.done{border-color:#a8dcb5;background:#f7fdf8}
+.th{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;cursor:pointer;user-select:none}
+.th input{margin-top:4px;width:19px;height:19px;flex:0 0 auto;accent-color:#2d9f5a;cursor:pointer}
+.num{background:var(--c,#2d6a9f);color:#fff;font-weight:700;font-size:12px;padding:2px 9px;border-radius:20px;flex:0 0 auto;margin-top:2px}
+.ttl{flex:1;font-weight:700;font-size:16px}
+.t.done .ttl{text-decoration:line-through;opacity:.6}
+.wf{font-size:11.5px;font-weight:700;color:#5c6975;background:#eef2f6;padding:2px 9px;border-radius:20px;white-space:nowrap;margin-top:3px;direction:ltr}
+.tb{padding:0 18px 16px 18px}
+.tb h4{margin:12px 0 5px;font-size:12px;color:#5c6975;font-weight:700}
+.tb h4:first-child{margin-top:0}
+pre{background:#16324f;color:#e8f0f7;padding:11px 14px;border-radius:8px;overflow-x:auto;font-size:12.5px;direction:ltr;text-align:left;margin:0;font-family:ui-monospace,Menlo,Consolas,monospace}
+.tb ul{margin:0;padding-right:20px;font-size:14.5px}
+.tb li{margin-bottom:4px}
+code{background:#eef2f6;padding:2px 6px;border-radius:4px;font-size:12.5px;direction:ltr;display:inline-block;font-family:ui-monospace,Menlo,Consolas,monospace}
+.warn{background:#fdecea;border-right:4px solid #d9433f;border-radius:7px;padding:9px 13px;font-size:14px;margin-top:10px}
+.info{background:#eaf3fb;border-right:4px solid #2d6a9f;border-radius:7px;padding:9px 13px;font-size:14px;margin-top:10px}
+.blocked .ttl::after{content:" · חסום";color:#d9433f;font-weight:700;font-size:13px}
+footer{margin-top:22px;background:#16324f;color:#fff;border-radius:12px;padding:20px 24px;font-size:14.5px}
+footer h2{margin:0 0 8px;font-size:17px}
+footer ul{margin:0;padding-right:20px}
+footer li{margin-bottom:4px}
+</style></head><body><div class="wrap">
+
+<header>
+<h1>צ'קליסט בדיקות · לפני עלייה לאוויר</h1>
+<p>שלב הכנה ו-16 בדיקות בשלושה גושים. הסדר חשוב, כי חלק מהבדיקות משנות מצב שהבדיקה הבאה נשענת עליו. כל בדיקה מסמנת את עצמה כשמסיימים.</p>
+<div class="bar"><i id="bar"></i></div>
+<div class="cnt" id="cnt">0 מתוך 17</div>
+</header>
+
+<div class="rules">
+<h2>שלושה כללים לאורך כל הבדיקות</h2>
+<ol>
+<li><b>15 דקות בין שליחה לשליחה.</b> רוב התבניות הן MARKETING ומטא חונקת אחרי רצף מהיר. זה בדיוק מה שקרה ב-20.08.</li>
+<li><b>הכל מגיע רק אליך.</b> TEST_MODE דלוק ומורשה רק 0533435240. אף לקוחה אמיתית לא תקבל כלום.</li>
+<li><b>כל קריאה מחזירה דוח מלא</b> עם מה נשלח, מה נחסם ולמה, וקישור לריצה. אם משהו לא מגיע, תשלח לי את הדוח.</li>
+</ol>
+</div>
+
+<div class="sec">שלב 0 · הכנה</div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#5c6975">0</span><span class="ttl">לתקן את הפלואו בקלאודצ'אט</span><span class="wf">CloudChat</span></label>
+<div class="tb">
+<h4>מה לעשות</h4>
+<ul>
+<li>קלאודצ'אט → פלואו <code>Client_Notification_new_meeting</code> → הנוד של <code>meeting_invite</code></li>
+<li><b>למחוק את מיפוי הפרמטר לכפתור.</b> להשאיר רק שלושה: <code>First name</code>, <code>meeting_date</code>, <code>meeting_time</code></li>
+<li>לשמור ולפרסם את הפלואו</li>
+</ul>
+<div class="warn"><b>בלי זה בדיקה 1 תיכשל.</b> מטא מחזירה 132018 כי הטמפלייט בלי כפתורים והפלואו מנסה להזין לו פרמטר. אם במקום זה הוספת כפתור לתבנית במטא, תגיד לי ואבדוק את המבנה החדש.</div>
+</div></div>
+
+<div class="sec">גוש A · פגישות מכירה</div>
+
+<div class="t blocked"><label class="th"><input type="checkbox"><span class="num" style="--c:#2196F3">1</span><span class="ttl">זימון פגישה</span><span class="wf">WF-32</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">לפתוח פגישה בפיירברי על <b>סער וינברג (טסט)</b>: מטרה <b>מכירה</b>, סטטוס <b>עתידה להתקיים</b>, תאריך <b>מחרתיים</b>. ההודעה תצא לבד תוך 20 שניות דרך הדחיפה מפיירברי.</p>
+<h4>בוואטסאפ</h4>
+<ul><li>"קבענו! נפגשות ב-תאריך בשעה שעה"</li><li>התאריך והשעה נכונים ובפורמט <code>02.09.2026</code> ו-<code>14:00</code></li></ul>
+<h4>בפיירברי</h4>
+<ul><li>השדה <b>הודעת זום נשלחה?</b> מתמלא בתאריך ובשעה</li></ul>
+<div class="info">אם ההודעה לא הגיעה, זה כמעט בוודאות 132018. תשלח לי הודעה ואבדוק בלוג השגיאות של קלאודצ'אט.</div>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#2196F3">2</span><span class="ttl">אין שליחה כפולה</span><span class="wf">WF-32</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<pre>POST https://n8n.srv964196.hstgr.cloud/webhook/wf32-test
+{}</pre>
+<h4>מה אמור לקרות</h4>
+<ul><li><b>שום הודעה לא נשלחת שוב.</b> בדוח: <code>לא_הגיע_זמנן: 1</code></li><li>השדה "הודעת זום נשלחה?" הוא החסם</li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#2196F3">3</span><span class="ttl">תזכורת יום לפני</span><span class="wf">WF-32</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">להעביר את הפגישה ל<b>מחר</b>, ואז:</p>
+<pre>POST https://n8n.srv964196.hstgr.cloud/webhook/wf32-test
+{"hourDay": 16}      ← השעה הנוכחית כמספר</pre>
+<h4>בוואטסאפ</h4>
+<ul><li>"מחר ב-שעה נקבעה לך פגישה אישית"</li><li><b>שני כפתורים:</b> אני אגיע! · צריכה להזיז</li></ul>
+<h4>בפיירברי</h4>
+<ul><li>השדה <b>תזכורת יום לפני</b> מתמלא</li></ul>
+<div class="warn"><b>אל תלחץ על הכפתורים עדיין.</b> בדיקה 6 נשענת על כך שלא ענית.</div>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#00BCD4">4</span><span class="ttl">כפתור · אני אגיע!</span><span class="wf">WF-33</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">ללחוץ <b>אני אגיע!</b> בהודעה מבדיקה 3.</p>
+<h4>בפיירברי</h4>
+<ul><li><b>סטטוס אישור הגעה</b> = אישרה</li><li><b>סטטוס פגישה</b> = אישר/ה הגעה</li><li>נוספה הערה בפגישה עם מה נלחץ ומתי</li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#00BCD4">5</span><span class="ttl">כפתור · צריכה להזיז</span><span class="wf">WF-33</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">ללחוץ <b>צריכה להזיז</b> באותה הודעה, ואז <b>ללחוץ שוב</b> כדי לבדוק כפילות.</p>
+<h4>בפיירברי</h4>
+<ul><li><b>סטטוס אישור הגעה</b> = לא אישרה</li><li><b>סטטוס פגישה</b> חוזר ל-עתידה להתקיים</li><li>נפתחה משימה <b>לתאם פגישה מחדש</b> לביצוע היום</li><li><b>הלחיצה השנייה לא פותחת משימה נוספת</b>, רק מוסיפה הערה</li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#2196F3">6</span><span class="ttl">תזכורת ביום הפגישה · והדילוג על מי שאישרה</span><span class="wf">WF-32</span></label>
+<div class="tb">
+<h4>שלב א · אמורה להישלח</h4>
+<p style="margin:0 0 8px;font-size:14.5px">להעביר את הפגישה ל<b>היום, בעוד כמה שעות</b>, <b>לנקות את שדה אישור ההגעה</b>, ואז:</p>
+<pre>{"hourToday": 16}    ← השעה הנוכחית</pre>
+<h4>שלב ב · אמורה להידלג</h4>
+<p style="margin:0 0 8px;font-size:14.5px">למלא ידנית <b>סטטוס אישור הגעה = אישרה</b> ולהריץ שוב את אותה קריאה.</p>
+<ul><li><b>ההודעה לא אמורה לצאת.</b> בדוח: <code>לא_הגיע_זמנן: 1</code></li></ul>
+<div class="info">זו הבדיקה הכי חשובה בגוש. היא מוכיחה שהכפתורים באמת חוזרים לפיירברי ומשפיעים על מה שנשלח.</div>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#2196F3">7</span><span class="ttl">תזכורת 30 דקות · וסימון "לא ענתה"</span><span class="wf">WF-32</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">לנקות את שדה אישור ההגעה, להעביר את הפגישה ל<b>עוד 32 דקות</b>, ואז:</p>
+<pre>{}</pre>
+<h4>בוואטסאפ</h4>
+<ul><li>"עוד חצי שעה ואנחנו נפגשות"</li></ul>
+<h4>בפיירברי</h4>
+<ul><li>השדה <b>תזכורת 30 דקות לפני</b> מתמלא</li><li><b>סטטוס אישור הגעה = לא ענתה</b>, כי תזכורת יום לפני יצאה ולא ענית עליה</li></ul>
+<div class="info">אם תזכורת יום לפני <b>לא</b> יצאה על הפגישה הזו, השדה יישאר <b>ריק</b> בכוונה. לא מסמנים "לא ענתה" למי שלא נשאלה.</div>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#2196F3">8</span><span class="ttl">פגישה שאינה מכירה לא מקבלת כלום</span><span class="wf">WF-32</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">לפתוח פגישה חדשה עם מטרה <b>עבודה</b>, בעוד יומיים.</p>
+<h4>מה אמור לקרות</h4>
+<ul><li><b>שום הודעה.</b> בדוח: <code>מטרת הפגישה אינה מכירה (בפועל: עבודה)</code></li><li>הפילטר חל על כל ארבע ההודעות, לא רק על הזימון</li></ul>
+<p style="margin:8px 0 0;font-size:14.5px">אחרי הבדיקה, למחוק את הפגישה הזו.</p>
+</div></div>
+
+<div class="sec">גוש B · הוובינר</div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#FF9800">9</span><span class="ttl">הזמנה לוובינר</span><span class="wf">WF-30</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<pre>POST https://n8n.srv964196.hstgr.cloud/webhook/wf30-test
+{"stage":"invite", "date":"2026-09-08"}</pre>
+<h4>בוואטסאפ</h4>
+<ul><li>שם פרטי נכון</li><li><b>כתוב "מחר בערב" ולא "הערב".</b> זה התיקון מ-20.08</li></ul>
+<h4>בדוח</h4>
+<ul><li><code>משתתפות: 1</code> · <code>נשלחו: 1</code></li></ul>
+<div class="info">אתה משויך למחזור <b>בוסט 6-13.9.26</b>, ולכן התאריכים בכל בדיקות הגוש הזה מתייחסים אליו. המחזור שרץ השבוע ריק ממשתתפות.</div>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#FF9800">10</span><span class="ttl">הרצה שנייה נחסמת</span><span class="wf">WF-30</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">להריץ שוב את אותה קריאה בדיוק מבדיקה 9.</p>
+<h4>מה אמור לקרות</h4>
+<ul><li><b>לא נשלח שוב.</b> בדוח: <code>נחסמו_ככפילות: 1</code></li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#FF9800">11</span><span class="ttl">תזכורת בוקר</span><span class="wf">WF-30</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<pre>{"stage":"morning", "date":"2026-09-09"}</pre>
+<h4>בוואטסאפ</h4>
+<ul><li><b>כתוב "הערב ב-20:00" ולא שעה ריקה.</b> אם ריק, השדה <code>webinar_time</code> לא נכתב למנוי</li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#FF9800">12</span><span class="ttl">מתחילים עכשיו</span><span class="wf">WF-30</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<pre>{"stage":"live", "date":"2026-09-09"}</pre>
+<h4>בוואטסאפ</h4>
+<ul><li>שם פרטי נכון</li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#FF9800">13</span><span class="ttl">פולואפ אחרי הוובינר</span><span class="wf">WF-30</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<pre>{"stage":"followup", "date":"2026-09-10"}</pre>
+<h4>בוואטסאפ</h4>
+<ul><li>נוסח "איך היה לך אתמול"</li><li><b>כפתור: לפגוש את רויטל</b></li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#E91E63">14</span><span class="ttl">כפתור · לפגוש את רויטל</span><span class="wf">WF-31</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<p style="margin:0 0 8px;font-size:14.5px">ללחוץ על הכפתור בהודעה מבדיקה 13, ואז <b>ללחוץ שוב</b>.</p>
+<h4>בפיירברי</h4>
+<ul><li>נפתחה משימה <b>לתאם פגישה עם רויטל</b>, לביצוע היום, עדיפות גבוהה</li><li><b>משויכת לנציג של תהליך המכירה</b> ולא לויטרו ראשי</li><li>מקושרת ללקוחה ולתהליך המכירה</li><li><b>הלחיצה השנייה לא פותחת משימה נוספת</b></li></ul>
+<div class="warn">זו הבדיקה הקריטית בגוש. הכפתור הזה הוא הליד. בלי חיווט תקין הלחיצה נעלמת ואף אחד לא יודע שהיא רוצה פגישה.</div>
+</div></div>
+
+<div class="sec">גוש C · סגירת הבוסט</div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#4CAF50">15</span><span class="ttl">שאלון סיום הבוסט</span><span class="wf">WF-35</span></label>
+<div class="tb">
+<h4>הפעלה</h4>
+<pre>POST https://n8n.srv964196.hstgr.cloud/webhook/wf35-test
+{"stage":"finalform", "date":"2026-09-10"}</pre>
+<h4>בוואטסאפ</h4>
+<ul><li>"סיימת את הבוסט, כל הכבוד"</li><li><b>קישור נקי:</b> <code>https://tally.so/r/5B5p6Z</code></li></ul>
+<h4>ואז</h4>
+<ul><li><b>למלא את הטופס בפועל</b> עם הטלפון 0533435240</li></ul>
+<h4>בפיירברי, אחרי המילוי</h4>
+<ul><li><b>בתהליך הליווי:</b> ציון מוכנות, ראתה את הזום, קישור לטופס, והערה עם כל התשובות</li><li><b>בתהליך מכירת הבוסט:</b> טופס מולא = כן, משקל נוכחי, משקל יעד, קישור, והערה</li><li>הזיהוי נעשה <b>לפי הטלפון</b>, ותהליך המכירה נמצא <b>לפי המוצר סדנה בוסט</b></li></ul>
+</div></div>
+
+<div class="t"><label class="th"><input type="checkbox"><span class="num" style="--c:#4CAF50">16</span><span class="ttl">פולואפ ללא המרה · והפילטר שלו</span><span class="wf">WF-35</span></label>
+<div class="tb">
+<h4>שלב א · אמור להידלג</h4>
+<pre>POST https://n8n.srv964196.hstgr.cloud/webhook/wf35-test
+{"stage":"noconvert", "date":"2026-09-13"}</pre>
+<ul><li><b>לא נשלח.</b> בדוח: <code>יש לה פגישת מכירה</code></li></ul>
+<h4>שלב ב · אמור להישלח</h4>
+<p style="margin:0 0 8px;font-size:14.5px">למחוק או לבטל את כל פגישות המכירה שלך, ולוודא שאין לך עסקה חיה על מוצר פרימיום או שימור. ואז להריץ שוב.</p>
+<ul><li><b>נשלח.</b> נוסח "עברו כמה ימים מאז שסיימנו את הבוסט"</li></ul>
+<div class="info">שתי סיבות אפשריות לדילוג, וכל אחת מוצגת בנפרד בדוח: <b>יש לה פגישת מכירה</b> או <b>יש לה עסקת ליווי פרימיום או תוכנית המשך</b>.</div>
+</div></div>
+
+<footer>
+<h2>אחרי שכל 16 ירוקים</h2>
+<ul>
+<li><b>לכבות TEST_MODE.</b> שלושה מקומות: WF-29, WF-31, WF-33. תגיד לי ואכבה.</li>
+<li>להוסיף שני שדות שהיו בתוכנית ולא נוספו: <code>pcfWebinarStagesSent</code> ב-1007 ו-<code>pcfReminderSameDay</code> ב-6.</li>
+<li>רוטציית מפתחות API. חמישה מפתחות נמצאים בצ'אט ובתיעוד.</li>
+<li>לכבות את שלושת תרחישי ה-Make הישנים אחרי המעבר. יש משימה בקליקאפ.</li>
+</ul>
+</footer>
+
+</div>
+<script>
+var boxes=[].slice.call(document.querySelectorAll('.th input'));
+function upd(){
+  var n=boxes.filter(function(b){return b.checked}).length;
+  document.getElementById('bar').style.width=(n/boxes.length*100)+'%';
+  document.getElementById('cnt').textContent=n+' מתוך '+boxes.length;
+}
+boxes.forEach(function(b){
+  b.addEventListener('change',function(){
+    b.closest('.t').classList.toggle('done',b.checked);
+    upd();
+  });
+});
+upd();
+</script>
+</body></html>

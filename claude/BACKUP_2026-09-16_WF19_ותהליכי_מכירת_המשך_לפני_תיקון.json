@@ -1,0 +1,3965 @@
+{
+ "wf19_workflow": {
+  "createdAt": "2026-08-11T11:07:48.321Z",
+  "updatedAt": "2026-09-12T07:30:32.916Z",
+  "id": "CG4nPYCgushC1qDz",
+  "name": "WF-19 · פתיחת תהליכי מכירה אוטומטית — סוף בוסט ← ליווי · סוף ליווי ← חידוש",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+   {
+    "parameters": {},
+    "id": "▶️ הרצה ידנית",
+    "name": "▶️ הרצה ידנית",
+    "type": "n8n-nodes-base.manualTrigger",
+    "typeVersion": 1,
+    "position": [
+     -480,
+     432
+    ],
+    "notesInFlow": true,
+    "notes": "לחץ כאן לבדיקה. רץ לפי BRANCH בנוד ההגדרות."
+   },
+   {
+    "parameters": {
+     "rule": {
+      "interval": [
+       {
+        "field": "cronExpression",
+        "expression": "0 20 * * 3"
+       }
+      ]
+     }
+    },
+    "id": "🕗 רביעי 20:00",
+    "name": "🕗 רביעי 20:00",
+    "type": "n8n-nodes-base.scheduleTrigger",
+    "typeVersion": 1.2,
+    "position": [
+     -480,
+     560
+    ],
+    "notesInFlow": true,
+    "notes": "ענף 1 · סוף בוסט"
+   },
+   {
+    "parameters": {
+     "rule": {
+      "interval": [
+       {
+        "field": "cronExpression",
+        "expression": "0 8 * * *"
+       }
+      ]
+     }
+    },
+    "id": "🕗 יומי 08:00",
+    "name": "🕗 יומי 08:00",
+    "type": "n8n-nodes-base.scheduleTrigger",
+    "typeVersion": 1.2,
+    "position": [
+     -480,
+     704
+    ],
+    "notesInFlow": true,
+    "notes": "ענף 2 · סוף ליווי"
+   },
+   {
+    "parameters": {
+     "jsCode": "\n// ═══════════════════════════════════════════════════════════════════\n//  ⚙️ הגדרות — כל מה שצריך לשנות נמצא כאן ורק כאן\n//  הדיאלקט אומת מול WF-17 ו-WF-16 החיים.\n// ═══════════════════════════════════════════════════════════════════\nconst CFG = {\n\n  // ── מתגי בטיחות ──────────────────────────────────────────────────\n  DRY_RUN: false,          // true = לא נוצרת שום רשומה. רק דוח.\n  MAX_PER_RUN: 25,        // תקרת רשומות לריצה\n  BRANCH: 'both',         // 'both' | 'boost' | 'renewal'\n\n  // 🧪 מתג בדיקה בלבד. ריק = התנהגות רגילה (היום + 4 = ראשון הקרוב).\n  //    ממולא בתאריך 'YYYY-MM-DD' = מחפש מחזורי בוסט שנגמרים בדיוק בתאריך הזה.\n  //    ⚠️ להשאיר ריק לפני העלאה לאוויר!\n  CYCLE_END_OVERRIDE: '',\n  //    ומקביל לענף החידוש — תאריך סיום ליווי לחיפוש ידני.\n  RENEWAL_DATE_OVERRIDE: '',\n\n  // ── מוצרים (מאומת מ-WF-17) ───────────────────────────────────────\n  PRODUCT: {\n    BOOST_WORKSHOP: '2f73403a-20de-47a7-b0cb-df4761b45f21',   // ✅ סדנה בוסט\n    COACHING_12W:   'd9e842a7-f284-4596-bb61-4d2a350eebb5',   // ✅ תוכנית ליווי 12 שבועות\n    RETAINER:       '58a4d4f9-5921-4bfc-ba8e-518877faa375',   // ✅ ריטיינר\n  },\n  FALLBACK_OWNER_ID: '0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de',  // ויטרו ראשי\n\n  // ⚠️ פיירברי מחזיר picklist כ**תווית בעברית**, לא כמספר.\n  //    לכן ההשוואות בקוד הן על תוויות. הכתיבה — במספר.\n  ST: {\n    NEW_CODE: 2,                                  // ליד חדש — לכתיבה\n    SOLD:   ['ממתין לתשלום', 'עסקה נסגרה בהצלחה'],\n    LOST:   ['עסקה הופסדה', 'עסקה בוטלה'],\n  },\n  // 🚫 מחזורי בוסט בסטטוסים האלה יידלגו לחלוטין.\n  //    ערכי הסטטוס האפשריים: פתוח להרשמה · קורס פעיל · הסתיים · התבטל · ממתין לפתיחה\n  CYCLE_STATUS_EXCLUDE: ['התבטל'],\n\n  // ⚠️ שדות פיקליסט נקראים כתווית בעברית אך נכתבים כמספר.\n  //    כל שדה כזה שהאוטומציה כותבת חייב להופיע כאן.\n  WRITE_CODES: {\n    pcfFormFilled: { 'כן': 1, 'לא': 2 },   // מילאה שאלון לאחר בוסט?\n  },\n\n  PROGRAM_BOOST_LABELS: ['בוסט'],\n  COACHING_ACTIVE_LABELS: ['ליווי בתהליך'],\n\n  // כתובת הבסיס של n8n — לבניית קישור לריצה בהערת תהליך המכירה\n  N8N_BASE_URL: 'https://n8n.srv964196.hstgr.cloud',\n\n  RETAINER_SENTINEL_YEAR: 2099,\n  BOOST_CYCLE_LENGTH_DAYS: 7,\n  RENEWAL_DAYS_BEFORE_END: 14,\n  FOLLOWUP_HOUR: '10:00',\n\n  // ── שמות שדות. ✅ = אומת מול workflow חי · ❓ = לא אומת ────────────\n  F: {\n    CYCLE_ID:    'customobject1007id',  // ✅\n    CYCLE_END:   'pcfEndDate',          // ✅\n    CYCLE_STAT:  'pcfStatus',           // ✅\n\n    SALE_ID:      'opportunityid',      // ✅\n    SALE_ACCOUNT: 'accountid',          // ✅\n    SALE_STATUS:  'statuscode',         // ✅\n    SALE_PRODUCT: 'pcfProduct',         // ✅\n    SALE_CYCLE:   'pcfCourse',          // ✅\n    SALE_PARENT:  'pcfParentSale',      // ✅\n    SALE_GROUP:   'pcfWhatsAppToRef',   // ✅\n    SALE_OWNER:   'ownerid',            // ✅\n    SALE_FORMLINK:'pcfFormLink',        // ✅\n    SALE_FORMFILL:'pcfFormFilled',      // ✅\n    SALE_PHONE:   'pcfTelephone1',      // ✅\n    SALE_EMAIL:   'pcfemailaddress',    // ✅\n    SALE_FUNNEL:  'pcfFunnels',         // ✅\n    SALE_CLOSED:  'pcfclosedate',       // ❓ תאריך סגירת עסקה\n    SALE_FOLLOWUP:'pcfFollowUpTime',    // ❓ תאריך לפולואפ\n\n    CO_ID:       'customobject1051id',  // ✅\n    CO_ACCOUNT:  'pcfaccountid',        // ✅ ⚠️ לא accountid!\n    CO_ACC_NAME: 'pcfaccountidname',    // ✅\n    CO_STATUS:   'pcfStatus',           // ✅\n    CO_PROGRAM:  'pcfCurrentProgram',   // ✅\n    CO_ENDDATE:  'pcfEstimatedEndDate', // ✅\n    CO_CYCLE:    'pcfBoostLinked',      // ✅\n    CO_OWNER:    'ownerid',             // ✅\n    CO_SALE:     'pcfSale',             // ✅\n  },\n};\n\nfunction ilNow() {\n  const s = new Date().toLocaleString('sv-SE', { timeZone: 'Asia/Jerusalem' });\n  return new Date(s.replace(' ', 'T') + 'Z');\n}\nfunction addDays(d, n) { const x = new Date(d); x.setUTCDate(x.getUTCDate() + n); return x; }\nfunction ymd(d) { return d.toISOString().slice(0, 10); }\n\nconst now = ilNow();\nconst trg = ($json && $json.__branch) ? $json.__branch : CFG.BRANCH;\n\n// ── תאריכי היעד. מתג הבדיקה גובר, אם מולא. ──────────────────────\nconst DATE_RE = /^\\d{4}-\\d{2}-\\d{2}$/;\nconst ovC = String(CFG.CYCLE_END_OVERRIDE || '').trim();\nconst ovR = String(CFG.RENEWAL_DATE_OVERRIDE || '').trim();\nif (ovC && !DATE_RE.test(ovC)) {\n  throw new Error('CYCLE_END_OVERRIDE לא תקין: \"' + ovC + '\" — הפורמט חייב להיות YYYY-MM-DD, או ריק.');\n}\nif (ovR && !DATE_RE.test(ovR)) {\n  throw new Error('RENEWAL_DATE_OVERRIDE לא תקין: \"' + ovR + '\" — הפורמט חייב להיות YYYY-MM-DD, או ריק.');\n}\n\nconst cycleEnd   = ovC || ymd(addDays(now, 4));                       // ראשון הקרוב\nconst cycleStart = ymd(addDays(new Date(cycleEnd + 'T00:00:00Z'), -CFG.BOOST_CYCLE_LENGTH_DAYS));\nconst renewal    = ovR || ymd(addDays(now, CFG.RENEWAL_DAYS_BEFORE_END));\n\nreturn [{ json: {\n  cfg: CFG,\n  branch: trg,\n  today:           ymd(now),\n  cycleEndTarget:  cycleEnd,\n  cycleStartTarget:cycleStart,\n  renewalTarget:   renewal,\n  testMode:        !!(ovC || ovR),\n  runStartedAt:    now.toISOString(),\n}}];\n"
+    },
+    "id": "⚙️ הגדרות",
+    "name": "⚙️ הגדרות",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     -224,
+     560
+    ],
+    "notesInFlow": true,
+    "notes": "כל הקבועים ושמות השדות. ✅=אומת מול WF-17/16 · ❓=לא אומת"
+   },
+   {
+    "parameters": {
+     "rules": {
+      "values": [
+       {
+        "conditions": {
+         "options": {
+          "caseSensitive": true,
+          "version": 2
+         },
+         "combinator": "and",
+         "conditions": [
+          {
+           "id": "s1",
+           "leftValue": "={{ $json.branch }}",
+           "rightValue": "renewal",
+           "operator": {
+            "type": "string",
+            "operation": "notEquals"
+           }
+          }
+         ]
+        },
+        "renameOutput": true,
+        "outputKey": "בוסט"
+       },
+       {
+        "conditions": {
+         "options": {
+          "caseSensitive": true,
+          "version": 2
+         },
+         "combinator": "and",
+         "conditions": [
+          {
+           "id": "s2",
+           "leftValue": "={{ $json.branch }}",
+           "rightValue": "boost",
+           "operator": {
+            "type": "string",
+            "operation": "notEquals"
+           }
+          }
+         ]
+        },
+        "renameOutput": true,
+        "outputKey": "חידוש"
+       }
+      ]
+     },
+     "options": {
+      "allMatchingOutputs": true
+     }
+    },
+    "id": "🔀 בחירת ענף",
+    "name": "🔀 בחירת ענף",
+    "type": "n8n-nodes-base.switch",
+    "typeVersion": 3.2,
+    "position": [
+     32,
+     560
+    ],
+    "notesInFlow": true,
+    "notes": "'both' מפעיל את שני הענפים"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/query",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify({objecttype:1007,page_size:500,page_number:1,fields:'customobject1007id,name,pcfEndDate,pcfStatus',query:\"(pcfStatus = 4)\"}) }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "1.1 מחזורי בוסט מסתיימים",
+    "name": "1.1 מחזורי בוסט מסתיימים",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     288,
+     304
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "מחזור שמסתיים ביום ראשון הקרוב"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/query",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ (()=>{const R=(a)=>(((a||{}).data)||{}).Data||[];const OR=(f,ids)=>ids.length?'('+ids.map(i=>'('+f+\" = '\"+i+\"')\").join(' OR ')+')':\"(\"+f+\" = '00000000-0000-0000-0000-000000000000')\";const cfg=$('⚙️ הגדרות').first().json.cfg;const excl=cfg.CYCLE_STATUS_EXCLUDE||[];const ids=R($json).filter(c=>!excl.includes(String(c.pcfStatus||'').trim())).map(c=>c.customobject1007id);return JSON.stringify({objecttype:4,page_size:500,page_number:1,fields:'opportunityid,name,accountid,statuscode,pcfProduct,pcfCourse,pcfParentSale,pcfWhatsAppToRef,ownerid,pcfFormFilled,pcfFormLink,pcfTelephone1,pcfemailaddress,pcfFunnels,pcfclosedate',query:OR('pcfCourse',ids)+\" AND (statuscode = 11)\"});})() }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "1.2 עסקאות בוסט במחזור",
+    "name": "1.2 עסקאות בוסט במחזור",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     544,
+     304
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "עסקאות סדנת בוסט בסטטוס עסקה נסגרה בהצלחה"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/query",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ (()=>{const R=(a)=>(((a||{}).data)||{}).Data||[];const OR=(f,ids)=>ids.length?'('+ids.map(i=>'('+f+\" = '\"+i+\"')\").join(' OR ')+')':\"(\"+f+\" = '00000000-0000-0000-0000-000000000000')\";const accs=[...new Set(R($('1.2 עסקאות בוסט במחזור').first().json).map(s=>s.accountid).filter(Boolean))];return JSON.stringify({objecttype:1051,page_size:500,page_number:1,fields:'customobject1051id,name,pcfaccountid,pcfaccountidname,pcfStatus,pcfCurrentProgram,pcfEstimatedEndDate,pcfBoostLinked,ownerid,pcfSale',query:OR('pcfaccountid',accs)});})() }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "1.3 תהליכי ליווי של הלקוחות",
+    "name": "1.3 תהליכי ליווי של הלקוחות",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     800,
+     304
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "שער — האם כבר יש ליווי שאינו בוסט"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/query",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ (()=>{const R=(a)=>(((a||{}).data)||{}).Data||[];const OR=(f,ids)=>ids.length?'('+ids.map(i=>'('+f+\" = '\"+i+\"')\").join(' OR ')+')':\"(\"+f+\" = '00000000-0000-0000-0000-000000000000')\";const accs=[...new Set(R($('1.2 עסקאות בוסט במחזור').first().json).map(s=>s.accountid).filter(Boolean))];return JSON.stringify({objecttype:4,page_size:500,page_number:1,fields:'opportunityid,name,accountid,statuscode,pcfProduct,pcfCourse,pcfParentSale,pcfWhatsAppToRef,ownerid,pcfFormFilled,pcfFormLink,pcfTelephone1,pcfemailaddress,pcfFunnels,pcfclosedate',query:OR('accountid',accs)});})() }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "1.4 כל תהליכי המכירה של הלקוחות",
+    "name": "1.4 כל תהליכי המכירה של הלקוחות",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     976,
+     304
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "⚠️ בלי סינון סטטוס — זה מה שמאפשר את עץ הכפילות"
+   },
+   {
+    "parameters": {
+     "jsCode": "\n// ═══════════════════════════════════════════════════════════════════\n//  ענף 1 · שערי הסינון + עץ הכפילות המאושר\n//  ⚠️ statuscode חוזר כתווית בעברית — כל ההשוואות על תוויות.\n// ═══════════════════════════════════════════════════════════════════\nconst meta = $('⚙️ הגדרות').first().json;\nconst cfg  = meta.cfg;\nconst F    = cfg.F;\n\nconst rows = (a) => {\n  const d = (a && a.data) ? a.data : a;\n  return (d && (d.Data || d.data)) || (Array.isArray(d) ? d : []);\n};\nconst txt  = (v) => String(v == null ? '' : v).trim();\nconst dOnly= (v) => (v ? String(v).slice(0, 10) : null);\n\nconst cyclesRaw = rows($('1.1 מחזורי בוסט מסתיימים').first().json);\n// 🚫 מדלגים על מחזורים בסטטוסים שהוגדרו בהגדרות (למשל \"התבטל\")\nconst excl    = cfg.CYCLE_STATUS_EXCLUDE || [];\nconst cycles  = cyclesRaw.filter(c => !excl.includes(String(c[F.CYCLE_STAT] || '').trim()));\nconst droppedCycles = cyclesRaw.length - cycles.length;\n// ✅ רק עסקאות ששייכות לאחד מהמחזורים האלה רלוונטיות לריצה הזו\nconst validCycles = new Set(cycles.map(c => c[F.CYCLE_ID]));\nconst boostSal = rows($('1.2 עסקאות בוסט במחזור').first().json);\nconst coaching = rows($('1.3 תהליכי ליווי של הלקוחות').first().json);\nconst allSales = rows($('1.4 כל תהליכי המכירה של הלקוחות').first().json);\nconst accounts = rows($('1.4b שמות הלקוחות').first().json);\nconst nameByAcc = {};\nfor (const a of accounts) nameByAcc[a.accountid] = a.accountname;\n\n// תחילת המחזור = תאריך הסיום פחות אורך המחזור\nconst cycInfoById = {};\nfor (const c of cycles) cycInfoById[c[F.CYCLE_ID]] =\n  { name: c.name || '', end: dOnly(c[F.CYCLE_END]) };\n\nconst cycStartById = {};\nfor (const c of cycles) {\n  const e = dOnly(c[F.CYCLE_END]);\n  if (!e) continue;\n  const d = new Date(e + 'T00:00:00Z');\n  d.setUTCDate(d.getUTCDate() - cfg.BOOST_CYCLE_LENGTH_DAYS);\n  cycStartById[c[F.CYCLE_ID]] = d.toISOString().slice(0, 10);\n}\n\nconst group = (arr, key) => {\n  const m = {};\n  for (const r of arr) { const k = r[key]; if (!k) continue; (m[k] = m[k] || []).push(r); }\n  return m;\n};\nconst coByAcc  = group(coaching, F.CO_ACCOUNT);\nconst salByAcc = group(allSales, F.SALE_ACCOUNT);\n\nconst out = [], skipped = [];\n\nfor (const deal of boostSal) {\n  const acc = deal[F.SALE_ACCOUNT];\n  const cyc = deal[F.SALE_CYCLE];\n  const skip = (why, detail) => skipped.push({ לקוחה: deal.accountid_name_unused || acc, סיבה: why, פרטים: detail });\n\n  if (!acc) { skip('אין לקוח מקושר לעסקה'); continue; }\n\n  // ── שער · העסקה חייבת להשתייך למחזור שנמצא בריצה הזו ─────────────\n  if (!cyc) { skip('לעסקת הבוסט אין מחזור מקושר'); continue; }\n  if (!validCycles.has(cyc)) { skip('העסקה אינה שייכת למחזור שמסתיים היום (או שהמחזור בוטל)'); continue; }\n\n  // ── שער · אין ללקוחה תהליך ליווי שאינו בוסט ─────────────────────\n  const cos = coByAcc[acc] || [];\n  const notBoost = cos.filter(c => !cfg.PROGRAM_BOOST_LABELS.includes(txt(c[F.CO_PROGRAM])));\n  if (notBoost.length) { skip('כבר יש תהליך ליווי שאינו בוסט', notBoost.length); continue; }\n\n  // ── שער · עץ הכפילות המאושר ─────────────────────────────────────\n  // ⚠️ מחריגים את עסקאות הבוסט עצמן — אחרת עסקת הבוסט הנוכחית\n  //    תיראה כ'נמכר השבוע' וכל מועמדת תיחסם תמיד.\n  const boostGuid = String(cfg.PRODUCT.BOOST_WORKSHOP).toLowerCase();\n  const sales = (salByAcc[acc] || []).filter(s =>\n    String(s[F.SALE_PRODUCT] || '').toLowerCase() !== boostGuid);\n  const terminal = cfg.ST.SOLD.concat(cfg.ST.LOST);\n\n  // א · תהליך פעיל (כל סטטוס שאינו סופי — כולל \"ליד חדש\") ⇒ דילוג\n  const active = sales.filter(s => !terminal.includes(txt(s[F.SALE_STATUS])));\n  if (active.length) {\n    skip('קיים תהליך מכירה פעיל', active.map(s => txt(s[F.SALE_STATUS])).join(', '));\n    continue;\n  }\n\n  // ב · תהליך שנמכר ⇒ בדיקת תאריך סגירה מול תחילת המחזור\n  const sold = sales.filter(s => cfg.ST.SOLD.includes(txt(s[F.SALE_STATUS])));\n  const cycStart = cycStartById[cyc] || meta.cycleStartTarget;\n  const fresh = sold.filter(s => { const cd = dOnly(s[F.SALE_CLOSED]); return cd && cd >= cycStart; });\n  if (fresh.length) { skip('כבר קנתה ליווי בעקבות הבוסט הזה', cycStart); continue; }\n\n  // ג · רק הופסדה/בוטלה, מכירה ישנה, או כלום ⇒ פותחים (אושר ע\"י מייק)\n  const co = cos[0] || {};\n  out.push({\n    account:     acc,\n    accountName: nameByAcc[acc] || co[F.CO_ACC_NAME] || '',\n    parentSale:  deal[F.SALE_ID],\n    cycle:       cyc,\n    cycleName:   (cycInfoById[cyc] || {}).name || '',\n    cycleEnd:    (cycInfoById[cyc] || {}).end  || '',\n    group:       deal[F.SALE_GROUP] || null,\n    owner:       deal[F.SALE_OWNER] || cfg.FALLBACK_OWNER_ID,\n    formLink:    deal[F.SALE_FORMLINK] || null,\n    formFilled:  deal[F.SALE_FORMFILL] || null,\n    phone:       deal[F.SALE_PHONE] || null,\n    email:       deal[F.SALE_EMAIL] || null,\n    funnel:      deal[F.SALE_FUNNEL] || null,\n  });\n}\n\nconst capped = out.slice(0, cfg.MAX_PER_RUN);\n\nreturn [{ json: {\n  branch: 'boost',\n  dryRun: cfg.DRY_RUN,\n  counts: {\n    'מחזורים שנמצאו': cycles.length,\n    'מחזורים שדולגו (מבוטלים)': droppedCycles,\n    'עסקאות בוסט': boostSal.length,\n    'עברו את כל השערים': out.length,\n    'ייווצרו בריצה הזו': capped.length,\n    'נחתכו בגלל התקרה': out.length - capped.length,\n    'דילוגים': skipped.length,\n  },\n  toCreate: capped,\n  skipped,\n}}];\n"
+    },
+    "id": "1.5 שערים ועץ הכפילות",
+    "name": "1.5 שערים ועץ הכפילות",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1328,
+     304
+    ],
+    "notesInFlow": true,
+    "notes": "פעיל ⇒ דילוג · נמכר השבוע ⇒ דילוג · נמכר בעבר ⇒ יצירה"
+   },
+   {
+    "parameters": {
+     "jsCode": "\nconst meta = $('⚙️ הגדרות').first().json;\nconst cfg  = meta.cfg;\nconst F    = cfg.F;\nconst src  = $json;\n\nif (!src.toCreate || !src.toCreate.length) {\n  return [{ json: Object.assign({}, src, { payloads: [], note: 'אין רשומות ליצירה' }) }];\n}\n\n// ── קישור לריצה ב-n8n + פורמט תאריך עברי ─────────────────────────\nconst execId = (typeof $execution !== 'undefined' && $execution && $execution.id)\n  ? String($execution.id) : '';\nconst wfId   = (typeof $workflow  !== 'undefined' && $workflow  && $workflow.id)\n  ? String($workflow.id)  : '';\nconst runLink = (execId && wfId)\n  ? cfg.N8N_BASE_URL + '/workflow/' + wfId + '/executions/' + execId\n  : (cfg.N8N_BASE_URL + '/workflow/' + wfId);\nconst il = (ymd) => { if (!ymd) return '—';\n  const p = String(ymd).slice(0,10).split('-'); return p[2] + '.' + p[1] + '.' + p[0]; };\n\nconst d = new Date(meta.runStartedAt);\nd.setUTCDate(d.getUTCDate() + 1);                       // חמישי\nconst followup = d.toISOString().slice(0, 10) + 'T' + cfg.FOLLOWUP_HOUR + ':00';\n\nconst payloads = src.toCreate.map(r => {\n  const b = {};\n  b.name              = 'מכירת ליווי לאחר בוסט - ' + (r.accountName || r.account);\n  b[F.SALE_ACCOUNT]   = r.account;\n  b.statuscode        = cfg.ST.NEW_CODE;                // ליד חדש — נכתב כמספר\n  b[F.SALE_PRODUCT]   = cfg.PRODUCT.COACHING_12W;\n  b[F.SALE_PARENT]    = r.parentSale;\n  if (r.cycle)      b[F.SALE_CYCLE]    = r.cycle;\n  if (r.group)      b[F.SALE_GROUP]    = r.group;\n  if (r.owner)      b[F.SALE_OWNER]    = r.owner;\n  if (r.formLink)   b[F.SALE_FORMLINK] = r.formLink;\n  // ⚠️ פיירברי מחזירה 'כן' אבל דורשת 1 בכתיבה\n  if (r.formFilled) {\n    const map = (cfg.WRITE_CODES || {})[F.SALE_FORMFILL] || {};\n    const code = map[String(r.formFilled).trim()];\n    if (code !== undefined) b[F.SALE_FORMFILL] = code;\n  }\n  if (r.phone)      b[F.SALE_PHONE]    = r.phone;\n  if (r.email)      b[F.SALE_EMAIL]    = r.email;\n  if (r.funnel)     b[F.SALE_FUNNEL]   = r.funnel;\n  b[F.SALE_FOLLOWUP]  = followup;\n\n  // ── הערה אוטומטית לנציגה ──────────────────────────────────────\n  b.description = [\n    '🤖 תהליך המכירה הזה נפתח אוטומטית.',\n    '',\n    'הסיבה: הלקוחה סיימה את מחזור הבוסט \"' + (r.cycleName || '—') + '\"',\n    'שהסתיים בתאריך ' + il(r.cycleEnd) + ', ולא נמצא לה תהליך מכירה פעיל',\n    'ולא רכישת ליווי בעקבות המחזור הזה.',\n    '',\n    '📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת הליווי.',\n    '',\n    '───────────────',\n    'נוצר על ידי WF-19 · ריצה ' + (execId || '—'),\n    runLink,\n  ].join('\\n');\n\n  return { accountName: r.accountName, account: r.account, body: b };\n});\n\n// ⚠️ פיירברי לא מקבלת מערך ב-POST — חייבים רשומה אחת לכל קריאה.\n//    לכן מחזירים פריט נפרד לכל רשומה, וכל פריט נושא גם את הסיכום.\nconst base = Object.assign({}, src, { followupDate: followup, payloads });\nreturn payloads.map(p => ({ json: Object.assign({}, base,\n  { accountName: p.accountName, account: p.account, body: p.body }) }));\n"
+    },
+    "id": "1.6 בניית הרשומות",
+    "name": "1.6 בניית הרשומות",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1584,
+     304
+    ]
+   },
+   {
+    "parameters": {
+     "conditions": {
+      "options": {
+       "version": 2
+      },
+      "combinator": "and",
+      "conditions": [
+       {
+        "id": "c1",
+        "leftValue": "={{ $json.dryRun === false && !!$json.body }}",
+        "rightValue": "",
+        "operator": {
+         "type": "boolean",
+         "operation": "true",
+         "singleValue": true
+        }
+       }
+      ]
+     },
+     "options": {}
+    },
+    "id": "1.7 האם חי?",
+    "name": "1.7 האם חי?",
+    "type": "n8n-nodes-base.if",
+    "typeVersion": 2.2,
+    "position": [
+     1840,
+     304
+    ],
+    "notesInFlow": true,
+    "notes": "בהרצה יבשה עוקף את היצירה"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/record/4",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify($json.body) }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "1.8 יצירת תהליכי מכירה",
+    "name": "1.8 יצירת תהליכי מכירה",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     2112,
+     224
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "🔴 רץ רק כשמצב ההרצה היבשה כבוי"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/query",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify({objecttype:1051,page_size:500,page_number:1,fields:'customobject1051id,name,pcfaccountid,pcfaccountidname,pcfStatus,pcfCurrentProgram,pcfEstimatedEndDate,pcfBoostLinked,ownerid,pcfSale',query:\"(pcfStatus = 2)\"}) }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "2.1 ליוויים שמסתיימים בעוד שבועיים",
+    "name": "2.1 ליוויים שמסתיימים בחלון הקרוב",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     288,
+     832
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "⚠️ סינון הריטיינרים והסטטוס נעשה בקוד"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/query",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ (()=>{const R=(a)=>(((a||{}).data)||{}).Data||[];const OR=(f,ids)=>ids.length?'('+ids.map(i=>'('+f+\" = '\"+i+\"')\").join(' OR ')+')':\"(\"+f+\" = '00000000-0000-0000-0000-000000000000')\";const accs=[...new Set(R($json).map(c=>c.pcfaccountid).filter(Boolean))];return JSON.stringify({objecttype:4,page_size:500,page_number:1,fields:'opportunityid,name,accountid,statuscode,pcfProduct,pcfCourse,pcfParentSale,pcfWhatsAppToRef,ownerid,pcfFormFilled,pcfFormLink,pcfTelephone1,pcfemailaddress,pcfFunnels,pcfclosedate',query:OR('accountid',accs)});})() }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "2.2 כל תהליכי המכירה של הלקוחות",
+    "name": "2.2 כל תהליכי המכירה של הלקוחות",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     544,
+     832
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "⚠️ בלי סינון סטטוס"
+   },
+   {
+    "parameters": {
+     "jsCode": "\n// ═══════════════════════════════════════════════════════════════════\n//  ענף 2 · סוף ליווי ← תהליך מכירה לחידוש\n// ═══════════════════════════════════════════════════════════════════\nconst meta = $('⚙️ הגדרות').first().json;\nconst cfg  = meta.cfg;\nconst F    = cfg.F;\n\nconst rows = (a) => {\n  const d = (a && a.data) ? a.data : a;\n  return (d && (d.Data || d.data)) || (Array.isArray(d) ? d : []);\n};\nconst txt  = (v) => String(v == null ? '' : v).trim();\nconst dOnly= (v) => (v ? String(v).slice(0, 10) : null);\n\nconst coaching = rows($('2.1 ליוויים שמסתיימים בחלון הקרוב').first().json);\nconst allSales = rows($('2.2 כל תהליכי המכירה של הלקוחות').first().json);\n\nconst salByAcc = {};\nfor (const s of allSales) {\n  const k = s[F.SALE_ACCOUNT]; if (!k) continue;\n  (salByAcc[k] = salByAcc[k] || []).push(s);\n}\n\nconst out = [], skipped = [];\n\nfor (const co of coaching) {\n  const acc = co[F.CO_ACCOUNT];\n  const nm  = co[F.CO_ACC_NAME] || acc;\n  const skip = (why, detail) => skipped.push({ לקוחה: nm, סיבה: why, פרטים: detail });\n  if (!acc) { skip('אין לקוח מקושר לליווי'); continue; }\n\n  // ⚠️ סינון ריטיינרים — תאריך סיום בשנת 2099 ומעלה\n  const end = dOnly(co[F.CO_ENDDATE]);\n  if (end && Number(end.slice(0, 4)) >= cfg.RETAINER_SENTINEL_YEAR) {\n    skip('ריטיינר — אין תאריך סיום אמיתי', end); continue;\n  }\n  if (!cfg.COACHING_ACTIVE_LABELS.includes(txt(co[F.CO_STATUS]))) {\n    skip('הליווי אינו בסטטוס ליווי בתהליך', txt(co[F.CO_STATUS])); continue;\n  }\n\n  // ⚠️ מחריגים את עסקאות הבוסט עצמן — אחרת עסקת הבוסט הנוכחית\n  //    תיראה כ'נמכר השבוע' וכל מועמדת תיחסם תמיד.\n  const boostGuid = String(cfg.PRODUCT.BOOST_WORKSHOP).toLowerCase();\n  const sales = (salByAcc[acc] || []).filter(s =>\n    String(s[F.SALE_PRODUCT] || '').toLowerCase() !== boostGuid);\n  const terminal = cfg.ST.SOLD.concat(cfg.ST.LOST);\n  const active = sales.filter(s => !terminal.includes(txt(s[F.SALE_STATUS])));\n  if (active.length) {\n    skip('קיים תהליך מכירה פעיל', active.map(s => txt(s[F.SALE_STATUS])).join(', '));\n    continue;\n  }\n  // ✅ החלטת מייק (16.8): רק רכישה של תוכנית ההמשך עצמה חוסמת.\n  //    עסקאות עבר (בוסט, ליווי) אינן חוסמות — הן הסיבה שהיא כאן מלכתחילה.\n  const sold = sales.filter(s => cfg.ST.SOLD.includes(txt(s[F.SALE_STATUS])));\n  const contGuid = String(cfg.PRODUCT.RETAINER).toLowerCase();\n  const already = sold.filter(s =>\n    String(s[F.SALE_PRODUCT] || '').toLowerCase() === contGuid);\n  if (already.length) {\n    skip('כבר רכשה תוכנית המשך', already.length);\n    continue;\n  }\n\n  out.push({\n    account: acc, accountName: nm,\n    coachingId: co[F.CO_ID],\n    mentor: co[F.CO_OWNER] || cfg.FALLBACK_OWNER_ID,\n    endDate: end,\n  });\n}\n\nconst capped = out.slice(0, cfg.MAX_PER_RUN);\n\nreturn [{ json: {\n  branch: 'renewal',\n  dryRun: cfg.DRY_RUN,\n  counts: {\n    'ליוויים שמסתיימים': coaching.length,\n    'עברו את כל השערים': out.length,\n    'ייווצרו בריצה הזו': capped.length,\n    'דילוגים': skipped.length,\n  },\n  toCreate: capped,\n  skipped,\n}}];\n"
+    },
+    "id": "2.3 שערים ועץ הכפילות",
+    "name": "2.3 שערים ועץ הכפילות",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     800,
+     832
+    ]
+   },
+   {
+    "parameters": {
+     "jsCode": "\nconst meta = $('⚙️ הגדרות').first().json;\nconst cfg = meta.cfg;\nconst F   = cfg.F;\nconst src = $json;\n\nif (!src.toCreate || !src.toCreate.length) {\n  return [{ json: Object.assign({}, src, { payloads: [], followupDate: null, note: 'אין רשומות ליצירה' }) }];\n}\nif (cfg.PRODUCT.RETAINER === 'REPLACE_WITH_RETAINER_GUID') {\n  return [{ json: Object.assign({}, src, { payloads: [],\n    error: '⛔ חסר מזהה מוצר החידוש. יש למלא אותו בנוד ההגדרות לפני הפעלה.' }) }];\n}\n\nconst execId = (typeof $execution !== 'undefined' && $execution && $execution.id)\n  ? String($execution.id) : '';\nconst wfId   = (typeof $workflow  !== 'undefined' && $workflow  && $workflow.id)\n  ? String($workflow.id)  : '';\nconst runLink = (execId && wfId)\n  ? cfg.N8N_BASE_URL + '/workflow/' + wfId + '/executions/' + execId\n  : (cfg.N8N_BASE_URL + '/workflow/' + wfId);\nconst il = (ymd) => { if (!ymd) return '—';\n  const p = String(ymd).slice(0,10).split('-'); return p[2] + '.' + p[1] + '.' + p[0]; };\n\nconst d = new Date(meta.runStartedAt);\nd.setUTCDate(d.getUTCDate() + 1);\nconst followup = d.toISOString().slice(0, 10) + 'T' + cfg.FOLLOWUP_HOUR + ':00';\n\nconst payloads = src.toCreate.map(r => {\n  const b = {};\n  b.name            = 'מכירת תוכנית המשך - ' + (r.accountName || r.account);\n  b[F.SALE_ACCOUNT] = r.account;\n  b.statuscode      = cfg.ST.NEW_CODE;\n  b[F.SALE_PRODUCT] = cfg.PRODUCT.RETAINER;\n  if (r.mentor) b[F.SALE_OWNER] = r.mentor;   // המנטורית = נציגת המכירות\n  b[F.SALE_FOLLOWUP] = followup;\n\n  // ── הערה אוטומטית לנציגה ──────────────────────────────────────\n  b.description = [\n    '🤖 תהליך המכירה הזה נפתח אוטומטית.',\n    '',\n    'הסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך ' + il(r.endDate) + ',',\n    'והיא עדיין לא רכשה תוכנית המשך.',\n    '',\n    '📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.',\n    '',\n    '───────────────',\n    'נוצר על ידי WF-19 · ריצה ' + (execId || '—'),\n    runLink,\n  ].join('\\n');\n\n  return { accountName: r.accountName, account: r.account, body: b };\n});\n\nconst base = Object.assign({}, src, { payloads, followupDate: followup });\nreturn payloads.map(p => ({ json: Object.assign({}, base,\n  { accountName: p.accountName, account: p.account, body: p.body }) }));\n"
+    },
+    "id": "2.4 בניית הרשומות",
+    "name": "2.4 בניית הרשומות",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1072,
+     832
+    ],
+    "notesInFlow": true,
+    "notes": "⛔ עוצר אם חסר מזהה מוצר החידוש"
+   },
+   {
+    "parameters": {
+     "conditions": {
+      "options": {
+       "version": 2
+      },
+      "combinator": "and",
+      "conditions": [
+       {
+        "id": "c1",
+        "leftValue": "={{ $json.dryRun === false && !!$json.body }}",
+        "rightValue": "",
+        "operator": {
+         "type": "boolean",
+         "operation": "true",
+         "singleValue": true
+        }
+       }
+      ]
+     },
+     "options": {}
+    },
+    "id": "2.5 האם חי?",
+    "name": "2.5 האם חי?",
+    "type": "n8n-nodes-base.if",
+    "typeVersion": 2.2,
+    "position": [
+     1328,
+     832
+    ]
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/record/4",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify($json.body) }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "2.6 יצירת תהליכי מכירה",
+    "name": "2.6 יצירת תהליכי מכירה",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     1584,
+     752
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "🔴 רץ רק כשמצב ההרצה היבשה כבוי"
+   },
+   {
+    "parameters": {
+     "jsCode": "\n// ═══════════════════════════════════════════════════════════════════\n//  📋 סיכום הריצה — פתח את הנוד הזה אחרי הרצה ידנית\n// ═══════════════════════════════════════════════════════════════════\nconst S   = $('⚙️ הגדרות').first().json;\nconst cfg = S.cfg;\n\nconst L = [];\nL.push(cfg.DRY_RUN ? '🟡 מצב הרצה יבשה — לא נוצרה שום רשומה'\n                   : '🔴 מצב חי — נוצרו רשומות בפועל');\nif (S.testMode) {\n  L.push('🧪 מצב בדיקה פעיל — התאריכים נדרסו ידנית:');\n  L.push('   סיום מחזור בוסט שמחפשים: ' + S.cycleEndTarget);\n  L.push('   סיום ליווי שמחפשים: ' + S.renewalTarget);\n  L.push('   ⚠️ לרוקן את מתגי הבדיקה בהגדרות לפני העלאה לאוויר!');\n} else {\n  L.push('תאריכי היעד: סיום מחזור ' + S.cycleEndTarget + ' · סיום ליווי ' + S.renewalTarget);\n}\nL.push('');\n\n// ⚠️ קוראים ישירות מהבנאים — כך הסיכום אמין גם כשקריאת HTTP נכשלה\nconst pull = (node) => { try { return $(node).first().json; } catch (e) { return null; } };\nconst branches = [\n  { title: '━━ ענף 1 · סוף בוסט ← ליווי ━━',  data: pull('1.6 בניית הרשומות') },\n  { title: '━━ ענף 2 · סוף ליווי ← חידוש ━━', data: pull('2.4 בניית הרשומות') },\n];\n\n// שגיאות HTTP שהגיעו מנודי היצירה\nconst errs = $input.all().map(i => i.json)\n  .filter(j => j && j.error)\n  .map(j => (j.error && j.error.message) ? j.error.message : String(j.error));\n\nlet any = false;\nfor (const b of branches) {\n  const r = b.data;\n  if (!r || !r.branch) continue;\n  any = true;\n  L.push(b.title);\n  for (const k in (r.counts || {})) L.push('   ' + k + ': ' + r.counts[k]);\n  if (r.error) L.push('   ⛔ ' + r.error);\n  if (r.payloads && r.payloads.length) {\n    L.push((cfg.DRY_RUN ? '   ✅ רשומות שייווצרו:' : '   ✅ רשומות שנוצרו:'));\n    for (const p of r.payloads) L.push('      • ' + (p.accountName || p.account));\n  }\n  if (r.skipped && r.skipped.length) {\n    const gg = {};\n    for (const s of r.skipped) gg[s['סיבה']] = (gg[s['סיבה']] || 0) + 1;\n    L.push('   ⏭️ דילוגים:');\n    for (const k in gg) L.push('      • ' + k + ': ' + gg[k]);\n  }\n  L.push('');\n}\nif (!any) L.push('לא הגיעו נתונים משום ענף — בדוק את נודי ה-HTTP.');\nif (errs.length) {\n  L.push('⛔ שגיאות מפיירברי בשלב היצירה:');\n  for (const e of errs) L.push('   • ' + String(e).slice(0, 300));\n  L.push('   הרשומות האלה לא נוצרו.');\n}\n\nreturn [{ json: { 'סיכום': L.join('\\n'), 'שגיאות': errs,\n                  'גולמי': branches.map(b => b.data).filter(Boolean) } }];\n"
+    },
+    "id": "📋 סיכום הריצה",
+    "name": "📋 סיכום הריצה",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     2640,
+     560
+    ],
+    "notesInFlow": true,
+    "notes": "👈 פתח אותי אחרי הרצה ידנית"
+   },
+   {
+    "parameters": {
+     "method": "POST",
+     "url": "https://api.fireberry.com/api/query",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ (()=>{const R=(a)=>(((a||{}).data)||{}).Data||[];const OR=(f,ids)=>ids.length?'('+ids.map(i=>'('+f+\" = '\"+i+\"')\").join(' OR ')+')':\"(\"+f+\" = '00000000-0000-0000-0000-000000000000')\";const accs=[...new Set(R($('1.2 עסקאות בוסט במחזור').first().json).map(s=>s.accountid).filter(Boolean))];return JSON.stringify({objecttype:1,page_size:500,page_number:1,fields:'accountid,accountname',query:OR('accountid',accs)});})() }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "1.4b שמות הלקוחות",
+    "name": "1.4b שמות הלקוחות",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     1152,
+     304
+    ],
+    "notesInFlow": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput",
+    "notes": "⚠️ accountidname לא חוזר בשאילתת תהליך מכירה — צריך לשלוף בנפרד"
+   },
+   {
+    "parameters": {
+     "jsCode": "\n// ═══════════════════════════════════════════════════════════════════\n//  1.9 · השלמת השדות שפיירברי מפילה ביצירה\n//  ⚠️ אומת אמפירית (16.8): שלושה שדות לא נשמרים ב-POST —\n//     שם העסקה · טלפון · אימייל. PUT אחרי היצירה כן עובד,\n//     אבל רק אחרי שהאוטומציה הפנימית של פיירברי סיימה לרוץ\n//     (לכן יש צומת המתנה לפני השלב הזה).\n// ═══════════════════════════════════════════════════════════════════\nconst created = $input.all().map(i => i.json);\nconst built   = $('1.6 בניית הרשומות').first().json;\nconst bodies  = (built.payloads || []).map(p => p.body || {});\n\nconst rows = [];\ncreated.forEach((c, i) => {\n  const rec = (c && c.data && c.data.Record) || null;\n  const id  = rec && rec.opportunityid;\n  const b   = bodies[i];\n  if (!id || !b) return;\n  const patch = {};\n  if (b.name)            patch.name            = b.name;\n  if (b.pcfTelephone1)   patch.pcfTelephone1   = b.pcfTelephone1;\n  if (b.pcfemailaddress) patch.pcfemailaddress = b.pcfemailaddress;\n  if (b.description)     patch.description     = b.description;\n  if (Object.keys(patch).length) rows.push({ id, patch, name: patch.name || '' });\n});\nreturn rows.map(r => ({ json: r }));   // ריק = הצמתים הבאים מדולגים\n"
+    },
+    "id": "1.9 שיום הרשומות",
+    "name": "1.9 שיום הרשומות",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     2560,
+     224
+    ],
+    "notesInFlow": true,
+    "notes": "⚠️ פיירברי דורס את השם ביצירה — שלב תיקון"
+   },
+   {
+    "parameters": {
+     "method": "PUT",
+     "url": "=https://api.fireberry.com/api/record/4/{{ $json.id }}",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify($json.patch) }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "1.10 עדכון השם",
+    "name": "1.10 השלמת שם · טלפון · אימייל",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     2768,
+     224
+    ],
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput"
+   },
+   {
+    "parameters": {
+     "amount": 25
+    },
+    "id": "waitrename",
+    "name": "⏳ המתנה לשיום",
+    "type": "n8n-nodes-base.wait",
+    "typeVersion": 1.1,
+    "position": [
+     2352,
+     224
+    ],
+    "webhookId": "wf19-wait-rename"
+   },
+   {
+    "parameters": {
+     "amount": 25
+    },
+    "id": "waitrename2",
+    "name": "⏳ המתנה לשיום (חידוש)",
+    "type": "n8n-nodes-base.wait",
+    "typeVersion": 1.1,
+    "position": [
+     1808,
+     752
+    ],
+    "webhookId": "wf19-wait-rename-2"
+   },
+   {
+    "parameters": {
+     "jsCode": "\n// ═══════════════════════════════════════════════════════════════════\n//  2.7 · השלמת שם העסקה\n//  ⚠️ פיירברי דורסת את שם העסקה כמה שניות אחרי היצירה\n//     (אוטומציה פנימית). לכן PUT אחרי המתנה.\n// ═══════════════════════════════════════════════════════════════════\nconst created = $input.all().map(i => i.json);\nconst built   = $('2.4 בניית הרשומות').first().json;\nconst bodies  = (built.payloads || []).map(p => p.body || {});\nconst rows = [];\ncreated.forEach((c, i) => {\n  const rec = (c && c.data && c.data.Record) || null;\n  const id  = rec && rec.opportunityid;\n  const b   = bodies[i];\n  if (!id || !b || !b.name) return;\n  const patch = { name: b.name };\n  if (b.description) patch.description = b.description;\n  rows.push({ id, patch, name: b.name });\n});\nreturn rows.map(r => ({ json: r }));\n"
+    },
+    "id": "rename2",
+    "name": "2.7 שיום עסקאות החידוש",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     2032,
+     752
+    ]
+   },
+   {
+    "parameters": {
+     "method": "PUT",
+     "url": "=https://api.fireberry.com/api/record/4/{{ $json.id }}",
+     "authentication": "genericCredentialType",
+     "genericAuthType": "httpHeaderAuth",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify($json.patch) }}",
+     "options": {
+      "timeout": 30000
+     }
+    },
+    "id": "rename2put",
+    "name": "2.8 עדכון שם החידוש",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     2256,
+     752
+    ],
+    "alwaysOutputData": true,
+    "credentials": {
+     "httpHeaderAuth": {
+      "id": "BrhjRlBnrstIab7d",
+      "name": "Revital Yaish new CRM"
+     }
+    },
+    "onError": "continueRegularOutput"
+   },
+   {
+    "parameters": {
+     "numberInputs": 4
+    },
+    "id": "mergebranches",
+    "name": "🔗 איחוד הענפים",
+    "type": "n8n-nodes-base.merge",
+    "typeVersion": 3,
+    "position": [
+     2368,
+     560
+    ],
+    "alwaysOutputData": true
+   }
+  ],
+  "connections": {
+   "▶️ הרצה ידנית": {
+    "main": [
+     [
+      {
+       "node": "⚙️ הגדרות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "🕗 רביעי 20:00": {
+    "main": [
+     [
+      {
+       "node": "⚙️ הגדרות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "🕗 יומי 08:00": {
+    "main": [
+     [
+      {
+       "node": "⚙️ הגדרות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "⚙️ הגדרות": {
+    "main": [
+     [
+      {
+       "node": "🔀 בחירת ענף",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "🔀 בחירת ענף": {
+    "main": [
+     [
+      {
+       "node": "1.1 מחזורי בוסט מסתיימים",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "2.1 ליוויים שמסתיימים בחלון הקרוב",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.1 מחזורי בוסט מסתיימים": {
+    "main": [
+     [
+      {
+       "node": "1.2 עסקאות בוסט במחזור",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.2 עסקאות בוסט במחזור": {
+    "main": [
+     [
+      {
+       "node": "1.3 תהליכי ליווי של הלקוחות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.3 תהליכי ליווי של הלקוחות": {
+    "main": [
+     [
+      {
+       "node": "1.4 כל תהליכי המכירה של הלקוחות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.4 כל תהליכי המכירה של הלקוחות": {
+    "main": [
+     [
+      {
+       "node": "1.4b שמות הלקוחות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.5 שערים ועץ הכפילות": {
+    "main": [
+     [
+      {
+       "node": "1.6 בניית הרשומות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.6 בניית הרשומות": {
+    "main": [
+     [
+      {
+       "node": "1.7 האם חי?",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.7 האם חי?": {
+    "main": [
+     [
+      {
+       "node": "1.8 יצירת תהליכי מכירה",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "🔗 איחוד הענפים",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "2.2 כל תהליכי המכירה של הלקוחות": {
+    "main": [
+     [
+      {
+       "node": "2.3 שערים ועץ הכפילות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "2.3 שערים ועץ הכפילות": {
+    "main": [
+     [
+      {
+       "node": "2.4 בניית הרשומות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "2.4 בניית הרשומות": {
+    "main": [
+     [
+      {
+       "node": "2.5 האם חי?",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "2.5 האם חי?": {
+    "main": [
+     [
+      {
+       "node": "2.6 יצירת תהליכי מכירה",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "🔗 איחוד הענפים",
+       "type": "main",
+       "index": 2
+      }
+     ]
+    ]
+   },
+   "1.8 יצירת תהליכי מכירה": {
+    "main": [
+     [
+      {
+       "node": "⏳ המתנה לשיום",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "2.6 יצירת תהליכי מכירה": {
+    "main": [
+     [
+      {
+       "node": "⏳ המתנה לשיום (חידוש)",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.4b שמות הלקוחות": {
+    "main": [
+     [
+      {
+       "node": "1.5 שערים ועץ הכפילות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.9 שיום הרשומות": {
+    "main": [
+     [
+      {
+       "node": "1.10 השלמת שם · טלפון · אימייל",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "⏳ המתנה לשיום": {
+    "main": [
+     [
+      {
+       "node": "1.9 שיום הרשומות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "1.10 השלמת שם · טלפון · אימייל": {
+    "main": [
+     [
+      {
+       "node": "🔗 איחוד הענפים",
+       "type": "main",
+       "index": 1
+      }
+     ]
+    ]
+   },
+   "⏳ המתנה לשיום (חידוש)": {
+    "main": [
+     [
+      {
+       "node": "2.7 שיום עסקאות החידוש",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "2.7 שיום עסקאות החידוש": {
+    "main": [
+     [
+      {
+       "node": "2.8 עדכון שם החידוש",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "2.8 עדכון שם החידוש": {
+    "main": [
+     [
+      {
+       "node": "🔗 איחוד הענפים",
+       "type": "main",
+       "index": 3
+      }
+     ]
+    ]
+   },
+   "2.1 ליוויים שמסתיימים בחלון הקרוב": {
+    "main": [
+     [
+      {
+       "node": "2.2 כל תהליכי המכירה של הלקוחות",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "🔗 איחוד הענפים": {
+    "main": [
+     [
+      {
+       "node": "📋 סיכום הריצה",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "settings": {
+   "executionOrder": "v1",
+   "timezone": "Asia/Jerusalem",
+   "saveManualExecutions": true
+  },
+  "staticData": {
+   "node:🕗 רביעי 20:00": {
+    "recurrenceRules": []
+   },
+   "node:🕗 יומי 08:00": {
+    "recurrenceRules": []
+   }
+  },
+  "meta": null,
+  "pinData": {},
+  "versionId": "24a9b2a9-4068-450e-80d3-8650ce403939",
+  "triggerCount": 2,
+  "shared": [
+   {
+    "createdAt": "2026-08-11T11:07:48.331Z",
+    "updatedAt": "2026-08-11T11:07:48.331Z",
+    "role": "workflow:owner",
+    "workflowId": "CG4nPYCgushC1qDz",
+    "projectId": "8n5t87og6JZ0AXPr",
+    "project": {
+     "createdAt": "2025-08-18T16:54:33.537Z",
+     "updatedAt": "2025-08-18T17:04:43.601Z",
+     "id": "8n5t87og6JZ0AXPr",
+     "name": "Eliel Trabulsky <eliel@vitrue.co.il>",
+     "type": "personal",
+     "icon": null,
+     "description": null,
+     "projectRelations": [
+      {
+       "createdAt": "2025-08-18T16:54:33.538Z",
+       "updatedAt": "2025-08-18T16:54:33.538Z",
+       "role": "project:personalOwner",
+       "userId": "6530ce58-2475-45da-97a4-bf0ec489a180",
+       "projectId": "8n5t87og6JZ0AXPr",
+       "user": {
+        "createdAt": "2025-08-18T16:54:32.972Z",
+        "updatedAt": "2026-09-16T05:11:11.000Z",
+        "id": "6530ce58-2475-45da-97a4-bf0ec489a180",
+        "email": "eliel@vitrue.co.il",
+        "firstName": "Eliel",
+        "lastName": "Trabulsky",
+        "personalizationAnswers": {
+         "version": "v4",
+         "personalization_survey_submitted_at": "2025-08-18T17:04:51.259Z",
+         "personalization_survey_n8n_version": "1.106.3"
+        },
+        "settings": {
+         "userActivated": true,
+         "firstSuccessfulWorkflowId": "9Yey7n3lWYHw4uZL",
+         "userActivatedAt": 1755882878466,
+         "npsSurvey": {
+          "waitingForResponse": true,
+          "ignoredCount": 1,
+          "lastShownAt": 1789459314271
+         },
+         "easyAIWorkflowOnboarded": true
+        },
+        "role": "global:owner",
+        "disabled": false,
+        "mfaEnabled": false,
+        "lastActiveAt": "2026-09-15",
+        "isPending": false
+       }
+      }
+     ]
+    }
+   }
+  ],
+  "tags": []
+ },
+ "wf19_created_sales_84": [
+  {
+   "opportunityid": "a1d304b9-2715-4db9-a1d5-020aa8b90d1e",
+   "name": "מכירת תוכנית המשך - מיכל ויימן",
+   "accountid": "9cc76af0-0bc0-4e58-bc22-387e32c66551",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 02.12.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "50673c90-f538-4181-8546-025b3adab441",
+   "name": "מכירת תוכנית המשך - אורנה",
+   "accountid": "dc4f40c7-0652-40cd-ac2c-dc6462e5d24f",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:08",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 14.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "8f2666c0-9522-4676-aeeb-03ed11dcbb32",
+   "name": "מכירת תוכנית המשך - תהאני מוצלח",
+   "accountid": "0989cf15-ae8f-4209-971f-0e7004714907",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:43:16",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 18.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "09c1a7ea-0b6e-4d60-be1f-055f31abbfec",
+   "name": "מכירת תוכנית המשך - קארין אלבו מור",
+   "accountid": "7e636915-f3c2-47ac-a97b-dc39966c54b3",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:43:17",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 12.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "dac38584-ac0b-4728-baf0-056c4df94436",
+   "name": "מכירת תוכנית המשך - ליטל טורג'מן",
+   "accountid": "ea702515-30af-4944-b77a-b0c2a7fc2c02",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:43:18",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 20.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "0aaa350c-a363-40a4-94a6-090470b916d3",
+   "name": "מכירת תוכנית המשך - מירב מאור",
+   "accountid": "9772811d-c3b4-4744-92c4-6cca2ee4a00c",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:07",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 07.01.2027,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "967efd35-1d27-4a23-bfbb-0d39654acebf",
+   "name": "מכירת תוכנית המשך - לילך ימיני",
+   "accountid": "483bf63c-6d48-456f-a4e5-6c84f168f089",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:05",
+   "modifiedon": "2026-09-15T17:43:21",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 15.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "654a941a-f39f-41cc-9d52-102cd96ec134",
+   "name": "מכירת תוכנית המשך - יהודית ביג'אוי",
+   "accountid": "26684542-13bd-42d2-ac30-9b4cdb921c03",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:43:25",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 12.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "cd24fe4c-1d97-4159-ac0c-128f0d2b2f78",
+   "name": "מכירת תוכנית המשך - צביה מוזס",
+   "accountid": "18758fd7-50da-4648-80cd-8ec2a86c20d0",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:05",
+   "modifiedon": "2026-09-15T17:43:26",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 26.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "a8c778a3-d67f-4bf5-920c-1f418cf2a8e2",
+   "name": "מכירת תוכנית המשך - אלינה שכמן",
+   "accountid": "270070df-16cc-4d7d-ba1e-abac099a03e4",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:43:31",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 06.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "85ccef15-d02c-4aee-a22b-20102a02a561",
+   "name": "מכירת תוכנית המשך - שרון פוראטי",
+   "accountid": "7c769475-7a58-4e05-8a2e-dd39813f63c7",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:43:32",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 24.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "3205ce39-3085-4517-b526-2294b7e2cf00",
+   "name": "מכירת תוכנית המשך - סיון נוה",
+   "accountid": "d29ffd56-8d2f-4782-8c09-e074cf40eee0",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:09",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.12.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "a25c5297-cba4-432d-bf7c-23f1eae1ddea",
+   "name": "מכירת תוכנית המשך - אורטל בדישי",
+   "accountid": "49d3d557-c22c-4c70-94bd-846a4564b6ce",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:08",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "51ddc604-1d2a-4b64-a76c-2a46aa07b887",
+   "name": "מכירת תוכנית המשך - גלי גרמי",
+   "accountid": "284b3cc5-e8b2-4d41-80d2-8a37ce6baa05",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 06.08.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "f12b17e6-9c69-4810-9b35-2b5ee304286f",
+   "name": "מכירת תוכנית המשך - מרגלית חנן",
+   "accountid": "3b22903b-cc1c-4c37-b8d6-7b76ab59e7bd",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:04",
+   "modifiedon": "2026-09-15T17:43:36",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 25.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "a7f243f3-3568-465b-893b-2cf75f65956b",
+   "name": "מכירת תוכנית המשך - אתי לסרי",
+   "accountid": "dd736a6f-576c-46d7-ba07-a084a87099e6",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:43:37",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 16.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "f38556d0-fd9c-45fb-a9b0-2f74c438b77d",
+   "name": "מכירת תוכנית המשך - מיכאל אוקס",
+   "accountid": "e59ffab2-ef1e-4150-b4b8-c42ae5133ad5",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-08-20T20:35:14",
+   "modifiedon": "2026-09-15T17:43:38",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך —,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 190211\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/190211",
+   "pcfFollowUpTime": "2026-08-21T10:00:00"
+  },
+  {
+   "opportunityid": "6e9b53e7-dbf0-4fd3-a7ee-31cd41b071ac",
+   "name": "מכירת תוכנית המשך - גולדי עודד",
+   "accountid": "af0df0cf-2879-4c1c-8f7c-a670d5ca707e",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:43:39",
+   "ownerid": "3f38dcd5-ef74-4706-9933-347ef966292d",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "9b98a9dc-8345-41de-879f-327fcaca4483",
+   "name": "מכירת תוכנית המשך - אורית",
+   "accountid": "c479fd46-b4ff-4646-8ed7-04a737b6d382",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:07",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 17.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "50645ba9-0895-41d3-9a8d-337d0ef17ea9",
+   "name": "מכירת תוכנית המשך - עדי בן מיכאל",
+   "accountid": "9fe94794-36c6-4b5d-bcdc-d323b6d9137f",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:43:42",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "fc8aafc9-6075-4357-8e09-3ca7ec265032",
+   "name": "מכירת תוכנית המשך - ליסה דויטש",
+   "accountid": "13003c71-194d-4214-ad7d-dc80de536108",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:04",
+   "modifiedon": "2026-09-15T17:43:43",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 21.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "2575d843-e7c7-41e2-947f-457a8779de44",
+   "name": "מכירת תוכנית המשך - בת חן קזז",
+   "accountid": "ef9e5fc7-3ddd-49e5-ad34-2793cdb3aa59",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:44:09",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 03.08.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "23320825-a609-425f-877c-4588229f20a3",
+   "name": "מכירת תוכנית המשך - אורית רז",
+   "accountid": "f90cdeb6-156f-4657-b9af-05347edb769c",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:09",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 13.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "fa68b0c4-c2c9-442d-8273-48dfb45155a0",
+   "name": "מכירת תוכנית המשך - אורטל זיו",
+   "accountid": "1f86fbd4-92f9-40af-86d3-d346042031e1",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:44:11",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 12.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "7602fc74-0147-401f-8dae-4c55493be427",
+   "name": "מכירת תוכנית המשך - אורית בושרי",
+   "accountid": "4cb1941f-e073-4662-a49c-6a9d6e6a0a18",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:44:14",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 08.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "fe376856-b3ca-46f4-b3ac-4e38944e6626",
+   "name": "מכירת תוכנית המשך - אדוה",
+   "accountid": "9518123e-6d5a-4107-acae-f256a29b0590",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:44:15",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 15.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "0b0de91d-d064-436d-8049-4fa42ab3c3e3",
+   "name": "מכירת תוכנית המשך - חגית",
+   "accountid": "790dc574-817e-459b-8688-2985e17b2323",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 19.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "2e17bd2c-4927-4145-a2da-638b668042cb",
+   "name": "מכירת תוכנית המשך - שקמה שנפר",
+   "accountid": "059eb4ae-a9cc-44bd-94f5-5d766ee2bd5b",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "3f38dcd5-ef74-4706-9933-347ef966292d",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 29.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "c7cee2c1-0159-45b4-9487-638c2722435f",
+   "name": "מכירת תוכנית המשך - מירב לוי",
+   "accountid": "21fcb5c5-0396-4485-9ab1-b7e07ab52e38",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:04",
+   "modifiedon": "2026-09-15T17:44:22",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 15.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "72a98f41-4a02-4f3d-9c59-654b26367474",
+   "name": "מכירת תוכנית המשך - ימית קרני",
+   "accountid": "89cae972-57e7-4c61-b221-83d5e33e1761",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:44:23",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 16.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "33c4de03-94b6-40d6-9bc8-655bd4a0970c",
+   "name": "מכירת תוכנית המשך - מיי יששכר",
+   "accountid": "e094a72a-907a-4cfc-96cc-5cb1f47fe4ce",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:09",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 07.12.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "a941ddfd-63ec-4eb0-b6de-67695ad6263e",
+   "name": "מכירת תוכנית המשך - אליה בטיש",
+   "accountid": "67c64aaf-2b82-4b4f-82d2-fc8977903f68",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:44:24",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 20.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "a707ba72-fe93-442c-a56d-682c4a3aa05a",
+   "name": "מכירת תוכנית המשך - רותי טולדו",
+   "accountid": "8bf960de-279a-4e9e-859e-9c4061c72c55",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:44:25",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 18.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "ef0fcd52-7632-456d-bea4-6a8904c409da",
+   "name": "מכירת תוכנית המשך - מיטל חסיד",
+   "accountid": "2c49a43e-d725-4144-a6d5-d478fea2f2be",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:44:27",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 06.12.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "03a4e6dc-762b-469b-ba80-6e6ead183019",
+   "name": "מכירת תוכנית המשך - ליטל",
+   "accountid": "0c3f4506-15c2-4953-9a56-de56b800087f",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 12.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "ac7af126-9169-4ac4-8071-6f2cf95a2679",
+   "name": "מכירת תוכנית המשך - דנה בנישטי",
+   "accountid": "1a0596a3-8ffc-48b4-81a0-490894937be6",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:05",
+   "modifiedon": "2026-09-15T17:44:31",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "77fa4efc-f6a6-4c7a-b444-7048d1ed796d",
+   "name": "מכירת תוכנית המשך - רונית אברהם",
+   "accountid": "54b951a4-6b23-4081-8fb6-db42f8107ffb",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:08",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "3f38dcd5-ef74-4706-9933-347ef966292d",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 03.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "451879ef-b230-453b-8a90-7cbcee1b8f05",
+   "name": "מכירת תוכנית המשך - מעין הלל",
+   "accountid": "4ac089b2-0ff5-4b81-8afa-18dffc0c1094",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 06.08.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "c53536a5-11f0-47f3-bd98-7d6a31a94481",
+   "name": "מכירת תוכנית המשך - מעיין",
+   "accountid": "e29fcc6f-0ae7-4c0c-9cc7-8e25bf98f93d",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:44:38",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "30122d7d-4bfb-4185-8da5-7efcfcac1415",
+   "name": "מכירת תוכנית המשך - נגה שריקי",
+   "accountid": "7d4b0ef9-9fb0-4185-b6ca-943fe53aae4c",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:44:39",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 24.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "b8f16b22-e3c9-42f3-a09f-80580030d982",
+   "name": "מכירת תוכנית המשך - כוכי",
+   "accountid": "d0a810fb-b521-4336-903d-df31a8368015",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 16.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "e6f5a9b7-8f29-45e0-89e4-80bd855d34a9",
+   "name": "מכירת תוכנית המשך - גלי גרמי",
+   "accountid": "284b3cc5-e8b2-4d41-80d2-8a37ce6baa05",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:44:40",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 06.08.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "de7a9500-a99c-4c4f-8b7d-8125c40748ca",
+   "name": "מכירת תוכנית המשך - מיכל ויימן",
+   "accountid": "9cc76af0-0bc0-4e58-bc22-387e32c66551",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:44:41",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 02.12.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "34cea1fc-db07-4aff-82aa-84edc3f9c017",
+   "name": "מכירת תוכנית המשך - ליטל",
+   "accountid": "0c3f4506-15c2-4953-9a56-de56b800087f",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:44:43",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 12.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "e0229781-c85d-4094-a222-8b1fe0adf105",
+   "name": "מכירת תוכנית המשך - מיי יששכר",
+   "accountid": "e094a72a-907a-4cfc-96cc-5cb1f47fe4ce",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:45:08",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 07.12.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "e0b3f820-8017-4c36-a4ea-8ffd67b07ef2",
+   "name": "מכירת תוכנית המשך - yardenakiva",
+   "accountid": "d592e977-6048-45b6-9fc4-b1b9c5d38279",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 13.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "581972cc-9067-450b-a0b5-90f183fd54c1",
+   "name": "מכירת תוכנית המשך - שלומית ליבוביץ",
+   "accountid": "dd7366b5-e5c9-417d-9e55-addd90d673d5",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 15.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "3203e8a4-c283-43c7-8333-9226f8ac7cec",
+   "name": "מכירת תוכנית המשך - טלי אברהם",
+   "accountid": "20ba74e5-2a0d-4ca3-8111-a8764ff232d8",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:45:11",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "1d48da16-a0e7-4004-9046-98eab88372a1",
+   "name": "מכירת תוכנית המשך - חגית",
+   "accountid": "790dc574-817e-459b-8688-2985e17b2323",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:04",
+   "modifiedon": "2026-09-15T17:45:27",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 19.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "9c2cb6e0-e9bf-4fa7-9252-995516c66fcd",
+   "name": "מכירת תוכנית המשך - מעין הלל",
+   "accountid": "4ac089b2-0ff5-4b81-8afa-18dffc0c1094",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:45:27",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 06.08.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "9d4a98ef-8032-4134-b416-9f44c6482b7f",
+   "name": "מכירת תוכנית המשך - ליהי",
+   "accountid": "dd8e9c45-ff73-45f3-821c-416c4cba9f8a",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:08",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 11.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "c57a9946-61c3-4204-9385-a0909c47ecdb",
+   "name": "מכירת תוכנית המשך - ליהי",
+   "accountid": "dd8e9c45-ff73-45f3-821c-416c4cba9f8a",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:03",
+   "modifiedon": "2026-09-15T17:45:31",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 11.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "38a1a24e-3ca0-4463-832b-a1ba7cb63445",
+   "name": "מכירת תוכנית המשך - סיון",
+   "accountid": "8887f26b-0ca2-4eb3-9c1e-c33ac7b74559",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:04",
+   "modifiedon": "2026-09-15T17:45:32",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 16.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "c4972373-820e-4fb1-b643-a2d35909f153",
+   "name": "מכירת תוכנית המשך - סיון נוה",
+   "accountid": "d29ffd56-8d2f-4782-8c09-e074cf40eee0",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:45:33",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.12.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "494cdad5-7c10-43f3-b108-a44de3d186ff",
+   "name": "מכירת תוכנית המשך - מיכל רכלבסקי",
+   "accountid": "e65c5dc8-ba57-467b-b7ab-a2054eee152b",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:45:35",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 01.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "e5c54b3c-e71f-4e21-b2d7-a991a6015d3d",
+   "name": "מכירת תוכנית המשך - שקמה שנפר",
+   "accountid": "059eb4ae-a9cc-44bd-94f5-5d766ee2bd5b",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:45:36",
+   "ownerid": "3f38dcd5-ef74-4706-9933-347ef966292d",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 29.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "b5beb748-72ee-40c5-8a36-aab822a4b4dd",
+   "name": "מכירת תוכנית המשך - עליזה אוחיון",
+   "accountid": "c481dfc0-07ae-4ce7-90f8-e9543db3f921",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:45:37",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 12.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "531e062d-7478-49ba-919c-ab08e4f46f95",
+   "name": "מכירת תוכנית המשך - דיתי פאר לוי",
+   "accountid": "fe5af941-53c7-4242-81c4-ebc27d5aeb8e",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:08",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 11.01.2027,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "2da8efd7-25e4-47ed-b1ad-ad12869b4b3d",
+   "name": "מכירת תוכנית המשך - אורית רז",
+   "accountid": "f90cdeb6-156f-4657-b9af-05347edb769c",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:04",
+   "modifiedon": "2026-09-15T17:45:38",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 13.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "3aea0d74-e66e-4227-9a26-ad340b584375",
+   "name": "מכירת תוכנית המשך - אורנה",
+   "accountid": "dc4f40c7-0652-40cd-ac2c-dc6462e5d24f",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:45:39",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 14.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "103c4524-f1cf-49d4-beca-ad9ff76f57aa",
+   "name": "מכירת תוכנית המשך - צאלה פרידמן",
+   "accountid": "3e127489-c541-4410-ba80-aea4ad08088a",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:45:40",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 03.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "a37a52a9-e385-4924-9cf2-af500937379b",
+   "name": "מכירת תוכנית המשך - רונית אברהם",
+   "accountid": "54b951a4-6b23-4081-8fb6-db42f8107ffb",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:45:41",
+   "ownerid": "3f38dcd5-ef74-4706-9933-347ef966292d",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 03.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "6f5371fb-be39-4048-9909-b56f7a8b35c6",
+   "name": "מכירת תוכנית המשך - אמירה",
+   "accountid": "90f8ad90-1217-419e-a9f9-4344bf4f1057",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:05",
+   "modifiedon": "2026-09-15T17:45:44",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 17.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "f3113aed-4d65-462f-a52b-b61d0287b042",
+   "name": "מכירת תוכנית המשך - מירב מאור",
+   "accountid": "9772811d-c3b4-4744-92c4-6cca2ee4a00c",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:45:45",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 07.01.2027,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "91932cd0-6330-4181-bdca-b6783bac6904",
+   "name": "מכירת תוכנית המשך - שלומית ליבוביץ",
+   "accountid": "dd7366b5-e5c9-417d-9e55-addd90d673d5",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:45:46",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 15.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "932db11a-7680-4a9e-b8c2-c5f4c41489ec",
+   "name": "מכירת תוכנית המשך - תמר חנין",
+   "accountid": "d476e1d6-080f-4bc9-91cc-b8ada2620701",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:09",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 17.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "77724870-0324-4f1b-a1a8-cc4e55923b3f",
+   "name": "מכירת תוכנית המשך - נורית כהן",
+   "accountid": "b231d836-3f09-48bc-8391-259a0f543113",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:45:53",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 20.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "45a4f449-d841-4907-8377-ce54168831cf",
+   "name": "מכירת תוכנית המשך - כוכי",
+   "accountid": "d0a810fb-b521-4336-903d-df31a8368015",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:45:54",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 16.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "37bd6d08-2df3-43ad-91bb-d007950cdabe",
+   "name": "מכירת תוכנית המשך - צפר יהודית",
+   "accountid": "f75181b9-8e6d-452d-888d-21c545a2c8cb",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:08",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 30.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "ed83e207-d89e-41fa-8285-d3ae0ba0387b",
+   "name": "מכירת תוכנית המשך - חווה",
+   "accountid": "69eac86b-2544-4b2b-872f-770d366922c4",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:05",
+   "modifiedon": "2026-09-15T17:45:56",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 15.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "d6e51b3e-54ed-4015-873f-d81451bb733e",
+   "name": "מכירת תוכנית המשך - yardenakiva",
+   "accountid": "d592e977-6048-45b6-9fc4-b1b9c5d38279",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:45:58",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 13.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "23c7b417-ec2f-44c3-be9c-da51de550485",
+   "name": "מכירת תוכנית המשך - קטי גולדנר",
+   "accountid": "f626116e-a953-4b2b-8977-117708a42ca3",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:46:00",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 17.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "1447cee3-1d3e-47c8-880d-dd7d5d7edb64",
+   "name": "מכירת תוכנית המשך - צאלה פרידמן",
+   "accountid": "3e127489-c541-4410-ba80-aea4ad08088a",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:06",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 03.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "52ddf8a9-7424-47a9-9bd3-dd824d93d168",
+   "name": "מכירת תוכנית המשך - דיתי פאר לוי",
+   "accountid": "fe5af941-53c7-4242-81c4-ebc27d5aeb8e",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-15T08:00:08",
+   "modifiedon": "2026-09-15T17:46:01",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 11.01.2027,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 254109\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/254109",
+   "pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "a1f867ae-3d8f-45fd-addc-dfc977dada0e",
+   "name": "מכירת תוכנית המשך - מיכל קרמר אסף",
+   "accountid": "4bd7de2c-8472-44e4-865a-1df72d078367",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:46:04",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 16.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "db079219-b36d-4b93-93f2-e47fa59c8a54",
+   "name": "מכירת תוכנית המשך - יובל ברגיג",
+   "accountid": "001b057b-b573-4774-a1dc-979091fe979a",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:46:06",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 12.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "c07e4a4f-041e-4c8b-8de5-e4c39090eb3f",
+   "name": "מכירת תוכנית המשך - שיר שולמן",
+   "accountid": "e5d872c9-f49e-404f-a230-a173f9839f37",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:46:08",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 18.10.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "6635d52c-e824-4e08-b61d-e6e2f4b06547",
+   "name": "מכירת תוכנית המשך - ליאל חרט",
+   "accountid": "939829de-11d9-4f41-a8a0-f10d722d4ed3",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-14T08:00:03",
+   "modifiedon": "2026-09-15T17:46:10",
+   "ownerid": "696bca13-697a-4d25-9aff-ad795ecf472a",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 20.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 251790\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/251790",
+   "pcfFollowUpTime": "2026-09-15T10:00:00"
+  },
+  {
+   "opportunityid": "8c47421a-6803-4b28-ad4a-e901b77756ea",
+   "name": "מכירת תוכנית המשך - נורית כהן",
+   "accountid": "b231d836-3f09-48bc-8391-259a0f543113",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:09",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 20.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "4ce2137e-c3fb-4370-a84a-ea29721b7ee8",
+   "name": "מכירת תוכנית המשך - אורית",
+   "accountid": "c479fd46-b4ff-4646-8ed7-04a737b6d382",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:04",
+   "modifiedon": "2026-09-15T17:46:12",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 17.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "ca5b8405-0c36-491c-bbfa-efe0d2e9ab6a",
+   "name": "מכירת תוכנית המשך - מעיין",
+   "accountid": "e29fcc6f-0ae7-4c0c-9cc7-8e25bf98f93d",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:09",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 27.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  },
+  {
+   "opportunityid": "694298a4-1cf3-4511-ad5f-f21c27b5226c",
+   "name": "מכירת תוכנית המשך - תמר חנין",
+   "accountid": "d476e1d6-080f-4bc9-91cc-b8ada2620701",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:04",
+   "modifiedon": "2026-09-15T17:46:13",
+   "ownerid": "5c1ca7da-389a-497d-8afd-7e8c109dcc44",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 17.09.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "fbc0772b-69c6-4f88-89f5-f79fea3e6a48",
+   "name": "מכירת תוכנית המשך - צפר יהודית",
+   "accountid": "f75181b9-8e6d-452d-888d-21c545a2c8cb",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-13T08:00:02",
+   "modifiedon": "2026-09-15T17:46:18",
+   "ownerid": "ad60eb58-d590-4ff8-b86e-bf01e13a7efc",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 30.11.2026,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 250323\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/250323",
+   "pcfFollowUpTime": "2026-09-14T10:00:00"
+  },
+  {
+   "opportunityid": "656bf348-2271-4448-a7e6-f8eabc56ab53",
+   "name": "מכירת תוכנית המשך - מירב דאלי",
+   "accountid": "f06df28d-ebcf-432f-a9f4-b253d54fbbe6",
+   "statuscode": "ליד חדש",
+   "pcfProduct": "58a4d4f9-5921-4bfc-ba8e-518877faa375",
+   "createdon": "2026-09-16T08:00:09",
+   "modifiedon": "2026-09-16T08:00:34",
+   "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+   "description": "🤖 תהליך המכירה הזה נפתח אוטומטית.\n\nהסיבה: תוכנית הליווי של הלקוחה מסתיימת בתאריך 11.01.2027,\nוהיא עדיין לא רכשה תוכנית המשך.\n\n📞 נדרש: ליצור קשר עם הלקוחה להשלמת מכירת תוכנית ההמשך.\n\n───────────────\nנוצר על ידי WF-19 · ריצה 256958\nhttps://n8n.srv964196.hstgr.cloud/workflow/CG4nPYCgushC1qDz/executions/256958",
+   "pcfFollowUpTime": "2026-09-17T10:00:00"
+  }
+ ],
+ "to_delete_duplicates": [
+  "2e17bd2c-4927-4145-a2da-638b668042cb",
+  "03a4e6dc-762b-469b-ba80-6e6ead183019",
+  "51ddc604-1d2a-4b64-a76c-2a46aa07b887",
+  "1447cee3-1d3e-47c8-880d-dd7d5d7edb64",
+  "451879ef-b230-453b-8a90-7cbcee1b8f05",
+  "77fa4efc-f6a6-4c7a-b444-7048d1ed796d",
+  "0b0de91d-d064-436d-8049-4fa42ab3c3e3",
+  "0aaa350c-a363-40a4-94a6-090470b916d3",
+  "a1d304b9-2715-4db9-a1d5-020aa8b90d1e",
+  "8c47421a-6803-4b28-ad4a-e901b77756ea",
+  "9b98a9dc-8345-41de-879f-327fcaca4483",
+  "b8f16b22-e3c9-42f3-a09f-80580030d982",
+  "3205ce39-3085-4517-b526-2294b7e2cf00",
+  "932db11a-7680-4a9e-b8c2-c5f4c41489ec",
+  "e0b3f820-8017-4c36-a4ea-8ffd67b07ef2",
+  "50673c90-f538-4181-8546-025b3adab441",
+  "581972cc-9067-450b-a0b5-90f183fd54c1",
+  "9d4a98ef-8032-4134-b416-9f44c6482b7f",
+  "33c4de03-94b6-40d6-9bc8-655bd4a0970c",
+  "ca5b8405-0c36-491c-bbfa-efe0d2e9ab6a",
+  "37bd6d08-2df3-43ad-91bb-d007950cdabe",
+  "23320825-a609-425f-877c-4588229f20a3",
+  "531e062d-7478-49ba-919c-ab08e4f46f95"
+ ],
+ "classification": [
+  {
+   "acc": "001b057b-b573-4774-a1dc-979091fe979a",
+   "name": "מכירת תוכנית המשך - יובל ברגיג",
+   "n": 1,
+   "ids": [
+    "db079219-b36d-4b93-93f2-e47fa59c8a54"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-12"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של יובל ברגיג",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-05"
+    ]
+   ]
+  },
+  {
+   "acc": "059eb4ae-a9cc-44bd-94f5-5d766ee2bd5b",
+   "name": "מכירת תוכנית המשך - שקמה שנפר",
+   "n": 2,
+   "ids": [
+    "e5c54b3c-e71f-4e21-b2d7-a991a6015d3d",
+    "2e17bd2c-4927-4145-a2da-638b668042cb"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-29"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - שקמה שנפר | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - שקמה שנפר | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "0989cf15-ae8f-4209-971f-0e7004714907",
+   "name": "מכירת תוכנית המשך - תהאני מוצלח",
+   "n": 1,
+   "ids": [
+    "8f2666c0-9522-4676-aeeb-03ed11dcbb32"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-18"
+    ],
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של תהאני מוצלח",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "0c3f4506-15c2-4953-9a56-de56b800087f",
+   "name": "מכירת תוכנית המשך - ליטל",
+   "n": 2,
+   "ids": [
+    "34cea1fc-db07-4aff-82aa-84edc3f9c017",
+    "03a4e6dc-762b-469b-ba80-6e6ead183019"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-12"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של ליטל",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-05"
+    ]
+   ]
+  },
+  {
+   "acc": "13003c71-194d-4214-ad7d-dc80de536108",
+   "name": "מכירת תוכנית המשך - ליסה דויטש",
+   "n": 1,
+   "ids": [
+    "fc8aafc9-6075-4357-8e09-3ca7ec265032"
+   ],
+   "created": [
+    "2026-09-14T08:00:04"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-21"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "עסקה - ליסה דויטש | תוכנית ליווי 12 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - ליסה דויטש | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "18758fd7-50da-4648-80cd-8ec2a86c20d0",
+   "name": "מכירת תוכנית המשך - צביה מוזס",
+   "n": 1,
+   "ids": [
+    "cd24fe4c-1d97-4159-ac0c-128f0d2b2f78"
+   ],
+   "created": [
+    "2026-09-14T08:00:05"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-11-26"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - צביה מוזס | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - צביה מוזס | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "1a0596a3-8ffc-48b4-81a0-490894937be6",
+   "name": "מכירת תוכנית המשך - דנה בנישטי",
+   "n": 1,
+   "ids": [
+    "ac7af126-9169-4ac4-8071-6f2cf95a2679"
+   ],
+   "created": [
+    "2026-09-14T08:00:05"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של דנה בנישטי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-13"
+    ]
+   ]
+  },
+  {
+   "acc": "1f86fbd4-92f9-40af-86d3-d346042031e1",
+   "name": "מכירת תוכנית המשך - אורטל זיו",
+   "n": 1,
+   "ids": [
+    "fa68b0c4-c2c9-442d-8273-48dfb45155a0"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-12"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של אורטל זיו",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-05"
+    ]
+   ]
+  },
+  {
+   "acc": "20ba74e5-2a0d-4ca3-8111-a8764ff232d8",
+   "name": "מכירת תוכנית המשך - טלי אברהם",
+   "n": 1,
+   "ids": [
+    "3203e8a4-c283-43c7-8333-9226f8ac7cec"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של טלי אברהם",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-13"
+    ]
+   ]
+  },
+  {
+   "acc": "21fcb5c5-0396-4485-9ab1-b7e07ab52e38",
+   "name": "מכירת תוכנית המשך - מירב לוי",
+   "n": 1,
+   "ids": [
+    "c7cee2c1-0159-45b4-9487-638c2722435f"
+   ],
+   "created": [
+    "2026-09-13T08:00:04"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-15"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - מירב לוי | תוכנית ליווי 12 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - מירב לוי | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "26684542-13bd-42d2-ac30-9b4cdb921c03",
+   "name": "מכירת תוכנית המשך - יהודית ביג'אוי",
+   "n": 1,
+   "ids": [
+    "654a941a-f39f-41cc-9d52-102cd96ec134"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-11-12"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - יהודית ביג'אוי | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ],
+    [
+     "עסקה - יהודית ביג'אוי | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ]
+   ]
+  },
+  {
+   "acc": "270070df-16cc-4d7d-ba1e-abac099a03e4",
+   "name": "מכירת תוכנית המשך - אלינה שכמן",
+   "n": 1,
+   "ids": [
+    "a8c778a3-d67f-4bf5-920c-1f418cf2a8e2"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-06"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - אלינה שכמן | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ],
+    [
+     "עסקה - אלינה שכמן | תוכנית ליווי 12 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ]
+   ]
+  },
+  {
+   "acc": "284b3cc5-e8b2-4d41-80d2-8a37ce6baa05",
+   "name": "מכירת תוכנית המשך - גלי גרמי",
+   "n": 2,
+   "ids": [
+    "e6f5a9b7-8f29-45e0-89e4-80bd855d34a9",
+    "51ddc604-1d2a-4b64-a76c-2a46aa07b887"
+   ],
+   "created": [
+    "2026-09-15T08:00:08",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-08-06"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "תהליך המכירה של גלי גרמי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ],
+    [
+     "עסקה - גלי גרמי | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "2c49a43e-d725-4144-a6d5-d478fea2f2be",
+   "name": "מכירת תוכנית המשך - מיטל חסיד",
+   "n": 1,
+   "ids": [
+    "ef0fcd52-7632-456d-bea4-6a8904c409da"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-12-06"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - מיטל חסיד | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - מיטל חסיד | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "3b22903b-cc1c-4c37-b8d6-7b76ab59e7bd",
+   "name": "מכירת תוכנית המשך - מרגלית חנן",
+   "n": 1,
+   "ids": [
+    "f12b17e6-9c69-4810-9b35-2b5ee304286f"
+   ],
+   "created": [
+    "2026-09-13T08:00:04"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-25"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - מרגלית חנן | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - מרגלית חנן | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "3e127489-c541-4410-ba80-aea4ad08088a",
+   "name": "מכירת תוכנית המשך - צאלה פרידמן",
+   "n": 2,
+   "ids": [
+    "103c4524-f1cf-49d4-beca-ad9ff76f57aa",
+    "1447cee3-1d3e-47c8-880d-dd7d5d7edb64"
+   ],
+   "created": [
+    "2026-09-15T08:00:08",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-03"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "תהליך המכירה של צאלה פרידמן",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ],
+    [
+     "העסקה של צאלה",
+     "עסקה נסגרה בהצלחה",
+     "2026-08-12"
+    ]
+   ]
+  },
+  {
+   "acc": "483bf63c-6d48-456f-a4e5-6c84f168f089",
+   "name": "מכירת תוכנית המשך - לילך ימיני",
+   "n": 1,
+   "ids": [
+    "967efd35-1d27-4a23-bfbb-0d39654acebf"
+   ],
+   "created": [
+    "2026-09-14T08:00:05"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-15"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של לילך ימיני",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-08"
+    ]
+   ]
+  },
+  {
+   "acc": "49d3d557-c22c-4c70-94bd-846a4564b6ce",
+   "name": "מכירת תוכנית המשך - אורטל בדישי",
+   "n": 1,
+   "ids": [
+    "a25c5297-cba4-432d-bf7c-23f1eae1ddea"
+   ],
+   "created": [
+    "2026-09-16T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של אורטל בדישי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ]
+   ]
+  },
+  {
+   "acc": "4ac089b2-0ff5-4b81-8afa-18dffc0c1094",
+   "name": "מכירת תוכנית המשך - מעין הלל",
+   "n": 2,
+   "ids": [
+    "9c2cb6e0-e9bf-4fa7-9252-995516c66fcd",
+    "451879ef-b230-453b-8a90-7cbcee1b8f05"
+   ],
+   "created": [
+    "2026-09-15T08:00:08",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-08-06"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "תהליך המכירה של מעין הלל",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ],
+    [
+     "עסקה - מעין הלל | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "4bd7de2c-8472-44e4-865a-1df72d078367",
+   "name": "מכירת תוכנית המשך - מיכל קרמר אסף",
+   "n": 1,
+   "ids": [
+    "a1f867ae-3d8f-45fd-addc-dfc977dada0e"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-16"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של מיכל קרמר אסף",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-09"
+    ]
+   ]
+  },
+  {
+   "acc": "4cb1941f-e073-4662-a49c-6a9d6e6a0a18",
+   "name": "מכירת תוכנית המשך - אורית בושרי",
+   "n": 1,
+   "ids": [
+    "7602fc74-0147-401f-8dae-4c55493be427"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-08"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - אורית בושרי | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ],
+    [
+     "עסקה - אורית בושרי | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ]
+   ]
+  },
+  {
+   "acc": "54b951a4-6b23-4081-8fb6-db42f8107ffb",
+   "name": "מכירת תוכנית המשך - רונית אברהם",
+   "n": 2,
+   "ids": [
+    "a37a52a9-e385-4924-9cf2-af500937379b",
+    "77fa4efc-f6a6-4c7a-b444-7048d1ed796d"
+   ],
+   "created": [
+    "2026-09-15T08:00:08",
+    "2026-09-16T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-03"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "תהליך המכירה של רונית אברהם",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ],
+    [
+     "העסקה של רונית",
+     "עסקה נסגרה בהצלחה",
+     "2026-08-03"
+    ]
+   ]
+  },
+  {
+   "acc": "67c64aaf-2b82-4b4f-82d2-fc8977903f68",
+   "name": "מכירת תוכנית המשך - אליה בטיש",
+   "n": 1,
+   "ids": [
+    "a941ddfd-63ec-4eb0-b6de-67695ad6263e"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-20"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - אליה בטיש | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - אליה בטיש | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "69eac86b-2544-4b2b-872f-770d366922c4",
+   "name": "מכירת תוכנית המשך - חווה",
+   "n": 1,
+   "ids": [
+    "ed83e207-d89e-41fa-8285-d3ae0ba0387b"
+   ],
+   "created": [
+    "2026-09-14T08:00:05"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-15"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של חווה לנדסברג",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-08"
+    ]
+   ]
+  },
+  {
+   "acc": "790dc574-817e-459b-8688-2985e17b2323",
+   "name": "מכירת תוכנית המשך - חגית",
+   "n": 2,
+   "ids": [
+    "1d48da16-a0e7-4004-9046-98eab88372a1",
+    "0b0de91d-d064-436d-8049-4fa42ab3c3e3"
+   ],
+   "created": [
+    "2026-09-13T08:00:04",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-11-19"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - חגית | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - חגית | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "7c769475-7a58-4e05-8a2e-dd39813f63c7",
+   "name": "מכירת תוכנית המשך - שרון פוראטי",
+   "n": 1,
+   "ids": [
+    "85ccef15-d02c-4aee-a22b-20102a02a561"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-24"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "עסקה - שרון פוראטי | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ],
+    [
+     "עסקה - שרון פוראטי | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ]
+   ]
+  },
+  {
+   "acc": "7d4b0ef9-9fb0-4185-b6ca-943fe53aae4c",
+   "name": "מכירת תוכנית המשך - נגה שריקי",
+   "n": 1,
+   "ids": [
+    "30122d7d-4bfb-4185-8da5-7efcfcac1415"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-11-24"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - נגה שריקי | תוכנית ליווי 12 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "7e636915-f3c2-47ac-a97b-dc39966c54b3",
+   "name": "מכירת תוכנית המשך - קארין אלבו מור",
+   "n": 1,
+   "ids": [
+    "09c1a7ea-0b6e-4d60-be1f-055f31abbfec"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-12"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של קארין אלבו מור",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-05"
+    ]
+   ]
+  },
+  {
+   "acc": "8887f26b-0ca2-4eb3-9c1e-c33ac7b74559",
+   "name": "מכירת תוכנית המשך - סיון",
+   "n": 1,
+   "ids": [
+    "38a1a24e-3ca0-4463-832b-a1ba7cb63445"
+   ],
+   "created": [
+    "2026-09-14T08:00:04"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-16"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של סיון",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-09"
+    ]
+   ]
+  },
+  {
+   "acc": "89cae972-57e7-4c61-b221-83d5e33e1761",
+   "name": "מכירת תוכנית המשך - ימית קרני",
+   "n": 1,
+   "ids": [
+    "72a98f41-4a02-4f3d-9c59-654b26367474"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-16"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של ימית קרני",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-09"
+    ]
+   ]
+  },
+  {
+   "acc": "8bf960de-279a-4e9e-859e-9c4061c72c55",
+   "name": "מכירת תוכנית המשך - רותי טולדו",
+   "n": 1,
+   "ids": [
+    "a707ba72-fe93-442c-a56d-682c4a3aa05a"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-18"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - רותי טולדו | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - רותי טולדו | תוכנית ליווי 12 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "90f8ad90-1217-419e-a9f9-4344bf4f1057",
+   "name": "מכירת תוכנית המשך - אמירה",
+   "n": 1,
+   "ids": [
+    "6f5371fb-be39-4048-9909-b56f7a8b35c6"
+   ],
+   "created": [
+    "2026-09-14T08:00:05"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-17"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של מזרחי אמירה",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ]
+   ]
+  },
+  {
+   "acc": "939829de-11d9-4f41-a8a0-f10d722d4ed3",
+   "name": "מכירת תוכנית המשך - ליאל חרט",
+   "n": 1,
+   "ids": [
+    "6635d52c-e824-4e08-b61d-e6e2f4b06547"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-20"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "עסקה - ליאל חרט | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - ליאל חרט | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "9518123e-6d5a-4107-acae-f256a29b0590",
+   "name": "מכירת תוכנית המשך - אדוה",
+   "n": 1,
+   "ids": [
+    "fe376856-b3ca-46f4-b3ac-4e38944e6626"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-15"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של אדוה",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-08"
+    ]
+   ]
+  },
+  {
+   "acc": "9772811d-c3b4-4744-92c4-6cca2ee4a00c",
+   "name": "מכירת תוכנית המשך - מירב מאור",
+   "n": 2,
+   "ids": [
+    "f3113aed-4d65-462f-a52b-b61d0287b042",
+    "0aaa350c-a363-40a4-94a6-090470b916d3"
+   ],
+   "created": [
+    "2026-09-15T08:00:08",
+    "2026-09-16T08:00:07"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2027-01-07"
+    ],
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של מירב מאור",
+     "עסקה נסגרה בהצלחה",
+     "2026-08-15"
+    ],
+    [
+     "עסקה - מירב מאור | ליד",
+     "ליד חדש",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - מירב מאור | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "9cc76af0-0bc0-4e58-bc22-387e32c66551",
+   "name": "מכירת תוכנית המשך - מיכל ויימן",
+   "n": 2,
+   "ids": [
+    "de7a9500-a99c-4c4f-8b7d-8125c40748ca",
+    "a1d304b9-2715-4db9-a1d5-020aa8b90d1e"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-12-02"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - מיכל ויימן | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - מיכל ויימן | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "9fe94794-36c6-4b5d-bcdc-d323b6d9137f",
+   "name": "מכירת תוכנית המשך - עדי בן מיכאל",
+   "n": 1,
+   "ids": [
+    "50645ba9-0895-41d3-9a8d-337d0ef17ea9"
+   ],
+   "created": [
+    "2026-09-15T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של עדי בן מיכאל",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-14"
+    ]
+   ]
+  },
+  {
+   "acc": "af0df0cf-2879-4c1c-8f7c-a670d5ca707e",
+   "name": "מכירת תוכנית המשך - גולדי עודד",
+   "n": 1,
+   "ids": [
+    "6e9b53e7-dbf0-4fd3-a7ee-31cd41b071ac"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "העסקה של גולדי עודד",
+     "עסקה נסגרה בהצלחה",
+     "2026-07-29"
+    ],
+    [
+     "עסקה - גולדי עודד | תוכנית ליווי 6 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "b231d836-3f09-48bc-8391-259a0f543113",
+   "name": "מכירת תוכנית המשך - נורית כהן",
+   "n": 2,
+   "ids": [
+    "77724870-0324-4f1b-a1a8-cc4e55923b3f",
+    "8c47421a-6803-4b28-ad4a-e901b77756ea"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:09"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-20"
+    ],
+    [
+     "ליווי הסתיים בהצלחה",
+     "בוסט",
+     "2026-08-24"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של נורית כהן",
+     "עסקה נסגרה בהצלחה",
+     "2026-08-17"
+    ],
+    [
+     "תהליך המכירה של נורית כהן",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ]
+   ]
+  },
+  {
+   "acc": "c479fd46-b4ff-4646-8ed7-04a737b6d382",
+   "name": "מכירת תוכנית המשך - אורית",
+   "n": 2,
+   "ids": [
+    "4ce2137e-c3fb-4370-a84a-ea29721b7ee8",
+    "9b98a9dc-8345-41de-879f-327fcaca4483"
+   ],
+   "created": [
+    "2026-09-13T08:00:04",
+    "2026-09-16T08:00:07"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-17"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של אורית",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-10"
+    ]
+   ]
+  },
+  {
+   "acc": "c481dfc0-07ae-4ce7-90f8-e9543db3f921",
+   "name": "מכירת תוכנית המשך - עליזה אוחיון",
+   "n": 1,
+   "ids": [
+    "b5beb748-72ee-40c5-8a36-aab822a4b4dd"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-11-12"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - עליזה אוחיון | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "d0a810fb-b521-4336-903d-df31a8368015",
+   "name": "מכירת תוכנית המשך - כוכי",
+   "n": 2,
+   "ids": [
+    "45a4f449-d841-4907-8377-ce54168831cf",
+    "b8f16b22-e3c9-42f3-a09f-80580030d982"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-16"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של כוכי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-09"
+    ]
+   ]
+  },
+  {
+   "acc": "d29ffd56-8d2f-4782-8c09-e074cf40eee0",
+   "name": "מכירת תוכנית המשך - סיון נוה",
+   "n": 2,
+   "ids": [
+    "c4972373-820e-4fb1-b643-a2d35909f153",
+    "3205ce39-3085-4517-b526-2294b7e2cf00"
+   ],
+   "created": [
+    "2026-09-14T08:00:03",
+    "2026-09-16T08:00:09"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-12-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - סיון נוה | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - סיון נוה | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "d476e1d6-080f-4bc9-91cc-b8ada2620701",
+   "name": "מכירת תוכנית המשך - תמר חנין",
+   "n": 2,
+   "ids": [
+    "694298a4-1cf3-4511-ad5f-f21c27b5226c",
+    "932db11a-7680-4a9e-b8c2-c5f4c41489ec"
+   ],
+   "created": [
+    "2026-09-13T08:00:04",
+    "2026-09-16T08:00:09"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-17"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "עסקה - תמר חנין | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - תמר חנין | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "d592e977-6048-45b6-9fc4-b1b9c5d38279",
+   "name": "מכירת תוכנית המשך - yardenakiva",
+   "n": 2,
+   "ids": [
+    "d6e51b3e-54ed-4015-873f-d81451bb733e",
+    "e0b3f820-8017-4c36-a4ea-8ffd67b07ef2"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-13"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - yardenakiva | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "dc4f40c7-0652-40cd-ac2c-dc6462e5d24f",
+   "name": "מכירת תוכנית המשך - אורנה",
+   "n": 2,
+   "ids": [
+    "3aea0d74-e66e-4227-9a26-ad340b584375",
+    "50673c90-f538-4181-8546-025b3adab441"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-14"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של אורנה",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-07"
+    ]
+   ]
+  },
+  {
+   "acc": "dd7366b5-e5c9-417d-9e55-addd90d673d5",
+   "name": "מכירת תוכנית המשך - שלומית ליבוביץ",
+   "n": 2,
+   "ids": [
+    "91932cd0-6330-4181-bdca-b6783bac6904",
+    "581972cc-9067-450b-a0b5-90f183fd54c1"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:06"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-15"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - שלומית ליבוביץ | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - שלומית ליבוביץ | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "dd736a6f-576c-46d7-ba07-a084a87099e6",
+   "name": "מכירת תוכנית המשך - אתי לסרי",
+   "n": 1,
+   "ids": [
+    "a7f243f3-3568-465b-893b-2cf75f65956b"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-16"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של אתי לסרי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-09"
+    ]
+   ]
+  },
+  {
+   "acc": "dd8e9c45-ff73-45f3-821c-416c4cba9f8a",
+   "name": "מכירת תוכנית המשך - ליהי",
+   "n": 2,
+   "ids": [
+    "c57a9946-61c3-4204-9385-a0909c47ecdb",
+    "9d4a98ef-8032-4134-b416-9f44c6482b7f"
+   ],
+   "created": [
+    "2026-09-13T08:00:03",
+    "2026-09-16T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-11"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - ליהי | ליד",
+     "עסקה הופסדה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - ליהי גבאי | תוכנית ליווי 22 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - ליהי גבאי | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "e094a72a-907a-4cfc-96cc-5cb1f47fe4ce",
+   "name": "מכירת תוכנית המשך - מיי יששכר",
+   "n": 2,
+   "ids": [
+    "e0229781-c85d-4094-a222-8b1fe0adf105",
+    "33c4de03-94b6-40d6-9bc8-655bd4a0970c"
+   ],
+   "created": [
+    "2026-09-15T08:00:08",
+    "2026-09-16T08:00:09"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-12-07"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "תהליך המכירה של מיי יששכר",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-14"
+    ],
+    [
+     "העסקה של מיי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-02"
+    ]
+   ]
+  },
+  {
+   "acc": "e29fcc6f-0ae7-4c0c-9cc7-8e25bf98f93d",
+   "name": "מכירת תוכנית המשך - מעיין",
+   "n": 2,
+   "ids": [
+    "c53536a5-11f0-47f3-bd98-7d6a31a94481",
+    "ca5b8405-0c36-491c-bbfa-efe0d2e9ab6a"
+   ],
+   "created": [
+    "2026-09-14T08:00:03",
+    "2026-09-16T08:00:09"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-27"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של מעיין",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-13"
+    ]
+   ]
+  },
+  {
+   "acc": "e59ffab2-ef1e-4150-b4b8-c42ae5133ad5",
+   "name": "מכירת תוכנית המשך - מיכאל אוקס",
+   "n": 1,
+   "ids": [
+    "f38556d0-fd9c-45fb-a9b0-2f74c438b77d"
+   ],
+   "created": [
+    "2026-08-20T20:35:14"
+   ],
+   "coaching": [
+    [
+     "ליווי הסתיים בהצלחה",
+     "פרימיום",
+     ""
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - 0586066156 | ליד",
+     "ליד חדש",
+     "2026-09-11"
+    ],
+    [
+     "העסקה של מיכאל אוקס",
+     "ליד חדש",
+     "2026-06-14"
+    ]
+   ]
+  },
+  {
+   "acc": "e5d872c9-f49e-404f-a230-a173f9839f37",
+   "name": "מכירת תוכנית המשך - שיר שולמן",
+   "n": 1,
+   "ids": [
+    "c07e4a4f-041e-4c8b-8de5-e4c39090eb3f"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-10-18"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - שיר שולמן | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - שיר שולמן | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "e65c5dc8-ba57-467b-b7ab-a2054eee152b",
+   "name": "מכירת תוכנית המשך - מיכל רכלבסקי",
+   "n": 1,
+   "ids": [
+    "494cdad5-7c10-43f3-b108-a44de3d186ff"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-11-01"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - מיכל רכלבסקי | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - מיכל רכלבסקי | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "ea702515-30af-4944-b77a-b0c2a7fc2c02",
+   "name": "מכירת תוכנית המשך - ליטל טורג'מן",
+   "n": 1,
+   "ids": [
+    "dac38584-ac0b-4728-baf0-056c4df94436"
+   ],
+   "created": [
+    "2026-09-13T08:00:02"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-20"
+    ],
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-17"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "תהליך המכירה של ליטל טורג'מן",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ],
+    [
+     "העסקה של ליטל טורג'מן",
+     "עסקה נסגרה בהצלחה",
+     "2026-08-28"
+    ]
+   ]
+  },
+  {
+   "acc": "ef9e5fc7-3ddd-49e5-ad34-2793cdb3aa59",
+   "name": "מכירת תוכנית המשך - בת חן קזז",
+   "n": 1,
+   "ids": [
+    "2575d843-e7c7-41e2-947f-457a8779de44"
+   ],
+   "created": [
+    "2026-09-15T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-08-03"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "עסקה - בת חן קזז | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "תהליך המכירה של בת חן קזז",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-15"
+    ]
+   ]
+  },
+  {
+   "acc": "f06df28d-ebcf-432f-a9f4-b253d54fbbe6",
+   "name": "מכירת תוכנית המשך - מירב דאלי",
+   "n": 1,
+   "ids": [
+    "656bf348-2271-4448-a7e6-f8eabc56ab53"
+   ],
+   "created": [
+    "2026-09-16T08:00:09"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2027-01-11"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "מכירת תוכנית המשך - מירב דאלי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-14"
+    ],
+    [
+     "העסקה של מירב דאלי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-05"
+    ]
+   ]
+  },
+  {
+   "acc": "f626116e-a953-4b2b-8977-117708a42ca3",
+   "name": "מכירת תוכנית המשך - קטי גולדנר",
+   "n": 1,
+   "ids": [
+    "23c7b417-ec2f-44c3-be9c-da51de550485"
+   ],
+   "created": [
+    "2026-09-14T08:00:03"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-09-17"
+    ]
+   ],
+   "eligible": true,
+   "others": [
+    [
+     "עסקה - קטי גולדנר | תוכנית ליווי 12 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - קטי גולדנר | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "f75181b9-8e6d-452d-888d-21c545a2c8cb",
+   "name": "מכירת תוכנית המשך - צפר יהודית",
+   "n": 2,
+   "ids": [
+    "fbc0772b-69c6-4f88-89f5-f79fea3e6a48",
+    "37bd6d08-2df3-43ad-91bb-d007950cdabe"
+   ],
+   "created": [
+    "2026-09-13T08:00:02",
+    "2026-09-16T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2026-11-30"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "עסקה - צפר יהודית | סדנה בוסט",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ],
+    [
+     "עסקה - צפר יהודית | תוכנית ליווי 17 שבועות",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-11"
+    ]
+   ]
+  },
+  {
+   "acc": "f90cdeb6-156f-4657-b9af-05347edb769c",
+   "name": "מכירת תוכנית המשך - אורית רז",
+   "n": 2,
+   "ids": [
+    "2da8efd7-25e4-47ed-b1ad-ad12869b4b3d",
+    "23320825-a609-425f-877c-4588229f20a3"
+   ],
+   "created": [
+    "2026-09-13T08:00:04",
+    "2026-09-16T08:00:09"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "בוסט",
+     "2026-09-13"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "העסקה של אורית רז",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-06"
+    ]
+   ]
+  },
+  {
+   "acc": "fe5af941-53c7-4242-81c4-ebc27d5aeb8e",
+   "name": "מכירת תוכנית המשך - דיתי פאר לוי",
+   "n": 2,
+   "ids": [
+    "52ddf8a9-7424-47a9-9bd3-dd824d93d168",
+    "531e062d-7478-49ba-919c-ab08e4f46f95"
+   ],
+   "created": [
+    "2026-09-15T08:00:08",
+    "2026-09-16T08:00:08"
+   ],
+   "coaching": [
+    [
+     "ליווי בתהליך",
+     "פרימיום",
+     "2027-01-11"
+    ]
+   ],
+   "eligible": false,
+   "others": [
+    [
+     "תהליך המכירה של דיתי פאר לוי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-14"
+    ],
+    [
+     "העסקה של דיתי",
+     "עסקה נסגרה בהצלחה",
+     "2026-09-01"
+    ]
+   ]
+  }
+ ]
+}

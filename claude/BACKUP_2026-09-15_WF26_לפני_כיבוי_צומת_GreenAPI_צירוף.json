@@ -1,0 +1,352 @@
+{
+  "createdAt": "2026-08-19T20:36:34.483Z",
+  "updatedAt": "2026-09-15T18:50:49.005Z",
+  "id": "0xf7yD9IeCyXDgWp",
+  "name": "WF-26 · צירוף לקבוצת וואטסאפ (GreenAPI)",
+  "active": true,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "wa-join-roital",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "Webhook · צירוף לקבוצה",
+      "name": "Webhook · צירוף לקבוצה",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -300,
+        300
+      ],
+      "webhookId": "wf26-wa-join"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"API_BASE\": \"https://api.green-api.com\",\n  \"ID_INSTANCE\": \"710701674604\",\n  \"API_TOKEN\": \"***REDACTED***\"\n}",
+        "options": {}
+      },
+      "id": "קונפיגורציה",
+      "name": "קונפיגורציה",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -80,
+        460
+      ],
+      "notes": "🔴 מכיל את מפתח GreenAPI. אין לייצא או לשתף את ה-JSON של התהליך הזה."
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// ============================================================================\n// WF-26 · צירוף לקבוצת וואטסאפ — הכנת הקריאה\n// ============================================================================\n// זהו ה-workflow היחיד שמחזיק את מפתח GreenAPI. שאר התהליכים קוראים לו\n// דרך וובהוק פנימי, וכך ה-JSON שלהם ניתן לייצוא בלי לחשוף שום מפתח.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const cfg = ctx.cfg;\n  const raw = ctx.raw || {};\n  const d = (raw && raw.body && typeof raw.body === 'object') ? raw.body : raw;\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const inst = `${cfg.API_BASE}/waInstance${cfg.ID_INSTANCE}`;\n  return [{ json: {\n    groupId: S(d.groupId), chatId: S(d.chatId), groupName: S(d.groupName),\n    groupRecordId: S(d.groupRecordId), accountName: S(d.accountName),\n    source: S(d.source), executionUrl: S(d.executionUrl),\n    stateUrl: `${inst}/getStateInstance/${cfg.API_TOKEN}`,\n    joinUrlTemplate: `${inst}/addGroupParticipant/${cfg.API_TOKEN}`,\n    idleUrl: `${inst}/getStateInstance/${cfg.API_TOKEN}`,\n  } }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ raw: $('Webhook · צירוף לקבוצה').first().json, cfg: $('קונפיגורציה').first().json });\n"
+      },
+      "id": "הכנת הקריאה",
+      "name": "הכנת הקריאה",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        140,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.stateUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          },
+          "timeout": 20000
+        }
+      },
+      "id": "GreenAPI · מצב החיבור",
+      "name": "GreenAPI · מצב החיבור",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        360,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// ============================================================================\n// WF-26 · הכרעה — האם החיבור מורשה ואפשר לצרף\n// ============================================================================\n// 🔴 כלל מהפלייבוק: קריאה ראשונה חובה ל-getStateInstance, והוא חייב להחזיר\n//    authorized. כל מצב אחר ⇒ לא מנסים לצרף, מחזירים סיבה, והלקוחה תצטרף\n//    דרך קישור ההזמנה שנשלח בהודעת הוולקאם.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const prep = ctx.prep;\n  const state = String((ctx.stateResp && (ctx.stateResp.stateInstance\n    || (ctx.stateResp.data && ctx.stateResp.data.stateInstance))) || '').trim();\n  const authorized = state === 'authorized';\n\n  const STATE_TEXT = {\n    notAuthorized: 'המכשיר לא מחובר — נדרשת סריקת QR מחדש',\n    authorized: 'מחובר',\n    blocked: 'החשבון חסום ב-GreenAPI',\n    sleepMode: 'המכשיר במצב שינה',\n    starting: 'המופע בהפעלה',\n    expired: '🔴 המנוי/החיבור פג תוקף — נדרשת סריקת QR מחדש',\n  };\n\n  if (!prep.groupId || !prep.chatId) {\n    return [{ json: Object.assign({}, prep, { skip: true, joined: false, state,\n      reason: 'חסר מזהה קבוצה או טלפון', callUrl: prep.idleUrl, callBody: {} }) }];\n  }\n  if (!authorized) {\n    return [{ json: Object.assign({}, prep, { skip: true, joined: false, state,\n      reason: STATE_TEXT[state] || `מצב חיבור לא תקין (${state || 'לא ידוע'})`,\n      callUrl: prep.idleUrl, callBody: {} }) }];\n  }\n  return [{ json: Object.assign({}, prep, { skip: false, state, reason: '',\n    callUrl: prep.joinUrlTemplate,\n    callBody: { groupId: prep.groupId, participantChatId: prep.chatId } }) }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ prep: $('הכנת הקריאה').first().json, stateResp: $input.first().json });\n"
+      },
+      "id": "הכרעת צירוף",
+      "name": "הכרעת צירוף",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        580,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "={{ $json.skip ? 'GET' : 'POST' }}",
+        "url": "={{ $json.callUrl }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": "={{ !$json.skip }}",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.callBody || {}) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          },
+          "timeout": 60000
+        }
+      },
+      "id": "GreenAPI · צירוף לקבוצה",
+      "name": "GreenAPI · צירוף לקבוצה",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        800,
+        300
+      ],
+      "onError": "continueRegularOutput",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "\n// ============================================================================\n// WF-26 · סיכום תוצאת הצירוף\n// ============================================================================\n\n// ==== LOGIC (pure) ====\n// 🔴 כל מצב חיבור שאינו authorized מפעיל מיד את WF-21, שבודק את התקינות\n//    ושולח מייל לרויטל אם צריך. בלי זה התקלה מתגלה רק ב-08:00 או ב-20:00.\n//    WF-21 מחזיק בעצמו מנגנון מניעת הצפה — מייל אחד לאירוע.\nconst ALERT_URL = 'https://n8n.srv964196.hstgr.cloud/webhook/greenapi-check-now';\n\nfunction alertOn(state, extra) {\n  const bad = String(state || '').trim() !== 'authorized';\n  if (!bad) return { _alertUrl: 'https://n8n.srv964196.hstgr.cloud/healthz', _alertMethod: 'GET', _alertBody: {}, _alertFired: false };\n  return {\n    _alertUrl: ALERT_URL, _alertMethod: 'POST', _alertFired: true,\n    _alertBody: { source: 'WF-26 · צירוף לקבוצת וואטסאפ',\n      detail: 'מצב החיבור: ' + (state || 'לא ידוע') + (extra ? ' · ' + extra : '') },\n  };\n}\n\nfunction LOGIC(ctx) {\n  const dec = ctx.decision;\n  const r = ctx.resp || {};\n  if (dec.skip) {\n    return [{ json: Object.assign({ joined: false, skipped: true, reason: dec.reason, state: dec.state,\n      groupName: dec.groupName, chatId: dec.chatId }, alertOn(dec.state, dec.groupName)) }];\n  }\n  const added = r.addParticipant === true || (r.data && r.data.addParticipant === true);\n  const errText = String((r && (r.error || (r.message && !r.addParticipant && r.message))) || '');\n  return [{ json: Object.assign({\n    joined: !!added, skipped: false, state: dec.state,\n    reason: added ? ''\n      : (errText ? ('הקריאה ל-GreenAPI נכשלה: ' + errText)\n                 : 'GreenAPI לא אישר את הצירוף — ייתכן שהגדרות הפרטיות של הלקוחה חוסמות'),\n    groupName: dec.groupName, chatId: dec.chatId, response: r,\n  }, alertOn(dec.state, errText)) }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ decision: $('הכרעת צירוף').first().json, resp: $input.first().json });\n"
+      },
+      "id": "סיכום",
+      "name": "סיכום",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1020,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "={{ $json._alertMethod }}",
+        "url": "={{ $json._alertUrl }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": "={{ $json._alertMethod !== 'GET' }}",
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json._alertBody || {}) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "התראה מיידית · WF-21",
+      "name": "התראה מיידית · WF-21",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1130,
+        460
+      ],
+      "onError": "continueRegularOutput",
+      "notes": "מפעיל את WF-21 מיד כשמצב החיבור אינו authorized."
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ (() => { const s = Object.assign({}, $('סיכום').first().json); Object.keys(s).forEach(k => { if (k.indexOf('_alert') === 0) delete s[k]; }); return s; })() }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "תגובה",
+      "name": "תגובה",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1240,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook · צירוף לקבוצה": {
+      "main": [
+        [
+          {
+            "node": "קונפיגורציה",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "קונפיגורציה": {
+      "main": [
+        [
+          {
+            "node": "הכנת הקריאה",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "הכנת הקריאה": {
+      "main": [
+        [
+          {
+            "node": "GreenAPI · מצב החיבור",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GreenAPI · מצב החיבור": {
+      "main": [
+        [
+          {
+            "node": "הכרעת צירוף",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "הכרעת צירוף": {
+      "main": [
+        [
+          {
+            "node": "GreenAPI · צירוף לקבוצה",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GreenAPI · צירוף לקבוצה": {
+      "main": [
+        [
+          {
+            "node": "סיכום",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "סיכום": {
+      "main": [
+        [
+          {
+            "node": "התראה מיידית · WF-21",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "התראה מיידית · WF-21": {
+      "main": [
+        [
+          {
+            "node": "תגובה",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Jerusalem",
+    "saveManualExecutions": true,
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": null,
+  "versionId": "b0abf046-4af9-49bd-83d2-3f7dfb037878",
+  "triggerCount": 1,
+  "shared": [
+    {
+      "createdAt": "2026-08-19T20:36:34.485Z",
+      "updatedAt": "2026-08-19T20:36:34.485Z",
+      "role": "workflow:owner",
+      "workflowId": "0xf7yD9IeCyXDgWp",
+      "projectId": "8n5t87og6JZ0AXPr",
+      "project": {
+        "createdAt": "2025-08-18T16:54:33.537Z",
+        "updatedAt": "2025-08-18T17:04:43.601Z",
+        "id": "8n5t87og6JZ0AXPr",
+        "name": "Eliel Trabulsky <eliel@vitrue.co.il>",
+        "type": "personal",
+        "icon": null,
+        "description": null,
+        "projectRelations": [
+          {
+            "createdAt": "2025-08-18T16:54:33.538Z",
+            "updatedAt": "2025-08-18T16:54:33.538Z",
+            "role": "project:personalOwner",
+            "userId": "6530ce58-2475-45da-97a4-bf0ec489a180",
+            "projectId": "8n5t87og6JZ0AXPr",
+            "user": {
+              "createdAt": "2025-08-18T16:54:32.972Z",
+              "updatedAt": "2026-09-15T08:01:58.586Z",
+              "id": "6530ce58-2475-45da-97a4-bf0ec489a180",
+              "email": "eliel@vitrue.co.il",
+              "firstName": "Eliel",
+              "lastName": "Trabulsky",
+              "personalizationAnswers": {
+                "version": "v4",
+                "personalization_survey_submitted_at": "2025-08-18T17:04:51.259Z",
+                "personalization_survey_n8n_version": "1.106.3"
+              },
+              "settings": {
+                "userActivated": true,
+                "firstSuccessfulWorkflowId": "9Yey7n3lWYHw4uZL",
+                "userActivatedAt": 1755882878466,
+                "npsSurvey": {
+                  "waitingForResponse": true,
+                  "ignoredCount": 1,
+                  "lastShownAt": 1789459314271
+                },
+                "easyAIWorkflowOnboarded": true
+              },
+              "role": "global:owner",
+              "disabled": false,
+              "mfaEnabled": false,
+              "lastActiveAt": "2026-09-14",
+              "isPending": false
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "tags": []
+}

@@ -1,0 +1,144 @@
+{
+ "task_A_accounts_fixed": [
+  {
+   "accountid": "eacced91-2194-48cc-a61f-6ad8f42cca03",
+   "telephone1": "0555584034",
+   "before_accountname": "",
+   "after_accountname": "אלישבע אסןלין"
+  },
+  {
+   "accountid": "bfab340f-aefd-4069-bc4b-c1e77df898e4",
+   "telephone1": "0528996532",
+   "before_accountname": "",
+   "after_accountname": "יעל בומרינד"
+  },
+  {
+   "accountid": "49796f06-bc3c-494d-b2ec-e3589c4d1bab",
+   "telephone1": "0546239502",
+   "before_accountname": null,
+   "after_accountname": "Virna boukobza"
+  }
+ ],
+ "task_B_opportunities_fixed": [
+  {
+   "opportunityid": "008f0e24-c7d8-432e-a16d-02e13be1448d",
+   "accountid": "578fb309-f61f-4e6f-908a-274c7c4a7053",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "2839a9ca-e46e-4b71-a488-063e879babd1",
+   "accountid": "544bbdbe-4170-40ea-b8a6-5ca9e818fd12",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "c1375f80-f1d9-4b1a-9afa-077e049ea5df",
+   "accountid": "074a4881-668e-4094-9516-7e2cdca6a792",
+   "before_name": "העסקה של +972509491273",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "17788249-52d8-4659-affb-1c01c9985347",
+   "accountid": "066329c9-6cc0-4fc0-8463-622f8b5eb8a6",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "039ef907-2bc6-4369-830d-1d8475a4403c",
+   "accountid": "6fc4b9b4-bc4e-405f-9f64-24144fff1d3b",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "6dd255d9-9ed5-4a09-a644-214839f87178",
+   "accountid": "0bf911b4-5d86-444d-ac5d-d1b150c926c3",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "543e2aa3-b469-435b-ba45-2f08b03f6071",
+   "accountid": "e4fbd903-bbd5-43f6-9c5e-896c05ccf671",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "7f8300f4-3c2b-4258-aaa3-37fd15b4cd66",
+   "accountid": "adaf9bb5-67d4-4130-9850-6533a7de32f3",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "13863b6a-c2a4-4f52-b098-39b987a0fa7c",
+   "accountid": "69496da5-4464-4a79-b862-201099f54d44",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של אפריל"
+  },
+  {
+   "opportunityid": "5c9cc627-6eea-4342-a771-39e65eaf9379",
+   "accountid": "39ae9363-41c0-4668-826b-159a1cb1439a",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "78c79c9d-5609-4ee5-8c3e-56b95bf32cd9",
+   "accountid": "c2929809-6c93-4c9f-af41-ea7f3aabbbe6",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "d005858a-a244-4d1b-9c87-58d39391037d",
+   "accountid": "a975f3e4-26f1-492b-84ce-983c8c0a7fac",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "0eeafaac-791d-43fc-976d-5facfbfc6b34",
+   "accountid": "62924e0a-4afd-4d9d-b1f6-66f7489223c3",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "35a42c34-f101-4503-b6d1-8c3617c62a9e",
+   "accountid": "0a0c0700-85c0-4dcd-8d9f-6cd1b7f3fbd4",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של רונית"
+  },
+  {
+   "opportunityid": "9bf16d9a-a94b-45e1-b121-9fcf09483c49",
+   "accountid": "75d22b54-df79-49df-a0f9-4486c57efe9f",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "25bd686b-3fa9-40cf-bea1-cf2fecdaeff0",
+   "accountid": "3c129f73-c321-4ed3-bebb-0599955d801f",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "c670c74e-c97a-4c28-9757-dd1a46478440",
+   "accountid": "432608d9-5ef2-4b90-b9a7-026edd771a11",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "769ff3d5-8201-4fe4-b1b5-ebecb5b22380",
+   "accountid": "399752d8-08b4-4322-adfa-9cc92c2d755d",
+   "before_name": "העסקה של +972523464664",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "d4f70c6e-6af1-4405-b8b1-f4063f0d4d47",
+   "accountid": "012126a4-0e24-40b0-9357-5c72c5851f39",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  },
+  {
+   "opportunityid": "df874d79-1c52-4ad8-99aa-fd9faec82753",
+   "accountid": "3065be9f-5a0d-4686-9c12-779642acc953",
+   "before_name": "העסקה של",
+   "after_name": "העסקה של *אין שם לקוחה*"
+  }
+ ]
+}

@@ -1,0 +1,107 @@
+> ⛔ **מסמך זה הוחלף — עודכן 03/08/2026 — סקירת 26 שיחות הפרויקט.**
+>
+> התוכן המלא והמעודכן עבר לנתיב **`claude/ROITAL_PROJECT_CONTEXT.md`**.
+>
+> **הרקע:** הוראות הפרויקט מפנות אל `ROITAL_PROJECT_CONTEXT.md` (בסיומת `.md`), אבל הקובץ הזה נשמר בפועל בסיומת `.txt` — כך שההפניה לא הייתה נפתרת. במסגרת סקירת 03/08/2026 נוצר מסמך חדש בשם הנכון, שמאחד את התוכן הזה עם `00_PROJECT_CONTEXT.md` המעודכן.
+>
+> **מגבלת כלי:** לא ניתן היה ליצור מסמך חדש בנתיב שורש מדויק `ROITAL_PROJECT_CONTEXT.md` — כלי הכתיבה מנתב מסמכים חדשים בשם עירום אוטומטית אל `claude/`. לכן המסמך החדש יושב ב-`claude/ROITAL_PROJECT_CONTEXT.md`, לא בשורש. זו עדיין הפרה חלקית של ההפניה בהוראות הפרויקט — לתקן סופית ע"י שינוי ניסוח ההוראות (מייק, בממשק claude.ai) כך שיפנו במפורש ל-`claude/ROITAL_PROJECT_CONTEXT.md`.
+>
+> **פעולה נדרשת מאליאל:** למחוק ידנית את המסמך הזה (`ROITAL_PROJECT_CONTEXT.md.txt`) — סוכן אוטומטי לא יכול למחוק מסמכי פרויקט.
+>
+> תוכן זה נשמר כאן ללא שינוי לצורך תיעוד היסטורי בלבד:
+
+---
+
+# Project Context: Roital Yaish — Implementation
+
+**Document Type:** Project Knowledge File
+**Audience:** All Claude chats operating within this sister project
+**Owner:** Mike (Michael)
+**Status:** Living document — updated by Sensei (Roital) as the project evolves
+
+---
+
+## 1. Project Mission
+
+Ship a customized Fireberry CRM for Roital Yaish, fitting her online weight-loss/nutrition business, **on a 2.5-week deadline for 90% of the deliverable**. Eliel reviews the final product.
+
+This is a **customer delivery project**, time-boxed and pragmatic. It is *not* an infrastructure project — that work lives in a separate Claude.ai project (`Vitrue CRM Infrastructure`).
+
+---
+
+## 2. Who Is Mike
+
+- Manages the CRM department at Vitrue.
+- Communicates direct, Hebrew, no fluff.
+- Does NOT read code.
+- Default execution surface = Claude Code.
+- Has limited terminal experience.
+- Requires pushback when wrong.
+- Eliel (Mike's boss) reviews everything Mike delivers.
+
+---
+
+## 3. The Customer — Roital Yaish
+
+- **Business:** Online weight-loss and nutrition programs for women.
+- **Model:** B2C, online cohorts + 1:1 mentor follow-up + payment subscriptions.
+- **Sales channels:** Facebook, Instagram, TikTok, WhatsApp, landing pages, word of mouth.
+- **Current systems pain:** existing Fireberry is unconfigured, processes are split across many tools (Meshulam, Zoom, TOFSY, Gmail, etc.), no clean automation post-sale.
+- **The implementation source-of-truth document:** `מסמך_איפיון_CRM_-_.pdf`. Treat this as Roital's expressed needs, but **not 100% final** — changes are expected during the engagement.
+
+---
+
+## 4. The Technical Substrate
+
+- **Roital's Fireberry account is a clone of Vitrue's master template.** It contains 78 objects, 2,442 fields, 873 picklist options, 707 lookups. See `template_snapshot.json` for the full structural inventory.
+- **Customization model:** subtractive (delete what Roital doesn't need), cosmetic (relabel for Roital's domain), occasionally additive (add fields the template didn't anticipate).
+- **The template already contains domain-specific fields for weight-loss/nutrition** (משקל התחלתי, משקל יעד, העדפת תזונה, רגישיות תזונה, etc.) — they exist because Vitrue built this domain into the master. Verify in `template_snapshot.json`.
+- **What the snapshot does NOT tell you:** which fields are mandatory, which are readonly, what default values exist, what max-lengths are configured. These come from Mike on a per-decision basis.
+
+---
+
+## 5. Hard Constraints
+
+- ⏰ **Deadline: ~2.5 weeks from project start for 90% of the deliverable.**
+- 🚫 **Make.com automations: do NOT touch via Claude Code.** Mike handles Make manually.
+- 🚫 **Fireberry account cloning: NEVER trigger via API.** Cloning is paid; only manual.
+- ⚠️ **Destructive operations (field/object deletes): require explicit Mike confirmation per operation.** Never batch-delete without per-item approval.
+- 📋 **Eliel reviewability:** every change to Roital's account must produce a Hebrew change-log entry that Eliel can read and understand without seeing the code.
+- 🔁 **Characterization is not final:** expect changes mid-project. Design every mission to be re-runnable on an updated characterization.
+
+---
+
+## 6. Methodology — Multi-Chat Architecture
+ 
+- **Sensei (Roital)** is the orchestrator. Designs specialist chats, integrates results.
+- **Specialist chats** execute one mission each. Hebrew completion summary at end.
+- **Claude Code** executes operations against Roital's Fireberry account.
+- **Mike couriers** between layers.
+
+---
+
+## 7. Relationship to the Infrastructure Project
+
+- The infrastructure project (`Vitrue CRM Infrastructure`) is the long-term home for templates, methodology, and standards.
+- This sister project is a **time-boxed customer delivery** that operates independently.
+- **Learnings flow back:** Mike will manually summarize the friction points, surprises, and patterns from this project and feed them into the infrastructure project's Phase 2 (Characterization System) design.
+- **Artifacts do NOT auto-sync:** if a file is updated in one project, the other does not see it. Snapshots are taken at upload time.
+
+---
+
+## 8. Output Standards
+
+Every artifact produced inside this project must be:
+- **Markdown** for any Claude-to-Claude artifact (English).
+- **Hebrew** for anything Mike or Eliel reads.
+- **Self-contained** — readable by a future chat with no prior context.
+- **Operational** — every section enables an action or a decision. 
+- **Eliel-reviewable** for change logs — written so Eliel can scan 50 entries in 10 minutes.
+- **Re-runnable** — designed to survive a characterization update without restart.
+
+---
+
+## 9. Document Maintenance
+
+- **Edited by Sensei (Roital) only.**
+- Mike re-uploads the updated version to Project Knowledge each time it changes.

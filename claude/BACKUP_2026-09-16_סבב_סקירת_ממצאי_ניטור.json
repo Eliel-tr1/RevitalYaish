@@ -1,0 +1,555 @@
+{
+ "_readme": "גיבוי מלא של כל הרשומות שנגעתי בהן ב-16/09/2026 לפני השינוי. משמש לשחזור.",
+ "B1_zuslin_gus": {
+  "zuslin": {
+   "תהליכי מכירה": [
+    {
+     "opportunityid": "4df7a9d7-4a71-416a-a0fa-327a4243ea46",
+     "name": "העסקה של זוסלין",
+     "accountid": "f3279af3-050a-42de-a7ad-059d9d3d8f42",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-12T22:50:42",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21"
+    }
+   ],
+   "תהליכי ליווי": [],
+   "תשלומים": [],
+   "תיעודי תשלום": [],
+   "משימות": [],
+   "פגישות": [],
+   "אנשי קשר": [],
+   "_account": [
+    {
+     "accountid": "f3279af3-050a-42de-a7ad-059d9d3d8f42",
+     "accountname": "זוסלין",
+     "telephone1": "0504006577",
+     "telephone2": null,
+     "emailaddress1": null,
+     "createdon": "2026-09-12T22:50:41",
+     "modifiedon": "2026-09-16T14:54:16",
+     "statuscode": "ליד חדש",
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfCloudChatId": "f201689u944220623",
+     "pcfUTMSsource": "b10b8a2e-a4e3-4804-b693-64cca8231e1a",
+     "pcfType": "",
+     "pcfWhatsAppReferans": null,
+     "idnumber": null,
+     "pcfGender": "נקבה",
+     "billingcity": null
+    }
+   ]
+  },
+  "gus": {
+   "תהליכי מכירה": [
+    {
+     "opportunityid": "fb7e8aaf-8afe-4765-aff9-01a273d04ad4",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T14:15:35",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "19226e6b-1930-4b31-9f38-0d2758bd71fe",
+     "name": "עסקה - זוס | סדנה בוסט",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "עסקה נסגרה בהצלחה",
+     "createdon": "2026-09-11T10:57:45",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21"
+    },
+    {
+     "opportunityid": "1aa849a2-14c1-4538-a20b-3efbf405e319",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T00:02:57",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "8326ff1d-1ddb-4674-9d71-6452eb1a19a0",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T00:03:18",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "897ba4e8-333f-406d-a3f1-68c2417abb50",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T14:26:27",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "b35cbc60-9509-4b80-8c4e-6d4d2ed65046",
+     "name": "עסקה - +972504006577 | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T11:49:19",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "17b75036-0483-4095-859e-7f7261c1a46f",
+     "name": "עסקה - +972504006577 | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T13:18:11",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "c0b77af5-8f1e-4815-ad7c-927f2b02e587",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T12:25:40",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "acf8635f-4076-444e-955e-a1355c672c5a",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T14:04:57",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "66480672-1caf-4347-8679-c1d96002d395",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T11:28:58",
+     "pcfProduct": null
+    },
+    {
+     "opportunityid": "89a17fe5-2b1e-4ab5-8534-d22a4c30b923",
+     "name": "עסקה - גוס | ליד",
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "statuscode": "ליד חדש",
+     "createdon": "2026-09-11T13:53:44",
+     "pcfProduct": null
+    }
+   ],
+   "תהליכי ליווי": [
+    {
+     "customobject1051id": "5a5e83b0-25b7-4881-98ba-c739ab8f8ded",
+     "name": "ליווי - זוס | סדנה בוסט",
+     "pcfaccountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "pcfStatus": "ליווי הסתיים בהצלחה",
+     "createdon": "2026-09-11T11:02:19"
+    }
+   ],
+   "תשלומים": [
+    {
+     "customobject1039id": "98bc2b4c-ac7c-483f-acd1-49166247a1da",
+     "name": "התשלום של זוס | סדנה בוסט | 159 ₪ | 1 תשלומים",
+     "pcfAccountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "pcfStatus": "נפרע בהצלחה",
+     "pcfNeedToPayIncludingVat": 159.000044,
+     "createdon": "2026-09-11T10:58:26"
+    }
+   ],
+   "תיעודי תשלום": [
+    {
+     "customobject1018id": "0db041a9-533e-47f8-9084-294f2d54c9ca",
+     "name": "תיעוד התשלום של זוס | סדנה בוסט",
+     "pcfAccountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "pcfPayed": 134.7458,
+     "createdon": "2026-09-11T10:58:56"
+    }
+   ],
+   "משימות": [],
+   "פגישות": [],
+   "אנשי קשר": [],
+   "_account": [
+    {
+     "accountid": "d4ba9365-f95f-47b8-a1a2-cc9716c456f0",
+     "accountname": "גוס",
+     "telephone1": "+972504006577",
+     "telephone2": null,
+     "emailaddress1": "goslin5555@gmail.com",
+     "createdon": "2026-09-10T23:57:09",
+     "modifiedon": "2026-09-16T14:54:16",
+     "statuscode": "ליד חדש",
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfCloudChatId": "f201689u944220623",
+     "pcfUTMSsource": "b10b8a2e-a4e3-4804-b693-64cca8231e1a",
+     "pcfType": "",
+     "pcfWhatsAppReferans": null,
+     "idnumber": null,
+     "pcfGender": "נקבה",
+     "billingcity": null
+    }
+   ]
+  }
+ },
+ "B5_mentor_duplicates": [
+  {
+   "account": "חן שרביט",
+   "accountid": "bb53e800-c0e0-4f9b-91ff-ffe9e43499b4",
+   "product": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+   "records": [
+    {
+     "customobject1051id": "b7be735b-3971-415d-aa58-0bda3e3732f8",
+     "name": "ליווי - חן שרביט | סדנה בוסט",
+     "pcfaccountid": "bb53e800-c0e0-4f9b-91ff-ffe9e43499b4",
+     "pcfSale": "78ae6d3f-3471-48e9-8ac2-47969287bb0c",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-10T00:00:00",
+     "createdon": "2026-09-11T13:36:49",
+     "modifiedon": "2026-09-12T11:10:38",
+     "pcfBoostLinked": null,
+     "pcfActualGroup": null,
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": 1.0,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": "2026-09-10T14:08:15",
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-17T00:00:00",
+     "pcfcrmorderid": null
+    },
+    {
+     "customobject1051id": "92813d05-5501-47d8-8cf9-05b247981c6f",
+     "name": "ליווי סדנה בוסט - חן שרביט",
+     "pcfaccountid": "bb53e800-c0e0-4f9b-91ff-ffe9e43499b4",
+     "pcfSale": "78ae6d3f-3471-48e9-8ac2-47969287bb0c",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-10T00:00:00",
+     "createdon": "2026-09-12T10:56:54",
+     "modifiedon": "2026-09-13T11:30:30",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": null,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": null,
+     "pcfCurrentWeight": 90.7,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": "2026-09-13T00:00:00",
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-20T00:00:00",
+     "pcfcrmorderid": null
+    }
+   ]
+  },
+  {
+   "account": "תהאני מוצלח",
+   "accountid": "0989cf15-ae8f-4209-971f-0e7004714907",
+   "product": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+   "records": [
+    {
+     "customobject1051id": "a8f6be72-8a7c-4556-84ce-0a4dfff87a8c",
+     "name": "ליווי - תהאני מוצלח | סדנה בוסט",
+     "pcfaccountid": "0989cf15-ae8f-4209-971f-0e7004714907",
+     "pcfSale": "8edabb6f-b23e-4fc0-9702-fad2c8ae3985",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-11T00:00:00",
+     "createdon": "2026-09-12T10:27:16",
+     "modifiedon": "2026-09-15T16:56:26",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": 1.0,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": "2026-09-11T22:35:19",
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-18T00:00:00",
+     "pcfcrmorderid": null
+    },
+    {
+     "customobject1051id": "d9a383f9-1b13-4fce-b9a8-a2eb57c846be",
+     "name": "ליווי סדנה בוסט - תהאני מוצלח",
+     "pcfaccountid": "0989cf15-ae8f-4209-971f-0e7004714907",
+     "pcfSale": "8edabb6f-b23e-4fc0-9702-fad2c8ae3985",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-11T00:00:00",
+     "createdon": "2026-09-12T10:56:26",
+     "modifiedon": "2026-09-12T10:56:27",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": null,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": null,
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-27T00:00:00",
+     "pcfcrmorderid": null
+    }
+   ]
+  },
+  {
+   "account": "ליטל טורג'מן",
+   "accountid": "ea702515-30af-4944-b77a-b0c2a7fc2c02",
+   "product": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+   "records": [
+    {
+     "customobject1051id": "bc3475f4-1c04-41bd-90d5-79052e26a122",
+     "name": "ליווי - ליטל טורג'מן | סדנה בוסט",
+     "pcfaccountid": "ea702515-30af-4944-b77a-b0c2a7fc2c02",
+     "pcfSale": "f05dd170-dbff-4451-b629-b59ba05694c2",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-10T00:00:00",
+     "createdon": "2026-09-11T00:14:52",
+     "modifiedon": "2026-09-12T11:01:52",
+     "pcfBoostLinked": null,
+     "pcfActualGroup": null,
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": 1.0,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": "2026-09-10T13:02:25",
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-17T00:00:00",
+     "pcfcrmorderid": null
+    },
+    {
+     "customobject1051id": "75a5a0ba-b246-45bc-8147-0fe1f21266c5",
+     "name": "ליווי סדנה בוסט - ליטל טורג'מן",
+     "pcfaccountid": "ea702515-30af-4944-b77a-b0c2a7fc2c02",
+     "pcfSale": "f05dd170-dbff-4451-b629-b59ba05694c2",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-10T00:00:00",
+     "createdon": "2026-09-12T10:56:58",
+     "modifiedon": "2026-09-13T09:01:35",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": null,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": null,
+     "pcfCurrentWeight": 104.2,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": "2026-09-13T00:00:00",
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-20T00:00:00",
+     "pcfcrmorderid": null
+    }
+   ]
+  },
+  {
+   "account": "נורית כהן",
+   "accountid": "b231d836-3f09-48bc-8391-259a0f543113",
+   "product": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+   "records": [
+    {
+     "customobject1051id": "73be4b2e-4baa-4f5e-9474-65947bdff4e7",
+     "name": "ליווי - נורית כהן | סדנה בוסט",
+     "pcfaccountid": "b231d836-3f09-48bc-8391-259a0f543113",
+     "pcfSale": "b7f9a22f-14de-4221-b61a-417b61677059",
+     "pcfStatus": "ליווי הסתיים בהצלחה",
+     "pcfStartDate": "2026-08-17T00:00:00",
+     "createdon": "2026-09-11T00:14:49",
+     "modifiedon": "2026-09-15T16:58:41",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": 1.0,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": "2026-08-17T22:52:18",
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 5,
+     "pcfEstimatedEndDate": "2026-08-24T00:00:00",
+     "pcfcrmorderid": null
+    },
+    {
+     "customobject1051id": "ba789578-c58d-44ff-b389-2a219c067fe6",
+     "name": "ליווי סדנה בוסט - נורית כהן",
+     "pcfaccountid": "b231d836-3f09-48bc-8391-259a0f543113",
+     "pcfSale": "b7f9a22f-14de-4221-b61a-417b61677059",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-11T00:00:00",
+     "createdon": "2026-09-12T10:56:30",
+     "modifiedon": "2026-09-12T10:56:31",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": null,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": null,
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-20T00:00:00",
+     "pcfcrmorderid": null
+    }
+   ]
+  },
+  {
+   "account": "רעות דמארי",
+   "accountid": "62cd2399-3642-4e49-833d-29532670f2c5",
+   "product": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+   "records": [
+    {
+     "customobject1051id": "79697d59-5dd0-4963-9b03-92717d42d729",
+     "name": "ליווי - רעות דמארי | סדנה בוסט",
+     "pcfaccountid": "62cd2399-3642-4e49-833d-29532670f2c5",
+     "pcfSale": "3a29e7b5-b384-4f24-b543-200322a4e288",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-12T00:00:00",
+     "createdon": "2026-09-12T10:27:16",
+     "modifiedon": "2026-09-15T16:58:53",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": 1.0,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": "2026-09-12T04:49:21",
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-19T00:00:00",
+     "pcfcrmorderid": null
+    },
+    {
+     "customobject1051id": "213535e7-77a1-45a8-b491-af5c711d2ab1",
+     "name": "ליווי סדנה בוסט - רעות דמארי",
+     "pcfaccountid": "62cd2399-3642-4e49-833d-29532670f2c5",
+     "pcfSale": "3a29e7b5-b384-4f24-b543-200322a4e288",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-12T00:00:00",
+     "createdon": "2026-09-12T10:55:09",
+     "modifiedon": "2026-09-12T10:55:37",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": null,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": null,
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-27T00:00:00",
+     "pcfcrmorderid": null
+    }
+   ]
+  },
+  {
+   "account": "לירון",
+   "accountid": "c88a141b-2c70-4db0-bd72-1c706f88a4d6",
+   "product": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+   "records": [
+    {
+     "customobject1051id": "4d231417-428f-4303-aa05-ade1701f6886",
+     "name": "ליווי - לירון | סדנה בוסט",
+     "pcfaccountid": "c88a141b-2c70-4db0-bd72-1c706f88a4d6",
+     "pcfSale": "2f6fa579-9990-4628-a8eb-7b3defa1a04f",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-10T00:00:00",
+     "createdon": "2026-09-11T11:54:28",
+     "modifiedon": "2026-09-12T11:08:05",
+     "pcfBoostLinked": null,
+     "pcfActualGroup": null,
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": 1.0,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": "2026-09-10T14:44:24",
+     "pcfCurrentWeight": null,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": null,
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-17T00:00:00",
+     "pcfcrmorderid": null
+    },
+    {
+     "customobject1051id": "4ca74437-88df-462e-b089-f7518ab5af13",
+     "name": "ליווי סדנה בוסט - לירון",
+     "pcfaccountid": "c88a141b-2c70-4db0-bd72-1c706f88a4d6",
+     "pcfSale": "2f6fa579-9990-4628-a8eb-7b3defa1a04f",
+     "pcfStatus": "ליווי בתהליך",
+     "pcfStartDate": "2026-09-10T00:00:00",
+     "createdon": "2026-09-12T10:56:47",
+     "modifiedon": "2026-09-13T10:47:38",
+     "pcfBoostLinked": "ffb97e47-75bc-4967-9a3d-72d86e8836a9",
+     "pcfActualGroup": "cad7798b-cc3b-42bf-93ff-4d5a3632c66e",
+     "pcfProduct": "2f73403a-20de-47a7-b0cb-df4761b45f21",
+     "pcfWelcomeSent": null,
+     "pcfCurrentProgram": "בוסט",
+     "pcfWeeksNumber": null,
+     "ownerid": "0fa826fa-cbc8-4ba5-9cd4-3e59f129f4de",
+     "pcfLegacyCreatedOn": null,
+     "pcfCurrentWeight": 74.7,
+     "pcfInitialWeight": null,
+     "pcfTargetWeight": null,
+     "pcfLastWeighDate": "2026-09-13T00:00:00",
+     "pcfCurrentWeek": 1,
+     "pcfEstimatedEndDate": "2026-09-20T00:00:00",
+     "pcfcrmorderid": null
+    }
+   ]
+  }
+ ],
+ "A1_unnamed_account": [
+  {
+   "accountid": "62924e0a-4afd-4d9d-b1f6-66f7489223c3",
+   "accountname": null,
+   "telephone1": "0522090513",
+   "createdon": "2026-09-14T06:31:55",
+   "pcfCloudChatId": "f201689u946083263"
+  }
+ ],
+ "CloudChat_two_accounts": [
+  {
+   "accountid": "143e5833-19b4-47b4-9d9e-cd35cd5d3643",
+   "accountname": "רונית מחמלי",
+   "telephone1": "0545703046",
+   "emailaddress1": "ronit.machmali@gmail.com",
+   "pcfCloudChatId": "f201689u950108531"
+  },
+  {
+   "accountid": "183904df-1ef0-4e1d-b341-a16545cb9e34",
+   "accountname": "סיגל שמעון",
+   "telephone1": "0526827779",
+   "emailaddress1": "y@gmail.com",
+   "pcfCloudChatId": "f201689u950104481"
+  }
+ ]
+}

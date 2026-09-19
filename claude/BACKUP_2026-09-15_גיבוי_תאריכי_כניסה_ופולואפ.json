@@ -1,0 +1,982 @@
+{
+ "task1_pcfLastentry_backfill": [
+  {
+   "opportunityid": "8F2666C0-9522-4676-AEEB-03ED11DCBB32",
+   "name": "מכירת תוכנית המשך - תהאני מוצלח",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "09C1A7EA-0B6E-4D60-BE1F-055F31ABBFEC",
+   "name": "מכירת תוכנית המשך - קארין אלבו מור",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "DAC38584-AC0B-4728-BAF0-056C4DF94436",
+   "name": "מכירת תוכנית המשך - ליטל טורג'מן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "D2BA3F73-CB7E-49EC-BAF3-0AE3DAA2A8FF",
+   "name": "תהליך המכירה של מיכאל אוקס",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-07-26T22:54:51.000Z"
+  },
+  {
+   "opportunityid": "9E538EB4-49E8-4C20-874A-0B6A1FF424A5",
+   "name": "העסקה של דגנית אביטן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T10:46:05.000Z"
+  },
+  {
+   "opportunityid": "68673EE0-CC3A-430E-9BF8-0CC11C8BBBB1",
+   "name": "תהליך המכירה של צופית מנחם",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T10:09:49.000Z"
+  },
+  {
+   "opportunityid": "967EFD35-1D27-4A23-BFBB-0D39654ACEBF",
+   "name": "מכירת תוכנית המשך - לילך ימיני",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:05.000Z"
+  },
+  {
+   "opportunityid": "783A18A2-2BCD-4DC1-B49D-0D73BD949E6B",
+   "name": "העסקה של שירן נגר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T05:21:18.000Z"
+  },
+  {
+   "opportunityid": "93231381-E347-4341-8102-0E33EB1CF236",
+   "name": "העסקה של מרב רז",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T04:13:22.000Z"
+  },
+  {
+   "opportunityid": "CD14E556-55F5-4F06-BE98-0E9B21060B11",
+   "name": "העסקה של גילה גל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:08:46.000Z"
+  },
+  {
+   "opportunityid": "654A941A-F39F-41CC-9D52-102CD96EC134",
+   "name": "מכירת תוכנית המשך - יהודית ביג'אוי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "CD24FE4C-1D97-4159-AC0C-128F0D2B2F78",
+   "name": "מכירת תוכנית המשך - צביה מוזס",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:05.000Z"
+  },
+  {
+   "opportunityid": "8315E81C-2947-42E3-8495-14C60558DADE",
+   "name": "העסקה של זיוה שביט",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:10:42.000Z"
+  },
+  {
+   "opportunityid": "A08C7571-C9BB-44A6-8E6B-15AC14467FEA",
+   "name": "מכירת תוכנית המשך - כוכי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "D340A82C-6629-4850-92E8-173D3C0A7B42",
+   "name": "העסקה של אוסנת מדר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:08:40.000Z"
+  },
+  {
+   "opportunityid": "A8C778A3-D67F-4BF5-920C-1F418CF2A8E2",
+   "name": "מכירת תוכנית המשך - אלינה שכמן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "85CCEF15-D02C-4AEE-A22B-20102A02A561",
+   "name": "מכירת תוכנית המשך - שרון פוראטי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "558AE2D6-0AAA-4CBB-8E81-24DC871612BF",
+   "name": "תהליך המכירה של חגית גרינברג חומן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T09:51:08.000Z"
+  },
+  {
+   "opportunityid": "FB29E27C-F97C-43BA-8BE6-253D32F33A8D",
+   "name": "מכירת תוכנית המשך - תמר חנין",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "6EC6A14E-00EA-4AC7-88C8-2B128EE7BD04",
+   "name": "העסקה של שושי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T13:58:48.000Z"
+  },
+  {
+   "opportunityid": "F12B17E6-9C69-4810-9B35-2B5EE304286F",
+   "name": "מכירת תוכנית המשך - מרגלית חנן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "A7F243F3-3568-465B-893B-2CF75F65956B",
+   "name": "מכירת תוכנית המשך - אתי לסרי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "F38556D0-FD9C-45FB-A9B0-2F74C438B77D",
+   "name": "מכירת תוכנית המשך - מיכאל אוקס",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-08-20T20:35:14.000Z"
+  },
+  {
+   "opportunityid": "6E9B53E7-DBF0-4FD3-A7EE-31CD41B071AC",
+   "name": "מכירת תוכנית המשך - גולדי עודד",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "023BC7DA-2EDE-4E73-A204-333FBEACA4C5",
+   "name": "מכירת תוכנית המשך - מיכל ויימן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "50645BA9-0895-41D3-9A8D-337D0EF17EA9",
+   "name": "מכירת תוכנית המשך - עדי בן מיכאל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "FC8AAFC9-6075-4357-8E09-3CA7EC265032",
+   "name": "מכירת תוכנית המשך - ליסה דויטש",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "1B24CDE0-FD26-4AE9-A64C-3DBDD3C3A4A0",
+   "name": "מכירת תוכנית המשך - שקמה שנפר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "869DFC7F-F0A2-464B-8C27-401419FD8C22",
+   "name": "מכירת תוכנית המשך - ליטל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "7AEF9BF7-9F01-4A50-9448-42021E7D5984",
+   "name": "מכירת תוכנית המשך - שלומית ליבוביץ",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "8DFEE4F4-CAAC-49DA-86B0-43C1A5B32A2C",
+   "name": "העסקה של קטיה בר-און",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:18:41.000Z"
+  },
+  {
+   "opportunityid": "2575D843-E7C7-41E2-947F-457A8779DE44",
+   "name": "מכירת תוכנית המשך - בת חן קזז",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "ADFB7E35-754F-4479-A28E-475A75F6142D",
+   "name": "העסקה של עדי צ'פניק וייניש",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T04:56:24.000Z"
+  },
+  {
+   "opportunityid": "FA68B0C4-C2C9-442D-8273-48DFB45155A0",
+   "name": "מכירת תוכנית המשך - אורטל זיו",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "80DCCEB9-5D4A-4B61-B592-495DE089E991",
+   "name": "מכירת תוכנית המשך - חגית",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "344B5DB3-8291-45AE-9871-4A7C0DD26B15",
+   "name": "העסקה של אילה אליהו",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T05:54:21.000Z"
+  },
+  {
+   "opportunityid": "7602FC74-0147-401F-8DAE-4C55493BE427",
+   "name": "מכירת תוכנית המשך - אורית בושרי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "FE376856-B3CA-46F4-B3AC-4E38944E6626",
+   "name": "מכירת תוכנית המשך - אדוה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "1DFC9519-274F-4AA6-B27C-53AEB01B6399",
+   "name": "תהליך המכירה של דיתי פאר לוי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T17:05:24.000Z"
+  },
+  {
+   "opportunityid": "D1C2F50D-2ECD-46F8-8AFC-561824EA28AE",
+   "name": "העסקה של יפית מויאל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T05:31:18.000Z"
+  },
+  {
+   "opportunityid": "2699CE85-9CD4-4189-8B17-5D7FF6083C33",
+   "name": "העסקה של חן בוסקילה אורן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T11:54:41.000Z"
+  },
+  {
+   "opportunityid": "33C6F54C-00E9-4915-9DC5-5EF3ADCE101F",
+   "name": "העסקה של שרה מסיל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:20:36.000Z"
+  },
+  {
+   "opportunityid": "7533A5BE-99A3-4F8E-AFFC-60240B33BC91",
+   "name": "מכירת תוכנית המשך - נורית כהן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "5A972368-742B-4BA3-A4E1-6138608AE8AE",
+   "name": "העסקה של זוהר וידר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:12:44.000Z"
+  },
+  {
+   "opportunityid": "C7CEE2C1-0159-45B4-9487-638C2722435F",
+   "name": "מכירת תוכנית המשך - מירב לוי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "72A98F41-4A02-4F3D-9C59-654B26367474",
+   "name": "מכירת תוכנית המשך - ימית קרני",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "A941DDFD-63EC-4EB0-B6DE-67695AD6263E",
+   "name": "מכירת תוכנית המשך - אליה בטיש",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "A707BA72-FE93-442C-A56D-682C4A3AA05A",
+   "name": "מכירת תוכנית המשך - רותי טולדו",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "5CC1284C-7E47-4B97-8D79-685F95597FB0",
+   "name": "העסקה של שרי נחשוני",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T05:33:23.000Z"
+  },
+  {
+   "opportunityid": "EF0FCD52-7632-456D-BEA4-6A8904C409DA",
+   "name": "מכירת תוכנית המשך - מיטל חסיד",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "D2DC7FD5-697A-40F9-B6CA-6C6AE814C942",
+   "name": "העסקה של אורטל סרלקאר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:10:42.000Z"
+  },
+  {
+   "opportunityid": "802A09C8-7063-4DEE-9D4B-6C7DFC41FDB9",
+   "name": "מכירת תוכנית המשך - מירב דאלי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "4F188241-8413-4866-9F17-6D92B2D31FCA",
+   "name": "העסקה של רחל רוזיליו",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:10:45.000Z"
+  },
+  {
+   "opportunityid": "AC7AF126-9169-4AC4-8071-6F2CF95A2679",
+   "name": "מכירת תוכנית המשך - דנה בנישטי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:05.000Z"
+  },
+  {
+   "opportunityid": "53305547-629D-4E93-AF9E-6F983CA0F648",
+   "name": "העסקה של סער וינברג (טסט)",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T22:38:19.000Z"
+  },
+  {
+   "opportunityid": "0E0028B5-1DD4-4BC1-933C-70F8A86F5F81",
+   "name": "העסקה של אדווה אפרתי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:22:48.000Z"
+  },
+  {
+   "opportunityid": "D06D395E-0BC4-4452-AFFB-7272319D9994",
+   "name": "מכירת תוכנית המשך - צפר יהודית",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "B2272198-F994-419B-A674-755D6A2AE1C8",
+   "name": "העסקה של סער וינברג (טסט)",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T22:48:26.000Z"
+  },
+  {
+   "opportunityid": "CA8D7711-76F5-4085-A4E1-77ACB1C89CC9",
+   "name": "תהליך המכירה של אתי וזנה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T10:09:40.000Z"
+  },
+  {
+   "opportunityid": "C53536A5-11F0-47F3-BD98-7D6A31A94481",
+   "name": "מכירת תוכנית המשך - מעיין",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "30122D7D-4BFB-4185-8DA5-7EFCFCAC1415",
+   "name": "מכירת תוכנית המשך - נגה שריקי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "E6F5A9B7-8F29-45E0-89E4-80BD855D34A9",
+   "name": "מכירת תוכנית המשך - גלי גרמי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "DE7A9500-A99C-4C4F-8B7D-8125C40748CA",
+   "name": "מכירת תוכנית המשך - מיכל ויימן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "FB0530EA-7F71-418D-880E-84D4A0BC7B3F",
+   "name": "העסקה של ענת דרורי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:18:46.000Z"
+  },
+  {
+   "opportunityid": "34CEA1FC-DB07-4AFF-82AA-84EDC3F9C017",
+   "name": "מכירת תוכנית המשך - ליטל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "D4BF5E60-8F3C-4132-8888-882ED8855D8D",
+   "name": "העסקה של סיון",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:04:42.000Z"
+  },
+  {
+   "opportunityid": "9E7CE177-2CBF-4CEA-87A2-8AE25C357CD8",
+   "name": "העסקה של אתי בראל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:12:37.000Z"
+  },
+  {
+   "opportunityid": "E0229781-C85D-4094-A222-8B1FE0ADF105",
+   "name": "מכירת תוכנית המשך - מיי יששכר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "8BDEF24A-CCF6-4B70-9E89-8EFE4101271C",
+   "name": "העסקה של איילת בן שמחון",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:08:46.000Z"
+  },
+  {
+   "opportunityid": "3203E8A4-C283-43C7-8333-9226F8AC7CEC",
+   "name": "מכירת תוכנית המשך - טלי אברהם",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "1D48DA16-A0E7-4004-9046-98EAB88372A1",
+   "name": "מכירת תוכנית המשך - חגית",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "9C2CB6E0-E9BF-4FA7-9252-995516C66FCD",
+   "name": "מכירת תוכנית המשך - מעין הלל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "814F56CB-E111-4998-BD71-9D62AB201C41",
+   "name": "תהליך המכירה של פנינה כהן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T10:10:29.000Z"
+  },
+  {
+   "opportunityid": "DDAC9DC4-20CA-4099-AA20-9F990D7306AA",
+   "name": "תהליך המכירה של אסנת עותמי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T10:09:57.000Z"
+  },
+  {
+   "opportunityid": "C57A9946-61C3-4204-9385-A0909C47ECDB",
+   "name": "מכירת תוכנית המשך - ליהי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "38A1A24E-3CA0-4463-832B-A1BA7CB63445",
+   "name": "מכירת תוכנית המשך - סיון",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "C4972373-820E-4FB1-B643-A2D35909F153",
+   "name": "מכירת תוכנית המשך - סיון נוה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "1878D49F-18B8-41CF-8482-A31B5A09531C",
+   "name": "העסקה של נורה רייס",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:08:50.000Z"
+  },
+  {
+   "opportunityid": "494CDAD5-7C10-43F3-B108-A44DE3D186FF",
+   "name": "מכירת תוכנית המשך - מיכל רכלבסקי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "E5C54B3C-E71F-4E21-B2D7-A991A6015D3D",
+   "name": "מכירת תוכנית המשך - שקמה שנפר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "B5BEB748-72EE-40C5-8A36-AAB822A4B4DD",
+   "name": "מכירת תוכנית המשך - עליזה אוחיון",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "2DA8EFD7-25E4-47ED-B1AD-AD12869B4B3D",
+   "name": "מכירת תוכנית המשך - אורית רז",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "3AEA0D74-E66E-4227-9A26-AD340B584375",
+   "name": "מכירת תוכנית המשך - אורנה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "103C4524-F1CF-49D4-BECA-AD9FF76F57AA",
+   "name": "מכירת תוכנית המשך - צאלה פרידמן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "369E82C0-E01B-450F-A288-AEF35EF24344",
+   "name": "העסקה של אורית אלחרל",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T06:02:21.000Z"
+  },
+  {
+   "opportunityid": "A37A52A9-E385-4924-9CF2-AF500937379B",
+   "name": "מכירת תוכנית המשך - רונית אברהם",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "21A494C5-0C26-44D7-B662-B2529EB9C1D6",
+   "name": "העסקה של חני סולומון",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:12:39.000Z"
+  },
+  {
+   "opportunityid": "AB8DB543-77D9-4624-9166-B3FDDCE0D42F",
+   "name": "מכירת תוכנית המשך - מעיין",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "6F5371FB-BE39-4048-9909-B56F7A8B35C6",
+   "name": "מכירת תוכנית המשך - אמירה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:05.000Z"
+  },
+  {
+   "opportunityid": "F3113AED-4D65-462F-A52B-B61D0287B042",
+   "name": "מכירת תוכנית המשך - מירב מאור",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "91932CD0-6330-4181-BDCA-B6783BAC6904",
+   "name": "מכירת תוכנית המשך - שלומית ליבוביץ",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "7791E7FD-DD7E-4CAA-A1A4-B7CB3BB0A0D0",
+   "name": "מכירת תוכנית המשך - סיון נוה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "5F2C1D71-520C-43D2-A79C-B7F338FD4558",
+   "name": "העסקה של תמי פיטוסי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:02:44.000Z"
+  },
+  {
+   "opportunityid": "E011D5CA-7147-4701-87E9-BA27D7DD75E2",
+   "name": "מכירת תוכנית המשך - אורית",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "9DE4D2D4-8D41-4B6B-9984-C2298AEA25A9",
+   "name": "העסקה של סורינה גרושקו",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:10:37.000Z"
+  },
+  {
+   "opportunityid": "A386DD9A-948C-4A12-8750-CC02A61758B2",
+   "name": "מכירת תוכנית המשך - ליהי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "77724870-0324-4F1B-A1A8-CC4E55923B3F",
+   "name": "מכירת תוכנית המשך - נורית כהן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "CE6B2F1E-48D4-4404-B42F-CE3114C698C3",
+   "name": "מכירת תוכנית המשך - yardenakiva",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "45A4F449-D841-4907-8377-CE54168831CF",
+   "name": "מכירת תוכנית המשך - כוכי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "89763A4B-E267-41A1-8E28-D12B03D800B4",
+   "name": "העסקה של איילת בירק לוי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:12:41.000Z"
+  },
+  {
+   "opportunityid": "ED83E207-D89E-41FA-8285-D3AE0BA0387B",
+   "name": "מכירת תוכנית המשך - חווה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:05.000Z"
+  },
+  {
+   "opportunityid": "3110EAE9-D6F4-4F33-A7C4-D41A456E0E1A",
+   "name": "תהליך המכירה של מיי יששכר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T12:35:45.000Z"
+  },
+  {
+   "opportunityid": "D6E51B3E-54ED-4015-873F-D81451BB733E",
+   "name": "מכירת תוכנית המשך - yardenakiva",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "23C7B417-EC2F-44C3-BE9C-DA51DE550485",
+   "name": "מכירת תוכנית המשך - קטי גולדנר",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "52DDF8A9-7424-47A9-9BD3-DD824D93D168",
+   "name": "מכירת תוכנית המשך - דיתי פאר לוי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "81234262-4A77-48E4-9D75-DF1C9F2263C2",
+   "name": "מכירת תוכנית המשך - אורית רז",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "9C4AE7D8-7C83-4C80-B834-DF3D0E59A4F0",
+   "name": "מכירת תוכנית המשך - אורנה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-15T08:00:08.000Z"
+  },
+  {
+   "opportunityid": "A1F867AE-3D8F-45FD-ADDC-DFC977DADA0E",
+   "name": "מכירת תוכנית המשך - מיכל קרמר אסף",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "5402DA61-CE67-4753-8BFA-E1D22DDFD10B",
+   "name": "העסקה של אודיה איפרגן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:16:44.000Z"
+  },
+  {
+   "opportunityid": "DB079219-B36D-4B93-93F2-E47FA59C8A54",
+   "name": "מכירת תוכנית המשך - יובל ברגיג",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "C07E4A4F-041E-4C8B-8DE5-E4C39090EB3F",
+   "name": "מכירת תוכנית המשך - שיר שולמן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "6635D52C-E824-4E08-B61D-E6E2F4B06547",
+   "name": "מכירת תוכנית המשך - ליאל חרט",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T08:00:03.000Z"
+  },
+  {
+   "opportunityid": "B75680BB-95D0-470D-B70D-E765DB0458FC",
+   "name": "תהליך המכירה של נועה פורת פורת",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T10:09:15.000Z"
+  },
+  {
+   "opportunityid": "4CE2137E-C3FB-4370-A84A-EA29721B7EE8",
+   "name": "מכירת תוכנית המשך - אורית",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "DD69D911-6960-4D07-8A0B-EF6C008083FC",
+   "name": "תהליך המכירה של איריס נאמן",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T10:10:49.000Z"
+  },
+  {
+   "opportunityid": "694298A4-1CF3-4511-AD5F-F21C27B5226C",
+   "name": "מכירת תוכנית המשך - תמר חנין",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:04.000Z"
+  },
+  {
+   "opportunityid": "1261DC98-5FC5-4C63-8872-F474641A3A01",
+   "name": "העסקה של אפרים רבקה",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:18:34.000Z"
+  },
+  {
+   "opportunityid": "F1CA0C2A-AA78-48FE-81EB-F4FB7EBF0BA5",
+   "name": "העסקה של מירב",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T13:33:34.000Z"
+  },
+  {
+   "opportunityid": "B2905B84-636E-44C8-B48F-F65823F9FA38",
+   "name": "העסקה של שני אברהמי",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T14:28:37.000Z"
+  },
+  {
+   "opportunityid": "FBC0772B-69C6-4F88-89F5-F79FEA3E6A48",
+   "name": "מכירת תוכנית המשך - צפר יהודית",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-13T08:00:02.000Z"
+  },
+  {
+   "opportunityid": "DE0D3886-F12B-49CA-9EF1-FE1B70DFC71B",
+   "name": "העסקה של אורלי פרץ",
+   "before_pcfLastentry": null,
+   "after_pcfLastentry": "2026-09-14T05:22:28.000Z"
+  }
+ ],
+ "task2_pcfFollowUpTime_set_tomorrow_LIVE_ONLY": [
+  {
+   "opportunityid": "783A18A2-2BCD-4DC1-B49D-0D73BD949E6B",
+   "name": "העסקה של שירן נגר",
+   "statuscode": 2,
+   "createdon": "2026-09-14T05:21:18.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "93231381-E347-4341-8102-0E33EB1CF236",
+   "name": "העסקה של מרב רז",
+   "statuscode": 2,
+   "createdon": "2026-09-14T04:13:22.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "CD14E556-55F5-4F06-BE98-0E9B21060B11",
+   "name": "העסקה של גילה גל",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:08:46.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "8315E81C-2947-42E3-8495-14C60558DADE",
+   "name": "העסקה של זיוה שביט",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:10:42.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "D340A82C-6629-4850-92E8-173D3C0A7B42",
+   "name": "העסקה של אוסנת מדר",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:08:40.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "6EC6A14E-00EA-4AC7-88C8-2B128EE7BD04",
+   "name": "העסקה של שושי",
+   "statuscode": 2,
+   "createdon": "2026-09-14T13:58:48.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "8DFEE4F4-CAAC-49DA-86B0-43C1A5B32A2C",
+   "name": "העסקה של קטיה בר-און",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:18:41.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "ADFB7E35-754F-4479-A28E-475A75F6142D",
+   "name": "העסקה של עדי צ'פניק וייניש",
+   "statuscode": 2,
+   "createdon": "2026-09-14T04:56:24.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "344B5DB3-8291-45AE-9871-4A7C0DD26B15",
+   "name": "העסקה של אילה אליהו",
+   "statuscode": 2,
+   "createdon": "2026-09-14T05:54:21.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "D1C2F50D-2ECD-46F8-8AFC-561824EA28AE",
+   "name": "העסקה של יפית מויאל",
+   "statuscode": 2,
+   "createdon": "2026-09-14T05:31:18.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "2699CE85-9CD4-4189-8B17-5D7FF6083C33",
+   "name": "העסקה של חן בוסקילה אורן",
+   "statuscode": 2,
+   "createdon": "2026-09-15T11:54:41.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "33C6F54C-00E9-4915-9DC5-5EF3ADCE101F",
+   "name": "העסקה של שרה מסיל",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:20:36.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "5A972368-742B-4BA3-A4E1-6138608AE8AE",
+   "name": "העסקה של זוהר וידר",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:12:44.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "5CC1284C-7E47-4B97-8D79-685F95597FB0",
+   "name": "העסקה של שרי נחשוני",
+   "statuscode": 2,
+   "createdon": "2026-09-14T05:33:23.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "D2DC7FD5-697A-40F9-B6CA-6C6AE814C942",
+   "name": "העסקה של אורטל סרלקאר",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:10:42.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "4F188241-8413-4866-9F17-6D92B2D31FCA",
+   "name": "העסקה של רחל רוזיליו",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:10:45.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "0E0028B5-1DD4-4BC1-933C-70F8A86F5F81",
+   "name": "העסקה של אדווה אפרתי",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:22:48.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "FB0530EA-7F71-418D-880E-84D4A0BC7B3F",
+   "name": "העסקה של ענת דרורי",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:18:46.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "D4BF5E60-8F3C-4132-8888-882ED8855D8D",
+   "name": "העסקה של סיון",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:04:42.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "9E7CE177-2CBF-4CEA-87A2-8AE25C357CD8",
+   "name": "העסקה של אתי בראל",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:12:37.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "8BDEF24A-CCF6-4B70-9E89-8EFE4101271C",
+   "name": "העסקה של איילת בן שמחון",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:08:46.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "1878D49F-18B8-41CF-8482-A31B5A09531C",
+   "name": "העסקה של נורה רייס",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:08:50.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "369E82C0-E01B-450F-A288-AEF35EF24344",
+   "name": "העסקה של אורית אלחרל",
+   "statuscode": 2,
+   "createdon": "2026-09-14T06:02:21.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "21A494C5-0C26-44D7-B662-B2529EB9C1D6",
+   "name": "העסקה של חני סולומון",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:12:39.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "5F2C1D71-520C-43D2-A79C-B7F338FD4558",
+   "name": "העסקה של תמי פיטוסי",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:02:44.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "9DE4D2D4-8D41-4B6B-9984-C2298AEA25A9",
+   "name": "העסקה של סורינה גרושקו",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:10:37.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "89763A4B-E267-41A1-8E28-D12B03D800B4",
+   "name": "העסקה של איילת בירק לוי",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:12:41.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "5402DA61-CE67-4753-8BFA-E1D22DDFD10B",
+   "name": "העסקה של אודיה איפרגן",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:16:44.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "1261DC98-5FC5-4C63-8872-F474641A3A01",
+   "name": "העסקה של אפרים רבקה",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:18:34.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "B2905B84-636E-44C8-B48F-F65823F9FA38",
+   "name": "העסקה של שני אברהמי",
+   "statuscode": 2,
+   "createdon": "2026-09-14T14:28:37.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  },
+  {
+   "opportunityid": "DE0D3886-F12B-49CA-9EF1-FE1B70DFC71B",
+   "name": "העסקה של אורלי פרץ",
+   "statuscode": 2,
+   "createdon": "2026-09-14T05:22:28.000Z",
+   "before_pcfFollowUpTime": null,
+   "after_pcfFollowUpTime": "2026-09-16T10:00:00"
+  }
+ ],
+ "task2_excluded_migration_records_count": 3106,
+ "task2_excluded_migration_records_note": "תהליכי מכירה פתוחים עם זמן לפולואפ ריק שנוצרו בסבבת ההגירה ההיסטורית (9-10/9-11.9.26) - לא נגענו בהם לפי החלטת אליאל 15.9.26"
+}
