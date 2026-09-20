@@ -1,0 +1,380 @@
+[
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "אוגוסט",
+   "charge_date": "2026-08-11",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 10 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "507560223",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "49468"
+  }
+ },
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "יולי",
+   "charge_date": "2026-07-11",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 9 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "499149965",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "48798"
+  }
+ },
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "יוני",
+   "charge_date": "2026-06-11",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 8 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "491527265",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "48141"
+  }
+ },
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "מאי",
+   "charge_date": "2026-05-11",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 7 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "483141773",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "47539"
+  }
+ },
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "אפריל",
+   "charge_date": "2026-04-11",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 6 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "476313621",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "47012"
+  }
+ },
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "מרץ",
+   "charge_date": "2026-03-24",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 5 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "472787191",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "46707"
+  }
+ },
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "פברואר",
+   "charge_date": "2026-02-11",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 4 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "464694754",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "46000"
+  }
+ },
+ {
+  "name": "שירלי סמאהי",
+  "acct": "5B8578DA-B5F8-4880-A641-D8E57C82FB01",
+  "ch": {
+   "charge_month": "ינואר",
+   "charge_date": "2026-01-11",
+   "customer_name": "שירלי סמאהי",
+   "email": "nshirly.ss82@gamil.com",
+   "phone": "0508680115",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 3 מתוך 10",
+   "amount_paid": 425.0,
+   "ref_grow": "457317419",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 12 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "45402"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "אוגוסט",
+   "charge_date": "2026-08-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 8 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "505515356",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "49323"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "יולי",
+   "charge_date": "2026-07-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 7 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "497459865",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "48657"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "יוני",
+   "charge_date": "2026-06-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 6 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "489698976",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "48002"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "מאי",
+   "charge_date": "2026-05-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 5 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "481450637",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "47413"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "אפריל",
+   "charge_date": "2026-04-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 4 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "475040285",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "46872"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "מרץ",
+   "charge_date": "2026-03-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 3 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "469172618",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "46366"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "פברואר",
+   "charge_date": "2026-02-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 2 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "463070948",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "45827"
+  }
+ },
+ {
+  "name": "רינה רדא",
+  "acct": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "ch": {
+   "charge_month": "ינואר",
+   "charge_date": "2026-01-04",
+   "customer_name": "רינה רדא",
+   "email": "rinarada1322@gmail.com",
+   "phone": "0538249625",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 1 מתוך 10",
+   "amount_paid": 566.0,
+   "ref_grow": "455947309",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "תוכנית ליווי - 22 שבועות",
+   "is_automatic": "כן",
+   "invoice_issued": "45333"
+  }
+ },
+ {
+  "name": "יפעת מרקו",
+  "acct": "228683DF-97E1-4191-9297-2826B17893AF",
+  "ch": {
+   "charge_month": "פברואר",
+   "charge_date": "2026-02-22",
+   "customer_name": "יפעת מרקו",
+   "email": "yifat.perez@intel.com",
+   "phone": "0547887909",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 9",
+   "amount_paid": 349.0,
+   "ref_grow": "466953944",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "ליווי תזונה אונליין - מנטורית אישית",
+   "is_automatic": "כן",
+   "invoice_issued": "46211"
+  }
+ },
+ {
+  "name": "יפעת מרקו",
+  "acct": "228683DF-97E1-4191-9297-2826B17893AF",
+  "ch": {
+   "charge_month": "ינואר",
+   "charge_date": "2026-01-22",
+   "customer_name": "יפעת מרקו",
+   "email": "yifat.perez@intel.com",
+   "phone": "0547887909",
+   "payment_method": "אשראי",
+   "payment_type": "הו\"ק",
+   "status": "חוייב",
+   "num_payments": "תשלום 8",
+   "amount_paid": 349.0,
+   "ref_grow": "459888939",
+   "payment_source": "אתר ביז ישן",
+   "transaction_desc": "ליווי תזונה אונליין - מנטורית אישית",
+   "is_automatic": "כן",
+   "invoice_issued": "45574"
+  }
+ }
+]

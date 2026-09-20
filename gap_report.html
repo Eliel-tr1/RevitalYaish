@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>דוח פערים · רויטל יעיש · תזרים</title>
+<style>
+:root{--brand:#FF004F;--bg:#0E1116;--card:#171B22;--card2:#1D232D;--text:#EDF0F4;--muted:#8B94A3;--border:#262D38;--ok:#2ECC8F;--warn:#F5A623}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',Rubik,Arial,sans-serif;padding:24px;max-width:1250px;margin:0 auto}
+h1{font-size:21px;margin-bottom:4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:18px;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:16px}
+.card h2{font-size:15px;margin-bottom:2px}
+.card .note{font-size:12.5px;color:var(--muted);margin-bottom:12px;line-height:1.55}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{color:var(--muted);font-weight:600;text-align:right;padding:7px 9px;border-bottom:1px solid var(--border);font-size:12px;white-space:nowrap}
+td{padding:7px 9px;border-bottom:1px solid var(--border);white-space:nowrap}
+td.num,th.num{text-align:left;direction:ltr}
+tr:hover td{background:var(--card2)}
+.badge{font-size:10.5px;padding:2px 8px;border-radius:8px;font-weight:600}
+.b-ok{background:rgba(46,204,143,.15);color:var(--ok)}
+.b-warn{background:rgba(245,166,35,.15);color:var(--warn)}
+.b-red{background:rgba(255,0,79,.15);color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px}
+.kpi .v{font-size:22px;font-weight:700;margin-top:3px}
+.kpi .l{font-size:12px;color:var(--muted)}
+.kpi.brand .v{color:var(--brand)}.kpi.ok .v{color:var(--ok)}.kpi.warn .v{color:var(--warn)}
+ul{margin:8px 24px 0 0;line-height:1.8;font-size:13.5px}
+li b{color:var(--text)}
+li{color:var(--muted)}
+.foot{color:var(--muted);font-size:11.5px;margin-top:16px;line-height:1.7}
+</style>
+</head>
+<body>
+<h1>דוח פערים · תזרים רויטל יעיש</h1>
+<div class="sub">השוואת חיובים בפועל בגרואו (האמת התזרימית) מול מה שקיים ב-CRM החדש · 01/01/2026 עד 19/09/2026 · נכון ל-20/09/2026</div>
+
+<div class="grid">
+  <div class="kpi brand"><div class="l">תזרים אמיתי 2026 (גרואו)</div><div class="v">₪2,840,115</div></div>
+  <div class="kpi ok"><div class="l">חיובי הו"ק מתועדים</div><div class="v">1,964 / 1,965</div></div>
+  <div class="kpi warn"><div class="l">פער תיעודי לוח (רגיל+תשלומים)</div><div class="v">כ-₪1.1M</div></div>
+  <div class="kpi"><div class="l">לקוחות לטיפול ידני</div><div class="v">1 (יעקב לבי)</div></div>
+</div>
+
+<div class="card">
+  <h2>1 · חיובי הו"ק — סגור ✓</h2>
+  <div class="note">1,964 מתוך 1,965 חיובי הו"ק (₪929,146) מתועדים בחדשה עם תאריך וסכום אמיתיים. 228 קיימים חי, 1,736 נוצרו בתיקון. פער יחיד: יעקב לבי (ראה סעיף 4).</div>
+  <table>
+    <tr><th>חודש</th><th class="num">חיובי הו"ק בגרואו</th><th class="num">סכום</th><th class="num">תיעודים שנוצרו</th><th class="num">כיסוי חי</th><th>מצב</th></tr>
+    <tr><td>ינואר 26</td><td class='num'>172</td><td class='num'>₪80,289</td><td class='num'>169</td><td class='num'>3</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>פברואר 26</td><td class='num'>169</td><td class='num'>₪79,842</td><td class='num'>166</td><td class='num'>3</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>מרץ 26</td><td class='num'>219</td><td class='num'>₪111,272</td><td class='num'>217</td><td class='num'>2</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>אפריל 26</td><td class='num'>221</td><td class='num'>₪108,161</td><td class='num'>219</td><td class='num'>2</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>מאי 26</td><td class='num'>240</td><td class='num'>₪111,501</td><td class='num'>238</td><td class='num'>2</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>יוני 26</td><td class='num'>261</td><td class='num'>₪122,275</td><td class='num'>259</td><td class='num'>2</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>יולי 26</td><td class='num'>268</td><td class='num'>₪124,587</td><td class='num'>266</td><td class='num'>2</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>אוגוסט 26</td><td class='num'>257</td><td class='num'>₪118,070</td><td class='num'>174</td><td class='num'>83</td><td><span class='badge b-ok'>סגור</span></td></tr>
+<tr><td>ספטמבר 26</td><td class='num'>158</td><td class='num'>₪73,150</td><td class='num'>10</td><td class='num'>148</td><td><span class='badge b-ok'>סגור</span></td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>2 · רגיל + פריסות — פער מבני 🟡</h2>
+  <div class="note">התיעודים הקיימים בחדשה לרגיל ופריסות הם <b>לוח תיאורטי מהמיגרציה</b> (תאריך = תאריך ראשון + i חודשים), לא חיוב אמיתי. לכן הסכום החודשי בחדשה (עמודה כתומה) חורג מהתזרים האמיתי בכל חודש — יש תיעודים שהכסף שלהם נגבה בחודש אחר (או לא נגבה). <b>השפעה על הדוח: כ-₪1.1M מנופחים על פני 2026.</b></div>
+  <table>
+    <tr><th>חודש</th><th class="num">גרואו רגיל</th><th class="num">גרואו פריסות</th><th class="num">סה"כ גרואו</th><th class="num">תיעודים בחדשה (לוח)</th><th class="num">נפיחות</th></tr>
+    <tr><td>ינואר 26</td><td class='num'>₪47,589</td><td class='num'>₪139,307</td><td class='num'><b>₪186,896</b></td><td class='num' style='color:var(--warn)'>₪208,775</td><td class='num' style='color:var(--warn)'>+₪21,879</td></tr>
+<tr><td>פברואר 26</td><td class='num'>₪66,835</td><td class='num'>₪165,105</td><td class='num'><b>₪231,940</b></td><td class='num' style='color:var(--warn)'>₪259,379</td><td class='num' style='color:var(--warn)'>+₪27,439</td></tr>
+<tr><td>מרץ 26</td><td class='num'>₪61,861</td><td class='num'>₪173,468</td><td class='num'><b>₪235,329</b></td><td class='num' style='color:var(--warn)'>₪253,189</td><td class='num' style='color:var(--warn)'>+₪17,860</td></tr>
+<tr><td>אפריל 26</td><td class='num'>₪61,184</td><td class='num'>₪167,837</td><td class='num'><b>₪229,021</b></td><td class='num' style='color:var(--warn)'>₪258,376</td><td class='num' style='color:var(--warn)'>+₪29,355</td></tr>
+<tr><td>מאי 26</td><td class='num'>₪60,434</td><td class='num'>₪180,471</td><td class='num'><b>₪240,905</b></td><td class='num' style='color:var(--warn)'>₪265,362</td><td class='num' style='color:var(--warn)'>+₪24,457</td></tr>
+<tr><td>יוני 26</td><td class='num'>₪69,762</td><td class='num'>₪187,311</td><td class='num'><b>₪257,073</b></td><td class='num' style='color:var(--warn)'>₪292,702</td><td class='num' style='color:var(--warn)'>+₪35,629</td></tr>
+<tr><td>יולי 26</td><td class='num'>₪83,195</td><td class='num'>₪188,715</td><td class='num'><b>₪271,910</b></td><td class='num' style='color:var(--warn)'>₪299,112</td><td class='num' style='color:var(--warn)'>+₪27,202</td></tr>
+<tr><td>אוגוסט 26</td><td class='num'>₪65,215</td><td class='num'>₪177,497</td><td class='num'><b>₪242,712</b></td><td class='num' style='color:var(--warn)'>₪267,300</td><td class='num' style='color:var(--warn)'>+₪24,588</td></tr>
+<tr><td>ספטמבר 26</td><td class='num'>₪25,905</td><td class='num'>₪109,278</td><td class='num'><b>₪135,183</b></td><td class='num' style='color:var(--warn)'>₪228,028</td><td class='num' style='color:var(--warn)'>+₪92,845</td></tr>
+  </table>
+  <div class="note" style="margin-top:10px"><b style="color:var(--warn)">דרכי תיקון אפשריות:</b>
+  <ul style="margin-top:6px">
+    <li><b>א. יישור תאריכים לפי גרואו (מומלץ):</b> לכל תיעוד מתוארך-לוח מ-01/2026 ואילך — להתאים את תאריך התיעוד לחיוב האמיתי מגרואו (התאמה לפי לקוחה+סכום+סדר). תיעודים שאין להם חיוב תואם בגרואו מסומנים "לא נגבה" (סטטוס 4)</li>
+    <li><b>ב. עדכון סטטוס בלבד:</b> לא לגעת בתאריכים, רק לסמן תיעודים שלא נגבו כ"לא עבר" — הדוח יראה תזרים מופחת אך עדיין לא חודשי מדויק</li>
+    <li><b>ג. אפס נגיעה + מסנן בדשבורד:</b> להציג תזרים רק ממקור גרואו (הדשבורד החלופי), והתיעודים נשארים כמו שהם לניהול פירעון עתידי</li>
+  </ul></div>
+</div>
+
+<div class="card">
+  <h2>3 · סכומים בתיעודים שנוצרו — תוקן ואומת ✓</h2>
+  <div class="note">בעת היצירה פיירברי דרש את הסכום בשדה "לפני מע"מ" (pcfPayed) ומחשב את הסכום הסופי בעצמו; הסכום שנשלח ישירות לשדה "כולל מע"מ" נדחה בשקט. תוקן בעדכון המוני (1,736 תיעודים + 147 תיקוני שאריות), ואומת מול ה-API: <b>כל 1,736 התיעודים נושאים את הסכום האמיתי מגרואו, אפס אי-התאמות</b> (סה"כ ₪821,798). מיפוי: pcfPayed = סכום ÷ 1.18, ופיירברי מחשב את הסופי.</div>
+</div>
+
+<div class="card">
+  <h2>4 · לקוחות לטיפול ידני 🔴</h2>
+  <table>
+    <tr><th>לקוחה</th><th>טלפון בגרואו</th><th>מצב בחדשה</th><th class="num">חיובים</th><th class="num">סכום</th><th>פתרון מוצע</th></tr>
+    <tr>
+      <td>יעקב לבי</td><td class="num">0524153323</td>
+      <td>לא קיים בשתי המערכות לפי טלפון/שם (בדק וריאציות ספרה + שמות)</td>
+      <td class="num">7 (6 פריסה + 1 הו"ק)</td><td class="num">₪2,795</td>
+      <td>לפתוח כרטיס ידנית או לאתר אותו בפיירברי דרך הלקוחות (אולי נרשם בשם אחר) · אחרי פתיחת הכרטיס אריץ את אותה כתיבה אוטומטית</td>
+    </tr>
+  </table>
+  <div class="note" style="margin-top:10px"><b style="color:var(--ok)">נפתרו בינתיים (18 חיובים):</b> שירלי סמאהי (טלפון בגרואו ...115 מול ...114 ב-CRM), רינה רדא (...625 מול ...624), יפעת מרקו (...909 מול ...907) — טעויות הקלדה של ספרה אחת. נמצאו לפי אימייל/וריאציית ספרה, והחיובים שלהן נכתבו ואומתו.</div>
+</div>
+
+<div class="card">
+  <h2>5 · מה הדוח יראה אחרי התיקונים</h2>
+  <table>
+    <tr><th>מדד</th><th>מקור</th><th>מצב</th></tr>
+    <tr><td>תזרים חודשי הו"ק</td><td>תיעודי 1018 (תאריך אמיתי)</td><td><span class="badge b-ok">תקין מ-20/09</span></td></tr>
+    <tr><td>תזרים חודשי רגיל+פריסות</td><td>תיעודי 1018</td><td><span class="badge b-warn">דורש יישור תאריכים (סעיף 2)</span></td></tr>
+    <tr><td>מכירות (חודש פתיחה)</td><td>גרואו/תהליכי מכירה</td><td><span class="badge b-warn">לאחר מיפוי סטטוסי 4</span></td></tr>
+    <tr><td>לידים</td><td>1002 מסונן "ליד חדש"</td><td><span class="badge b-ok">תקין</span></td></tr>
+    <tr><td>מוצרים</td><td>גרואו (מיולי 2026)</td><td><span class="badge b-warn">רטרו מלא דורש ייצוא מוצרים מלא</span></td></tr>
+  </table>
+</div>
+
+<div class="foot">מקורות: ייצוא גרואו 7,758 עסקאות · CRM ישן (קריאה) · CRM חדש (16,089 תיעודים נסרקו). כל הסקריפטים וקבצי האימות ב-_reconciliation/ בריפו.</div>
+</body>
+</html>
