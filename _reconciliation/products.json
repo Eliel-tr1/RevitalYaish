@@ -1,0 +1,98 @@
+[
+ {
+  "name": "תוכנית ליווי 28 שבועות",
+  "pcfItempriceIncludingVAT": 6770.0022,
+  "pcfProductType": 2,
+  "pcfProductTypename": "פרימיום",
+  "pcfDurationWeeks": 28,
+  "_id": "954EE102-826C-4C43-B99E-0FC786851B25"
+ },
+ {
+  "name": "תוכנית המשך אישית",
+  "pcfItempriceIncludingVAT": 649,
+  "pcfProductType": 3,
+  "pcfProductTypename": "שימור",
+  "pcfDurationWeeks": null,
+  "_id": "D2CE0670-275A-4EF9-96BA-167F5CA053D6"
+ },
+ {
+  "name": "הו\"ק טסט",
+  "pcfItempriceIncludingVAT": 1.18,
+  "pcfProductType": 3,
+  "pcfProductTypename": "שימור",
+  "pcfDurationWeeks": null,
+  "_id": "BF672C30-27BA-4860-8877-241E8C6EBA8C"
+ },
+ {
+  "name": "תוכנית ליווי 5 שבועות",
+  "pcfItempriceIncludingVAT": 1975.0014,
+  "pcfProductType": 2,
+  "pcfProductTypename": "פרימיום",
+  "pcfDurationWeeks": 5,
+  "_id": "B0414075-A508-411B-B502-385CECC1E48F"
+ },
+ {
+  "name": "תוכנית ליווי 12 שבועות",
+  "pcfItempriceIncludingVAT": 4249.9942,
+  "pcfProductType": 2,
+  "pcfProductTypename": "פרימיום",
+  "pcfDurationWeeks": 12,
+  "_id": "D9E842A7-F284-4596-BB61-4D2A350EEBB5"
+ },
+ {
+  "name": "תוכנית המשך אונליין",
+  "pcfItempriceIncludingVAT": 348.9968,
+  "pcfProductType": 3,
+  "pcfProductTypename": "שימור",
+  "pcfDurationWeeks": null,
+  "_id": "58A4D4F9-5921-4BFC-BA8E-518877FAA375"
+ },
+ {
+  "name": "תוכנית ליווי 22 שבועות",
+  "pcfItempriceIncludingVAT": 5659.9998,
+  "pcfProductType": 2,
+  "pcfProductTypename": "פרימיום",
+  "pcfDurationWeeks": 22,
+  "_id": "D75FC748-EB3F-45E1-8673-8BAE43629ED9"
+ },
+ {
+  "name": "תוכנית ליווי 17 שבועות",
+  "pcfItempriceIncludingVAT": 4950.0056,
+  "pcfProductType": 2,
+  "pcfProductTypename": "פרימיום",
+  "pcfDurationWeeks": 17,
+  "_id": "653953B5-B3A0-4953-A725-8EC49E7E7C95"
+ },
+ {
+  "name": "תוכנית ליווי 8 שבועות",
+  "pcfItempriceIncludingVAT": 3849.9978,
+  "pcfProductType": 2,
+  "pcfProductTypename": "פרימיום",
+  "pcfDurationWeeks": 8,
+  "_id": "3B56BB39-BC60-44A2-ACA9-A44290EE041E"
+ },
+ {
+  "name": "סדנה בוסט",
+  "pcfItempriceIncludingVAT": 159.005,
+  "pcfProductType": 1,
+  "pcfProductTypename": "היכרות",
+  "pcfDurationWeeks": null,
+  "_id": "2F73403A-20DE-47A7-B0CB-DF4761B45F21"
+ },
+ {
+  "name": "הרצאת אורח",
+  "pcfItempriceIncludingVAT": 99.002,
+  "pcfProductType": 1,
+  "pcfProductTypename": "היכרות",
+  "pcfDurationWeeks": 0,
+  "_id": "EB8462CC-5D2A-4BF0-8942-E7F1C02D0345"
+ },
+ {
+  "name": "תוכנית ליווי 6 שבועות",
+  "pcfItempriceIncludingVAT": 2649.9968,
+  "pcfProductType": 2,
+  "pcfProductTypename": "פרימיום",
+  "pcfDurationWeeks": 6,
+  "_id": "B957DA5C-FAF2-443F-ACE4-EAD314602424"
+ }
+]
