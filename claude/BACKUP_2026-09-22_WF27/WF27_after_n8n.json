@@ -1,0 +1,813 @@
+{
+ "createdAt": "2026-08-20T12:44:55.919Z",
+ "updatedAt": "2026-09-16T08:38:33.811Z",
+ "id": "LhstekfLJ0AClk5i",
+ "name": "WF-27 · קליטת תשלום שאינו באשראי",
+ "active": true,
+ "isArchived": false,
+ "nodes": [
+  {
+   "parameters": {
+    "httpMethod": "POST",
+    "path": "manual-payment-roital",
+    "responseMode": "responseNode",
+    "options": {}
+   },
+   "id": "Webhook · טופס תשלום ידני",
+   "name": "Webhook · טופס תשלום ידני",
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2,
+   "position": [
+    -400,
+    300
+   ],
+   "webhookId": "wf27-manual-payment"
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-27 · צומת 1 — קליטת טופס \"תשלום שאינו באשראי\" ונירמול\n// ============================================================================\n// הטופס יושב ככפתור בכרטיס תהליך המכירה בפיירברי, ושולח לכאן את כל מה\n// שהנציגה הזינה. מכאן והלאה הזרימה זהה בהתנהגותה ל-WF-20:\n// רשומת תשלום (1039) לכל אמצעי תשלום, תיעודי תשלום (1018) לפי לוח החיובים,\n// ובסיום — הפעלת התהליך המקצועי, אך ורק אם סומן \"רכישה של מוצר חדש\".\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nconst CFG = {\n  DRY_RUN: false,\n  VAT_PERCENT: 18,\n  FIREBERRY_BASE: 'https://api.fireberry.com',\n  N8N_BASE: 'https://n8n.srv964196.hstgr.cloud',\n  PRO_WEBHOOK_URL: 'https://n8n.srv964196.hstgr.cloud/webhook/pro-setup-roital',\n  INSTALLMENT_INTERVAL_MONTHS: 1,\n  DEFAULT_TASK_PRIORITY: 5, DEFAULT_TASK_TYPE: 5, DEFAULT_TASK_STATUS: 1,\n  // 1018.pcfPaymetStatus — שים לב לאיות: Paymet בלי n. כך זה בפיירברי.\n  DOC_PAID: 1, DOC_PENDING: 3,\n  PAY_STATUS_IN_PROGRESS: 1, PAY_STATUS_SETTLED: 2,\n};\n\nfunction LOGIC(ctx) {\n  const cfg = Object.assign({}, CFG, ctx.cfgOverride || {});\n  const raw = ctx.raw || {};\n  const d = (raw && raw.body && typeof raw.body === 'object') ? raw.body : raw;\n\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const N = (v) => { const n = parseFloat(v); return isNaN(n) ? 0 : n; };\n  const normPhone = (p) => {\n    let x = S(p).replace(/\\D/g, '');\n    if (x.indexOf('972') === 0) x = '0' + x.slice(3);\n    return x;\n  };\n\n  const nowISO = ctx.nowISO || new Date().toISOString();\n  const todayISO = nowISO.slice(0, 10) + 'T00:00:00Z';\n  const toISO = (s) => {\n    const m = String(s || '').match(/^(\\d{4})-(\\d{2})-(\\d{2})/);\n    return m ? `${m[1]}-${m[2]}-${m[3]}T00:00:00Z` : null;\n  };\n\n  const rowsIn = Array.isArray(d.payments) ? d.payments : [];\n  const payments = rowsIn.map((p, i) => {\n    const gross = N(p.amount_including_vat);\n    const count = Math.max(1, parseInt(p.number_of_payments, 10) || 1);\n    return {\n      index: i + 1,\n      fbPaymentType: parseInt(p.payment_type, 10) || 1,\n      // 🔴 סוג תשלום (הכרעת אליאל 08/09): על 1039 בלבד.\n      //    הוראת קבע בטופס (7) ⇒ סוג=3; מספר תשלומים>1 ⇒ 2; אחרת ⇒ 1.\n      fbPaymentCategory: (parseInt(p.payment_type, 10) === 7) ? 3 : ((Math.max(1, parseInt(p.number_of_payments, 10) || 1) > 1) ? 2 : 1),\n      typeLabel: S(p.payment_type_label) || 'תשלום',\n      isAmex: !!p.is_amex,\n      gross, count,\n      perGross: N(p.amount_per_payment) || Math.round((gross / count) * 100) / 100,\n      firstDateISO: toISO(p.first_payment_date) || todayISO,\n      notes: S(p.notes),\n    };\n  }).filter((p) => p.gross > 0);\n\n  // 🔴 מפתח אידמפוטנטיות — הטופס מייצר מזהה שליחה אחד לכל טעינת עמוד.\n  //    לחיצה כפולה על \"שליחה\" לא תיצור רשומות כפולות.\n  const submissionId = S(d.submission_id) || S(d.opportunity_id) + '-' + todayISO.slice(0, 10);\n  const idemBase = `MANUAL-${submissionId}`;\n\n  return [{\n    json: {\n      _cfg: cfg,\n      _raw: d,\n      source: 'manual_payment_button',\n      submissionId, idemBase,\n      accountid: S(d.account_id),\n      accountName: S(d.account_name) || 'לקוחה',\n      phone: normPhone(d.phone || d.telephone1),\n      saleid: S(d.opportunity_id),\n      ownerid: S(d.owner_id),\n      productId: S(d.purchased_product_id) || S(d.product_id),\n      productName: S(d.purchased_product_name) || S(d.product_name) || 'מוצר לא מזוהה',\n      newProductPurchase: d.new_product_purchase === true || S(d.new_product_purchase) === 'true',\n      whatsappGroupId: S(d.whatsapp_group_id),\n      whatsappGroupName: S(d.whatsapp_group_name),\n      dealAmount: N(d.deal_amount),\n      totalEntered: N(d.total_entered),\n      payments,\n      paymentsCount: payments.length,\n      nowISO, todayISO,\n      executionUrl: S(d.executionUrl),\n      DRY_RUN: cfg.DRY_RUN === true,\n    },\n  }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ raw: $input.first().json, executionUrl: $execution.resumeUrl });\n"
+   },
+   "id": "קליטת הטופס",
+   "name": "קליטת הטופס",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    -180,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 4, fields: [{name:\"opportunityid\"},{name:\"name\"},{name:\"accountid\"},{name:\"ownerid\"},{name:\"statuscode\"},{name:\"pcfProduct\"},{name:\"pcfWhatsAppToRef\"},{name:\"pcfTelephone1\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"opportunityid\", operator:\"eq\", value: ($('קליטת הטופס').first().json.saleid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 1, pageNumber: 1 }) }}"
+   },
+   "id": "תהליך מכירה (4)",
+   "name": "תהליך מכירה (4)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    40,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1039, fields: [{name:\"customobject1039id\"},{name:\"name\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfAccountid\"},{name:\"pcfSale\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfSale\", operator:\"eq\", value: ($('קליטת הטופס').first().json.saleid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 50, pageNumber: 1, orderBy: [{name:\"createdon\", order:\"desc\"}] }) }}"
+   },
+   "id": "בדיקת שליחה כפולה (1039)",
+   "name": "בדיקת שליחה כפולה (1039)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    260,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "מונע קליטה כפולה של אותה שליחת טופס (מזהה השליחה נוצר בטופס)."
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 14, fields: [{name:\"productid\"},{name:\"name\"},{name:\"categorycode\"},{name:\"pcfDurationWeeks\"},{name:\"ownerid\"}], pageSize: 100, pageNumber: 1 }) }}"
+   },
+   "id": "קטלוג המוצרים (14)",
+   "name": "קטלוג המוצרים (14)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    480,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1051, fields: [{name:\"customobject1051id\"},{name:\"name\"},{name:\"pcfaccountid\"},{name:\"pcfCurrentProgram\"},{name:\"pcfProduct\"},{name:\"pcfStatus\"},{name:\"pcfSale\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfaccountid\", operator:\"eq\", value: ($('קליטת הטופס').first().json.accountid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 20, pageNumber: 1 }) }}"
+   },
+   "id": "רשומת הליווי (1051)",
+   "name": "רשומת הליווי (1051)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    480,
+    480
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "התוכנית שהלקוחה נמצאת בה עכשיו — קובעת אם יש מעבר תוכנית."
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 4, fields: [{name:\"opportunityid\"},{name:\"name\"},{name:\"statuscode\"},{name:\"pcfProduct\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"accountid\", operator:\"eq\", value: ($('קליטת הטופס').first().json.accountid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 100, pageNumber: 1 }) }}"
+   },
+   "id": "תהליכי המכירה של הלקוחה (4)",
+   "name": "תהליכי המכירה של הלקוחה (4)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    700,
+    480
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "כל תהליכי המכירה של הלקוחה — לזיהוי כפילות קטגוריה."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-27 · בניית תוכנית הפעולה — תשלום שאינו באשראי\n// ============================================================================\n// אותה חוקיות בדיוק כמו בענף \"רכישה חדשה\" של WF-20:\n//   רשומת תשלום (1039) לכל אמצעי תשלום · תיעוד תשלום (1018) לכל חיוב בלוח\n//   הזמנים · הערה על תהליך המכירה, על התשלום ועל התיעודים.\n// ההבדל היחיד: הנתונים מגיעים מטופס ולא מוובהוק של גרואו.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction PLAN_CORE(ctx) {\n  const ev = ctx.ev;\n  const cfg = ev._cfg;\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const U = (v) => S(v).toUpperCase();\n  const rows = (r) => {\n    if (!r) return [];\n    if (Array.isArray(r)) return r;\n    if (Array.isArray(r.data)) return r.data;\n    if (r.data && Array.isArray(r.data.Data)) return r.data.Data;\n    if (r.data && r.data.Record) return [r.data.Record];\n    return [];\n  };\n  const cut = (s, n) => { const t = S(s); return t.length > n ? t.slice(0, n - 1) + '…' : t; };\n  const round2 = (n) => Math.round((Number(n) || 0) * 100) / 100;\n  // 🔴 פיירברי מחשב את הסכום כולל מע\"מ מתוך הסכום שלפניו ומעגל ל-4 ספרות.\n  //    עיגול ל-2 היה מייצר סטייה גלויה. (נתפס חי ב-WF-20, 19/08.)\n  const round4 = (n) => Math.round((Number(n) || 0) * 10000) / 10000;\n  const money = (n) => (Math.round((Number(n) || 0) * 100) / 100).toLocaleString('he-IL') + ' ₪';\n\n  function addMonthsISO(iso, months) {\n    const m = String(iso || '').match(/^(\\d{4})-(\\d{2})-(\\d{2})/);\n    if (!m) return null;\n    let y = parseInt(m[1], 10);\n    let mo = parseInt(m[2], 10) - 1 + months;\n    let dd = parseInt(m[3], 10);\n    y += Math.floor(mo / 12); mo = ((mo % 12) + 12) % 12;\n    const leap = (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;\n    const dim = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo];\n    if (dd > dim) dd = dim;\n    const p = (x) => String(x).padStart(2, '0');\n    return `${y}-${p(mo + 1)}-${p(dd)}T00:00:00Z`;\n  }\n\n  const ops = [];\n  const warnings = [];\n  const decisions = [];\n  const add = (o) => { ops.push(o); return '@' + o.ref; };\n  const lookupOrOmit = (obj, key, val) => { if (S(val)) obj[key] = S(val); return obj; };\n\n  const sales = rows(ctx.saleResp);\n  const existingPays = rows(ctx.existingPayResp);\n  const products = rows(ctx.productResp);\n  const mentorings = rows(ctx.mentoringResp);\n  const allSales = rows(ctx.openSalesResp);\n\n  const custLabel = ev.accountName || 'לקוחה';\n  const sale = sales.find((s) => U(s.opportunityid) === U(ev.saleid)) || sales[0] || null;\n  const saleId = sale ? S(sale.opportunityid) : S(ev.saleid);\n  const ownerid = S(ev.ownerid) || S(sale && sale.ownerid);\n  const product = products.find((p) => U(p.productid) === U(ev.productId)) || null;\n  const productName = product ? S(product.name) : ev.productName;\n\n  // ---------- אידמפוטנטיות ----------\n  const dup = existingPays.find((p) => S(p.pcfExternalSoftwareID1).indexOf(ev.idemBase) === 0);\n  if (dup) {\n    decisions.push('DUPLICATE — הטופס הזה כבר נשלח ונקלט.');\n    return { branch: 'DUPLICATE', ops: [], warnings, decisions,\n      summary: 'השליחה הזו כבר נקלטה — לא נוצרו רשומות נוספות.',\n      saleId, productName, firePro: false };\n  }\n\n  if (!ev.payments.length) {\n    warnings.push('לא התקבל אף אמצעי תשלום עם סכום.');\n    return { branch: 'EMPTY', ops: [], warnings, decisions,\n      summary: 'לא התקבלו נתוני תשלום — לא נוצרה שום רשומה.',\n      saleId, productName, firePro: false };\n  }\n  if (!saleId) warnings.push('לא נמסר תהליך מכירה — הרשומות ייווצרו בלי שיוך.');\n  if (!ev.accountid) warnings.push('לא נמסרה לקוחה — הרשומות ייווצרו בלי שיוך.');\n  if (ev.dealAmount && Math.abs(ev.totalEntered - ev.dealAmount) > 0.01) {\n    warnings.push(`הסכום שהוזן (${money(ev.totalEntered)}) שונה מסכום העסקה (${money(ev.dealAmount)}).`);\n  }\n\n  const vat = 1 + (cfg.VAT_PERCENT / 100);\n  const execLink = ev.executionUrl ? `<a href=\"${ev.executionUrl}\">${ev.executionUrl}</a>` : 'טופס ידני';\n\n  // תאריך בפורמט ישראלי לתצוגה בשם הרשומה\n  const ilDate = (iso) => {\n    const d = String(iso || '').slice(0, 10).split('-');\n    return d.length === 3 ? `${d[2]}/${d[1]}/${d[0]}` : String(iso || '');\n  };\n\n  // חיוב שתאריכו עבר או היום נחשב שנפרע. כשכל החיובים כאלה — התשלום סגור.\n  const dueIsPast = (iso) => String(iso || '').slice(0, 10) <= String(ev.todayISO).slice(0, 10);\n  const allDue = (pp) => {\n    for (let i = 0; i < pp.count; i++) {\n      if (!dueIsPast(addMonthsISO(pp.firstDateISO, i * (cfg.INSTALLMENT_INTERVAL_MONTHS || 1)))) return false;\n    }\n    return true;\n  };\n\n  ev.payments.forEach((p) => {\n    const ref = 'pay' + p.index;\n    const many = ev.payments.length > 1;\n    const payName = `התשלום של ${custLabel} | ${productName} | ${money(p.gross)} | ` +\n      `${p.count} תשלומים · ${p.typeLabel}`;\n    const lastDate = p.count > 1\n      ? addMonthsISO(p.firstDateISO, (p.count - 1) * (cfg.INSTALLMENT_INTERVAL_MONTHS || 1))\n      : p.firstDateISO;\n\n    const payBody = {\n      name: cut(payName, 190),\n      // 🔴 תשלום שאינו אשראי לעולם אינו נפתח כ\"נפרע\" — אין ראיה שהכסף התקבל.\n      pcfStatus: cfg.PAY_STATUS_IN_PROGRESS,\n      pcfstatusupdatedate: ev.nowISO,\n      pcfPaymentType: p.fbPaymentType,\n      // 🔴 סוג תשלום — נכתב על 1039 בלבד (החלטה 08/09; WF-27 החסיר אותו עד היום)\n      pcfPaymentCategory: p.fbPaymentCategory,\n      pcfNumberOfPayments: p.count,\n      pcfNeedToPay: round4(p.gross / vat),\n      pcfNeedToPayIncludingVat: p.gross,\n      pcftaxincludecode: 1,\n      pcfFirstPaymentDate: p.firstDateISO,\n      pcfLastPaymentDate: lastDate,\n      pcfNextPaymentDate: p.count > 1 ? addMonthsISO(p.firstDateISO, cfg.INSTALLMENT_INTERVAL_MONTHS || 1) : null,\n      pcfCreatedByPersonOrSystem: 2,\n      pcfExternalSoftwareID1: `${ev.idemBase}-P${p.index}`,\n      pcfExternalSoftwareID2: 'MANUAL',\n    };\n    if (p.notes) payBody.pcfInvoicesDetails = cut(p.notes, 1000);\n    lookupOrOmit(payBody, 'pcfAccountid', ev.accountid);\n    lookupOrOmit(payBody, 'pcfSale', saleId);\n    lookupOrOmit(payBody, 'ownerid', ownerid);\n    lookupOrOmit(payBody, 'pcfrelatedproduct', ev.productId);\n    const payRef = add({ ref, kind: 'create', object: '1039',\n      label: `יצירת תשלום ${many ? p.index + ' · ' : ''}(1039) · ${p.typeLabel}`, body: payBody });\n\n    // ---- תיעודי תשלום — אחד לכל חיוב בלוח הזמנים ----\n    for (let i = 0; i < p.count; i++) {\n      const due = addMonthsISO(p.firstDateISO, i * (cfg.INSTALLMENT_INTERVAL_MONTHS || 1));\n      // ============================================================================\n      // 🔴 שונה 20/08/2026 לפי הנחיית אליאל.\n      // בתשלום שאינו אשראי אין שום אישור אוטומטי שהכסף התקבל — אין סליקה,\n      // אין אסמכתא, אין וובהוק. גם החיוב הראשון הוא הבטחה בלבד.\n      // לכן **כל** התיעודים נפתחים כ\"ממתין לפירעון\", והפירעון מסומן ידנית.\n      // ============================================================================\n      const paid = false;\n      // 🔴 אין ב-1018 שדה \"תאריך חיוב מתוכנן\", ו-pcfPaymentDate פירושו\n      //    \"התאריך שבו הכסף התקבל\" — אסור לכתוב בו תאריך עתידי.\n      //    לכן מועד החיוב המתוכנן נשמר בשם הרשומה, כדי שהנציגה תראה אותו.\n      const dueLabel = ilDate(due);\n      const seq = p.count > 1 ? ` | חיוב ${i + 1}/${p.count}` : '';\n      const docBody = {\n        name: cut(`תיעוד התשלום של ${custLabel} | ${productName}${seq} | לתאריך ${dueLabel}`, 190),\n        pcfPaymetStatus: paid ? cfg.DOC_PAID : cfg.DOC_PENDING,\n        pcfsStatusUpdateTime: ev.nowISO,\n        // 🔴 החלטת אליאל 08/09: אמצעי תשלום על 1018 לעולם לא 7 (הוראת קבע) ⇒ אשראי\n        pcfPaymentType: (p.fbPaymentType === 7) ? 1 : p.fbPaymentType,\n        pcftaxincludecode: 1,\n        pcfPayed: round4(p.perGross / vat),\n        pcfPayedIncludingVAT: p.perGross,\n        pcfCreatedByPersonOrSystem: 2,\n        pcfExternalSoftwareID1: `${ev.idemBase}-P${p.index}-${i + 1}`,\n        pcfExternalSoftwareID2: 'MANUAL',\n        // 🔴 השמטת השדה גורמת לפיירברי למלא אותו בתאריך היצירה. חייבים null מפורש.\n        pcfPaymentDate: paid ? due : null,\n        pcfPaymentCollection: payRef,\n      };\n      lookupOrOmit(docBody, 'pcfAccountid', ev.accountid);\n      lookupOrOmit(docBody, 'pcfSale', saleId);\n      lookupOrOmit(docBody, 'ownerid', ownerid);\n      add({ ref: `${ref}d${i + 1}`, kind: 'create', object: '1018',\n        label: `יצירת תיעוד תשלום ${i + 1}/${p.count} (1018)`, body: docBody });\n    }\n  });\n\n  // ---------- הערות ----------\n  const lines = ev.payments.map((p) =>\n    `${p.typeLabel}: <b>${money(p.gross)}</b>${p.count > 1 ? ` · ${p.count} תשלומים של ${money(p.perGross)}` : ''}` +\n    `${p.notes ? ' · ' + p.notes : ''}`).join('<br>');\n  const noteHtml = `<div dir=\"rtl\">נקלט תשלום שאינו באשראי, דרך הטופס הידני בכרטיס העסקה.<br>` +\n    `מוצר: <b>${productName}</b> · סה\"כ: <b>${money(ev.totalEntered)}</b><br>${lines}<br>` +\n    `ריצת n8n: ${execLink}</div>`;\n\n  if (saleId) {\n    add({ ref: 'noteSale', kind: 'create', object: 'note', label: 'הערה על תהליך המכירה',\n      body: { notetext: noteHtml, objectid: saleId, objecttypecode: 4 } });\n  } else {\n    warnings.push('אין תהליך מכירה — ההערה לא צורפה אליו.');\n  }\n  ev.payments.forEach((p) => {\n    add({ ref: 'note' + p.index, kind: 'create', object: 'note',\n      label: `הערה על רשומת התשלום ${p.index}`,\n      body: { notetext: noteHtml, objectid: '@pay' + p.index, objecttypecode: 1039 } });\n  });\n\n  decisions.push(`נוצרו ${ev.payments.length} רשומות תשלום ו-${ev.payments.reduce((a, p) => a + p.count, 0)} תיעודי תשלום.`);\n\n  // ========================================================================\n  // 🔴 16/09/2026 — מעבר תוכנית מזוהה מהנתונים, לא מתיבת סימון\n  // ------------------------------------------------------------------------\n  // הכשל שנתפס חי (יהודית סואייה): נסלק תשלום של 4,455 ₪ על \"תוכנית ליווי\n  // 17 שבועות\" בזמן שרשומת הליווי שלה הייתה על \"בוסט\". מכיוון ש\"רכישה של\n  // מוצר חדש\" לא סומן בטופס, התהליך המקצועי לא רץ, והליווי נשאר בוסט.\n  // תיבת סימון שהמשתמש שוכח לסמן היא נקודת כשל — לכן ההחלטה נגזרת עכשיו\n  // מהמציאות: אם המוצר שנסלק שייך לקטגוריה אחרת מזו שהלקוחה נמצאת בה,\n  // זו רכישת מוצר חדש בפועל, גם בלי סימון.\n  // ========================================================================\n  const CAT_OF_PROGRAM = { 1: '100', 2: '101', 4: '102' };\n  const PROGRAM_LABEL = { 1: 'בוסט', 2: 'פרימיום', 3: 'מתקדמים', 4: 'המשך' };\n  const catOf = (pid) => {\n    const pr = products.find((x) => U(x.productid) === U(pid));\n    return pr ? S(pr.categorycode) : '';\n  };\n  const paidCat = product ? S(product.categorycode) : catOf(ev.productId);\n  const mentoring = mentorings.find((m) => U(m.pcfaccountid) === U(ev.accountid)) || mentorings[0] || null;\n  const curProgram = mentoring ? Number(mentoring.pcfCurrentProgram) || 0 : 0;\n  const curCat = CAT_OF_PROGRAM[curProgram] || '';\n\n  // 🔴 ההפעלה האוטומטית מוגבלת ל**מעבר תוכנית מוכח**: קיימת רשומת ליווי,\n  //    והקטגוריה שלה שונה מזו שנסלקה. כשאין רשומת ליווי כלל לא יורים\n  //    אוטומטית — הטופס משמש גם לתשלומים נוספים על עסקה קיימת, וירי עיוור\n  //    היה שולח הודעות ללקוחה על לא כלום. במקרה כזה נפתחת משימה.\n  let programChange = false;\n  let noMentoring = false;\n  if (paidCat && ev.accountid) {\n    if (!mentoring) noMentoring = true;\n    else if (curCat && curCat !== paidCat) programChange = true;\n  }\n\n  const firePro = !!ev.newProductPurchase || programChange;\n  if (ev.newProductPurchase) {\n    decisions.push('סומן \"רכישה של מוצר חדש\" — התהליך המקצועי יופעל.');\n  } else if (programChange) {\n    warnings.push(`⚠️ לא סומן \"רכישה של מוצר חדש\" בטופס, אבל המוצר שנסלק (\"${productName}\") שייך לקטגוריה אחרת מזו שהלקוחה נמצאת בה${mentoring ? ` (${PROGRAM_LABEL[curProgram] || 'לא ידוע'})` : ' (אין לה רשומת ליווי כלל)'}. התהליך המקצועי הופעל בכל זאת — אחרת הליווי היה נשאר על התוכנית הישנה.`);\n    decisions.push('התהליך המקצועי הופעל לפי מעבר התוכנית שזוהה בנתונים, לא לפי תיבת הסימון.');\n  } else if (noMentoring) {\n    warnings.push(`⚠️ אין ללקוחה רשומת ליווי כלל, ולא סומן \"רכישה של מוצר חדש\". התהליך המקצועי **לא** הופעל אוטומטית כדי לא לשלוח הודעות בטעות על תשלום משלים — נפתחה משימה לבדיקה ידנית.`);\n    add({ ref: 'taskNoMentoring', kind: 'create', object: '10', label: 'משימת בדיקה — אין רשומת ליווי',\n      body: {\n        subject: cut(`אין תהליך ליווי ללקוחה שנסלקה · ${custLabel}`, 190),\n        description:\n          `<div dir=\"rtl\">נקלט תשלום של <b>${money(ev.totalEntered)}</b> על <b>${productName}</b>, ` +\n          `אבל ללקוחה <b>אין רשומת תהליך ליווי</b> במערכת.<br><br>` +\n          `<b>מה לעשות:</b> לבדוק אם זו רכישה חדשה שדורשת פתיחת ליווי. אם כן — להריץ את התשלום ` +\n          `מחדש דרך הטופס עם <b>\"רכישה של מוצר חדש\" = כן</b>, או לפתוח את הליווי ידנית.<br>` +\n          `<b>הסיבה שלא בוצע אוטומטית:</b> הטופס משמש גם לתשלומים משלימים על עסקה קיימת. ` +\n          `הפעלה אוטומטית הייתה שולחת ללקוחה הודעת ברוכה הבאה וצירוף לקבוצה על תשלום שאינו רכישה.<br><br>` +\n          `ריצה: ${execLink}</div>`,\n        accountid: ev.accountid, pcfSale: saleId, ownerid: ownerid || '',\n        prioritycode: cfg.DEFAULT_TASK_PRIORITY, pcfTaskType: cfg.DEFAULT_TASK_TYPE,\n        statuscode: cfg.DEFAULT_TASK_STATUS,\n      } });\n    decisions.push('אין רשומת ליווי — נפתחה משימת בדיקה במקום הפעלה אוטומטית.');\n  } else {\n    decisions.push('לא סומנה רכישת מוצר חדש והמוצר באותה קטגוריה של הליווי — התהליך המקצועי לא יופעל.');\n  }\n\n  // ========================================================================\n  // 🔴 זיהוי כפילות תהליך מכירה — כלל אליאל: תהליך מכירה אחד לכל קטגוריה.\n  // אי אפשר להזיז את התשלום לבד (המשתמש עמד על העסקה הזו במודע), ולכן\n  // נפתחת משימה מפורשת עם שני המזהים, כדי שהאיחוד ייעשה בידיים.\n  // ========================================================================\n  if (paidCat && saleId && allSales.length) {\n    const sameCat = allSales.filter((x) =>\n      U(x.opportunityid) !== U(saleId) && catOf(x.pcfProduct) === paidCat);\n    const noProductOpen = allSales.filter((x) =>\n      U(x.opportunityid) !== U(saleId) && !S(x.pcfProduct) && Number(x.statuscode) !== 11 && Number(x.statuscode) !== 12);\n    if (sameCat.length) {\n      const names = sameCat.map((x) => `\"${S(x.name)}\"`).join(', ');\n      warnings.push(`⚠️ ללקוחה כבר קיים תהליך מכירה בקטגוריה של \"${productName}\" (${names}). לפי הכלל \"תהליך מכירה אחד לכל קטגוריה\" נוצרה כאן כפילות.`);\n      add({ ref: 'taskDupSale', kind: 'create', object: '10', label: 'משימת איחוד תהליכי מכירה כפולים',\n        body: {\n          subject: cut(`איחוד תהליכי מכירה כפולים · ${custLabel}`, 190),\n          description:\n            `<div dir=\"rtl\">נקלט תשלום על <b>${productName}</b> לתהליך המכירה <b>${S(sale && sale.name) || saleId}</b>, ` +\n            `אבל ללקוחה כבר קיים תהליך מכירה באותה קטגוריה: ${names}.<br><br>` +\n            `<b>מה לעשות:</b> לאחד את שני התהליכים — להעביר את התשלומים, תיעודי התשלום והליווי לתהליך אחד, ולמחוק את השני.<br>` +\n            `<b>הסיבה:</b> תהליך מכירה מייצג קטגוריה (בוסט / פרימיום / המשך) ולא רכישה בודדת. ` +\n            `פתיחת תהליך חדש ידנית כשכבר קיים אחד מאותה קטגוריה מייצרת כפילות.<br>` +\n            `<b>למניעה בפעם הבאה:</b> לפני פתיחת תהליך מכירה חדש — לבדוק בתיק הלקוחה אם כבר יש תהליך מאותה קטגוריה, ולסלוק עליו.<br><br>` +\n            `ריצה: ${execLink}</div>`,\n          accountid: ev.accountid, pcfSale: saleId,\n          ownerid: ownerid || '',\n          prioritycode: cfg.DEFAULT_TASK_PRIORITY, pcfTaskType: cfg.DEFAULT_TASK_TYPE,\n          statuscode: cfg.DEFAULT_TASK_STATUS,\n        } });\n    } else if (noProductOpen.length) {\n      const names = noProductOpen.map((x) => `\"${S(x.name)}\"`).join(', ');\n      warnings.push(`ללקוחה יש תהליך מכירה פתוח בלי מוצר (${names}) — היה אפשר לסלוק עליו במקום לפתוח חדש.`);\n    }\n  }\n\n  return {\n    branch: 'MANUAL_PAYMENT', ops, warnings, decisions,\n    summary: `נקלטו ${ev.payments.length} אמצעי תשלום בסך ${money(ev.totalEntered)}.`,\n    saleId, productName, ownerid,\n    programChange, currentProgram: curProgram, paidCategory: paidCat,\n    firePro,\n  };\n}\n\nfunction LOGIC(ctx) {\n  const ev = ctx.ev;\n  const out = PLAN_CORE(ctx);\n  const dry = ev._cfg.DRY_RUN === true;\n  if (dry) out.decisions.push('🔒 DRY_RUN — תצוגה מקדימה בלבד, לא נכתבה שום רשומה.');\n  return [{ json: Object.assign({}, ev, out, { DRY_RUN: dry }) }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  ev: $('קליטת הטופס').first().json,\n  saleResp: $('תהליך מכירה (4)').first().json,\n  existingPayResp: $('בדיקת שליחה כפולה (1039)').first().json,\n  productResp: $('קטלוג המוצרים (14)').first().json,\n  mentoringResp: $('רשומת הליווי (1051)').first().json,\n  openSalesResp: $('תהליכי המכירה של הלקוחה (4)').first().json,\n});\n"
+   },
+   "id": "בניית תוכנית תשלום",
+   "name": "בניית תוכנית תשלום",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    700,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "conditions": [
+      {
+       "id": "dry",
+       "leftValue": "={{ $json.DRY_RUN }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ],
+     "combinator": "and"
+    },
+    "options": {}
+   },
+   "id": "מצב בדיקה (DRY_RUN)?",
+   "name": "מצב בדיקה (DRY_RUN)?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    920,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ { success: true, dryRun: true, note: \"DRY_RUN — לא נכתבה שום רשומה.\", branch: $json.branch, summary: $json.summary, decisions: $json.decisions, warnings: $json.warnings, plannedOperations: $json.ops, firePro: $json.firePro } }}",
+    "options": {
+     "responseCode": 200
+    }
+   },
+   "id": "תגובה · תצוגה מקדימה",
+   "name": "תגובה · תצוגה מקדימה",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    1140,
+    180
+   ]
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-27 · גל 1 — יצירת רשומות התשלום (1039)\n// ============================================================================\n// בטופס הידני יכולים להיות כמה אמצעי תשלום, ולכן יש **כמה רשומות אב** ולא אחת.\n// כל שאר הפעולות (תיעודי תשלום, הערות) מפנות אליהן ורצות בגל 2.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const base = plan._cfg.FIREBERRY_BASE;\n  const ops = Array.isArray(plan.ops) ? plan.ops : [];\n\n  const NOOP = {\n    _noop: true, ref: '_noop', label: 'אין פעולות בגל זה',\n    method: 'POST', url: `${base}/api/v3/query`,\n    body: { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 },\n  };\n\n  // 🔒 מנעול בטיחות שני — תוכנית שאינה מסומנת לכתיבה לא מייצרת קריאת כתיבה.\n  if (plan.DRY_RUN !== false) {\n    return [{ json: Object.assign({}, NOOP, { _blocked: true, _rest: [],\n      label: '🔒 נחסם — התוכנית אינה מסומנת לכתיבה בפועל' }) }];\n  }\n\n  const parents = ops.filter((o) => o.object === '1039' && o.kind === 'create');\n  const rest = ops.filter((o) => parents.indexOf(o) === -1);\n\n  if (!parents.length) return [{ json: Object.assign({}, NOOP, { _rest: rest }) }];\n\n  return parents.map((op) => ({ json: {\n    _noop: false, ref: op.ref, label: op.label, object: op.object, kind: op.kind,\n    method: 'POST', url: `${base}/api/record/${op.object}`, body: op.body,\n    _rest: rest,\n  } }));\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ plan: $('בניית תוכנית תשלום').first().json });\n"
+   },
+   "id": "גל 1 · רשומות התשלום",
+   "name": "גל 1 · רשומות התשלום",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1140,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.method }}",
+    "url": "={{ $json.url }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000,
+     "batching": {
+      "batch": {
+       "batchSize": 1,
+       "batchInterval": 250
+      }
+     }
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.body) }}"
+   },
+   "id": "יצירת רשומות התשלום",
+   "name": "יצירת רשומות התשלום",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1360,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "🔴 כותב לפיירברי. רשומת תשלום אחת לכל אמצעי תשלום בטופס."
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1039, fields: [{name:\"customobject1039id\"},{name:\"name\"},{name:\"pcfExternalSoftwareID1\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfSale\", operator:\"eq\", value: ($('קליטת הטופס').first().json.saleid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 50, pageNumber: 1, orderBy: [{name:\"createdon\", order:\"desc\"}] }) }}"
+   },
+   "id": "אימות יצירה (400 שנכתב)",
+   "name": "אימות יצירה (400 שנכתב)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1580,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "🔴 פיירברי עלול להחזיר 400 ולכתוב את הרשומה בכל זאת — כאן בודקים."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-27 · גל 2 — תיעודי תשלום והערות, עם פתרון ההפניות לרשומות שנוצרו\n// ============================================================================\n// ההצמדה בין בקשה לתשובה נעשית לפי סדר הפריטים — צומת ה-HTTP של n8n מחזיר\n// פריט אחד לכל פריט נכנס, באותו סדר.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction extractRecordId(resp, object) {\n  if (!resp || typeof resp !== 'object') return '';\n  const idKey = `customobject${object}id`;\n  const cands = [\n    resp[idKey], resp.id, resp._id, resp.noteid,\n    resp.data && resp.data[idKey], resp.data && resp.data.id, resp.data && resp.data._id,\n    resp.Record && resp.Record[idKey],\n    resp.data && resp.data.Record && resp.data.Record[idKey],\n    resp.data && resp.data.Data && resp.data.Data[0] && resp.data.Data[0][idKey],\n  ];\n  for (const c of cands) {\n    const v = (c === undefined || c === null) ? '' : String(c).trim();\n    if (v && /^[0-9a-fA-F-]{30,}$/.test(v)) return v;\n  }\n  return '';\n}\n\nfunction resolveRefs(value, refs) {\n  if (typeof value === 'string' && value.charAt(0) === '@') {\n    const key = value.slice(1);\n    return refs[key] !== undefined ? refs[key] : '';\n  }\n  if (Array.isArray(value)) return value.map((v) => resolveRefs(v, refs));\n  if (value && typeof value === 'object') {\n    const out = {};\n    for (const k of Object.keys(value)) {\n      const rv = resolveRefs(value[k], refs);\n      // הפניה ריקה בשדה מזהה מחזירה 403 בפיירברי — לא כותבים אותה כלל\n      if (rv === '' && typeof value[k] === 'string' && value[k].charAt(0) === '@') continue;\n      out[k] = rv;\n    }\n    return out;\n  }\n  return value;\n}\n\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const base = plan._cfg.FIREBERRY_BASE;\n  const reqs = ctx.w1Reqs || [];\n  const resps = ctx.w1Resps || [];\n\n  const NOOP = {\n    _noop: true, ref: '_noop', label: 'אין פעולות בגל 2',\n    method: 'POST', url: `${base}/api/v3/query`,\n    body: { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 },\n  };\n  if (plan.DRY_RUN !== false) return [{ json: Object.assign({}, NOOP, { _blocked: true }) }];\n\n  // 🔴 פיירברי עלול להחזיר 400 ולכתוב את הרשומה בכל זאת — לכן מזהה שלא חולץ\n  //    נבדק מול שאילתת האימות לפי המזהה החיצוני שכתבנו ברשומה.\n  const verify = (ctx.verifyResp && Array.isArray(ctx.verifyResp.data)) ? ctx.verifyResp.data : [];\n  const refs = {};\n  const recovered = [];\n  reqs.forEach((r, i) => {\n    if (!r || r._noop || !r.ref) return;\n    let id = extractRecordId(resps[i], r.object);\n    if (!id) {\n      const key = String((r.body && r.body.pcfExternalSoftwareID1) || '');\n      const hit = verify.find((x) => x && String(x.pcfExternalSoftwareID1 || '') === key);\n      if (hit && hit.customobject1039id) { id = String(hit.customobject1039id); recovered.push(r.ref); }\n    }\n    refs[r.ref] = id;\n  });\n\n  const rest = (reqs[0] && reqs[0]._rest) || [];\n  if (!rest.length) return [{ json: Object.assign({}, NOOP, { _refs: refs, _recovered: recovered }) }];\n\n  return rest.map((op) => {\n    const body = resolveRefs(op.body, refs);\n    // תיעוד תשלום בלי רשומת אב, או הערה בלי יעד — לא נוצרים יתומים\n    const orphan = (op.object === '1018' && !body.pcfPaymentCollection)\n                || (op.object === 'note' && !body.objectid);\n    return { json: {\n      _noop: !!orphan, ref: op.ref,\n      label: op.label + (orphan ? ' (דולג — לא נמצא מזהה אב)' : ''),\n      object: op.object, kind: op.kind,\n      method: orphan ? 'POST' : 'POST',\n      url: orphan ? NOOP.url : `${base}/api/record/${op.object}`,\n      body: orphan ? NOOP.body : body,\n      _refs: refs, _recovered: recovered,\n    } };\n  });\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  plan: $('בניית תוכנית תשלום').first().json,\n  w1Reqs: $('גל 1 · רשומות התשלום').all().map((i) => i.json),\n  w1Resps: $('יצירת רשומות התשלום').all().map((i) => i.json),\n  verifyResp: $input.first().json,\n});\n"
+   },
+   "id": "גל 2 · תיעודים והערות",
+   "name": "גל 2 · תיעודים והערות",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1800,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.method }}",
+    "url": "={{ $json.url }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000,
+     "batching": {
+      "batch": {
+       "batchSize": 1,
+       "batchInterval": 250
+      }
+     }
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.body) }}"
+   },
+   "id": "ביצוע גל 2",
+   "name": "ביצוע גל 2",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2020,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-27 · סיכום הריצה + הפעלת התהליך המקצועי\n// ============================================================================\n// התהליך המקצועי (WF-22) מופעל **אך ורק** כשסומן \"רכישה של מוצר חדש\",\n// וכשקליטת התשלום עצמה הצליחה.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const cfg = plan._cfg;\n  const looksLikeError = (r) => {\n    if (!r || typeof r !== 'object') return true;\n    if (r.success === false) return true;\n    if (r.Message || r.message) return true;\n    if (r.error) return true;\n    return false;\n  };\n\n  const results = [];\n  const pair = (reqs, resps, wave) => {\n    (reqs || []).forEach((req, i) => {\n      if (!req || req._noop || req._blocked) return;\n      results.push({ wave, ref: req.ref, label: req.label, object: req.object,\n        ok: !looksLikeError((resps || [])[i]), response: (resps || [])[i] });\n    });\n  };\n  pair(ctx.w1Reqs, ctx.w1Resps, 1);\n  pair(ctx.w2Reqs, ctx.w2Resps, 2);\n\n  const failed = results.filter((r) => !r.ok);\n  const recovered = (ctx.w2Reqs && ctx.w2Reqs[0] && ctx.w2Reqs[0]._recovered) || [];\n  const success = failed.length === 0;\n\n  const IDLE = `${cfg.FIREBERRY_BASE}/api/v3/query`;\n  const idleBody = { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 };\n\n  let pro = { fired: false, reason: '' };\n  let proUrl = IDLE, proBody = idleBody;\n  if (plan.DRY_RUN === true) pro.reason = 'DRY_RUN — התהליך המקצועי לא הופעל';\n  else if (!plan.firePro) pro.reason = 'לא סומנה רכישת מוצר חדש והמוצר באותה קטגוריה של הליווי';\n  else if (!success) pro.reason = 'קליטת התשלום לא הושלמה — התהליך המקצועי לא הופעל';\n  else if (!plan.accountid) pro.reason = 'אין לקוחה משויכת';\n  else {\n    pro = { fired: true, reason: '' };\n    proUrl = cfg.PRO_WEBHOOK_URL;\n    proBody = {\n      accountid: plan.accountid,\n      accountName: plan.accountName,\n      phone: plan.phone,\n      saleid: plan.saleId,\n      productId: plan.productId,\n      productName: plan.productName,\n      grossTotal: plan.totalEntered,\n      asmachta: plan.idemBase,\n      purchaseDate: plan.todayISO,\n      paymentBranch: 'MANUAL_PAYMENT',\n      executionUrl: plan.executionUrl,\n    };\n  }\n\n  return [{ json: {\n    success, dryRun: plan.DRY_RUN,\n    branch: plan.branch, summary: plan.summary,\n    decisions: plan.decisions, warnings: plan.warnings,\n    account: { id: plan.accountid, name: plan.accountName },\n    saleid: plan.saleId, product: plan.productName,\n    paymentsCount: plan.paymentsCount,\n    totalEntered: plan.totalEntered,\n    operations: results,\n    failedCount: failed.length,\n    recoveredParents: recovered,\n    professionalProcess: pro,\n    proUrl, proBody,\n    executionUrl: plan.executionUrl,\n  } }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  plan: $('בניית תוכנית תשלום').first().json,\n  w1Reqs: $('גל 1 · רשומות התשלום').all().map((i) => i.json),\n  w1Resps: $('יצירת רשומות התשלום').all().map((i) => i.json),\n  w2Reqs: $('גל 2 · תיעודים והערות').all().map((i) => i.json),\n  w2Resps: $input.all().map((i) => i.json),\n});\n"
+   },
+   "id": "סיכום הריצה",
+   "name": "סיכום הריצה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    2240,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "={{ $json.proUrl }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 120000,
+     "retryOnFail": true,
+     "maxTries": 2,
+     "waitBetweenTries": 2000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.proBody) }}"
+   },
+   "id": "הפעלת התהליך המקצועי",
+   "name": "הפעלת התהליך המקצועי",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2460,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "מפעיל את WF-22 — כשסומן \"רכישה של מוצר חדש\" או כשהמוצר שנסלק שייך לקטגוריה אחרת מזו שהלקוחה נמצאת בה."
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ Object.assign({}, $('סיכום הריצה').first().json, { professionalProcess: Object.assign({}, $('סיכום הריצה').first().json.professionalProcess, { result: $json }) }) }}",
+    "options": {
+     "responseCode": 200
+    }
+   },
+   "id": "תגובה · סיכום",
+   "name": "תגובה · סיכום",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    2680,
+    420
+   ]
+  }
+ ],
+ "connections": {
+  "Webhook · טופס תשלום ידני": {
+   "main": [
+    [
+     {
+      "node": "קליטת הטופס",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קליטת הטופס": {
+   "main": [
+    [
+     {
+      "node": "תהליך מכירה (4)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "תהליך מכירה (4)": {
+   "main": [
+    [
+     {
+      "node": "בדיקת שליחה כפולה (1039)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בדיקת שליחה כפולה (1039)": {
+   "main": [
+    [
+     {
+      "node": "קטלוג המוצרים (14)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קטלוג המוצרים (14)": {
+   "main": [
+    [
+     {
+      "node": "רשומת הליווי (1051)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "רשומת הליווי (1051)": {
+   "main": [
+    [
+     {
+      "node": "תהליכי המכירה של הלקוחה (4)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "תהליכי המכירה של הלקוחה (4)": {
+   "main": [
+    [
+     {
+      "node": "בניית תוכנית תשלום",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בניית תוכנית תשלום": {
+   "main": [
+    [
+     {
+      "node": "מצב בדיקה (DRY_RUN)?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מצב בדיקה (DRY_RUN)?": {
+   "main": [
+    [
+     {
+      "node": "תגובה · תצוגה מקדימה",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "גל 1 · רשומות התשלום",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "גל 1 · רשומות התשלום": {
+   "main": [
+    [
+     {
+      "node": "יצירת רשומות התשלום",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "יצירת רשומות התשלום": {
+   "main": [
+    [
+     {
+      "node": "אימות יצירה (400 שנכתב)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "אימות יצירה (400 שנכתב)": {
+   "main": [
+    [
+     {
+      "node": "גל 2 · תיעודים והערות",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "גל 2 · תיעודים והערות": {
+   "main": [
+    [
+     {
+      "node": "ביצוע גל 2",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ביצוע גל 2": {
+   "main": [
+    [
+     {
+      "node": "סיכום הריצה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "סיכום הריצה": {
+   "main": [
+    [
+     {
+      "node": "תגובה · סיכום",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "תגובה · סיכום": {
+   "main": [
+    [
+     {
+      "node": "הפעלת התהליך המקצועי",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1",
+  "timezone": "Asia/Jerusalem",
+  "saveManualExecutions": true,
+  "saveDataErrorExecution": "all",
+  "saveDataSuccessExecution": "all"
+ },
+ "staticData": null,
+ "meta": null,
+ "pinData": null,
+ "versionId": "4eae2ec6-42c7-4ddd-ab9a-8c2ba1660192",
+ "triggerCount": 1,
+ "shared": [
+  {
+   "createdAt": "2026-08-20T12:44:55.921Z",
+   "updatedAt": "2026-08-20T12:44:55.921Z",
+   "role": "workflow:owner",
+   "workflowId": "LhstekfLJ0AClk5i",
+   "projectId": "8n5t87og6JZ0AXPr",
+   "project": {
+    "createdAt": "2025-08-18T16:54:33.537Z",
+    "updatedAt": "2025-08-18T17:04:43.601Z",
+    "id": "8n5t87og6JZ0AXPr",
+    "name": "Eliel Trabulsky <eliel@vitrue.co.il>",
+    "type": "personal",
+    "icon": null,
+    "description": null,
+    "projectRelations": [
+     {
+      "createdAt": "2025-08-18T16:54:33.538Z",
+      "updatedAt": "2025-08-18T16:54:33.538Z",
+      "role": "project:personalOwner",
+      "userId": "6530ce58-2475-45da-97a4-bf0ec489a180",
+      "projectId": "8n5t87og6JZ0AXPr",
+      "user": {
+       "createdAt": "2025-08-18T16:54:32.972Z",
+       "updatedAt": "2026-09-22T13:46:03.932Z",
+       "id": "6530ce58-2475-45da-97a4-bf0ec489a180",
+       "email": "eliel@vitrue.co.il",
+       "firstName": "Eliel",
+       "lastName": "Trabulsky",
+       "personalizationAnswers": {
+        "version": "v4",
+        "personalization_survey_submitted_at": "2025-08-18T17:04:51.259Z",
+        "personalization_survey_n8n_version": "1.106.3"
+       },
+       "settings": {
+        "userActivated": true,
+        "firstSuccessfulWorkflowId": "9Yey7n3lWYHw4uZL",
+        "userActivatedAt": 1755882878466,
+        "npsSurvey": {
+         "waitingForResponse": true,
+         "ignoredCount": 2,
+         "lastShownAt": 1790084758181
+        },
+        "easyAIWorkflowOnboarded": true
+       },
+       "role": "global:owner",
+       "disabled": false,
+       "mfaEnabled": false,
+       "lastActiveAt": "2026-09-21",
+       "isPending": false
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "tags": []
+}

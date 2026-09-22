@@ -1,0 +1,4871 @@
+[
+ {
+  "pcfExternalSoftwareID1": "GROW-480181893",
+  "pcfPaymentDate": "2026-04-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "ABFD922E-DABF-4C28-B4B7-488CA2AB8893",
+  "pcfAccountidname": "לישי כהן",
+  "createdon": "2026-09-20T02:26:34.000Z",
+  "_id": "D7470896-B742-45BB-BBED-006F7825AFF0"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-478109680",
+  "pcfPaymentDate": "2026-04-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7280A957-329D-4C31-B343-79794B72FC28",
+  "pcfAccountidname": "בתיה אהרון",
+  "createdon": "2026-09-20T02:17:11.000Z",
+  "_id": "5C0BE93E-24BE-475E-A0FB-007EE05BD046"
+ },
+ {
+  "pcfExternalSoftwareID1": "1E21C09C-2623-4867-AC77-80463167C729#1",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "57D73F00-39AD-442F-B3EE-3922D9EA1F75",
+  "pcfAccountidname": "שרי לוין",
+  "createdon": "2026-09-11T12:45:46.000Z",
+  "_id": "039131D4-4E61-4530-B3EC-00914B1A90B9"
+ },
+ {
+  "pcfExternalSoftwareID1": "7550161A-058E-4A8A-873A-B5389B98BBE2#1",
+  "pcfPaymentDate": "2026-08-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "A54BE0B9-53FE-4F3C-B49B-6796F8E31AD5",
+  "pcfAccountidname": "יונית אלימלך",
+  "createdon": "2026-09-11T12:45:42.000Z",
+  "_id": "8B898AAF-B075-4007-B5C5-00D909E348DF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-488451301",
+  "pcfPaymentDate": "2026-05-31T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "051ACAC2-677D-489E-AD7A-485D058BBE10",
+  "pcfAccountidname": "עדי דור",
+  "createdon": "2026-09-20T01:58:23.000Z",
+  "_id": "59000859-2A9D-48DB-A7B9-0122ABC6DDFD"
+ },
+ {
+  "pcfExternalSoftwareID1": "D0207AEA-9CE7-44BE-9D33-BD46E2984903#1",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.999972,
+  "pcfAccountid": "899BAB2C-0596-4DD0-A660-AA3F6887CAC8",
+  "pcfAccountidname": "לימור יחזקאל",
+  "createdon": "2026-09-11T13:44:28.000Z",
+  "_id": "7845840C-F7CB-446D-878E-01638BEC0509"
+ },
+ {
+  "pcfExternalSoftwareID1": "09078485-EEE5-4688-9EF7-3DB0D9616EFF#1",
+  "pcfPaymentDate": "2026-04-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 442.000034,
+  "pcfAccountid": "13C7F3EE-F0AC-4797-948D-189C4558913E",
+  "pcfAccountidname": "נטלי עוקב",
+  "createdon": "2026-09-11T00:05:25.000Z",
+  "_id": "E226AFAD-669F-4A08-B272-0202A9A0B110"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482117751",
+  "pcfPaymentDate": "2026-05-06T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F7E2925A-DBA4-4129-B83D-1D039A1D9B5E",
+  "pcfAccountidname": "רות אליאס",
+  "createdon": "2026-09-20T02:36:55.000Z",
+  "_id": "30EBB208-D5DD-4A18-A36F-024A3B7D326C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468258327",
+  "pcfPaymentDate": "2026-02-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "239381EE-D48E-44AF-85A8-21132F355F18",
+  "pcfAccountidname": "הדסי סבג",
+  "createdon": "2026-09-20T02:03:53.000Z",
+  "_id": "092A5E59-04F8-41D0-AC81-0263658505E3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-483213556",
+  "pcfPaymentDate": "2026-05-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "A9B6100A-F6CC-42D4-A5DF-EFAC0FF682EF",
+  "pcfAccountidname": "מורן קעטבי",
+  "createdon": "2026-09-20T02:26:24.000Z",
+  "_id": "BF2278F7-7AA1-432F-962B-036776AC3825"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501090755",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B6101F20-4902-4482-A34D-F53A0BDDF0F4",
+  "pcfAccountidname": "אורטל אטיאס",
+  "createdon": "2026-09-20T02:28:12.000Z",
+  "_id": "1624022B-00F2-483C-9D20-0378E6C217E9"
+ },
+ {
+  "pcfExternalSoftwareID1": "932139C3-1261-49B0-8800-8D7283F9C056#99",
+  "pcfPaymentDate": "2026-09-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5C33ADF5-1169-4E6E-BAD0-E9425A1A6349",
+  "pcfAccountidname": "דפנה ירדן",
+  "createdon": "2026-09-11T13:19:37.000Z",
+  "_id": "B69F75B1-5F49-458B-B110-03B5512666EA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466560300",
+  "pcfPaymentDate": "2026-02-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "D887A051-CA9E-49DD-AE50-659D359660FA",
+  "pcfAccountidname": "שרון לוגסי",
+  "createdon": "2026-09-20T02:32:25.000Z",
+  "_id": "8EDC982D-1128-49AF-8A2B-0410EB306082"
+ },
+ {
+  "pcfExternalSoftwareID1": "3A813DE9-06C0-47E3-A07C-B07C4D5BBA64#1",
+  "pcfPaymentDate": "2026-06-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "797B8142-BE6B-4E74-9F99-51C5F1BD200F",
+  "pcfAccountidname": "אורית שלגי",
+  "createdon": "2026-09-11T13:44:37.000Z",
+  "_id": "4E091AC3-20E9-42E4-9FDF-0497F757920A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484587863",
+  "pcfPaymentDate": "2026-05-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "9C46334D-4D5B-47DB-90FD-01ED19DEB6FF",
+  "pcfAccountidname": "תהילה נאומבורג",
+  "createdon": "2026-09-20T02:24:38.000Z",
+  "_id": "E09E0F83-F3FC-4BEF-8068-04B69B54066E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459960960",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 395.000044,
+  "pcfAccountid": "CAE22C99-E733-42AA-BEED-552C50728AEE",
+  "pcfAccountidname": "אניטה גרכד",
+  "createdon": "2026-09-20T02:30:36.000Z",
+  "_id": "42F3ACEC-F003-4234-9F84-04E55ACFA8E9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499481944",
+  "pcfPaymentDate": "2026-07-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "25D3DB87-DC9F-4F29-AB04-B9C8A601F2CD",
+  "pcfAccountidname": "אור שירו",
+  "createdon": "2026-09-20T02:04:39.000Z",
+  "_id": "482B42FC-E47E-43C2-B0A5-04EEDB86E6B3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468300419",
+  "pcfPaymentDate": "2026-02-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "239381EE-D48E-44AF-85A8-21132F355F18",
+  "pcfAccountidname": "הדסי סבג",
+  "createdon": "2026-09-20T02:03:53.000Z",
+  "_id": "223A8267-AE21-417B-978D-058084F542CD"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-504988771",
+  "pcfPaymentDate": "2026-08-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 364.99996,
+  "pcfAccountid": "9186EFD3-C1FF-41D6-BA7A-92EB0BF2027B",
+  "pcfAccountidname": "בן שושן גלית",
+  "createdon": "2026-09-20T02:23:50.000Z",
+  "_id": "2C6AA778-116E-4508-AD63-05D35CE1CAD1"
+ },
+ {
+  "pcfExternalSoftwareID1": "A3881939-4871-4F14-8E2F-B1DFC60C7EB9#1",
+  "pcfPaymentDate": "2026-05-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "BE232E7A-374E-4E2D-9FBF-21523D94561E",
+  "pcfAccountidname": "ילנה קצב",
+  "createdon": "2026-09-11T14:27:41.000Z",
+  "_id": "F08BA311-F840-412D-84DA-05F361AB9D86"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484587953",
+  "pcfPaymentDate": "2026-05-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "63F42498-5E7B-42FC-AB0B-850B7C4760A9",
+  "pcfAccountidname": "אדוה אלמקייס",
+  "createdon": "2026-09-20T02:13:54.000Z",
+  "_id": "884E2588-81BA-492B-9884-066D30D94DAF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468443150",
+  "pcfPaymentDate": "2026-02-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "541F4195-0C72-4EB9-824B-29A08C5EDD9D",
+  "pcfAccountidname": "חלי ורדי",
+  "createdon": "2026-09-20T02:11:15.000Z",
+  "_id": "739B32F4-F68D-481A-A417-073267BC1224"
+ },
+ {
+  "pcfExternalSoftwareID1": "3384B5ED-A1D9-4CC9-AD09-2F423349506F#1",
+  "pcfPaymentDate": "2026-03-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 324.999966,
+  "pcfAccountid": "46D77318-6FB3-4F8E-89EC-8CC11542136D",
+  "pcfAccountidname": "גלית ברוכשטיין",
+  "createdon": "2026-09-11T12:09:16.000Z",
+  "_id": "38785A44-3821-4CED-93E0-0764A28A4A28"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473972484",
+  "pcfPaymentDate": "2026-03-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "ABFD922E-DABF-4C28-B4B7-488CA2AB8893",
+  "pcfAccountidname": "לישי כהן",
+  "createdon": "2026-09-20T02:26:33.000Z",
+  "_id": "9376A5DA-846A-477C-9AB3-07BEDE3CE7F9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461435722",
+  "pcfPaymentDate": "2026-01-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "CE4CD3C9-2CB7-4966-8B62-EDC9658CF73B",
+  "pcfAccountidname": "תמר ברגר",
+  "createdon": "2026-09-20T02:30:54.000Z",
+  "_id": "9415844A-F569-4259-A182-0899F7B14AE3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460066814",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "47DD9717-97F2-4813-8B83-5BCB6762CC98",
+  "pcfAccountidname": "שני תשובה",
+  "createdon": "2026-09-20T02:10:14.000Z",
+  "_id": "B04606CA-20D9-4441-8A4E-089FCD12708E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501531475",
+  "pcfPaymentDate": "2026-07-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "6A1133AF-1E14-4068-BB4C-6FEDC93EEDBB",
+  "pcfAccountidname": "סיון שורץ",
+  "createdon": "2026-09-20T02:15:07.000Z",
+  "_id": "AFF2314D-1AFB-4CFC-95B8-08F8E0403E95"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491677936",
+  "pcfPaymentDate": "2026-06-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B9AE66F8-BDCC-45ED-BDF0-C144567051B2",
+  "pcfAccountidname": "חסיבה זוקמן",
+  "createdon": "2026-09-20T02:28:43.000Z",
+  "_id": "0C893D56-A79F-47D1-A245-09059F881B81"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469775723",
+  "pcfPaymentDate": "2026-03-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2125.00005,
+  "pcfAccountid": "051ACAC2-677D-489E-AD7A-485D058BBE10",
+  "pcfAccountidname": "עדי דור",
+  "createdon": "2026-09-20T01:58:21.000Z",
+  "_id": "D0A0F7A0-4F1C-45D2-81E9-09518B60F701"
+ },
+ {
+  "pcfExternalSoftwareID1": "86CC54B2-6511-4AE6-9651-E8436B03EC0F#1",
+  "pcfPaymentDate": "2026-05-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "22CD93B6-7C29-495A-8E0A-EE8C9C6E5C01",
+  "pcfAccountidname": "אורלי סיון",
+  "createdon": "2026-09-11T10:59:11.000Z",
+  "_id": "F2F0860A-45A6-4F5C-AE31-09B3359338A8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468772347",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "D3747A27-1F64-4823-91AB-0099AC7AECD3",
+  "pcfAccountidname": "ענת סאלד אביגדול",
+  "createdon": "2026-09-20T02:31:57.000Z",
+  "_id": "E740D209-3801-46C1-A660-09D5187AA3C3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-507598041",
+  "pcfPaymentDate": "2026-08-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "AC48DFA8-64E4-48DA-8AE0-26F22B3AF302",
+  "pcfAccountidname": "גדיר",
+  "createdon": "2026-09-20T02:26:37.000Z",
+  "_id": "8408EE2B-7563-464D-8FA6-09F38EC74B5B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-483524566",
+  "pcfPaymentDate": "2026-05-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "EE796090-0FAC-44FF-A576-7FDAD835F345",
+  "pcfAccountidname": "שרה סאייג",
+  "createdon": "2026-09-20T02:35:07.000Z",
+  "_id": "28569ACB-EDAF-4B4B-B3C3-0A46691D56DC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461973898",
+  "pcfPaymentDate": "2026-01-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "517FABC7-0703-4A9C-BBCE-D76C7240ECC2",
+  "pcfAccountidname": "נטעלי מוטולה",
+  "createdon": "2026-09-20T02:11:03.000Z",
+  "_id": "BB6310D6-DC18-44B9-AB5D-0AF4E89110FA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491994721",
+  "pcfPaymentDate": "2026-06-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "25D3DB87-DC9F-4F29-AB04-B9C8A601F2CD",
+  "pcfAccountidname": "אור שירו",
+  "createdon": "2026-09-20T02:04:38.000Z",
+  "_id": "4D37CCA3-B79F-4686-AAC9-0B43088EA469"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484586903",
+  "pcfPaymentDate": "2026-05-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "B52D9912-75A8-4C98-A215-E59BD06BE0F3",
+  "pcfAccountidname": "מיכל פלדמן",
+  "createdon": "2026-09-20T02:28:09.000Z",
+  "_id": "5DACF299-7BFE-4DF5-BF33-0BD448F07835"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472329293",
+  "pcfPaymentDate": "2026-03-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "450E0446-6F4C-480E-8248-8CCDFD35C7A4",
+  "pcfAccountidname": "מיכל קמפפר",
+  "createdon": "2026-09-20T02:10:01.000Z",
+  "_id": "F3F2C217-10A6-41DE-B3CF-0BEA65FDFB0E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466983012",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "450E0446-6F4C-480E-8248-8CCDFD35C7A4",
+  "pcfAccountidname": "מיכל קמפפר",
+  "createdon": "2026-09-20T02:10:01.000Z",
+  "_id": "CFE52B9E-EAF6-4982-9E30-0BFB84C47BD5"
+ },
+ {
+  "pcfExternalSoftwareID1": "513B4C9E-08C2-4252-8243-D06F5EEB8F04#1",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "786AC95B-FC6F-4014-BA17-15642366B189",
+  "pcfAccountidname": "יוליה עמית",
+  "createdon": "2026-09-11T11:51:02.000Z",
+  "_id": "2F868853-6F7D-4ADA-8A28-0CE97F4BFB45"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486234479",
+  "pcfPaymentDate": "2026-05-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "880DF87A-7339-480B-BF7D-B37D5058739D",
+  "pcfAccountidname": "חגית",
+  "createdon": "2026-09-20T02:22:11.000Z",
+  "_id": "F75AD4BE-8521-40C6-B70E-0D7DF917923D"
+ },
+ {
+  "pcfExternalSoftwareID1": "1B45726A-B063-48E6-B433-D22315103BA7#1",
+  "pcfPaymentDate": "2026-07-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "880DF87A-7339-480B-BF7D-B37D5058739D",
+  "pcfAccountidname": "חגית",
+  "createdon": "2026-09-10T23:31:00.000Z",
+  "_id": "93DEAD4B-1986-4253-ADC2-0E13D9E0F630"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485502745",
+  "pcfPaymentDate": "2026-05-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "3FE13BD7-64DC-48C2-98D6-EFFF87EFAD4E",
+  "pcfAccountidname": "נטלי שרביט",
+  "createdon": "2026-09-20T02:09:48.000Z",
+  "_id": "066ACA1E-4FEA-4227-AF62-0E14E4888A2B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460066952",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 532.00005,
+  "pcfAccountid": "3FE13BD7-64DC-48C2-98D6-EFFF87EFAD4E",
+  "pcfAccountidname": "נטלי שרביט",
+  "createdon": "2026-09-20T02:09:50.000Z",
+  "_id": "1105A160-A641-412F-A7C2-0E1DFD6C27F4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459435108",
+  "pcfPaymentDate": "2026-01-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "BA7592FA-FB14-435C-8752-A9726E47FB99",
+  "pcfAccountidname": "מרילן בוקר",
+  "createdon": "2026-09-20T02:28:51.000Z",
+  "_id": "B532173F-E10C-4509-91C4-0E79CE4C9E27"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470592436",
+  "pcfPaymentDate": "2026-03-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1650.000018,
+  "pcfAccountid": "036CE57A-5A56-4B25-A149-AFB5AA6C6F24",
+  "pcfAccountidname": "שני וייס",
+  "createdon": "2026-09-20T01:57:50.000Z",
+  "_id": "E5AA316E-0A92-45B5-A092-0EC65B751D56"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476050659",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "FCDDAF4A-49CD-4AF2-95BD-5FA7722572E8",
+  "pcfAccountidname": "צליל אביזמר",
+  "createdon": "2026-09-20T02:37:23.000Z",
+  "_id": "0057563E-AC29-4ADF-B388-0EC79F728B99"
+ },
+ {
+  "pcfExternalSoftwareID1": "7007881A-5999-4632-88C4-051E6BA0E591#1",
+  "pcfPaymentDate": "2026-07-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "BFDB0E05-19E8-4556-92FC-581E05F4D500",
+  "pcfAccountidname": "לירון ארד",
+  "createdon": "2026-09-11T10:49:25.000Z",
+  "_id": "6A238B60-32EE-4C43-A810-0EDAFD14BAF9"
+ },
+ {
+  "pcfExternalSoftwareID1": "21FF89E7-22F9-4445-8C5B-22C0D555B0A2#1",
+  "pcfPaymentDate": "2026-02-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "859FB02D-A99C-424D-BA97-039DF906343C",
+  "pcfAccountidname": "לירון שרון",
+  "createdon": "2026-09-11T14:06:03.000Z",
+  "_id": "504E3A9B-ECB4-49C1-A1D5-0F36636E8716"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470160168",
+  "pcfPaymentDate": "2026-03-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "FCDDAF4A-49CD-4AF2-95BD-5FA7722572E8",
+  "pcfAccountidname": "צליל אביזמר",
+  "createdon": "2026-09-20T02:37:23.000Z",
+  "_id": "B2902092-0F9D-4B24-B560-0F8BA66B1979"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470362353",
+  "pcfPaymentDate": "2026-03-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "F11CF928-6DBD-4959-B5EA-8AF4B08AA4A6",
+  "pcfAccountidname": "אופירה שלום",
+  "createdon": "2026-09-20T02:35:54.000Z",
+  "_id": "B3C76B20-1D19-4F17-9703-1028AF2D6F02"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476071036",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F00661EA-5F57-4FCC-BBFC-C1D21E299D1A",
+  "pcfAccountidname": "הדס חזן",
+  "createdon": "2026-09-20T02:35:39.000Z",
+  "_id": "B6C849E4-367C-4E9F-8904-102EE70F4450"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486411568",
+  "pcfPaymentDate": "2026-05-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "9F075384-9243-4FD8-8C40-209756FC009A",
+  "pcfAccountidname": "טליה ברון",
+  "createdon": "2026-09-20T02:24:42.000Z",
+  "_id": "89DA0230-D570-4BAD-9A32-1122E38FA1FC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473863441",
+  "pcfPaymentDate": "2026-03-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "65C597DF-7D25-4E93-8727-A5C60F449235",
+  "pcfAccountidname": "זהבה כהן",
+  "createdon": "2026-09-20T02:14:19.000Z",
+  "_id": "1C84142B-BBE5-42D0-A838-1160A3F1DCB4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476050864",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "D91FA3F6-F21A-4CD9-80DF-BFDEFB59D6CF",
+  "pcfAccountidname": "עליזה אלבז",
+  "createdon": "2026-09-20T02:32:47.000Z",
+  "_id": "99794BDD-E3FC-4523-AEF2-11914F74F55F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493347886",
+  "pcfPaymentDate": "2026-06-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "73203031-0323-44D3-AA7D-966A9FACC4BD",
+  "pcfAccountidname": "רעות בן חיון",
+  "createdon": "2026-09-20T02:17:17.000Z",
+  "_id": "955C027E-6537-453E-8D2B-11BE9289A10D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-465814037",
+  "pcfPaymentDate": "2026-02-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 442.000034,
+  "pcfAccountid": "7AB17F92-B205-413A-A1CC-4ADC1F37AC0B",
+  "pcfAccountidname": "דר שמעוני",
+  "createdon": "2026-09-20T02:19:07.000Z",
+  "_id": "DB309F50-D590-41FC-A819-120113145925"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482859680",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "2DCF5DDE-2E02-4636-8BB9-E897D4D3C02E",
+  "pcfAccountidname": "אסטל בילר",
+  "createdon": "2026-09-20T02:06:43.000Z",
+  "_id": "F3DBC538-AD01-4F71-9F16-122226D3C878"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455229452",
+  "pcfPaymentDate": "2026-01-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 395.000044,
+  "pcfAccountid": "7248FA8E-538C-45F8-87B2-0F9F60CBEDB1",
+  "pcfAccountidname": "עדי גלעם",
+  "createdon": "2026-09-20T02:16:39.000Z",
+  "_id": "0F65CC54-62FA-4C3A-BA8D-126F5548599D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501096031",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "FBA114C9-7A40-49F7-A4F4-41274B4DBD66",
+  "pcfAccountidname": "יוכי גרינברג",
+  "createdon": "2026-09-20T02:37:20.000Z",
+  "_id": "F92DF112-F562-4B00-9B8A-13A49D621809"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502717285",
+  "pcfPaymentDate": "2026-07-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "3C774560-4080-403A-A76E-1351E7E05D75",
+  "pcfAccountidname": "אביטל",
+  "createdon": "2026-09-20T02:09:06.000Z",
+  "_id": "F7AC485A-DFC3-4AC9-89A4-14579DDFDC41"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493231817",
+  "pcfPaymentDate": "2026-06-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "25AAB749-73FF-47EA-9485-E597B866C9F0",
+  "pcfAccountidname": "לימור חמו",
+  "createdon": "2026-09-20T02:04:29.000Z",
+  "_id": "972E8CD9-60B9-46E5-BFBA-147698525DCD"
+ },
+ {
+  "pcfExternalSoftwareID1": "F8876388-E5C1-48A5-8BB5-AF27465265B5#1",
+  "pcfPaymentDate": "2026-02-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "52E3453F-D83B-4659-8086-3889B460F175",
+  "pcfAccountidname": "דפנה מלח",
+  "createdon": "2026-09-11T10:59:07.000Z",
+  "_id": "EE4C9812-07F8-4B8A-9063-149972BE8557"
+ },
+ {
+  "pcfExternalSoftwareID1": "F1E47647-33B6-476E-9222-22377D2189BF#1",
+  "pcfPaymentDate": "2026-07-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "12AB227D-7CA7-427C-96F1-CC4B4ACD9A07",
+  "pcfAccountidname": "נהירה משה",
+  "createdon": "2026-09-11T14:27:45.000Z",
+  "_id": "B8709789-F060-4D14-9E67-156656609A5A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-477752794",
+  "pcfPaymentDate": "2026-04-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "63F42498-5E7B-42FC-AB0B-850B7C4760A9",
+  "pcfAccountidname": "אדוה אלמקייס",
+  "createdon": "2026-09-20T02:13:54.000Z",
+  "_id": "E00D37D9-D906-47D8-BCA3-15F11F45880D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-497861480",
+  "pcfPaymentDate": "2026-07-06T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 296.999982,
+  "pcfAccountid": "D1BDB94E-3DE3-48C7-8823-E42D100FA551",
+  "pcfAccountidname": "שירה לוינסקי",
+  "createdon": "2026-09-20T02:31:45.000Z",
+  "_id": "A0AAEE6F-53A0-4C9F-A6D5-1727672D0BEB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-474901337",
+  "pcfPaymentDate": "2026-04-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "E34DD38C-7582-41F7-A926-092C98733A93",
+  "pcfAccountidname": "זלדי שיף",
+  "createdon": "2026-09-20T02:33:54.000Z",
+  "_id": "91FAA6F0-21E1-4BD3-A92A-198CA5DF3900"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482861462",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "864B448F-6FE6-44F4-BE2D-C192DF3DCF42",
+  "pcfAccountidname": "מורן רודניקי",
+  "createdon": "2026-09-20T02:21:07.000Z",
+  "_id": "A25D7FCC-9375-45E0-B573-19F41ED5FF5A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-494069063",
+  "pcfPaymentDate": "2026-06-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "FEF5BEB1-ABC4-4497-8693-83B06AF5870C",
+  "pcfAccountidname": "עדנה דסה",
+  "createdon": "2026-09-20T02:38:01.000Z",
+  "_id": "A8BDF571-8BE2-4579-B52E-1A22F77AA59C"
+ },
+ {
+  "pcfExternalSoftwareID1": "2AF7D1D7-38F2-4F82-9FEB-19EFEED3E08B#1",
+  "pcfPaymentDate": "2026-01-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "AD197A77-E69D-4AD7-9D1A-46560DF6631D",
+  "pcfAccountidname": "סיון אלי",
+  "createdon": "2026-09-11T11:12:11.000Z",
+  "_id": "42642C1C-05B3-46FC-9BC7-1A25A96A444D"
+ },
+ {
+  "pcfExternalSoftwareID1": "F523CD8B-B12B-496F-A737-D86D10D4F05A#1",
+  "pcfPaymentDate": "2026-07-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "18324B14-D886-4BBB-8EBB-282E6044E512",
+  "pcfAccountidname": "מור גבאי",
+  "createdon": "2026-09-11T13:44:38.000Z",
+  "_id": "AAE2F65E-7706-465D-90C1-1A7F74AC8624"
+ },
+ {
+  "pcfExternalSoftwareID1": "D0819D05-42EC-4B2F-8E64-388E1146284C#1",
+  "pcfPaymentDate": "2026-06-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5F7827AF-80CC-498D-BA4D-5E921FEDE28D",
+  "pcfAccountidname": "רותם כהן",
+  "createdon": "2026-09-11T13:33:44.000Z",
+  "_id": "1E45A0B8-A06B-4B10-A8E6-1A84E9E5E7B4"
+ },
+ {
+  "pcfExternalSoftwareID1": "6799D375-67F7-4176-9BD1-DDFE2A2A4833#1",
+  "pcfPaymentDate": "2026-06-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "CA1A1723-7476-47BE-A10B-1979B2FB89F3",
+  "pcfAccountidname": "עירית אברשטרק",
+  "createdon": "2026-09-11T11:12:32.000Z",
+  "_id": "B3641650-EF97-49AF-8565-1B388D58C570"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486970995",
+  "pcfPaymentDate": "2026-05-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.999972,
+  "pcfAccountid": "1A04F45A-4D89-4F9F-95A7-4D8DC4B75BC6",
+  "pcfAccountidname": "שירן אברוך",
+  "createdon": "2026-09-20T02:02:02.000Z",
+  "_id": "3FACE682-4D70-4063-BF4D-1B3D85F00080"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491283515",
+  "pcfPaymentDate": "2026-06-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 463.999954,
+  "pcfAccountid": "755748A6-9EAC-4BEC-917A-FF37A24B7413",
+  "pcfAccountidname": "ג'ולי ברוך",
+  "createdon": "2026-09-20T02:17:26.000Z",
+  "_id": "BE40D9AA-6EBB-4668-86EE-1B6F434B09CD"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-475651609",
+  "pcfPaymentDate": "2026-04-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2125.00005,
+  "pcfAccountid": "051ACAC2-677D-489E-AD7A-485D058BBE10",
+  "pcfAccountidname": "עדי דור",
+  "createdon": "2026-09-20T01:58:21.000Z",
+  "_id": "99CBC87E-F7FB-45AC-AAB7-1B923B6F3C64"
+ },
+ {
+  "pcfExternalSoftwareID1": "72048799-E695-4037-97F6-98740ED07488#1",
+  "pcfPaymentDate": "2026-02-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2474.999968,
+  "pcfAccountid": "25D3DB87-DC9F-4F29-AB04-B9C8A601F2CD",
+  "pcfAccountidname": "אור שירו",
+  "createdon": "2026-09-10T23:11:10.000Z",
+  "_id": "4BD662BC-7996-4077-9901-1B9F90DB9501"
+ },
+ {
+  "pcfExternalSoftwareID1": "E6489A4A-FB7C-4096-AF0E-327A7493F2C8#1",
+  "pcfPaymentDate": "2026-03-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "022DC168-7DF4-4548-91AF-89C925886D3F",
+  "pcfAccountidname": "ריקי אמסלם",
+  "createdon": "2026-09-11T14:38:39.000Z",
+  "_id": "BD842AE1-7DA4-4EF4-83CF-1BA38DEF0D12"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473965918",
+  "pcfPaymentDate": "2026-03-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2830.000018,
+  "pcfAccountid": "09AB25DB-7BD5-4258-8A6D-1669A6378C29",
+  "pcfAccountidname": "אירן צנסטי",
+  "createdon": "2026-09-20T01:59:36.000Z",
+  "_id": "606749BA-675A-4F97-85B4-1C92382C37F6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-475535879",
+  "pcfPaymentDate": "2026-04-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "A58C094A-2377-4BEF-8709-CFC9799E85CE",
+  "pcfAccountidname": "אסתר סימן טוב",
+  "createdon": "2026-09-20T02:25:28.000Z",
+  "_id": "43B87C5B-1396-40C6-9982-1CADF7005B4D"
+ },
+ {
+  "pcfExternalSoftwareID1": "C1250559-254C-4062-93E6-099CFCC59265#1",
+  "pcfPaymentDate": "2026-02-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "B3C66FD3-ECB9-44C1-94FE-8B8FB5126572",
+  "pcfAccountidname": "שירן עזריה",
+  "createdon": "2026-09-11T14:38:50.000Z",
+  "_id": "3DBFF984-B66E-4567-BDEE-1D1F848EDB4D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484964845",
+  "pcfPaymentDate": "2026-05-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "98699E38-BA7D-450B-B097-7263599D1C9E",
+  "pcfAccountidname": "ליזט סופר",
+  "createdon": "2026-09-20T02:24:21.000Z",
+  "_id": "6B6C0761-4244-4A20-97BB-1E15732EABD9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-498926449",
+  "pcfPaymentDate": "2026-07-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:13.000Z",
+  "_id": "50DE4A50-48D9-44BC-A73B-1E70108B23AA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476366938",
+  "pcfPaymentDate": "2026-04-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "7ADB761C-1F97-4929-850B-5786EB9D5629",
+  "pcfAccountidname": "לימור שושן",
+  "createdon": "2026-09-20T02:19:15.000Z",
+  "_id": "C6EF99C5-6102-4FAC-8340-1EFDFDE9D234"
+ },
+ {
+  "pcfExternalSoftwareID1": "DFF5BECC-BD10-45EB-9A6C-4AD86AC63A57#1",
+  "pcfPaymentDate": "2026-02-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "92A78AE7-1A24-40A7-BC15-4949AC8ADEA0",
+  "pcfAccountidname": "חיה דשתי",
+  "createdon": "2026-09-11T14:27:48.000Z",
+  "_id": "1A58FB1C-9C84-4DEC-B415-1F2C0479D345"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-463863421",
+  "pcfPaymentDate": "2026-02-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "2CA8734F-92E2-46BE-B3A1-92B0BF30BD78",
+  "pcfAccountidname": "שלומית אטדגי",
+  "createdon": "2026-09-20T02:06:05.000Z",
+  "_id": "55974597-05AE-42A4-8482-1F30104AF1CB"
+ },
+ {
+  "pcfExternalSoftwareID1": "B7FB1BC4-E23D-41D5-92B9-71D27DBDA9C4#1",
+  "pcfPaymentDate": "2026-03-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "8EB024D3-E570-4320-9A43-C6BF9DDB6B95",
+  "pcfAccountidname": "אוסנת טנסקי",
+  "createdon": "2026-09-11T10:59:13.000Z",
+  "_id": "D295846C-4C17-4E48-BBA6-1F8412207732"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485745725",
+  "pcfPaymentDate": "2026-05-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:13.000Z",
+  "_id": "588A3EC1-285C-478E-80D6-1F8ECA3DE1BD"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466061831",
+  "pcfPaymentDate": "2026-02-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "A9E3CE37-87E6-4A6A-80C8-73BAE4B5A9E9",
+  "pcfAccountidname": "בללי אסתר",
+  "createdon": "2026-09-20T02:26:26.000Z",
+  "_id": "8DB59099-EA43-4D5C-A893-20591B7428FA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-492088050",
+  "pcfPaymentDate": "2026-06-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "256EB3A9-1FAF-4A90-AA34-5CA299BB1F42",
+  "pcfAccountidname": "שירן נגר",
+  "createdon": "2026-09-20T02:04:14.000Z",
+  "_id": "F299B3C2-6DE4-4029-87BF-20D0E64DE573"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461435708",
+  "pcfPaymentDate": "2026-01-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "1250EB2F-6777-4FE3-ABB4-11DB81090E21",
+  "pcfAccountidname": "מוריה יזרעאלי",
+  "createdon": "2026-09-20T02:01:02.000Z",
+  "_id": "65C01C37-EB5E-4568-B315-21456C1EB52D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-489523425",
+  "pcfPaymentDate": "2026-06-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2AFEB8E9-F470-480F-92D5-D5F712461D9D",
+  "pcfAccountidname": "הילה פרץ",
+  "createdon": "2026-09-20T02:05:55.000Z",
+  "_id": "F9BBDE3D-5E0A-4431-A288-214CA8B95618"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500946468",
+  "pcfPaymentDate": "2026-07-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "B4CFDE85-043C-4EBC-8CF2-D72518996E54",
+  "pcfAccountidname": "רינה משה חן",
+  "createdon": "2026-09-20T02:28:00.000Z",
+  "_id": "E40AEDFC-24D4-4F6B-9DBA-218E745020D2"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-494605224",
+  "pcfPaymentDate": "2026-06-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "793F62A0-5055-49D3-812A-553BD827DD7C",
+  "pcfAccountidname": "ורד אקבס",
+  "createdon": "2026-09-20T02:18:25.000Z",
+  "_id": "D8117B5B-F08B-42DE-AF23-21EE58769D64"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-490442697",
+  "pcfPaymentDate": "2026-06-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "223825C4-EAF5-4203-8B49-299D6E410077",
+  "pcfAccountidname": "נילי אסולין פינק",
+  "createdon": "2026-09-20T02:03:42.000Z",
+  "_id": "100DF4AC-1B0F-4C63-B105-222E8B0F0518"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466307612",
+  "pcfPaymentDate": "2026-02-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "64760178-0E6B-466C-B8A0-04F56D847D0A",
+  "pcfAccountidname": "לאה שיליץ",
+  "createdon": "2026-09-20T02:14:09.000Z",
+  "_id": "314ACA5E-6665-4D11-B63C-224E8360A28A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-467049259",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "7280A957-329D-4C31-B343-79794B72FC28",
+  "pcfAccountidname": "בתיה אהרון",
+  "createdon": "2026-09-20T02:16:56.000Z",
+  "_id": "911DA0C7-577D-41EA-B17D-22BF1C9E93D9"
+ },
+ {
+  "pcfExternalSoftwareID1": "340C257F-6865-4E1D-8CA6-8842952CFFE1#1",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E41CEEBD-C699-43EB-B483-E12B7141DC82",
+  "pcfAccountidname": "רויטל מזרחי",
+  "createdon": "2026-09-11T10:58:54.000Z",
+  "_id": "3A75D69A-9651-4B57-ADAC-22DF1D589664"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-510122381",
+  "pcfPaymentDate": "2026-08-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "880DF87A-7339-480B-BF7D-B37D5058739D",
+  "pcfAccountidname": "חגית",
+  "createdon": "2026-09-20T02:22:02.000Z",
+  "_id": "FAF02F6C-F33A-4C24-8F8B-23C09380DDC7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-456545449",
+  "pcfPaymentDate": "2026-01-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "DB8B13CA-ADCE-453F-9733-01E7581CC856",
+  "pcfAccountidname": "שיר בן שושן",
+  "createdon": "2026-09-20T02:33:02.000Z",
+  "_id": "F87CFC81-A89B-45FA-9036-245BDA677D05"
+ },
+ {
+  "pcfExternalSoftwareID1": "969A3880-47FA-4928-ADD8-83945A6F2DDC#1",
+  "pcfPaymentDate": "2026-05-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "785850BE-2A29-4316-9B9C-970D1BFDD638",
+  "pcfAccountidname": "דניאלה עזב",
+  "createdon": "2026-09-11T13:44:30.000Z",
+  "_id": "D0D65821-FB5F-4850-9F94-24CBB196B72B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466973338",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "58B40C10-4111-4410-B913-707923007868",
+  "pcfAccountidname": "מיטל גואטה",
+  "createdon": "2026-09-20T02:11:33.000Z",
+  "_id": "C6795C8B-9344-4FF1-AEDF-24ECD6D388DC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471057027",
+  "pcfPaymentDate": "2026-03-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 331.999962,
+  "pcfAccountid": "B4642EC4-6389-4935-8316-9C0AABEA879B",
+  "pcfAccountidname": "פרחיה מלאייב",
+  "createdon": "2026-09-20T02:27:56.000Z",
+  "_id": "C539AC5E-EDA3-4982-A905-24F863A99893"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-463421807",
+  "pcfPaymentDate": "2026-02-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "854E9E1D-13C1-49B6-B0B5-A37E0A4A1CDE",
+  "pcfAccountidname": "איילת כהן מליחי",
+  "createdon": "2026-09-20T02:20:56.000Z",
+  "_id": "204337A7-2EF8-4868-A6C3-259B3783E026"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486052932",
+  "pcfPaymentDate": "2026-05-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "A8CB9BF4-6EEA-4537-ACCF-8DAA0482B495",
+  "pcfAccountidname": "צפורה ריבקים",
+  "createdon": "2026-09-20T02:26:21.000Z",
+  "_id": "830C9082-2411-49FC-924B-264219439CE5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-481790485",
+  "pcfPaymentDate": "2026-05-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "5B5750FF-26F4-46EA-BE8E-76C6B300C285",
+  "pcfAccountidname": "חיה פדידה",
+  "createdon": "2026-09-20T02:12:08.000Z",
+  "_id": "11B06EB7-98DA-4D61-8004-26987B7C5E4A"
+ },
+ {
+  "pcfExternalSoftwareID1": "320DAC5E-0B12-493D-82A8-F65B5467D69D#99",
+  "pcfPaymentDate": "2026-09-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 850.00002,
+  "pcfAccountid": "EA616635-D115-486C-964B-61BD1F5B61F5",
+  "pcfAccountidname": "לריסה פנחסוב",
+  "createdon": "2026-09-11T12:45:47.000Z",
+  "_id": "69CCD121-9617-47BE-B068-275EF973A8C5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-510122365",
+  "pcfPaymentDate": "2026-08-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "621E9B6D-CCCA-48B9-9240-0B8B35B38FAC",
+  "pcfAccountidname": "יפית ביגר",
+  "createdon": "2026-09-20T02:12:54.000Z",
+  "_id": "7AC3412A-CC3F-456C-BF7F-276BB31E9547"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-490142357",
+  "pcfPaymentDate": "2026-06-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1325.000052,
+  "pcfAccountid": "1B88A159-DD78-427F-A2B6-E5D04B2AF1CE",
+  "pcfAccountidname": "דורית מילר",
+  "createdon": "2026-09-20T02:02:49.000Z",
+  "_id": "4F242834-2265-49B8-ACF2-27ACA234E2AF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495802096",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "22CD93B6-7C29-495A-8E0A-EE8C9C6E5C01",
+  "pcfAccountidname": "אורלי סיון",
+  "createdon": "2026-09-20T02:03:48.000Z",
+  "_id": "753A4299-4A50-4871-90AD-27B811DE06A4"
+ },
+ {
+  "pcfExternalSoftwareID1": "27543F33-0BC7-4C59-A0A6-652CC03F8201#1",
+  "pcfPaymentDate": "2026-06-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "C6A875D9-64C3-406A-8768-C148C9EA467D",
+  "pcfAccountidname": "עפרי סמואלוב",
+  "createdon": "2026-09-11T12:08:58.000Z",
+  "_id": "5B067835-4CD3-4405-86CF-28526661DC36"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-504986265",
+  "pcfPaymentDate": "2026-08-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "026A638C-F19B-4B20-9E40-C20F110C118C",
+  "pcfAccountidname": "קרן רז",
+  "createdon": "2026-09-20T01:57:40.000Z",
+  "_id": "933E02EE-8019-4A65-B95D-295BF9ADF76D"
+ },
+ {
+  "pcfExternalSoftwareID1": "B6D4E0D6-71D2-4268-A6D2-FDCA05D86C62#1",
+  "pcfPaymentDate": "2026-04-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "3FE13BD7-64DC-48C2-98D6-EFFF87EFAD4E",
+  "pcfAccountidname": "נטלי שרביט",
+  "createdon": "2026-09-11T11:30:02.000Z",
+  "_id": "DDEEEA81-B9CD-4461-99FB-298B4E6C5742"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-458080838",
+  "pcfPaymentDate": "2026-01-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "4B00391B-763E-49B7-9AC4-6BA3B3536042",
+  "pcfAccountidname": "ענבל דה פז",
+  "createdon": "2026-09-20T02:10:23.000Z",
+  "_id": "6F5D16B1-6C21-485E-9416-29F6ECF82D97"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-488448726",
+  "pcfPaymentDate": "2026-05-31T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "73020FCC-AFC6-4E6A-8EF6-800F11F92CDD",
+  "pcfAccountidname": "ערין עואד",
+  "createdon": "2026-09-20T02:17:15.000Z",
+  "_id": "CE04C665-FD27-4C22-9C28-2A3E24F212EC"
+ },
+ {
+  "pcfExternalSoftwareID1": "703F66FC-3338-43B8-B7A7-42928CD129E4#1",
+  "pcfPaymentDate": "2026-05-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "1742945A-A470-4675-9EAD-FB265FEF544C",
+  "pcfAccountidname": "לובה רוימי",
+  "createdon": "2026-09-11T13:44:24.000Z",
+  "_id": "23FCE1F8-27C3-4C18-A829-2A589939AA67"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470190189",
+  "pcfPaymentDate": "2026-03-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "3FF31E19-FB0E-4F76-9865-8B386E60A8C5",
+  "pcfAccountidname": "ליאת שומרוני",
+  "createdon": "2026-09-20T02:09:54.000Z",
+  "_id": "2D51612A-32A8-4348-BF47-2A8078B18C22"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-506196448",
+  "pcfPaymentDate": "2026-08-06T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 296.999982,
+  "pcfAccountid": "D1BDB94E-3DE3-48C7-8823-E42D100FA551",
+  "pcfAccountidname": "שירה לוינסקי",
+  "createdon": "2026-09-20T02:31:45.000Z",
+  "_id": "A8540123-3B8E-48AB-84E9-2AA0E738A1A9"
+ },
+ {
+  "pcfExternalSoftwareID1": "470B442C-199F-4BA2-B487-64625278EE81#1",
+  "pcfPaymentDate": "2026-05-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.999972,
+  "pcfAccountid": "7EDD920D-B4B1-417B-801C-462DB81487E4",
+  "pcfAccountidname": "אור אביבה",
+  "createdon": "2026-09-11T11:30:17.000Z",
+  "_id": "F8B8CB70-C2F4-4F7C-B2EE-2BDC5D4E8833"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461971413",
+  "pcfPaymentDate": "2026-01-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "21148F16-CAD5-4AE8-B39F-4938615432A0",
+  "pcfAccountidname": "ורד נח",
+  "createdon": "2026-09-20T02:03:30.000Z",
+  "_id": "5B369E34-DACE-40C3-9C0E-2C0606A02671"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468772470",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "517FABC7-0703-4A9C-BBCE-D76C7240ECC2",
+  "pcfAccountidname": "נטעלי מוטולה",
+  "createdon": "2026-09-20T02:11:04.000Z",
+  "_id": "EB17FEA7-8845-4B32-80CB-2C4F9AB4D6D1"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509842800",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "AEC5F9F4-BD05-4E9B-9E7B-9FA408DBD2D0",
+  "pcfAccountidname": "זוהר וידר",
+  "createdon": "2026-09-20T02:27:04.000Z",
+  "_id": "37A85F84-0CB3-4723-A077-2C58A9CE3C8E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484631400",
+  "pcfPaymentDate": "2026-05-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "68B22233-03D2-4F93-8188-A78AAFB6B5D3",
+  "pcfAccountidname": "צופית מדינה",
+  "createdon": "2026-09-20T02:14:48.000Z",
+  "_id": "9FB993C2-535F-4B6F-9758-2C6BB51B79E7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468246130",
+  "pcfPaymentDate": "2026-02-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2742BAD6-1656-4EAF-8F22-D794380766C4",
+  "pcfAccountidname": "דנה נפתליהו",
+  "createdon": "2026-09-20T02:04:52.000Z",
+  "_id": "CEB0E944-BD3A-4CB0-956D-2CBB1233FEB0"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471079811",
+  "pcfPaymentDate": "2026-03-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "507E3C97-100E-43F2-BE6C-CC5BDAF601B1",
+  "pcfAccountidname": "חני שמולביץ",
+  "createdon": "2026-09-20T02:10:56.000Z",
+  "_id": "32B3261F-FC75-433E-B09C-2E02B52D7F06"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484815188",
+  "pcfPaymentDate": "2026-05-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "1B6A59E9-0637-45E5-B3E8-D4D97C4103C0",
+  "pcfAccountidname": "רוני סער",
+  "createdon": "2026-09-20T02:02:31.000Z",
+  "_id": "CE397BE0-5CF4-46E7-A065-2ED0E64AD1F9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493307499",
+  "pcfPaymentDate": "2026-06-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "D2F0FA89-4D05-48FF-B3F2-50113C3369FD",
+  "pcfAccountidname": "מלי מאזוז",
+  "createdon": "2026-09-20T02:31:50.000Z",
+  "_id": "9F765B26-590B-4AEA-80D2-2F0F47C018D0"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470546285",
+  "pcfPaymentDate": "2026-03-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2474.999968,
+  "pcfAccountid": "25D3DB87-DC9F-4F29-AB04-B9C8A601F2CD",
+  "pcfAccountidname": "אור שירו",
+  "createdon": "2026-09-20T02:04:37.000Z",
+  "_id": "55B3E94F-C566-4BE3-968F-2F13108939A6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472557697",
+  "pcfPaymentDate": "2026-03-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "A5181E86-2792-4264-A352-53A4C2B4221B",
+  "pcfAccountidname": "גלית בוצצו",
+  "createdon": "2026-09-20T02:25:10.000Z",
+  "_id": "0DD6695E-932B-4A18-9104-2F20CE27750F"
+ },
+ {
+  "pcfExternalSoftwareID1": "9A0AADFE-8665-4E7F-B81E-2B834852DD46#1",
+  "pcfPaymentDate": "2026-02-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 699.999954,
+  "pcfAccountid": "4FAB688F-6098-4E0B-83FF-FDAB24BC5692",
+  "pcfAccountidname": "דנית איידה",
+  "createdon": "2026-09-11T13:19:37.000Z",
+  "_id": "B0752161-7F0A-4B24-BD54-300EB4224D18"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461972820",
+  "pcfPaymentDate": "2026-01-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7F25428E-C020-4A9F-8EBD-D99CFC3FB4FC",
+  "pcfAccountidname": "קארין ברשאן",
+  "createdon": "2026-09-20T02:20:02.000Z",
+  "_id": "0AAB5923-ECF0-484F-9C76-302D55AF4E99"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-479508601",
+  "pcfPaymentDate": "2026-04-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 258.99997,
+  "pcfAccountid": "FA7940AB-0FE4-4DEA-B631-76717C2C08A3",
+  "pcfAccountidname": "שרון מאיר",
+  "createdon": "2026-09-20T02:37:17.000Z",
+  "_id": "72F91B55-FFE7-4C33-8186-30584C30419F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-489424376",
+  "pcfPaymentDate": "2026-06-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "F0242C68-C568-4DAD-8B5F-70AE1520A6F9",
+  "pcfAccountidname": "אביגיל רפאל",
+  "createdon": "2026-09-20T02:35:42.000Z",
+  "_id": "95FB6DB9-7FA3-4596-B00F-307DA6D8AB8D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466312073",
+  "pcfPaymentDate": "2026-02-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1325.000052,
+  "pcfAccountid": "35AA8BBF-4B66-4997-88FC-658660411C4F",
+  "pcfAccountidname": "פסי צ'רני",
+  "createdon": "2026-09-20T02:08:17.000Z",
+  "_id": "4E5B03F1-D986-4E86-ADC9-30B1D1F8CE08"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485502766",
+  "pcfPaymentDate": "2026-05-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "79354973-BF08-4B8A-943C-6CEB21581FB9",
+  "pcfAccountidname": "חני דניאלס",
+  "createdon": "2026-09-20T02:18:22.000Z",
+  "_id": "5D7BCADC-538D-49EF-9329-315C42A4D774"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476051025",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 449.999962,
+  "pcfAccountid": "7904E3D5-53D7-454E-90B4-841D194D0CB4",
+  "pcfAccountidname": "יערית אוחיון שרביט",
+  "createdon": "2026-09-20T02:18:17.000Z",
+  "_id": "DCCDADD5-83EC-4BE0-8E9C-3172AE36F494"
+ },
+ {
+  "pcfExternalSoftwareID1": "9410C01F-CF19-4525-A5C5-FDFE1D1864B8#1",
+  "pcfPaymentDate": "2026-01-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F70C0468-128B-45D0-A9B3-0DD1B3085675",
+  "pcfAccountidname": "גלית מיצנר",
+  "createdon": "2026-09-11T11:12:16.000Z",
+  "_id": "DF67F6FC-6D72-445D-803F-317B0649ED2E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-508234747",
+  "pcfPaymentDate": "2026-08-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "B76779C2-2EDD-402D-89C9-138D4FF6C8CC",
+  "pcfAccountidname": "מיכל ציפוק",
+  "createdon": "2026-09-20T02:28:18.000Z",
+  "_id": "7DBBDC7A-C063-4998-9DA2-3280AC485022"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472329405",
+  "pcfPaymentDate": "2026-03-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 258.99997,
+  "pcfAccountid": "E6877B4C-E82E-4767-B39B-E027BFC64F49",
+  "pcfAccountidname": "אילה כהן",
+  "createdon": "2026-09-20T02:34:14.000Z",
+  "_id": "0ECCCAF5-FF39-4524-BBB4-3295823FFE9C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-488835691",
+  "pcfPaymentDate": "2026-06-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "A0D45FA5-6749-4030-89D3-4CB25950F462",
+  "pcfAccountidname": "מיכל קלרמן",
+  "createdon": "2026-09-20T02:24:47.000Z",
+  "_id": "3639C7DE-68FB-455D-95C5-32CC9218A9B6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469369715",
+  "pcfPaymentDate": "2026-03-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E738ABB7-CA99-40A3-95AA-0947F426AFBE",
+  "pcfAccountidname": "נעמה אבטליון",
+  "createdon": "2026-09-20T02:34:32.000Z",
+  "_id": "7B9FEA09-F58D-4FFA-9C59-32F25CA69EAB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-505897460",
+  "pcfPaymentDate": "2026-08-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "687876F0-3F26-44E6-BAF0-ACEDCCE271F3",
+  "pcfAccountidname": "שוש שרון",
+  "createdon": "2026-09-20T02:14:46.000Z",
+  "_id": "F4D4D106-4881-4259-83DA-3366F5C5BBC9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-479156299",
+  "pcfPaymentDate": "2026-04-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "78905DBF-AA35-4406-8520-E5628DBB7C60",
+  "pcfAccountidname": "אורטל קלנדרוב",
+  "createdon": "2026-09-20T02:18:07.000Z",
+  "_id": "C5997999-5160-4D23-AEAD-33AB8C982FC9"
+ },
+ {
+  "pcfExternalSoftwareID1": "9931A8D8-99B7-4F27-B2A5-ACBAF1E215B2#1",
+  "pcfPaymentDate": "2026-05-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "913E0156-EB0F-4C29-9C71-94491856847E",
+  "pcfAccountidname": "שוריק בלקגיאן",
+  "createdon": "2026-09-11T00:06:10.000Z",
+  "_id": "7A8F67AB-2601-4AC9-A0FC-34C2D3E420FB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-474892655",
+  "pcfPaymentDate": "2026-04-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "D40E0404-17E2-4F19-8CB4-AE6E826C6E9B",
+  "pcfAccountidname": "אשרת מוסקוביץ'",
+  "createdon": "2026-09-20T02:32:03.000Z",
+  "_id": "4DCBF58E-9273-4513-AB96-350837F3621B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-475742559",
+  "pcfPaymentDate": "2026-04-09T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "1A3BE892-1036-4577-B8F4-0C7405C422EF",
+  "pcfAccountidname": "ענת פוליבודה",
+  "createdon": "2026-09-20T02:02:20.000Z",
+  "_id": "FDE2E0CA-1D4F-4EF9-9290-3587A3117B33"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-496668460",
+  "pcfPaymentDate": "2026-07-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 548.999956,
+  "pcfAccountid": "F11CF928-6DBD-4959-B5EA-8AF4B08AA4A6",
+  "pcfAccountidname": "אופירה שלום",
+  "createdon": "2026-09-20T02:35:58.000Z",
+  "_id": "9278CC86-85F7-4F2E-968C-35EC96BE9F87"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-497207163",
+  "pcfPaymentDate": "2026-07-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2AFEB8E9-F470-480F-92D5-D5F712461D9D",
+  "pcfAccountidname": "הילה פרץ",
+  "createdon": "2026-09-20T02:05:55.000Z",
+  "_id": "F1BD6A85-6F74-4857-988C-362ABC2DF070"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499481946",
+  "pcfPaymentDate": "2026-07-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "797B8142-BE6B-4E74-9F99-51C5F1BD200F",
+  "pcfAccountidname": "אורית שלגי",
+  "createdon": "2026-09-20T02:18:31.000Z",
+  "_id": "E964389C-F27D-4496-9A23-36B9BE06FE8D"
+ },
+ {
+  "pcfExternalSoftwareID1": "FD583C2D-8268-4844-B543-EA35B0B1C88E#1",
+  "pcfPaymentDate": "2026-03-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "3750BDC6-56B2-4D76-AB2D-BB394C39B6C0",
+  "pcfAccountidname": "שרה גל",
+  "createdon": "2026-09-11T13:19:22.000Z",
+  "_id": "D49F4731-1F68-4EF4-B32A-36FE20F90451"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509826088",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "DF0AECDD-C1D8-43AD-89CD-6E36DF97DB2B",
+  "pcfAccountidname": "אוריה שלו",
+  "createdon": "2026-09-20T02:33:33.000Z",
+  "_id": "29CCAA54-50C0-45DC-9E61-3730F2056AC4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-497469129",
+  "pcfPaymentDate": "2026-07-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "A78DF539-9749-4C54-BA25-FBE7C5ED630B",
+  "pcfAccountidname": "ללי בארי",
+  "createdon": "2026-09-20T02:25:54.000Z",
+  "_id": "4DC2104E-11EC-4ABC-A9B4-37477B0B6A66"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509844653",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "A6EF7AE1-3707-46DD-89BE-71F2282EB97D",
+  "pcfAccountidname": "חניתה אילן",
+  "createdon": "2026-09-20T02:25:35.000Z",
+  "_id": "2F852927-B82A-4BBC-AA0D-38254D69666D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-479632598",
+  "pcfPaymentDate": "2026-04-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.999972,
+  "pcfAccountid": "1A04F45A-4D89-4F9F-95A7-4D8DC4B75BC6",
+  "pcfAccountidname": "שירן אברוך",
+  "createdon": "2026-09-20T02:02:02.000Z",
+  "_id": "5734CA84-91B6-493C-BBB1-388C3A0BEC06"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-516621419",
+  "pcfPaymentDate": "2026-09-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 475.000032,
+  "pcfAccountid": "C072B168-8FD7-4B05-93B9-BE16D35FA07B",
+  "pcfAccountidname": "אילה אליהו",
+  "createdon": "2026-09-20T02:29:31.000Z",
+  "_id": "D83CA1B8-4462-4442-82F4-3899AFF06C0A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476727857",
+  "pcfPaymentDate": "2026-04-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "2CA8734F-92E2-46BE-B3A1-92B0BF30BD78",
+  "pcfAccountidname": "שלומית אטדגי",
+  "createdon": "2026-09-20T02:06:12.000Z",
+  "_id": "3B61DB49-2A8E-4FE7-BD3E-394A66124BFB"
+ },
+ {
+  "pcfExternalSoftwareID1": "078B178D-A4EC-435E-8AF2-EB058CAA5842#1",
+  "pcfPaymentDate": "2026-01-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "2EE632AB-65E4-443C-8461-56F96019E4E5",
+  "pcfAccountidname": "ליהיא קנפו",
+  "createdon": "2026-09-11T00:05:37.000Z",
+  "_id": "6FD12657-FF1A-41DE-ACC3-39622DD24974"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-479509008",
+  "pcfPaymentDate": "2026-04-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5DA19D0D-77D1-4759-88ED-86977426F2E4",
+  "pcfAccountidname": "ריקי רוזנטל",
+  "createdon": "2026-09-20T02:12:23.000Z",
+  "_id": "516D549C-5BE2-45A4-AF68-3970A943C081"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472296586",
+  "pcfPaymentDate": "2026-03-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:12.000Z",
+  "_id": "97ED371F-4F3F-46D1-AAB3-398659237D90"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482863320",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "079D81BC-1AC1-445E-9066-2E116ACDA2AE",
+  "pcfAccountidname": "אורנה שניטקין",
+  "createdon": "2026-09-20T01:59:07.000Z",
+  "_id": "35A29EC2-8512-4388-8369-398B89C028B2"
+ },
+ {
+  "pcfExternalSoftwareID1": "B88BBC5B-48F2-464D-B77A-85E571D73263#1",
+  "pcfPaymentDate": "2026-06-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 548.999956,
+  "pcfAccountid": "F11CF928-6DBD-4959-B5EA-8AF4B08AA4A6",
+  "pcfAccountidname": "אופירה שלום",
+  "createdon": "2026-09-11T14:17:02.000Z",
+  "_id": "90B6A7A6-AB71-4423-9F25-39A5258FB6A1"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471004717",
+  "pcfPaymentDate": "2026-03-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:19.000Z",
+  "_id": "9A74957E-0970-41ED-8CC1-39D3685C51A9"
+ },
+ {
+  "pcfExternalSoftwareID1": "36D0763F-60E2-4136-BE8C-DD1B046E01BF#1",
+  "pcfPaymentDate": "2026-04-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "A8CB9BF4-6EEA-4537-ACCF-8DAA0482B495",
+  "pcfAccountidname": "צפורה ריבקים",
+  "createdon": "2026-09-11T10:58:48.000Z",
+  "_id": "4AB6FBE8-9A40-4197-8182-3A4E978CD7B3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459940817",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "06E73C0E-E653-47B9-AC95-3D16B063621C",
+  "pcfAccountidname": "עינת קורל",
+  "createdon": "2026-09-20T01:58:36.000Z",
+  "_id": "22E95C3B-15C0-4639-A7E7-3A71A75DCB68"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495803134",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "4DC3CB91-4008-4F74-8A61-4B57EDAEC6B2",
+  "pcfAccountidname": "עירית עזאני",
+  "createdon": "2026-09-20T02:10:44.000Z",
+  "_id": "C0DFC6B0-75E9-48FF-9055-3A8342673CBA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-492803018",
+  "pcfPaymentDate": "2026-06-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "4E8B6A25-00FB-4DF1-8F23-44148E7A24E3",
+  "pcfAccountidname": "איילת מיץ",
+  "createdon": "2026-09-20T02:10:46.000Z",
+  "_id": "FE359A9A-BB81-4626-85EE-3ADC2748217B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-487513685",
+  "pcfPaymentDate": "2026-05-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "EF05E023-13DA-49A7-BE9D-B03BC2ACCB83",
+  "pcfAccountidname": "שרון קוניאק",
+  "createdon": "2026-09-20T02:35:23.000Z",
+  "_id": "A008C129-B9FC-4096-981A-3AEA204AD523"
+ },
+ {
+  "pcfExternalSoftwareID1": "4B0FA0AF-86EA-4825-B8F7-A622114865DF#1",
+  "pcfPaymentDate": "2026-04-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F1700B1D-C926-4537-9F9C-80531CBD5F39",
+  "pcfAccountidname": "סנאית סיטבון",
+  "createdon": "2026-09-10T23:31:16.000Z",
+  "_id": "3B5D6B48-DF23-4A09-8EB1-3AF129C3DC1F"
+ },
+ {
+  "pcfExternalSoftwareID1": "0AF5591E-B966-4E5B-B67C-AE8702A08F08#1",
+  "pcfPaymentDate": "2026-02-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "2DCF5DDE-2E02-4636-8BB9-E897D4D3C02E",
+  "pcfAccountidname": "אסטל בילר",
+  "createdon": "2026-09-11T14:27:35.000Z",
+  "_id": "CF92B38B-5368-48D4-A9A4-3B0BD308AF7C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466975438",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "47DD9717-97F2-4813-8B83-5BCB6762CC98",
+  "pcfAccountidname": "שני תשובה",
+  "createdon": "2026-09-20T02:10:15.000Z",
+  "_id": "595E5817-3CEB-43E9-A6E6-3B2FDA922C55"
+ },
+ {
+  "pcfExternalSoftwareID1": "C687C0D3-43C8-47AD-A3A4-2D55C7E617C3#1",
+  "pcfPaymentDate": "2026-01-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7CCE1937-3FE5-488D-B5C0-196F2ABC3223",
+  "pcfAccountidname": "שני נעמן כהן",
+  "createdon": "2026-09-11T13:44:34.000Z",
+  "_id": "D048B2B2-1CD9-4482-ACAA-3B856447E909"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500419134",
+  "pcfPaymentDate": "2026-07-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "4E8B6A25-00FB-4DF1-8F23-44148E7A24E3",
+  "pcfAccountidname": "איילת מיץ",
+  "createdon": "2026-09-20T02:10:46.000Z",
+  "_id": "AB2C3EF1-2CC4-403D-BD2A-3BE55BCCAD22"
+ },
+ {
+  "pcfExternalSoftwareID1": "E3B5C584-6196-49CC-9DBA-8B5762C39D61#1",
+  "pcfPaymentDate": "2026-04-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "B52D9912-75A8-4C98-A215-E59BD06BE0F3",
+  "pcfAccountidname": "מיכל פלדמן",
+  "createdon": "2026-09-11T14:16:54.000Z",
+  "_id": "89B37D2C-F6ED-4A15-983A-3C898ED7788A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501831360",
+  "pcfPaymentDate": "2026-07-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "4B7E6BF9-EA6F-4D97-AFA3-C7874312C419",
+  "pcfAccountidname": "יעל בן מלך",
+  "createdon": "2026-09-20T02:10:31.000Z",
+  "_id": "1010F56A-F934-4534-AF23-3D2D38A75F03"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468772450",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7F25428E-C020-4A9F-8EBD-D99CFC3FB4FC",
+  "pcfAccountidname": "קארין ברשאן",
+  "createdon": "2026-09-20T02:20:06.000Z",
+  "_id": "BE17938D-6EB3-4A52-B335-3D4953ECBAC7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-492089199",
+  "pcfPaymentDate": "2026-06-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "46FF11AC-D9A7-42DC-9096-9ADD8A4C2371",
+  "pcfAccountidname": "אורלי פרץ",
+  "createdon": "2026-09-20T02:10:08.000Z",
+  "_id": "3E334715-2BDC-4920-BC8F-3D6DBE84F46F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495115255",
+  "pcfPaymentDate": "2026-06-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "AD22BF27-47EE-4B45-AE25-B1E00D363235",
+  "pcfAccountidname": "קרול לבי",
+  "createdon": "2026-09-20T02:26:53.000Z",
+  "_id": "009883E6-0FDE-4DB3-9A2B-3E276077D093"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-480181728",
+  "pcfPaymentDate": "2026-04-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2830.000018,
+  "pcfAccountid": "09AB25DB-7BD5-4258-8A6D-1669A6378C29",
+  "pcfAccountidname": "אירן צנסטי",
+  "createdon": "2026-09-20T01:59:37.000Z",
+  "_id": "82E0998C-3378-49A4-98C4-3E49694EA8A4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466971594",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "78915322-F0DD-4B78-9186-5CC404CB5F6C",
+  "pcfAccountidname": "זהבה יגודייב",
+  "createdon": "2026-09-20T02:18:13.000Z",
+  "_id": "91BF26BE-50D4-4F92-A021-3E81FCFCED5D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476067033",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "2DCF5DDE-2E02-4636-8BB9-E897D4D3C02E",
+  "pcfAccountidname": "אסטל בילר",
+  "createdon": "2026-09-20T02:06:35.000Z",
+  "_id": "B50FE5A4-E2D3-4140-A889-3EE6E6DD2D05"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460744448",
+  "pcfPaymentDate": "2026-01-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "E173413C-3C4C-4E13-A43C-79EC954E06D5",
+  "pcfAccountidname": "מתתיהו ריקי",
+  "createdon": "2026-09-20T02:33:47.000Z",
+  "_id": "A199E878-BB8A-4990-9262-3F7541AF6646"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-487453454",
+  "pcfPaymentDate": "2026-05-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "6E450351-2C4B-4186-8825-DEC32D5319AF",
+  "pcfAccountidname": "מרב לפיד",
+  "createdon": "2026-09-20T02:15:45.000Z",
+  "_id": "F5471E37-F2DC-4F09-8A36-3FF391EA1297"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-464741856",
+  "pcfPaymentDate": "2026-02-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "F11CF928-6DBD-4959-B5EA-8AF4B08AA4A6",
+  "pcfAccountidname": "אופירה שלום",
+  "createdon": "2026-09-20T02:35:53.000Z",
+  "_id": "4FCBD5FB-AD5A-450B-B128-4000D3118EE5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-478197279",
+  "pcfPaymentDate": "2026-04-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "98E0D42E-29EE-4A20-B8B3-207ED0C1D4CE",
+  "pcfAccountidname": "אילנה גולדמן",
+  "createdon": "2026-09-20T02:24:24.000Z",
+  "_id": "297DCA3B-0B31-4372-888F-400187346D95"
+ },
+ {
+  "pcfExternalSoftwareID1": "03EB1D61-E737-40AA-B414-B57073CD25B8#1",
+  "pcfPaymentDate": "2026-07-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "1254D092-DBE7-4020-9231-141AD16F43E3",
+  "pcfAccountidname": "טלי לופו",
+  "createdon": "2026-09-11T00:06:23.000Z",
+  "_id": "BFC3E65D-1B92-4F50-BA65-407076E92782"
+ },
+ {
+  "pcfExternalSoftwareID1": "8752D482-12DC-4194-B301-96500ACE09C7#1",
+  "pcfPaymentDate": "2026-04-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "1A0BD436-8D96-4756-A89E-63F57DA1EBF4",
+  "pcfAccountidname": "עדן פחימה",
+  "createdon": "2026-09-11T13:44:44.000Z",
+  "_id": "C356C0A8-2666-4252-A1A2-4095BDE2ADE5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486411900",
+  "pcfPaymentDate": "2026-05-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "092CB29E-1071-436A-89FC-F9E202E32B3A",
+  "pcfAccountidname": "אורנה יוגב",
+  "createdon": "2026-09-20T01:59:33.000Z",
+  "_id": "2CFF752D-DF39-47AA-AB9A-412CACE3CD33"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476071940",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "672191F8-DCCA-4367-B652-9662489B22AE",
+  "pcfAccountidname": "כוכבית בריינר",
+  "createdon": "2026-09-20T02:14:40.000Z",
+  "_id": "B904A6A7-5050-45E8-9214-4136B0BD11B7"
+ },
+ {
+  "pcfExternalSoftwareID1": "E4CA7666-D50F-4C2F-8EC9-B52834172216#1",
+  "pcfPaymentDate": "2026-04-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7E903C18-C417-476D-B419-A195C292605A",
+  "pcfAccountidname": "יערה הרשקוביץ",
+  "createdon": "2026-09-11T14:16:58.000Z",
+  "_id": "6672BB63-C6CF-4D13-AD95-422E97034865"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472332790",
+  "pcfPaymentDate": "2026-03-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "ED973E9A-1AD8-4A97-9945-95E0EFD4C4F9",
+  "pcfAccountidname": "חופית דיין",
+  "createdon": "2026-09-20T02:34:58.000Z",
+  "_id": "52ED20BC-736C-48DC-AFC3-4237D6F4A756"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468765066",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1693.000044,
+  "pcfAccountid": "1BFC1E65-03CD-418E-8EA5-35A3408A8767",
+  "pcfAccountidname": "מלכי ברנובסקי",
+  "createdon": "2026-09-20T02:03:05.000Z",
+  "_id": "307D4539-1B98-4C6D-A072-426F47C7DDAA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-504801542",
+  "pcfPaymentDate": "2026-08-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 248.999942,
+  "pcfAccountid": "363E6D17-58C9-4233-B7C9-B681C071B26D",
+  "pcfAccountidname": "תמי בנואליד",
+  "createdon": "2026-09-20T02:08:29.000Z",
+  "_id": "53FA46A3-723B-4C4A-9375-42AFD22ECAE9"
+ },
+ {
+  "pcfExternalSoftwareID1": "3DDA544D-B68A-4816-B551-D7091FCBAD57#1",
+  "pcfPaymentDate": "2026-02-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "D41DB4FF-8EE6-4209-B7E1-630C35DFBFCA",
+  "pcfAccountidname": "מיטל מיטל זייד",
+  "createdon": "2026-09-11T13:19:35.000Z",
+  "_id": "6E4A8412-DE1F-44E6-9853-42C2FE2CF879"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493517992",
+  "pcfPaymentDate": "2026-06-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "445573AA-D8B3-4F96-BDC8-CA136BB5161F",
+  "pcfAccountidname": "יעל לוק",
+  "createdon": "2026-09-20T02:09:57.000Z",
+  "_id": "E232C88D-8665-4793-97FF-42FE79BEE519"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499582498",
+  "pcfPaymentDate": "2026-07-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "79354973-BF08-4B8A-943C-6CEB21581FB9",
+  "pcfAccountidname": "חני דניאלס",
+  "createdon": "2026-09-20T02:18:20.000Z",
+  "_id": "8A3A9926-5EEC-415D-AE7B-433CEAC7CD5D"
+ },
+ {
+  "pcfExternalSoftwareID1": "4DE063CD-9976-46BF-A911-532A070CB86C#1",
+  "pcfPaymentDate": "2026-07-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "B76779C2-2EDD-402D-89C9-138D4FF6C8CC",
+  "pcfAccountidname": "מיכל ציפוק",
+  "createdon": "2026-09-11T12:27:35.000Z",
+  "_id": "8EF8CABF-7285-43A6-9F1B-4374B765EDDB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509826050",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "D6CA2F9C-56AF-46A7-8020-BC18C6A08035",
+  "pcfAccountidname": "מרב קזז",
+  "createdon": "2026-09-20T02:32:11.000Z",
+  "_id": "E7A6DAFD-2C58-4CF8-83B0-43D770916795"
+ },
+ {
+  "pcfExternalSoftwareID1": "3331014C-5721-442E-ACE2-F8450F408964#1",
+  "pcfPaymentDate": "2026-07-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "687876F0-3F26-44E6-BAF0-ACEDCCE271F3",
+  "pcfAccountidname": "שוש שרון",
+  "createdon": "2026-09-11T13:33:56.000Z",
+  "_id": "84AA7374-1689-42F4-9F85-43DBEF54BEF9"
+ },
+ {
+  "pcfExternalSoftwareID1": "582CFCB9-B5C4-42C4-8AC2-C424829128D8#1",
+  "pcfPaymentDate": "2026-02-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "164F1ED3-938B-4C3D-A2DC-354E66B3F996",
+  "pcfAccountidname": "אפרת רווח",
+  "createdon": "2026-09-11T12:46:06.000Z",
+  "_id": "9FA2E590-A90A-41DE-8554-43E1A71FB3D3"
+ },
+ {
+  "pcfExternalSoftwareID1": "5E16CB2C-1C9D-4A78-ADF7-4DD264DD819B#1",
+  "pcfPaymentDate": "2026-08-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "9571C901-A885-471B-AF72-CBB79BAB40E6",
+  "pcfAccountidname": "שרון כץ תרם",
+  "createdon": "2026-09-11T13:33:49.000Z",
+  "_id": "E59AE270-1917-4788-89C9-443E00CDAD7A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471110562",
+  "pcfPaymentDate": "2026-03-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "8662AEEE-44F3-472B-9EAF-F725DB66268D",
+  "pcfAccountidname": "רויטל אליאס",
+  "createdon": "2026-09-20T02:21:33.000Z",
+  "_id": "39786B18-D290-4518-A7D0-44931BB736CB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-503784439",
+  "pcfPaymentDate": "2026-07-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2BF954F4-5426-4546-A66D-8C6E261F697F",
+  "pcfAccountidname": "אןרמה",
+  "createdon": "2026-09-20T02:06:00.000Z",
+  "_id": "9B54D82A-34E0-467C-B886-44CF955214BD"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471487642",
+  "pcfPaymentDate": "2026-03-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "7F85CCC7-1ED7-4A85-B594-3DF5AF833C15",
+  "pcfAccountidname": "שרה קויאט",
+  "createdon": "2026-09-20T02:20:32.000Z",
+  "_id": "75D12885-9747-406C-9418-45281B9A1143"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-478901363",
+  "pcfPaymentDate": "2026-04-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B399A8FF-59E8-4FB4-8AE8-280353315C60",
+  "pcfAccountidname": "אביטל מעודה",
+  "createdon": "2026-09-20T02:27:46.000Z",
+  "_id": "FF1E69EC-A1CD-4C91-BB3E-456F3FCC34A3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501140932",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "0CA0EED7-3570-4224-A18B-EF33D2AE5F93",
+  "pcfAccountidname": "קרן שלום",
+  "createdon": "2026-09-20T01:59:55.000Z",
+  "_id": "F7F7EDC4-DB22-43CC-933F-46229E785DEA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482865376",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F00661EA-5F57-4FCC-BBFC-C1D21E299D1A",
+  "pcfAccountidname": "הדס חזן",
+  "createdon": "2026-09-20T02:35:39.000Z",
+  "_id": "1DF3BF2C-2950-4488-91D5-470EFDB0EA21"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495663242",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "8F4040B9-305D-44FF-9A5B-592E3FE7E70F",
+  "pcfAccountidname": "חנה אנט ביטון",
+  "createdon": "2026-09-20T02:23:15.000Z",
+  "_id": "699B4869-EB66-4B2D-9D8E-4742078011F0"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486053631",
+  "pcfPaymentDate": "2026-05-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "7CD3668A-B256-46DB-9DE3-48FDEDDC88FA",
+  "pcfAccountidname": "מרגלית קליין",
+  "createdon": "2026-09-20T02:19:28.000Z",
+  "_id": "6A2E8661-7C01-4517-A634-47550E9AE65D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-462532132",
+  "pcfPaymentDate": "2026-02-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 380.000002,
+  "pcfAccountid": "A58C094A-2377-4BEF-8709-CFC9799E85CE",
+  "pcfAccountidname": "אסתר סימן טוב",
+  "createdon": "2026-09-20T02:25:25.000Z",
+  "_id": "287269B0-D9DD-4924-86F4-4766209E83F2"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509839614",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 324.999966,
+  "pcfAccountid": "08FCB190-C9B0-4B5A-BDDC-C47CE2C77C92",
+  "pcfAccountidname": "שרי לבי",
+  "createdon": "2026-09-20T01:59:30.000Z",
+  "_id": "3B8D4A06-E2AA-4AD0-9F34-477B9DE6AE55"
+ },
+ {
+  "pcfExternalSoftwareID1": "6423CBD5-F918-4B95-991F-5C44038AA82F#1",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "DF0AECDD-C1D8-43AD-89CD-6E36DF97DB2B",
+  "pcfAccountidname": "אוריה שלו",
+  "createdon": "2026-09-10T23:31:25.000Z",
+  "_id": "70FF11A3-F2A7-4F5B-8697-480406DC249C"
+ },
+ {
+  "pcfExternalSoftwareID1": "706635FD-4B57-4BC6-BEC4-61D38BAD5031#1",
+  "pcfPaymentDate": "2026-02-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-11T12:08:58.000Z",
+  "_id": "CB695229-5E0E-4DCC-964D-4817F66FD9C2"
+ },
+ {
+  "pcfExternalSoftwareID1": "15D0A741-8DF4-41BD-9E6F-3DEAD49FD9A2#99",
+  "pcfPaymentDate": "2026-09-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "626CAD32-65B7-48D9-AB83-581A2191C7DC",
+  "pcfAccountidname": "עדי בן חמו",
+  "createdon": "2026-09-11T10:59:10.000Z",
+  "_id": "09CEF212-D697-48AC-A6DB-482C24793317"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-487453512",
+  "pcfPaymentDate": "2026-05-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "DB411B72-35E5-4601-97DB-706B82F2EF7E",
+  "pcfAccountidname": "עופרי לפיד",
+  "createdon": "2026-09-20T02:32:58.000Z",
+  "_id": "4175B37D-83A1-420A-9C1B-4855E2F23EFA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469355395",
+  "pcfPaymentDate": "2026-03-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "AD197A77-E69D-4AD7-9D1A-46560DF6631D",
+  "pcfAccountidname": "סיון אלי",
+  "createdon": "2026-09-20T02:26:51.000Z",
+  "_id": "6666BCB8-8EC4-4392-9319-4873D9BDF0B7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-481790523",
+  "pcfPaymentDate": "2026-05-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1924.999962,
+  "pcfAccountid": "7838D752-DF0D-40C2-BE1D-7D5C60E99B78",
+  "pcfAccountidname": "לימור טרלובסקי",
+  "createdon": "2026-09-20T02:17:44.000Z",
+  "_id": "A04C579C-40E1-465C-9E1C-489BCE77E13F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468873611",
+  "pcfPaymentDate": "2026-03-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 380.000002,
+  "pcfAccountid": "A58C094A-2377-4BEF-8709-CFC9799E85CE",
+  "pcfAccountidname": "אסתר סימן טוב",
+  "createdon": "2026-09-20T02:25:25.000Z",
+  "_id": "EED70BA4-2A3A-492A-8F67-489EBC9AFDD8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484587230",
+  "pcfPaymentDate": "2026-05-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "34E49DCA-3D08-4075-BEE0-66D3D2CBFA61",
+  "pcfAccountidname": "מירה רצאבי",
+  "createdon": "2026-09-20T02:08:12.000Z",
+  "_id": "42D0AF7A-CE13-43CE-9E02-4939DD6E73A4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466970283",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "06E73C0E-E653-47B9-AC95-3D16B063621C",
+  "pcfAccountidname": "עינת קורל",
+  "createdon": "2026-09-20T01:58:37.000Z",
+  "_id": "905E2E04-E7FC-4684-92B0-49DC873401E8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461443077",
+  "pcfPaymentDate": "2026-01-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "C1F64C0F-559F-455B-AE87-14DA3A411E0A",
+  "pcfAccountidname": "תהילה בר שלום",
+  "createdon": "2026-09-20T02:29:40.000Z",
+  "_id": "08EC9FD4-F94A-4A79-8502-4A44CA3DA7B8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-477824004",
+  "pcfPaymentDate": "2026-04-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E0C54B37-7CDE-4152-AD03-3686D5665E3E",
+  "pcfAccountidname": "בטי אשורי",
+  "createdon": "2026-09-20T02:33:36.000Z",
+  "_id": "FAD673E9-0A3F-488E-A7F3-4AC211620293"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471250858",
+  "pcfPaymentDate": "2026-03-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "E0C54B37-7CDE-4152-AD03-3686D5665E3E",
+  "pcfAccountidname": "בטי אשורי",
+  "createdon": "2026-09-20T02:33:40.000Z",
+  "_id": "44C9147D-675D-47BE-B07C-4B014E528D39"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482363912",
+  "pcfPaymentDate": "2026-05-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "223825C4-EAF5-4203-8B49-299D6E410077",
+  "pcfAccountidname": "נילי אסולין פינק",
+  "createdon": "2026-09-20T02:03:42.000Z",
+  "_id": "F03CD224-C12D-48FA-B0B4-4B413F676DF3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-478762891",
+  "pcfPaymentDate": "2026-04-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "022DC168-7DF4-4548-91AF-89C925886D3F",
+  "pcfAccountidname": "ריקי אמסלם",
+  "createdon": "2026-09-20T01:57:35.000Z",
+  "_id": "AB9E8FA3-4BE8-4E4D-9B99-4B733B8977FF"
+ },
+ {
+  "pcfExternalSoftwareID1": "6855E23B-E411-485A-A446-F46354E75DC4#1",
+  "pcfPaymentDate": "2026-05-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "256EB3A9-1FAF-4A90-AA34-5CA299BB1F42",
+  "pcfAccountidname": "שירן נגר",
+  "createdon": "2026-09-10T23:30:58.000Z",
+  "_id": "A51380CC-708F-4D22-9648-4BE1AF9B0122"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-490826978",
+  "pcfPaymentDate": "2026-06-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 548.999956,
+  "pcfAccountid": "95CAB6D7-0DF1-43D9-9972-E326EED2ED35",
+  "pcfAccountidname": "סילבי מויאל",
+  "createdon": "2026-09-20T02:24:07.000Z",
+  "_id": "C4D03AF7-6CEE-499A-89A6-4C8FC9CE3D63"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500995412",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "445573AA-D8B3-4F96-BDC8-CA136BB5161F",
+  "pcfAccountidname": "יעל לוק",
+  "createdon": "2026-09-20T02:09:59.000Z",
+  "_id": "3B7569A7-F414-459F-9838-4CD7015F7F3A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-477866083",
+  "pcfPaymentDate": "2026-04-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "68B22233-03D2-4F93-8188-A78AAFB6B5D3",
+  "pcfAccountidname": "צופית מדינה",
+  "createdon": "2026-09-20T02:14:48.000Z",
+  "_id": "1071B031-C12F-4CDE-A415-4D44D6BE540E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-465541964",
+  "pcfPaymentDate": "2026-02-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 331.999962,
+  "pcfAccountid": "B4642EC4-6389-4935-8316-9C0AABEA879B",
+  "pcfAccountidname": "פרחיה מלאייב",
+  "createdon": "2026-09-20T02:27:55.000Z",
+  "_id": "46A9880F-0A00-4AE4-8170-4E2D70D08C81"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-478576979",
+  "pcfPaymentDate": "2026-04-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:13.000Z",
+  "_id": "81D6847B-1157-4A7D-9AA8-4EF1A86EA3F7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455229459",
+  "pcfPaymentDate": "2026-01-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "D3747A27-1F64-4823-91AB-0099AC7AECD3",
+  "pcfAccountidname": "ענת סאלד אביגדול",
+  "createdon": "2026-09-20T02:31:52.000Z",
+  "_id": "D9A325F9-FF56-48F3-B9E7-4F7D1E647733"
+ },
+ {
+  "pcfExternalSoftwareID1": "1F85420E-3276-4C27-AD7C-88011DDCD3B0#1",
+  "pcfPaymentDate": "2026-04-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "7CD3668A-B256-46DB-9DE3-48FDEDDC88FA",
+  "pcfAccountidname": "מרגלית קליין",
+  "createdon": "2026-09-11T13:44:43.000Z",
+  "_id": "512092D4-DB23-46CA-80BD-4FAAAB9F7AFE"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-467870662",
+  "pcfPaymentDate": "2026-02-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "8F4040B9-305D-44FF-9A5B-592E3FE7E70F",
+  "pcfAccountidname": "חנה אנט ביטון",
+  "createdon": "2026-09-20T02:23:13.000Z",
+  "_id": "426695D6-2776-4152-BB02-501B956A77CD"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-463529640",
+  "pcfPaymentDate": "2026-02-06T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7248FA8E-538C-45F8-87B2-0F9F60CBEDB1",
+  "pcfAccountidname": "עדי גלעם",
+  "createdon": "2026-09-20T02:16:37.000Z",
+  "_id": "AA5124B7-B0AE-4DE0-8684-50227948FB16"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486092985",
+  "pcfPaymentDate": "2026-05-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "78905DBF-AA35-4406-8520-E5628DBB7C60",
+  "pcfAccountidname": "אורטל קלנדרוב",
+  "createdon": "2026-09-20T02:18:07.000Z",
+  "_id": "89F7EAA6-204E-4B06-A307-505A51EB294B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-481224533",
+  "pcfPaymentDate": "2026-05-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "F0242C68-C568-4DAD-8B5F-70AE1520A6F9",
+  "pcfAccountidname": "אביגיל רפאל",
+  "createdon": "2026-09-20T02:35:41.000Z",
+  "_id": "EF174F3C-6057-4F83-B1F3-50CC3A1C3C6F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470114942",
+  "pcfPaymentDate": "2026-03-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5B58D015-11D3-4ACA-BB4D-89D8DFC70819",
+  "pcfAccountidname": "סולי נקש",
+  "createdon": "2026-09-20T02:12:11.000Z",
+  "_id": "F3097330-0389-403F-AB58-5105BDDE7FCA"
+ },
+ {
+  "pcfExternalSoftwareID1": "38ECD9D8-D148-4FF6-86CC-3A8FFD6101D7#1",
+  "pcfPaymentDate": "2026-06-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B3BD4BA1-3CA0-44BB-9E8C-5DF2F55776C1",
+  "pcfAccountidname": "לימור באומן",
+  "createdon": "2026-09-11T14:49:37.000Z",
+  "_id": "5E8ED6C3-A90A-4584-9A89-51060FE89434"
+ },
+ {
+  "pcfExternalSoftwareID1": "83B5B4BC-F31F-4A4B-8F2F-8E5B60E2C827#1",
+  "pcfPaymentDate": "2026-07-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "29349AD3-4AF1-4C2E-A57E-4CD29901E4FA",
+  "pcfAccountidname": "גל מלכה",
+  "createdon": "2026-09-11T14:59:31.000Z",
+  "_id": "CFC3C26E-93DE-4B38-9243-5165694C0BB1"
+ },
+ {
+  "pcfExternalSoftwareID1": "0B8BC4B0-D2C9-45B6-A532-7C3B3696A79C#1",
+  "pcfPaymentDate": "2026-08-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "0487AE6B-D4FB-4E21-A167-40314632827D",
+  "pcfAccountidname": "תמר בן עזרא",
+  "createdon": "2026-09-11T13:19:37.000Z",
+  "_id": "ACBCD89A-9884-4585-ABF3-517AC4F1FCE9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-457371489",
+  "pcfPaymentDate": "2026-01-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "C766C88E-712E-42FF-A8E4-3FE249FBE424",
+  "pcfAccountidname": "אילנית מונסונגו",
+  "createdon": "2026-09-20T02:30:20.000Z",
+  "_id": "B7E0B05F-A18B-4686-A00A-51C68133A710"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471252385",
+  "pcfPaymentDate": "2026-03-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 442.000034,
+  "pcfAccountid": "7AB17F92-B205-413A-A1CC-4ADC1F37AC0B",
+  "pcfAccountidname": "דר שמעוני",
+  "createdon": "2026-09-20T02:19:08.000Z",
+  "_id": "A0AB0A42-30FE-46B1-B3B1-521B7043DEDE"
+ },
+ {
+  "pcfExternalSoftwareID1": "7025062A-2E6C-4EB5-BFCD-91E8B0ACCD6B#1",
+  "pcfPaymentDate": "2026-06-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "445573AA-D8B3-4F96-BDC8-CA136BB5161F",
+  "pcfAccountidname": "יעל לוק",
+  "createdon": "2026-09-11T13:44:38.000Z",
+  "_id": "EEA1196D-78D8-4F3D-9F41-5226FD81B3FF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502715316",
+  "pcfPaymentDate": "2026-07-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "AD22BF27-47EE-4B45-AE25-B1E00D363235",
+  "pcfAccountidname": "קרול לבי",
+  "createdon": "2026-09-20T02:26:53.000Z",
+  "_id": "FD00A23A-39FB-46D1-8E49-52291E27F8D0"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-463070948",
+  "pcfPaymentDate": "2026-02-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "pcfAccountidname": "רינה רדא",
+  "createdon": "2026-09-20T10:16:20.000Z",
+  "_id": "7466146E-A2B2-4CFF-ADCF-528FFC121062"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-492980490",
+  "pcfPaymentDate": "2026-06-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "1B6A59E9-0637-45E5-B3E8-D4D97C4103C0",
+  "pcfAccountidname": "רוני סער",
+  "createdon": "2026-09-20T02:02:35.000Z",
+  "_id": "2E5F52DE-FED5-4A10-A8BD-538B6AC4FD2E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461728309",
+  "pcfPaymentDate": "2026-01-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1693.000044,
+  "pcfAccountid": "1BFC1E65-03CD-418E-8EA5-35A3408A8767",
+  "pcfAccountidname": "מלכי ברנובסקי",
+  "createdon": "2026-09-20T02:03:05.000Z",
+  "_id": "B95F51AE-D186-49E7-ABDA-53E12775F423"
+ },
+ {
+  "pcfExternalSoftwareID1": "A54BA127-1FC2-4FB7-893A-42EE2312A671#1",
+  "pcfPaymentDate": "2026-05-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "28A48473-C2DB-4289-A6EF-99FDE09AB9CC",
+  "pcfAccountidname": "חני פרידמן",
+  "createdon": "2026-09-11T13:55:19.000Z",
+  "_id": "A0A3FE60-7F1B-4ACA-92AA-54222CE7C838"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473582020",
+  "pcfPaymentDate": "2026-03-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "859FB02D-A99C-424D-BA97-039DF906343C",
+  "pcfAccountidname": "לירון שרון",
+  "createdon": "2026-09-20T02:21:01.000Z",
+  "_id": "AE6BE4A9-55F0-4C40-8975-547D0CF4B9FF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-505047522",
+  "pcfPaymentDate": "2026-08-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 445.999998,
+  "pcfAccountid": "31F15848-5626-42A2-A244-FFCA0C9858A2",
+  "pcfAccountidname": "עדי",
+  "createdon": "2026-09-20T02:07:26.000Z",
+  "_id": "91579231-30ED-4968-BE83-549D4EF1E1ED"
+ },
+ {
+  "pcfExternalSoftwareID1": "3DD6D467-7EEB-48F0-B296-C4DD9D0DB496#1",
+  "pcfPaymentDate": "2026-04-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "79354973-BF08-4B8A-943C-6CEB21581FB9",
+  "pcfAccountidname": "חני דניאלס",
+  "createdon": "2026-09-11T14:06:27.000Z",
+  "_id": "10E53D57-7E25-41F8-9ADC-54B674B1EA56"
+ },
+ {
+  "pcfExternalSoftwareID1": "6D343E4D-A214-4C98-9FB8-071465A58E97#1",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "079D81BC-1AC1-445E-9066-2E116ACDA2AE",
+  "pcfAccountidname": "אורנה שניטקין",
+  "createdon": "2026-09-11T11:50:45.000Z",
+  "_id": "4FFCBF9F-5F00-4883-805E-5544E6F7A76B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-478072036",
+  "pcfPaymentDate": "2026-04-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "3750BDC6-56B2-4D76-AB2D-BB394C39B6C0",
+  "pcfAccountidname": "שרה גל",
+  "createdon": "2026-09-20T02:08:46.000Z",
+  "_id": "C6113C78-A6AF-49B3-AE9C-5616AB5B0C4C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470115804",
+  "pcfPaymentDate": "2026-03-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 274.999944,
+  "pcfAccountid": "36D115F7-40A9-4FC0-8BF9-9B8D91981B3D",
+  "pcfAccountidname": "חן חייט",
+  "createdon": "2026-09-20T02:08:39.000Z",
+  "_id": "5B8DFB11-5F2C-4E01-ADF5-56DC914024F5"
+ },
+ {
+  "pcfExternalSoftwareID1": "7E478518-315D-4DDB-9418-AC6DA3D270EC#1",
+  "pcfPaymentDate": "2026-02-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "507E3C97-100E-43F2-BE6C-CC5BDAF601B1",
+  "pcfAccountidname": "חני שמולביץ",
+  "createdon": "2026-09-11T14:27:47.000Z",
+  "_id": "8B926EBA-F10E-40B8-B66E-56DF684DF31A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-494873417",
+  "pcfPaymentDate": "2026-06-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.999972,
+  "pcfAccountid": "7EDD920D-B4B1-417B-801C-462DB81487E4",
+  "pcfAccountidname": "אור אביבה",
+  "createdon": "2026-09-20T02:20:01.000Z",
+  "_id": "667F5F53-34EE-492A-A97F-570F5AD4B7F1"
+ },
+ {
+  "pcfExternalSoftwareID1": "06052E1C-20B2-423E-ABFA-37AC48BFE50A#1",
+  "pcfPaymentDate": "2026-05-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "46FF11AC-D9A7-42DC-9096-9ADD8A4C2371",
+  "pcfAccountidname": "אורלי פרץ",
+  "createdon": "2026-09-11T12:45:48.000Z",
+  "_id": "812BD187-73EB-4970-9DC4-584BEB13B83A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469912336",
+  "pcfPaymentDate": "2026-03-09T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "1A3BE892-1036-4577-B8F4-0C7405C422EF",
+  "pcfAccountidname": "ענת פוליבודה",
+  "createdon": "2026-09-20T02:02:12.000Z",
+  "_id": "320A66DB-33C1-4B12-8368-58552185ED94"
+ },
+ {
+  "pcfExternalSoftwareID1": "0675B627-F789-4911-AD16-22B08970DF1A#1",
+  "pcfPaymentDate": "2026-06-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2219.999962,
+  "pcfAccountid": "12A507DC-1693-4355-A531-4442317C291C",
+  "pcfAccountidname": "אסנת אייכל",
+  "createdon": "2026-09-11T14:06:15.000Z",
+  "_id": "8ED2A614-5041-45C6-8EE2-58F8E8772708"
+ },
+ {
+  "pcfExternalSoftwareID1": "5D10715A-2918-45D6-B307-D7BBFCB99A0B#1",
+  "pcfPaymentDate": "2026-01-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "A2C77C69-E4FF-4648-9468-44ADABCF5840",
+  "pcfAccountidname": "מור שמילה",
+  "createdon": "2026-09-11T10:58:58.000Z",
+  "_id": "EE21E075-1A73-47FE-981C-592235396901"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468765395",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.000038,
+  "pcfAccountid": "216B72AD-D061-41A3-A89E-E150B4276B80",
+  "pcfAccountidname": "חגית פרונסקי",
+  "createdon": "2026-09-20T02:03:36.000Z",
+  "_id": "AB4A5681-B29F-40C8-9AC6-599B757F6C65"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-497471275",
+  "pcfPaymentDate": "2026-07-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "D8858CF5-64FF-44CA-965D-F0D1C02F3ADD",
+  "pcfAccountidname": "הדס לוי",
+  "createdon": "2026-09-20T02:32:23.000Z",
+  "_id": "BD37CFD5-629F-42B5-9265-59E3E61FE8C5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471103931",
+  "pcfPaymentDate": "2026-03-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "1178696B-C7D2-4517-A978-6385BFD6DA7C",
+  "pcfAccountidname": "קרן ברזילי",
+  "createdon": "2026-09-20T02:00:56.000Z",
+  "_id": "7B61C60A-F11C-4049-8872-5A305B7D8C61"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472655939",
+  "pcfPaymentDate": "2026-03-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B399A8FF-59E8-4FB4-8AE8-280353315C60",
+  "pcfAccountidname": "אביטל מעודה",
+  "createdon": "2026-09-20T02:27:45.000Z",
+  "_id": "A496AC5B-002E-472F-B66B-5ACC5C152E6B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-494152235",
+  "pcfPaymentDate": "2026-06-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "6278AA79-91CB-400D-891F-255DE7E16C22",
+  "pcfAccountidname": "יהודית אביטל",
+  "createdon": "2026-09-20T02:13:15.000Z",
+  "_id": "0959ED61-2ECC-4236-9A51-5AF4059493A7"
+ },
+ {
+  "pcfExternalSoftwareID1": "6D86A098-0525-4EEF-9D79-CF74BAE7BA84#1",
+  "pcfPaymentDate": "2026-05-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "25AAB749-73FF-47EA-9485-E597B866C9F0",
+  "pcfAccountidname": "לימור חמו",
+  "createdon": "2026-09-11T11:12:26.000Z",
+  "_id": "68FEBFF7-FA62-4641-B898-5B03FE299523"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502774727",
+  "pcfPaymentDate": "2026-07-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 355.00005,
+  "pcfAccountid": "49E28EC8-2038-43BE-AC70-5F54665C3FA2",
+  "pcfAccountidname": "ריקי גואטה",
+  "createdon": "2026-09-20T02:10:19.000Z",
+  "_id": "EE83B814-D037-4299-A53E-5B57547A19FD"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499805039",
+  "pcfPaymentDate": "2026-07-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "623D701A-79A5-46AF-BBAF-631887A4E1CA",
+  "pcfAccountidname": "שרי נחשוני",
+  "createdon": "2026-09-20T02:13:06.000Z",
+  "_id": "D33F3976-961F-487C-B37C-5B6353444DF6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-479507563",
+  "pcfPaymentDate": "2026-04-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "9F075384-9243-4FD8-8C40-209756FC009A",
+  "pcfAccountidname": "טליה ברון",
+  "createdon": "2026-09-20T02:24:42.000Z",
+  "_id": "995674D4-0264-4025-8913-5B6A49BEF978"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-481790169",
+  "pcfPaymentDate": "2026-05-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "1A0BD436-8D96-4756-A89E-63F57DA1EBF4",
+  "pcfAccountidname": "עדן פחימה",
+  "createdon": "2026-09-20T02:02:08.000Z",
+  "_id": "5E17967E-C3DF-4437-A5CD-5BC63A2B2C1A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-508563301",
+  "pcfPaymentDate": "2026-08-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "79354973-BF08-4B8A-943C-6CEB21581FB9",
+  "pcfAccountidname": "חני דניאלס",
+  "createdon": "2026-09-20T02:18:21.000Z",
+  "_id": "091E4D06-7715-4C6C-9F18-5C1DC5208037"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-456546342",
+  "pcfPaymentDate": "2026-01-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "CED3AAB1-6B55-4CED-99D4-7D5B8AB220F1",
+  "pcfAccountidname": "הילה אדן",
+  "createdon": "2026-09-20T02:30:58.000Z",
+  "_id": "0FBBAE71-7616-42F7-8C4D-5C3BD012F067"
+ },
+ {
+  "pcfExternalSoftwareID1": "041B76C9-35A3-4A29-B14E-D81BAD5A72EA#1",
+  "pcfPaymentDate": "2026-05-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "793F62A0-5055-49D3-812A-553BD827DD7C",
+  "pcfAccountidname": "ורד אקבס",
+  "createdon": "2026-09-11T13:19:31.000Z",
+  "_id": "8E64FF30-DB4A-4377-9007-5D14D81FE224"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499165737",
+  "pcfPaymentDate": "2026-07-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B9AE66F8-BDCC-45ED-BDF0-C144567051B2",
+  "pcfAccountidname": "חסיבה זוקמן",
+  "createdon": "2026-09-20T02:28:44.000Z",
+  "_id": "8B3E27DC-2823-4926-BA7B-5D3F1BCE301D"
+ },
+ {
+  "pcfExternalSoftwareID1": "9CF2FBC9-CDB0-418C-B114-C37FD657842F#1",
+  "pcfPaymentDate": "2026-05-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "1689579F-D484-4F31-98AE-DDBE65D22F78",
+  "pcfAccountidname": "סופייה אבייב",
+  "createdon": "2026-09-10T23:31:25.000Z",
+  "_id": "61CF1E87-7B6B-4F2D-ADCA-5D42FA89EF0A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473764393",
+  "pcfPaymentDate": "2026-03-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "B3C66FD3-ECB9-44C1-94FE-8B8FB5126572",
+  "pcfAccountidname": "שירן עזריה",
+  "createdon": "2026-09-20T02:27:52.000Z",
+  "_id": "1D571F76-5D8A-4E3F-94AA-5D7B19DB226D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-457562960",
+  "pcfPaymentDate": "2026-01-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 347.000004,
+  "pcfAccountid": "0027F9A2-C497-4F5F-AE09-3894A29249F1",
+  "pcfAccountidname": "נופר בן מויאל",
+  "createdon": "2026-09-20T01:55:01.000Z",
+  "_id": "467165A3-5FB1-4250-821C-5E49A4162C0A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-465037218",
+  "pcfPaymentDate": "2026-02-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "39AE6861-7298-4A84-9EC5-58D053E9C44F",
+  "pcfAccountidname": "ציפי טרקיי",
+  "createdon": "2026-09-20T02:08:58.000Z",
+  "_id": "74F3B5E7-4517-456F-B146-5E5BF45C4DAE"
+ },
+ {
+  "pcfExternalSoftwareID1": "C10AEE6A-7DE0-4099-BE11-3A1C30B76674#1",
+  "pcfPaymentDate": "2026-02-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "B9075AB5-7C59-406D-A9E9-23599BDC98CF",
+  "pcfAccountidname": "סיון ימין",
+  "createdon": "2026-09-11T13:44:32.000Z",
+  "_id": "B2BBC8B7-2719-4726-80E8-5EBC70939BCF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-467420825",
+  "pcfPaymentDate": "2026-02-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7CCE1937-3FE5-488D-B5C0-196F2ABC3223",
+  "pcfAccountidname": "שני נעמן כהן",
+  "createdon": "2026-09-20T02:19:26.000Z",
+  "_id": "8FFBCC62-2F55-468F-AB9A-5F097A174D50"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-475086450",
+  "pcfPaymentDate": "2026-04-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E738ABB7-CA99-40A3-95AA-0947F426AFBE",
+  "pcfAccountidname": "נעמה אבטליון",
+  "createdon": "2026-09-20T02:34:32.000Z",
+  "_id": "8639F22F-F681-4FD5-9716-5F607546388E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471252247",
+  "pcfPaymentDate": "2026-03-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "164F1ED3-938B-4C3D-A2DC-354E66B3F996",
+  "pcfAccountidname": "אפרת רווח",
+  "createdon": "2026-09-20T02:01:37.000Z",
+  "_id": "826A5917-F48B-4A03-9F6F-5F81BB577D69"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-457370500",
+  "pcfPaymentDate": "2026-01-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "54518752-C411-4446-875A-3092047D7609",
+  "pcfAccountidname": "רחל דסטה",
+  "createdon": "2026-09-20T02:11:26.000Z",
+  "_id": "CC335AA7-5162-44B6-B7F9-6011B8BAE196"
+ },
+ {
+  "pcfExternalSoftwareID1": "EE1B22B2-09CD-4501-8282-F0593C1195E0#1",
+  "pcfPaymentDate": "2026-05-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.00004,
+  "pcfAccountid": "CF3EC4BE-D2C0-4CEF-83E8-FA2B8066E5F3",
+  "pcfAccountidname": "לימור חיון",
+  "createdon": "2026-09-10T23:11:18.000Z",
+  "_id": "D6AF0C6F-D920-44F7-864B-609BFC60D332"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501380906",
+  "pcfPaymentDate": "2026-07-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "621E9B6D-CCCA-48B9-9240-0B8B35B38FAC",
+  "pcfAccountidname": "יפית ביגר",
+  "createdon": "2026-09-20T02:12:53.000Z",
+  "_id": "929B2CBC-8416-4BDD-B92F-60FB2C086B7F"
+ },
+ {
+  "pcfExternalSoftwareID1": "ACC693DE-A48C-4444-9549-7D3FC7D15D04#1",
+  "pcfPaymentDate": "2026-02-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "A5181E86-2792-4264-A352-53A4C2B4221B",
+  "pcfAccountidname": "גלית בוצצו",
+  "createdon": "2026-09-11T14:38:47.000Z",
+  "_id": "9D8D7D0C-63BB-4EE6-993C-61EF8B6B6DE7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460737425",
+  "pcfPaymentDate": "2026-01-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "930BCD4E-1D51-4B5D-B525-28D075FCAD43",
+  "pcfAccountidname": "מרי ניסנוב",
+  "createdon": "2026-09-20T02:23:57.000Z",
+  "_id": "E3F6C47B-4D3E-496A-8E29-626FE0B0F945"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459669236",
+  "pcfPaymentDate": "2026-01-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "A81916E3-8680-4708-AF3A-1914BDA409FA",
+  "pcfAccountidname": "מרב צבירי",
+  "createdon": "2026-09-20T02:25:59.000Z",
+  "_id": "0C52EDD7-DCC9-4EEC-BB7F-62D64B84DD76"
+ },
+ {
+  "pcfExternalSoftwareID1": "8B0513D3-14AD-4719-BB68-8F2D0BECFE6E#1",
+  "pcfPaymentDate": "2026-07-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "26647C41-37D0-4C0B-9707-2711667C7EC3",
+  "pcfAccountidname": "רויטל סולומון",
+  "createdon": "2026-09-11T13:55:00.000Z",
+  "_id": "8FB397FC-03EC-4B47-8494-62DA4AFB5E85"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-508880777",
+  "pcfPaymentDate": "2026-08-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 916.999948,
+  "pcfAccountid": "8933B1BF-6EDE-467B-B842-858A8934A01A",
+  "pcfAccountidname": "גלית ישראלי",
+  "createdon": "2026-09-20T02:22:23.000Z",
+  "_id": "04236284-0215-42CE-8694-634A301A9F7E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509826849",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "0CA0EED7-3570-4224-A18B-EF33D2AE5F93",
+  "pcfAccountidname": "קרן שלום",
+  "createdon": "2026-09-20T01:59:56.000Z",
+  "_id": "DB7606C4-5085-4D4E-B5B0-63593B21665E"
+ },
+ {
+  "pcfExternalSoftwareID1": "CAD656D6-87E0-4D9B-BF6D-5DF158B79259#1",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "78915322-F0DD-4B78-9186-5CC404CB5F6C",
+  "pcfAccountidname": "זהבה יגודייב",
+  "createdon": "2026-09-11T12:45:46.000Z",
+  "_id": "AD4CF233-DF0E-4548-9C29-64F66AFCA915"
+ },
+ {
+  "pcfExternalSoftwareID1": "9A66A50A-EA29-4F91-8AE3-9E337004ECD9#1",
+  "pcfPaymentDate": "2026-01-06T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7248FA8E-538C-45F8-87B2-0F9F60CBEDB1",
+  "pcfAccountidname": "עדי גלעם",
+  "createdon": "2026-09-11T12:46:00.000Z",
+  "_id": "D253DAB4-52B0-48B2-9B65-65FDA9EC0D7B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-480053529",
+  "pcfPaymentDate": "2026-04-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "8F4040B9-305D-44FF-9A5B-592E3FE7E70F",
+  "pcfAccountidname": "חנה אנט ביטון",
+  "createdon": "2026-09-20T02:23:14.000Z",
+  "_id": "998AAD00-9690-4253-8140-6640E9A5E9C9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501657991",
+  "pcfPaymentDate": "2026-07-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "78905DBF-AA35-4406-8520-E5628DBB7C60",
+  "pcfAccountidname": "אורטל קלנדרוב",
+  "createdon": "2026-09-20T02:18:05.000Z",
+  "_id": "6E8B9039-2561-42E3-9F1A-664AA661D729"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-508899766",
+  "pcfPaymentDate": "2026-08-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "6E39DBDB-CB96-4CBA-8D58-5D507E4A0763",
+  "pcfAccountidname": "שלהבת שרה ביטון",
+  "createdon": "2026-09-20T02:15:42.000Z",
+  "_id": "52425BEC-22F6-4843-A4B9-6670300FE9B3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485796911",
+  "pcfPaymentDate": "2026-05-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "6A1133AF-1E14-4068-BB4C-6FEDC93EEDBB",
+  "pcfAccountidname": "סיון שורץ",
+  "createdon": "2026-09-20T02:15:03.000Z",
+  "_id": "B6C5A942-E6AA-4AE0-9B28-66D7E5D64205"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-496668724",
+  "pcfPaymentDate": "2026-07-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "A0D45FA5-6749-4030-89D3-4CB25950F462",
+  "pcfAccountidname": "מיכל קלרמן",
+  "createdon": "2026-09-20T02:24:47.000Z",
+  "_id": "A2E2ABBE-ABB3-40A4-8BCC-673A0F232848"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-480181747",
+  "pcfPaymentDate": "2026-04-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "66CE6208-C54F-4625-B360-7B518090D795",
+  "pcfAccountidname": "מירב גרשון",
+  "createdon": "2026-09-20T02:14:31.000Z",
+  "_id": "B1B86B18-9B98-434B-B3B3-67487B500065"
+ },
+ {
+  "pcfExternalSoftwareID1": "77E3FBBE-E22A-4AC4-B2F6-96783B1B4C6E#99",
+  "pcfPaymentDate": "2026-09-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "8DACAB4A-DF94-46BA-9170-D8E4AE80B271",
+  "pcfAccountidname": "מירי שכטר",
+  "createdon": "2026-09-11T00:06:21.000Z",
+  "_id": "C267DE96-1110-400D-86E5-676CEF95D2C8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-483101857",
+  "pcfPaymentDate": "2026-05-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "35AA8BBF-4B66-4997-88FC-658660411C4F",
+  "pcfAccountidname": "פסי צ'רני",
+  "createdon": "2026-09-20T02:08:20.000Z",
+  "_id": "6481AD77-6D24-4047-8F65-67D629423C0A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499405077",
+  "pcfPaymentDate": "2026-07-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "607E9EC3-CA07-4BD6-8312-2054F0F4A881",
+  "pcfAccountidname": "מירב אסקפה",
+  "createdon": "2026-09-20T02:12:38.000Z",
+  "_id": "B683FD77-3B0F-45D4-9F6A-67E284581576"
+ },
+ {
+  "pcfExternalSoftwareID1": "839D2DDC-67B1-43FA-84D7-5B2022BDB0F5#1",
+  "pcfPaymentDate": "2026-06-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "A78DF539-9749-4C54-BA25-FBE7C5ED630B",
+  "pcfAccountidname": "ללי בארי",
+  "createdon": "2026-09-11T12:27:19.000Z",
+  "_id": "F932BD09-CF3F-4DC5-A63D-690561C794B8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460410583",
+  "pcfPaymentDate": "2026-01-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "BCBAC1BA-80D2-404C-B591-4CBD7F1D48F7",
+  "pcfAccountidname": "מורן זהר",
+  "createdon": "2026-09-20T02:29:07.000Z",
+  "_id": "B4AFD5F5-8EC5-49C9-A965-69071E574C68"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461971847",
+  "pcfPaymentDate": "2026-01-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "B517F2F6-6187-4C92-97C2-639484D8C09D",
+  "pcfAccountidname": "סיגלית עטר",
+  "createdon": "2026-09-20T02:28:03.000Z",
+  "_id": "E0643998-A67D-4775-A13E-692B2D4F5368"
+ },
+ {
+  "pcfExternalSoftwareID1": "9A755446-6183-4166-B939-B8C658194E33#1",
+  "pcfPaymentDate": "2026-05-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F341C3AA-B19B-46BF-B6BB-F74B4AF7232A",
+  "pcfAccountidname": "עמית ששון",
+  "createdon": "2026-09-11T00:06:09.000Z",
+  "_id": "407B5A42-D0CA-4C27-9CE3-6935BB11B1EB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-489857106",
+  "pcfPaymentDate": "2026-06-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "D8858CF5-64FF-44CA-965D-F0D1C02F3ADD",
+  "pcfAccountidname": "הדס לוי",
+  "createdon": "2026-09-20T02:32:23.000Z",
+  "_id": "E2D2DDAC-93B6-4328-92E3-696C565B5381"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-496671875",
+  "pcfPaymentDate": "2026-07-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 248.999942,
+  "pcfAccountid": "363E6D17-58C9-4233-B7C9-B681C071B26D",
+  "pcfAccountidname": "תמי בנואליד",
+  "createdon": "2026-09-20T02:08:29.000Z",
+  "_id": "6B1820EC-C46D-437A-A30E-69A755BC5EB6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468778023",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2742BAD6-1656-4EAF-8F22-D794380766C4",
+  "pcfAccountidname": "דנה נפתליהו",
+  "createdon": "2026-09-20T02:04:52.000Z",
+  "_id": "492B9FBC-79A1-42BA-8E52-6B22E13661DF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482364427",
+  "pcfPaymentDate": "2026-05-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "6AB63152-BCA5-460A-ABD7-04323FB8C32D",
+  "pcfAccountidname": "טמי שהרבני",
+  "createdon": "2026-09-20T02:15:10.000Z",
+  "_id": "B525B220-35D4-4C63-914E-6B5190C54CBF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459898761",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "5119395D-638A-48CA-B99F-25E3F879EEE8",
+  "pcfAccountidname": "אורית אלחרל",
+  "createdon": "2026-09-20T02:11:00.000Z",
+  "_id": "687887FF-4865-4094-BFCE-6B84969DBD87"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-465591138",
+  "pcfPaymentDate": "2026-02-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "1178696B-C7D2-4517-A978-6385BFD6DA7C",
+  "pcfAccountidname": "קרן ברזילי",
+  "createdon": "2026-09-20T02:00:52.000Z",
+  "_id": "7ED1775F-B34C-40CD-9363-6BD172CEB385"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-464713038",
+  "pcfPaymentDate": "2026-02-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "54518752-C411-4446-875A-3092047D7609",
+  "pcfAccountidname": "רחל דסטה",
+  "createdon": "2026-09-20T02:11:27.000Z",
+  "_id": "E4E1EE12-D5BF-4D54-85BC-6D4DF49F03BB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468889551",
+  "pcfPaymentDate": "2026-03-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.000038,
+  "pcfAccountid": "A7650F61-480B-4A50-B374-2452BD7C6C61",
+  "pcfAccountidname": "חגית גור אריה",
+  "createdon": "2026-09-20T02:25:41.000Z",
+  "_id": "80155391-690E-4797-9D52-6DB730BBF099"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-488449031",
+  "pcfPaymentDate": "2026-05-31T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 258.99997,
+  "pcfAccountid": "DB11D095-D2EC-4BDB-81C5-1711B92C6540",
+  "pcfAccountidname": "לירון גבריאלוב",
+  "createdon": "2026-09-20T02:32:51.000Z",
+  "_id": "3C240E2A-0436-4712-B048-6DCE5418CD96"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-492792532",
+  "pcfPaymentDate": "2026-06-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 541.000028,
+  "pcfAccountid": "B2BD8B6C-0C56-4CE8-AA94-D53D7A8C0DBF",
+  "pcfAccountidname": "מגי בן דהן",
+  "createdon": "2026-09-20T02:27:38.000Z",
+  "_id": "32A2E8B5-5E6E-403C-9B40-6DCF3B98B3A0"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-467105394",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "ED973E9A-1AD8-4A97-9945-95E0EFD4C4F9",
+  "pcfAccountidname": "חופית דיין",
+  "createdon": "2026-09-20T02:34:57.000Z",
+  "_id": "D6203E57-59A8-4AA5-AC7E-6DF6FC85437D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-483729353",
+  "pcfPaymentDate": "2026-05-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "2CA8734F-92E2-46BE-B3A1-92B0BF30BD78",
+  "pcfAccountidname": "שלומית אטדגי",
+  "createdon": "2026-09-20T02:06:13.000Z",
+  "_id": "41A72741-AC0C-4DCE-9F4A-6E2D87BDFD49"
+ },
+ {
+  "pcfExternalSoftwareID1": "CCDD839B-E88E-4313-8C24-202AB09DC738#1",
+  "pcfPaymentDate": "2026-06-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "4B7E6BF9-EA6F-4D97-AFA3-C7874312C419",
+  "pcfAccountidname": "יעל בן מלך",
+  "createdon": "2026-09-10T23:31:19.000Z",
+  "_id": "68319885-8C59-45DA-98AC-6F0F46BFC7A5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-508898883",
+  "pcfPaymentDate": "2026-08-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 541.000028,
+  "pcfAccountid": "B2BD8B6C-0C56-4CE8-AA94-D53D7A8C0DBF",
+  "pcfAccountidname": "מגי בן דהן",
+  "createdon": "2026-09-20T02:27:42.000Z",
+  "_id": "3B8A4056-4B37-4068-93D8-6F341BCE06EA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466133632",
+  "pcfPaymentDate": "2026-02-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "7F85CCC7-1ED7-4A85-B594-3DF5AF833C15",
+  "pcfAccountidname": "שרה קויאט",
+  "createdon": "2026-09-20T02:20:31.000Z",
+  "_id": "1F42110A-ABD2-4A80-A584-6F6EF386B2C8"
+ },
+ {
+  "pcfExternalSoftwareID1": "26B67FBA-C837-4C32-99AF-9D4353D55842#1",
+  "pcfPaymentDate": "2026-04-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "02EB8E56-3D38-43A6-9A31-A510AAE1514F",
+  "pcfAccountidname": "אורית אלמליח",
+  "createdon": "2026-09-11T12:27:32.000Z",
+  "_id": "EEC9146E-EB06-488A-A089-7017AB2C0D19"
+ },
+ {
+  "pcfExternalSoftwareID1": "9E92E0E2-883B-4750-BA47-24645DAE8F52#1",
+  "pcfPaymentDate": "2026-03-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "D91FA3F6-F21A-4CD9-80DF-BFDEFB59D6CF",
+  "pcfAccountidname": "עליזה אלבז",
+  "createdon": "2026-09-11T00:06:23.000Z",
+  "_id": "C5197733-8A39-44A7-9E6B-70C1BCA6BB9B"
+ },
+ {
+  "pcfExternalSoftwareID1": "9DB9E04F-9633-45BB-891E-BF780232F0AE#1",
+  "pcfPaymentDate": "2026-08-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1237.99995,
+  "pcfAccountid": "AE135DB3-6F06-4CB9-BBEA-750A325EFCA7",
+  "pcfAccountidname": "ליאת גבאי",
+  "createdon": "2026-09-11T13:19:13.000Z",
+  "_id": "CB4B025C-A552-4B4A-931F-713DC4EC0BF8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468431534",
+  "pcfPaymentDate": "2026-02-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "C45526D3-8D4F-483D-AC05-19C3EEE911EB",
+  "pcfAccountidname": "רחל גבאי",
+  "createdon": "2026-09-20T02:30:07.000Z",
+  "_id": "AFA7AEC1-579A-46E3-A5AA-71EE40625BC6"
+ },
+ {
+  "pcfExternalSoftwareID1": "669BFF13-3B21-41F7-9626-49E246112308#1",
+  "pcfPaymentDate": "2026-06-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "6327B2C6-DE42-4175-8A75-B240789609C0",
+  "pcfAccountidname": "רונית אברמוביץ'",
+  "createdon": "2026-09-11T00:06:05.000Z",
+  "_id": "67EFF548-112F-4CC8-BD4B-72693CEE27D7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472331090",
+  "pcfPaymentDate": "2026-03-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "7280A957-329D-4C31-B343-79794B72FC28",
+  "pcfAccountidname": "בתיה אהרון",
+  "createdon": "2026-09-20T02:16:57.000Z",
+  "_id": "74B18F6F-A64B-431B-ACA1-728A4C24694F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468759232",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "0FD8DDE8-E16E-46F0-A41B-0F6D9A36AF96",
+  "pcfAccountidname": "מורן לוי",
+  "createdon": "2026-09-20T02:00:38.000Z",
+  "_id": "BE365557-094F-4753-8C86-728E8BEB9949"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493516214",
+  "pcfPaymentDate": "2026-06-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "00FAD9E6-1130-4B29-80F2-407833C58274",
+  "pcfAccountidname": "חגית צשנובר",
+  "createdon": "2026-09-20T01:55:05.000Z",
+  "_id": "B9E45482-A985-46C0-8EB8-72E8354281FC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495803117",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "73020FCC-AFC6-4E6A-8EF6-800F11F92CDD",
+  "pcfAccountidname": "ערין עואד",
+  "createdon": "2026-09-20T02:17:15.000Z",
+  "_id": "EA2C11D9-D893-4B0A-8393-7387BCB3098A"
+ },
+ {
+  "pcfExternalSoftwareID1": "4397576B-EAEA-4661-98B9-0430D71653DE#1",
+  "pcfPaymentDate": "2026-06-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E36563A6-1F15-4077-9462-A97D597104D2",
+  "pcfAccountidname": "תהילה כהן",
+  "createdon": "2026-09-11T00:06:02.000Z",
+  "_id": "AB1A847F-634C-4295-8B29-73A4CECBA064"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509844987",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "522918E4-B544-49AF-B284-4A2976A4817F",
+  "pcfAccountidname": "אנה ליברמן",
+  "createdon": "2026-09-20T02:11:09.000Z",
+  "_id": "1B16277E-CFB2-4204-B3BD-740C607B01B7"
+ },
+ {
+  "pcfExternalSoftwareID1": "8656995D-4330-465A-9CB0-273B5DF332E3#1",
+  "pcfPaymentDate": "2026-04-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "34E49DCA-3D08-4075-BEE0-66D3D2CBFA61",
+  "pcfAccountidname": "מירה רצאבי",
+  "createdon": "2026-09-10T23:30:53.000Z",
+  "_id": "28E0F63F-86A9-4891-B891-748033532D07"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500699063",
+  "pcfPaymentDate": "2026-07-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E36563A6-1F15-4077-9462-A97D597104D2",
+  "pcfAccountidname": "תהילה כהן",
+  "createdon": "2026-09-20T02:33:57.000Z",
+  "_id": "8866AA17-3156-4C20-8D00-74A097B2056B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-457284236",
+  "pcfPaymentDate": "2026-01-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 468.000036,
+  "pcfAccountid": "297F96A6-C730-4E3D-B7A2-671F415E62A5",
+  "pcfAccountidname": "כוכי גילקרוב",
+  "createdon": "2026-09-20T02:05:32.000Z",
+  "_id": "D3493939-7AE8-4149-BE19-753777F8274E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-487887180",
+  "pcfPaymentDate": "2026-05-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7E903C18-C417-476D-B419-A195C292605A",
+  "pcfAccountidname": "יערה הרשקוביץ",
+  "createdon": "2026-09-20T02:19:53.000Z",
+  "_id": "FCAC444E-FBFB-4958-82FE-755DDFD77301"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-474644387",
+  "pcfPaymentDate": "2026-04-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2742BAD6-1656-4EAF-8F22-D794380766C4",
+  "pcfAccountidname": "דנה נפתליהו",
+  "createdon": "2026-09-20T02:04:52.000Z",
+  "_id": "FFFAFFC8-0ADB-41B5-948F-7571DA36AC04"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509825483",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "FBA114C9-7A40-49F7-A4F4-41274B4DBD66",
+  "pcfAccountidname": "יוכי גרינברג",
+  "createdon": "2026-09-20T02:37:21.000Z",
+  "_id": "1A4E741E-7134-4AA0-AE95-758B6FAE759C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500995399",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "00FAD9E6-1130-4B29-80F2-407833C58274",
+  "pcfAccountidname": "חגית צשנובר",
+  "createdon": "2026-09-20T01:55:06.000Z",
+  "_id": "C7031137-3CC6-413B-8452-75F8625B2E97"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466986327",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 258.99997,
+  "pcfAccountid": "E6877B4C-E82E-4767-B39B-E027BFC64F49",
+  "pcfAccountidname": "אילה כהן",
+  "createdon": "2026-09-20T02:34:13.000Z",
+  "_id": "1B8878BE-7A6A-49B8-98D3-76B0D5B4777A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495803092",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7838D752-DF0D-40C2-BE1D-7D5C60E99B78",
+  "pcfAccountidname": "לימור טרלובסקי",
+  "createdon": "2026-09-20T02:17:46.000Z",
+  "_id": "09FD7A1A-590C-4D71-A79F-76E5FC26C907"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461732680",
+  "pcfPaymentDate": "2026-01-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.000038,
+  "pcfAccountid": "216B72AD-D061-41A3-A89E-E150B4276B80",
+  "pcfAccountidname": "חגית פרונסקי",
+  "createdon": "2026-09-20T02:03:35.000Z",
+  "_id": "479D0620-F59D-4792-9409-7750E49791CE"
+ },
+ {
+  "pcfExternalSoftwareID1": "4C752405-FB8B-4A1B-80F9-948F9FA6DE68#1",
+  "pcfPaymentDate": "2026-01-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "0C2425C0-F356-41E8-84DE-B880BEE704DD",
+  "pcfAccountidname": "זהבית גדייב",
+  "createdon": "2026-09-11T14:59:18.000Z",
+  "_id": "0AFBEEBB-7E99-42B6-B2D2-78CEFDD79A4D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-464713131",
+  "pcfPaymentDate": "2026-02-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "C766C88E-712E-42FF-A8E4-3FE249FBE424",
+  "pcfAccountidname": "אילנית מונסונגו",
+  "createdon": "2026-09-20T02:30:21.000Z",
+  "_id": "E806ECB0-D29E-4582-A635-793327DC3BAA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-490826651",
+  "pcfPaymentDate": "2026-06-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "37C430FB-7714-4AF4-A98D-B78F50E41E6F",
+  "pcfAccountidname": "רוחמה סעידי",
+  "createdon": "2026-09-20T02:08:49.000Z",
+  "_id": "411A0B4F-3D52-4787-8A0A-799020DA5C32"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459901165",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 400.000058,
+  "pcfAccountid": "ADACCD89-97CC-4D00-ABB8-0F4D0BEBFA8A",
+  "pcfAccountidname": "אורית מכבי",
+  "createdon": "2026-09-20T02:26:58.000Z",
+  "_id": "D457FEDD-DAE0-4DC9-B1D7-79E92B8ACF33"
+ },
+ {
+  "pcfExternalSoftwareID1": "35CF3212-EC8B-4B60-B8BE-689C34EFA4A9#1",
+  "pcfPaymentDate": "2026-02-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "8662AEEE-44F3-472B-9EAF-F725DB66268D",
+  "pcfAccountidname": "רויטל אליאס",
+  "createdon": "2026-09-11T12:09:05.000Z",
+  "_id": "26C53E16-4F5B-4E90-A75F-7A2FA9139889"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500699004",
+  "pcfPaymentDate": "2026-07-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "E2E2FA8E-BFB3-4546-8C07-8AFF5CD78AC1",
+  "pcfAccountidname": "סיגלית אליאסף",
+  "createdon": "2026-09-20T02:33:52.000Z",
+  "_id": "2F2155B4-946A-4478-B7EC-7A3013A5B53A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471696652",
+  "pcfPaymentDate": "2026-03-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "64760178-0E6B-466C-B8A0-04F56D847D0A",
+  "pcfAccountidname": "לאה שיליץ",
+  "createdon": "2026-09-20T02:14:10.000Z",
+  "_id": "22BB96BB-08A0-48C2-8EB1-7B8DDB728208"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485751808",
+  "pcfPaymentDate": "2026-05-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "8D44A520-134E-4DD3-AD78-6F9537B70D94",
+  "pcfAccountidname": "בת חן משי",
+  "createdon": "2026-09-20T02:22:52.000Z",
+  "_id": "A7A20E90-7775-4266-9ED3-7C0BE2AF0B28"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-498101331",
+  "pcfPaymentDate": "2026-07-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 2219.999962,
+  "pcfAccountid": "12A507DC-1693-4355-A531-4442317C291C",
+  "pcfAccountidname": "אסנת אייכל",
+  "createdon": "2026-09-20T02:01:21.000Z",
+  "_id": "D62BF4CF-81FA-483B-8BB2-7C3234BC0E04"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-506875765",
+  "pcfPaymentDate": "2026-08-09T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 270.000048,
+  "pcfAccountid": "9C17BA4D-9675-4A8A-8447-D7A9C8AE7065",
+  "pcfAccountidname": "אלדמע פולק חנן",
+  "createdon": "2026-09-20T02:24:32.000Z",
+  "_id": "9F9988B6-F194-47B5-807D-7D1B7F62D6EC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466974598",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 303.999978,
+  "pcfAccountid": "A598F3CC-026E-4D2C-B978-9A364B9777EA",
+  "pcfAccountidname": "אלינור מינץ",
+  "createdon": "2026-09-20T02:25:31.000Z",
+  "_id": "90A79B7E-A0BA-4CA5-8BB8-7E04158F8387"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471908704",
+  "pcfPaymentDate": "2026-03-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "D887A051-CA9E-49DD-AE50-659D359660FA",
+  "pcfAccountidname": "שרון לוגסי",
+  "createdon": "2026-09-20T02:32:33.000Z",
+  "_id": "495B1F15-8563-480A-A07E-7E2507EFCE45"
+ },
+ {
+  "pcfExternalSoftwareID1": "58E391CD-8523-43A1-8337-8F48777760E0#1",
+  "pcfPaymentDate": "2026-04-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "5B5750FF-26F4-46EA-BE8E-76C6B300C285",
+  "pcfAccountidname": "חיה פדידה",
+  "createdon": "2026-09-11T13:44:43.000Z",
+  "_id": "E025EEB8-35C8-482B-815E-7E6C46D94940"
+ },
+ {
+  "pcfExternalSoftwareID1": "5EDC908E-A97C-45BE-8594-845661C83393#1",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 463.999954,
+  "pcfAccountid": "755748A6-9EAC-4BEC-917A-FF37A24B7413",
+  "pcfAccountidname": "ג'ולי ברוך",
+  "createdon": "2026-09-11T12:45:43.000Z",
+  "_id": "D18CB04D-0431-4907-9F0D-7EC17A08DBA6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-462513404",
+  "pcfPaymentDate": "2026-02-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "3982520D-6065-4C54-B3AA-87E5F701C32E",
+  "pcfAccountidname": "הילה עודד",
+  "createdon": "2026-09-20T02:08:51.000Z",
+  "_id": "0991E7B8-0429-4918-9298-7FFAD5188994"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468772376",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "B517F2F6-6187-4C92-97C2-639484D8C09D",
+  "pcfAccountidname": "סיגלית עטר",
+  "createdon": "2026-09-20T02:28:03.000Z",
+  "_id": "9E859DBD-2BCD-46DC-91EE-802E10C2FBB2"
+ },
+ {
+  "pcfExternalSoftwareID1": "AEDC6663-12C1-4184-A57B-02C34047BA75#1",
+  "pcfPaymentDate": "2026-07-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "507E3C97-100E-43F2-BE6C-CC5BDAF601B1",
+  "pcfAccountidname": "חני שמולביץ",
+  "createdon": "2026-09-11T14:27:46.000Z",
+  "_id": "BA58E1CA-5665-4B4E-BC2C-80FADED0C91F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501106267",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "D6CA2F9C-56AF-46A7-8020-BC18C6A08035",
+  "pcfAccountidname": "מרב קזז",
+  "createdon": "2026-09-20T02:32:10.000Z",
+  "_id": "39275CB5-A1E3-46C0-A20E-824A1E3A591D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491255333",
+  "pcfPaymentDate": "2026-06-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "86A9A578-2AFB-481C-B783-2DD616F49A65",
+  "pcfAccountidname": "שושי ראובני לוי",
+  "createdon": "2026-09-20T02:21:39.000Z",
+  "_id": "5B1975A3-56F7-422D-BA70-828685818D84"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-474297343",
+  "pcfPaymentDate": "2026-03-31T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "541F4195-0C72-4EB9-824B-29A08C5EDD9D",
+  "pcfAccountidname": "חלי ורדי",
+  "createdon": "2026-09-20T02:11:16.000Z",
+  "_id": "55377965-7E6F-4D28-B7CF-832413D424E7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476069455",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "3FF31E19-FB0E-4F76-9865-8B386E60A8C5",
+  "pcfAccountidname": "ליאת שומרוני",
+  "createdon": "2026-09-20T02:09:54.000Z",
+  "_id": "9B7D74D2-1437-4C3E-82B4-8351774376A5"
+ },
+ {
+  "pcfExternalSoftwareID1": "3D66E337-052D-4BA8-963A-5A44047EA24D#1",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 303.999978,
+  "pcfAccountid": "A598F3CC-026E-4D2C-B978-9A364B9777EA",
+  "pcfAccountidname": "אלינור מינץ",
+  "createdon": "2026-09-11T13:44:34.000Z",
+  "_id": "138FF4AF-FA04-469D-9F83-839786F56D60"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455816850",
+  "pcfPaymentDate": "2026-01-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "17D03CC7-CAEA-4B07-A69A-15724F0DA8E1",
+  "pcfAccountidname": "יעל צור",
+  "createdon": "2026-09-20T02:01:46.000Z",
+  "_id": "87BCAF19-E07C-4F4E-BE72-840702BD834A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455228923",
+  "pcfPaymentDate": "2026-01-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 444.000016,
+  "pcfAccountid": "3DAB69E0-8025-4C0E-B429-2421D5F7AA70",
+  "pcfAccountidname": "רמית הרשקו",
+  "createdon": "2026-09-20T02:09:07.000Z",
+  "_id": "1229A4AB-DCAE-423C-A2BC-846545E43621"
+ },
+ {
+  "pcfExternalSoftwareID1": "FE10598B-AC98-46D8-8595-F591CEFBFAE3#1",
+  "pcfPaymentDate": "2026-02-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 274.999944,
+  "pcfAccountid": "36D115F7-40A9-4FC0-8BF9-9B8D91981B3D",
+  "pcfAccountidname": "חן חייט",
+  "createdon": "2026-09-11T11:12:08.000Z",
+  "_id": "90BB7BCF-793C-48CA-A68B-86DA09A5850E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482289446",
+  "pcfPaymentDate": "2026-05-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "61DF779F-7BE4-4685-8BDE-8136DD79E57E",
+  "pcfAccountidname": "ליאת כורך",
+  "createdon": "2026-09-20T02:12:41.000Z",
+  "_id": "F1760A98-99B8-4FAB-8A76-8727AF334D1F"
+ },
+ {
+  "pcfExternalSoftwareID1": "F34F4AAD-C3BF-4C5B-BD6A-AD444DDF9C32#1",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "86A9A578-2AFB-481C-B783-2DD616F49A65",
+  "pcfAccountidname": "שושי ראובני לוי",
+  "createdon": "2026-09-11T11:12:18.000Z",
+  "_id": "4475531F-9EF6-4D10-A3E3-87B3FADC7710"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-465762209",
+  "pcfPaymentDate": "2026-02-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "84BE53DC-89DD-4EFD-9104-4C28EE6A362A",
+  "pcfAccountidname": "הלה דנינו",
+  "createdon": "2026-09-20T02:20:43.000Z",
+  "_id": "3AD69D15-C107-4519-9546-88317E618E7F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460409360",
+  "pcfPaymentDate": "2026-01-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "328FDB3F-8935-4481-9294-163D57B5A2B9",
+  "pcfAccountidname": "אסתר וחש",
+  "createdon": "2026-09-20T02:07:31.000Z",
+  "_id": "B0BA111F-2FB3-44E7-8474-8AB3E2AC39A3"
+ },
+ {
+  "pcfExternalSoftwareID1": "94CF1AE7-FB1A-4E68-BEF6-8252BAE43CAE#1",
+  "pcfPaymentDate": "2026-05-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "626CAD32-65B7-48D9-AB83-581A2191C7DC",
+  "pcfAccountidname": "עדי בן חמו",
+  "createdon": "2026-09-11T10:59:10.000Z",
+  "_id": "45E3DFCC-84F6-4EE6-A1C9-8AD194438B79"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-489426323",
+  "pcfPaymentDate": "2026-06-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "1689579F-D484-4F31-98AE-DDBE65D22F78",
+  "pcfAccountidname": "סופייה אבייב",
+  "createdon": "2026-09-20T02:01:40.000Z",
+  "_id": "EE507CC7-CAF0-4BB8-A194-8B7351175C85"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491795911",
+  "pcfPaymentDate": "2026-06-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "BE232E7A-374E-4E2D-9FBF-21523D94561E",
+  "pcfAccountidname": "ילנה קצב",
+  "createdon": "2026-09-20T02:29:12.000Z",
+  "_id": "281EA87B-1A27-4C42-8DCF-8C5A4C5014A1"
+ },
+ {
+  "pcfExternalSoftwareID1": "ED389F5C-B229-4711-B244-DF2AF1C8F130#1",
+  "pcfPaymentDate": "2026-04-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "29349AD3-4AF1-4C2E-A57E-4CD29901E4FA",
+  "pcfAccountidname": "גל מלכה",
+  "createdon": "2026-09-11T14:59:31.000Z",
+  "_id": "E380224D-9EA2-4CA9-8ECC-8CB990BC3C55"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-494600180",
+  "pcfPaymentDate": "2026-06-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "BA8E2837-A01B-48DB-B8ED-801836F1D3A6",
+  "pcfAccountidname": "דנה אליהו",
+  "createdon": "2026-09-20T02:28:55.000Z",
+  "_id": "4A25ACE7-B0F3-4917-BCE7-8D109345483D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-478668633",
+  "pcfPaymentDate": "2026-04-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "8D44A520-134E-4DD3-AD78-6F9537B70D94",
+  "pcfAccountidname": "בת חן משי",
+  "createdon": "2026-09-20T02:22:52.000Z",
+  "_id": "04532D18-B810-404C-920F-8E77B33E04A1"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-494942360",
+  "pcfPaymentDate": "2026-06-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "AEF9EA5B-C888-4AE3-BB09-88915B4C7427",
+  "pcfAccountidname": "שירלי זיידל מוסקוביץ",
+  "createdon": "2026-09-20T02:27:10.000Z",
+  "_id": "E73A66A5-683F-4ECD-B1D7-8EB581F7B4BA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-498913588",
+  "pcfPaymentDate": "2026-07-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "CA1A1723-7476-47BE-A10B-1979B2FB89F3",
+  "pcfAccountidname": "עירית אברשטרק",
+  "createdon": "2026-09-20T02:30:35.000Z",
+  "_id": "8D6181E5-DA2F-48D8-8440-8EFB7A766C78"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-488449640",
+  "pcfPaymentDate": "2026-05-31T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "4DC3CB91-4008-4F74-8A61-4B57EDAEC6B2",
+  "pcfAccountidname": "עירית עזאני",
+  "createdon": "2026-09-20T02:10:44.000Z",
+  "_id": "C4FC01CA-DEF6-455A-B707-8F0BDA438BAC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473359859",
+  "pcfPaymentDate": "2026-03-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 600.000028,
+  "pcfAccountid": "5DA19D0D-77D1-4759-88ED-86977426F2E4",
+  "pcfAccountidname": "ריקי רוזנטל",
+  "createdon": "2026-09-20T02:12:26.000Z",
+  "_id": "497186CB-825E-4B87-A327-8F30480065CC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-475075510",
+  "pcfPaymentDate": "2026-04-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "8EB024D3-E570-4320-9A43-C6BF9DDB6B95",
+  "pcfAccountidname": "אוסנת טנסקי",
+  "createdon": "2026-09-20T02:23:12.000Z",
+  "_id": "C93CEBCB-C949-490B-A493-8FFDC54B7658"
+ },
+ {
+  "pcfExternalSoftwareID1": "4DCC4777-C25E-4253-A979-12842B74C888#99",
+  "pcfPaymentDate": "2026-08-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "2E6DFB82-71AA-4D5F-9E34-1A6E1BD70D70",
+  "pcfAccountidname": "ליאת בן מויאל",
+  "createdon": "2026-09-10T23:31:29.000Z",
+  "_id": "CB5E6464-8E1F-47DD-BE2F-9007198F552E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473359426",
+  "pcfPaymentDate": "2026-03-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "239381EE-D48E-44AF-85A8-21132F355F18",
+  "pcfAccountidname": "הדסי סבג",
+  "createdon": "2026-09-20T02:03:54.000Z",
+  "_id": "A1C7053C-0C5E-4708-9373-9023ABF898FA"
+ },
+ {
+  "pcfExternalSoftwareID1": "3DB919F5-1450-4816-9B11-7C5B4C08B819#1",
+  "pcfPaymentDate": "2026-05-31T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "7838D752-DF0D-40C2-BE1D-7D5C60E99B78",
+  "pcfAccountidname": "לימור טרלובסקי",
+  "createdon": "2026-09-11T14:27:52.000Z",
+  "_id": "295F13A2-D756-491E-8728-904F2C2B9E2F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-498541248",
+  "pcfPaymentDate": "2026-07-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 270.000048,
+  "pcfAccountid": "9C17BA4D-9675-4A8A-8447-D7A9C8AE7065",
+  "pcfAccountidname": "אלדמע פולק חנן",
+  "createdon": "2026-09-20T02:24:32.000Z",
+  "_id": "A37EBFC9-EE73-4AF7-84D1-90D74A8BD40D"
+ },
+ {
+  "pcfExternalSoftwareID1": "EC706D85-8D92-4DB4-B56D-7DE4C942BC95#1",
+  "pcfPaymentDate": "2026-07-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "62EA64CC-8B70-4FB0-B0E6-67E40D853AAB",
+  "pcfAccountidname": "קארין מזרחי",
+  "createdon": "2026-09-11T13:44:35.000Z",
+  "_id": "567CC1C8-3585-4569-B578-90ED85BF7FEE"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493515979",
+  "pcfPaymentDate": "2026-06-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "F99141C0-40ED-4ECA-9662-74C8E5432493",
+  "pcfAccountidname": "מירב שרעבי",
+  "createdon": "2026-09-20T02:37:11.000Z",
+  "_id": "B85FF7E4-DEF4-4830-8BE1-911E5BE449BD"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460410856",
+  "pcfPaymentDate": "2026-01-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "D7AE8C52-A5E7-4527-92E4-C88845450D30",
+  "pcfAccountidname": "אפרת דהן ברקי",
+  "createdon": "2026-09-20T02:32:12.000Z",
+  "_id": "D2CB32E1-69E1-4B5B-BE5E-91E35168631F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502136461",
+  "pcfPaymentDate": "2026-07-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2A4513F9-A0BF-4ECD-90EC-2503E0E8B225",
+  "pcfAccountidname": "מלי נאור",
+  "createdon": "2026-09-20T02:05:54.000Z",
+  "_id": "68B8C951-75C1-4241-9C5D-91FB758F137D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495239771",
+  "pcfPaymentDate": "2026-06-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "3C774560-4080-403A-A76E-1351E7E05D75",
+  "pcfAccountidname": "אביטל",
+  "createdon": "2026-09-20T02:09:05.000Z",
+  "_id": "6C5A4C2E-792C-4DF8-9709-933336F30DAC"
+ },
+ {
+  "pcfExternalSoftwareID1": "8A413F90-3383-4EE6-936E-C7CC00C6421D#99",
+  "pcfPaymentDate": "2026-09-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "1B88A159-DD78-427F-A2B6-E5D04B2AF1CE",
+  "pcfAccountidname": "דורית מילר",
+  "createdon": "2026-09-11T14:59:26.000Z",
+  "_id": "CB3DE203-35BD-4D96-B1B2-936DCBB657B5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476221369",
+  "pcfPaymentDate": "2026-04-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "35AA8BBF-4B66-4997-88FC-658660411C4F",
+  "pcfAccountidname": "פסי צ'רני",
+  "createdon": "2026-09-20T02:08:19.000Z",
+  "_id": "EA1085A8-A461-4A0F-A6D0-9379D37DCE6F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485914818",
+  "pcfPaymentDate": "2026-05-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "FEF5BEB1-ABC4-4497-8693-83B06AF5870C",
+  "pcfAccountidname": "עדנה דסה",
+  "createdon": "2026-09-20T02:38:01.000Z",
+  "_id": "FFA24FF0-EB1F-457A-A4B5-937B58BA7B7B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-489703471",
+  "pcfPaymentDate": "2026-06-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "785850BE-2A29-4316-9B9C-970D1BFDD638",
+  "pcfAccountidname": "דניאלה עזב",
+  "createdon": "2026-09-20T02:17:55.000Z",
+  "_id": "9BCD861F-984C-477E-BBAF-95110AF5BA3E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-458863410",
+  "pcfPaymentDate": "2026-01-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "77E9E0CB-2CB2-4BF9-8647-58E70F6FF7E7",
+  "pcfAccountidname": "נורית קדמי",
+  "createdon": "2026-09-20T02:17:36.000Z",
+  "_id": "6E5D82C2-BE4F-4CF5-B983-95B96CB07AD3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-465762246",
+  "pcfPaymentDate": "2026-02-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5D815DC7-E885-44AD-9E8B-DFFE43F842B9",
+  "pcfAccountidname": "טל בן שמחון",
+  "createdon": "2026-09-20T02:12:17.000Z",
+  "_id": "4C7E527A-2ED6-40AC-A396-965F1CCB24F5"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468772388",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F70C0468-128B-45D0-A9B3-0DD1B3085675",
+  "pcfAccountidname": "גלית מיצנר",
+  "createdon": "2026-09-20T02:36:44.000Z",
+  "_id": "A167166B-A98C-47D9-B92A-969DCD1F60D6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460690392",
+  "pcfPaymentDate": "2026-01-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "1382C666-2725-4154-9BD1-94B1FF64D46E",
+  "pcfAccountidname": "תהילה עדרי",
+  "createdon": "2026-09-20T02:01:24.000Z",
+  "_id": "AF33014D-92E8-4844-B7BE-96E40613C030"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469176539",
+  "pcfPaymentDate": "2026-03-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 699.999954,
+  "pcfAccountid": "4FAB688F-6098-4E0B-83FF-FDAB24BC5692",
+  "pcfAccountidname": "דנית איידה",
+  "createdon": "2026-09-20T02:10:48.000Z",
+  "_id": "6030A199-660B-4374-BABE-96F58445185C"
+ },
+ {
+  "pcfExternalSoftwareID1": "AF5866C0-4DAA-4D9C-A96E-F075C9BB2FCE#1",
+  "pcfPaymentDate": "2026-04-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "6E450351-2C4B-4186-8825-DEC32D5319AF",
+  "pcfAccountidname": "מרב לפיד",
+  "createdon": "2026-09-11T14:27:53.000Z",
+  "_id": "7CA8EA83-08D1-45F1-90E9-97BDCC874D3E"
+ },
+ {
+  "pcfExternalSoftwareID1": "5278C728-FEC7-4315-B176-6225619DC982#1",
+  "pcfPaymentDate": "2026-02-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2F87B3F7-6BE1-41FC-928B-7981DE33ED5D",
+  "pcfAccountidname": "גלית חיים",
+  "createdon": "2026-09-11T12:46:01.000Z",
+  "_id": "0940742B-84D5-471F-9988-97F78EA4B64F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500699077",
+  "pcfPaymentDate": "2026-07-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 258.99997,
+  "pcfAccountid": "66ECACCC-BCE8-47AC-9E47-F74FA033E8F8",
+  "pcfAccountidname": "מרגלית דרור",
+  "createdon": "2026-09-20T02:14:37.000Z",
+  "_id": "E893D7B1-DD1B-4A12-B8A8-980F6521876C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-465785620",
+  "pcfPaymentDate": "2026-02-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "E0C54B37-7CDE-4152-AD03-3686D5665E3E",
+  "pcfAccountidname": "בטי אשורי",
+  "createdon": "2026-09-20T02:33:40.000Z",
+  "_id": "654DCD92-95C6-4181-BE77-99195F158B14"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455768969",
+  "pcfPaymentDate": "2026-01-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "0649FF29-0259-4B05-85D7-FA16AC591C9C",
+  "pcfAccountidname": "נטע אמסלם",
+  "createdon": "2026-09-20T01:58:25.000Z",
+  "_id": "96DCC95E-D4C4-4133-A2A0-9A24D3A13FF6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-481185112",
+  "pcfPaymentDate": "2026-05-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "E34DD38C-7582-41F7-A926-092C98733A93",
+  "pcfAccountidname": "זלדי שיף",
+  "createdon": "2026-09-20T02:33:54.000Z",
+  "_id": "0D2399C3-579F-4B39-B917-9AA7375D1D5C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468328124",
+  "pcfPaymentDate": "2026-02-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 600.000028,
+  "pcfAccountid": "5DA19D0D-77D1-4759-88ED-86977426F2E4",
+  "pcfAccountidname": "ריקי רוזנטל",
+  "createdon": "2026-09-20T02:12:26.000Z",
+  "_id": "054AD40E-16FD-4A98-B5F6-9ACBD4843849"
+ },
+ {
+  "pcfExternalSoftwareID1": "398155DE-B5BC-47D4-9ED6-58E45FAF21D0#1",
+  "pcfPaymentDate": "2026-02-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "FDB3F018-2007-46EA-BD35-08361D99DED7",
+  "pcfAccountidname": "חני נדב",
+  "createdon": "2026-09-10T23:11:15.000Z",
+  "_id": "6BADAFD6-B611-4F03-8E6E-9ACD53CFD007"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493230516",
+  "pcfPaymentDate": "2026-06-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "626CAD32-65B7-48D9-AB83-581A2191C7DC",
+  "pcfAccountidname": "עדי בן חמו",
+  "createdon": "2026-09-20T02:13:10.000Z",
+  "_id": "EBA5944B-D784-4EA5-9BD9-9BC134FF0FF8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473761800",
+  "pcfPaymentDate": "2026-03-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "8F4040B9-305D-44FF-9A5B-592E3FE7E70F",
+  "pcfAccountidname": "חנה אנט ביטון",
+  "createdon": "2026-09-20T02:23:14.000Z",
+  "_id": "A50F3381-90DD-4A67-9C42-9BE2BEAAFA80"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-461971152",
+  "pcfPaymentDate": "2026-01-30T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "D3747A27-1F64-4823-91AB-0099AC7AECD3",
+  "pcfAccountidname": "ענת סאלד אביגדול",
+  "createdon": "2026-09-20T02:31:57.000Z",
+  "_id": "1549DA59-3F39-4030-A4F3-9C684E20D2C8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486411806",
+  "pcfPaymentDate": "2026-05-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5DA19D0D-77D1-4759-88ED-86977426F2E4",
+  "pcfAccountidname": "ריקי רוזנטל",
+  "createdon": "2026-09-20T02:12:24.000Z",
+  "_id": "DA18C812-39DC-4FC2-BD1D-9E067685E982"
+ },
+ {
+  "pcfExternalSoftwareID1": "20E77757-838C-4E2B-A7DF-F0675610EB12#1",
+  "pcfPaymentDate": "2026-04-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "61DF779F-7BE4-4685-8BDE-8136DD79E57E",
+  "pcfAccountidname": "ליאת כורך",
+  "createdon": "2026-09-11T00:05:22.000Z",
+  "_id": "6435399F-D436-40AF-ADBD-9E7569273803"
+ },
+ {
+  "pcfExternalSoftwareID1": "0807C438-6BA0-4795-AAFF-5F71535A00CA#1",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2BF954F4-5426-4546-A66D-8C6E261F697F",
+  "pcfAccountidname": "אןרמה",
+  "createdon": "2026-09-11T00:05:47.000Z",
+  "_id": "612BB265-4B06-40D9-88EA-9F19C68E67AA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-510238950",
+  "pcfPaymentDate": "2026-08-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "CE2BA687-7717-4777-AC49-4348AEF91CA5",
+  "pcfAccountidname": "קורין ענבר",
+  "createdon": "2026-09-20T02:30:50.000Z",
+  "_id": "45F6B2F4-3EA7-4708-A976-9F7CFBBBFE78"
+ },
+ {
+  "pcfExternalSoftwareID1": "9598FD19-6DF8-42D3-B939-1C07C6C4A65B#1",
+  "pcfPaymentDate": "2026-06-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "A05E0358-61DD-46D3-854B-8D281EBFB4E1",
+  "pcfAccountidname": "נעמי חסון",
+  "createdon": "2026-09-11T14:49:47.000Z",
+  "_id": "93837EA3-42E1-45C0-B18B-A045631FA784"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459670538",
+  "pcfPaymentDate": "2026-01-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:11.000Z",
+  "_id": "5DFC7F42-78D4-46FB-B106-A12072FFB93C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471696774",
+  "pcfPaymentDate": "2026-03-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1325.000052,
+  "pcfAccountid": "35AA8BBF-4B66-4997-88FC-658660411C4F",
+  "pcfAccountidname": "פסי צ'רני",
+  "createdon": "2026-09-20T02:08:18.000Z",
+  "_id": "84AE5359-1CCE-4270-9F62-A1A6EBB63801"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-508234766",
+  "pcfPaymentDate": "2026-08-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "ACC5533C-EC5B-44DF-9605-A72BB630BE2B",
+  "pcfAccountidname": "קרן סהר אור אלטברג",
+  "createdon": "2026-09-20T02:26:42.000Z",
+  "_id": "52F93B92-96B2-4B21-B774-A2D0789F6332"
+ },
+ {
+  "pcfExternalSoftwareID1": "60D859A4-32D2-44A0-88E6-3169EE8A5166#1",
+  "pcfPaymentDate": "2026-05-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "BA8E2837-A01B-48DB-B8ED-801836F1D3A6",
+  "pcfAccountidname": "דנה אליהו",
+  "createdon": "2026-09-11T00:05:36.000Z",
+  "_id": "B2DBB49B-9069-4195-84B1-A2DB30837266"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-503783754",
+  "pcfPaymentDate": "2026-07-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "57D73F00-39AD-442F-B3EE-3922D9EA1F75",
+  "pcfAccountidname": "שרי לוין",
+  "createdon": "2026-09-20T02:11:31.000Z",
+  "_id": "B206DACB-A37D-49AE-9091-A366DF0E8204"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455947309",
+  "pcfPaymentDate": "2026-01-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "CCFBDCF8-FA7E-49DA-9A3E-6C9DBDA3B081",
+  "pcfAccountidname": "רינה רדא",
+  "createdon": "2026-09-20T10:16:21.000Z",
+  "_id": "3981DFD3-944B-42FD-8D47-A414CA558075"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-489424355",
+  "pcfPaymentDate": "2026-06-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "1742945A-A470-4675-9EAD-FB265FEF544C",
+  "pcfAccountidname": "לובה רוימי",
+  "createdon": "2026-09-20T02:01:44.000Z",
+  "_id": "8FA8647B-7E47-4DC6-855C-A422E3C788E1"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471908855",
+  "pcfPaymentDate": "2026-03-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "D41DB4FF-8EE6-4209-B7E1-630C35DFBFCA",
+  "pcfAccountidname": "מיטל מיטל זייד",
+  "createdon": "2026-09-20T02:32:06.000Z",
+  "_id": "0767B74F-0F7F-4A1F-9F13-A4266FEC6FB3"
+ },
+ {
+  "pcfExternalSoftwareID1": "120787CD-5EDA-42B6-AC1D-C14F587C31AF#1",
+  "pcfPaymentDate": "2026-06-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "E2E2FA8E-BFB3-4546-8C07-8AFF5CD78AC1",
+  "pcfAccountidname": "סיגלית אליאסף",
+  "createdon": "2026-09-11T14:27:44.000Z",
+  "_id": "3E2B7C3A-DD08-46E0-B1E0-A512D186F085"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500946741",
+  "pcfPaymentDate": "2026-07-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "73203031-0323-44D3-AA7D-966A9FACC4BD",
+  "pcfAccountidname": "רעות בן חיון",
+  "createdon": "2026-09-20T02:17:17.000Z",
+  "_id": "3787F9C0-8678-4632-8F5F-A7F10998C1F9"
+ },
+ {
+  "pcfExternalSoftwareID1": "C7ADCC72-77FE-4343-ADC2-51ABBEA0990F#1",
+  "pcfPaymentDate": "2026-01-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "84BE53DC-89DD-4EFD-9104-4C28EE6A362A",
+  "pcfAccountidname": "הלה דנינו",
+  "createdon": "2026-09-11T14:38:32.000Z",
+  "_id": "D2A364EB-1A41-4B9C-82A4-A8315ED2D279"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-507910787",
+  "pcfPaymentDate": "2026-08-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "29349AD3-4AF1-4C2E-A57E-4CD29901E4FA",
+  "pcfAccountidname": "גל מלכה",
+  "createdon": "2026-09-20T02:05:25.000Z",
+  "_id": "DBA7FB31-6236-4287-A5DC-A835EBE259CC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-487744958",
+  "pcfPaymentDate": "2026-05-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "8F4040B9-305D-44FF-9A5B-592E3FE7E70F",
+  "pcfAccountidname": "חנה אנט ביטון",
+  "createdon": "2026-09-20T02:23:15.000Z",
+  "_id": "AE5AA60E-B179-4A8D-B6A9-A903EABC9CA0"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500419088",
+  "pcfPaymentDate": "2026-07-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 541.000028,
+  "pcfAccountid": "B2BD8B6C-0C56-4CE8-AA94-D53D7A8C0DBF",
+  "pcfAccountidname": "מגי בן דהן",
+  "createdon": "2026-09-20T02:27:38.000Z",
+  "_id": "5B350C36-7DDA-4C56-AFFE-A915291DEA1B"
+ },
+ {
+  "pcfExternalSoftwareID1": "5FDE6400-11DA-4A71-8F7A-FAA074793F2B#1",
+  "pcfPaymentDate": "2026-07-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "6E39DBDB-CB96-4CBA-8D58-5D507E4A0763",
+  "pcfAccountidname": "שלהבת שרה ביטון",
+  "createdon": "2026-09-10T10:03:29.000Z",
+  "_id": "830CEDD8-5A4B-44F8-A2B4-A9B4AB79DFB2"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-494603062",
+  "pcfPaymentDate": "2026-06-24T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "880DF87A-7339-480B-BF7D-B37D5058739D",
+  "pcfAccountidname": "חגית",
+  "createdon": "2026-09-20T02:22:11.000Z",
+  "_id": "0507D7D1-8D37-43AE-A357-AAA7F91D23D7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499585027",
+  "pcfPaymentDate": "2026-07-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "ACC5533C-EC5B-44DF-9605-A72BB630BE2B",
+  "pcfAccountidname": "קרן סהר אור אלטברג",
+  "createdon": "2026-09-20T02:26:38.000Z",
+  "_id": "40E02123-1011-4072-B398-AAF6D82A0F7D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502067152",
+  "pcfPaymentDate": "2026-07-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "1D09E517-5284-4BC7-94DC-8DEE87A66B88",
+  "pcfAccountidname": "אילנה מגירה",
+  "createdon": "2026-09-20T02:03:08.000Z",
+  "_id": "CB20F87C-74CA-499B-943C-AC9BB5737C5B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466931324",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:12.000Z",
+  "_id": "48E6FDED-FF3D-4568-9F78-AC9DE2D4EBA8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455519188",
+  "pcfPaymentDate": "2026-01-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "32E5E52E-3DA4-4512-A4DD-1174490F99B7",
+  "pcfAccountidname": "ענת שם טוב",
+  "createdon": "2026-09-20T02:07:46.000Z",
+  "_id": "EA16DE00-3483-40A5-A242-AD1C64A733A9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-507910324",
+  "pcfPaymentDate": "2026-08-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "607E9EC3-CA07-4BD6-8312-2054F0F4A881",
+  "pcfAccountidname": "מירב אסקפה",
+  "createdon": "2026-09-20T02:12:39.000Z",
+  "_id": "B3B87856-974B-4082-9A1E-AD5E26B034C2"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-473359686",
+  "pcfPaymentDate": "2026-03-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 265.000034,
+  "pcfAccountid": "239381EE-D48E-44AF-85A8-21132F355F18",
+  "pcfAccountidname": "הדסי סבג",
+  "createdon": "2026-09-20T02:03:54.000Z",
+  "_id": "ECA4120A-327B-49F2-8C7D-AD69572F1581"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-479509519",
+  "pcfPaymentDate": "2026-04-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "092CB29E-1071-436A-89FC-F9E202E32B3A",
+  "pcfAccountidname": "אורנה יוגב",
+  "createdon": "2026-09-20T01:59:32.000Z",
+  "_id": "99D07269-E65F-49EA-80DA-AEFB8F1A0C3B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-492215934",
+  "pcfPaymentDate": "2026-06-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "4D24CE57-B07C-4E89-BE24-265CC0FA66F8",
+  "pcfAccountidname": "יפית מויאל",
+  "createdon": "2026-09-20T02:10:38.000Z",
+  "_id": "7A599DBF-301F-45FC-AEC3-AF436F4EB66F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-458080540",
+  "pcfPaymentDate": "2026-01-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "3FCDE5A8-79D3-42ED-9E25-F33A124EFFC2",
+  "pcfAccountidname": "עדי צ'פניק וייניש",
+  "createdon": "2026-09-20T02:09:39.000Z",
+  "_id": "0EDCA0C8-DC15-4433-A60A-AF578AC1280E"
+ },
+ {
+  "pcfExternalSoftwareID1": "61C1C12B-16C6-4908-A0EB-9724D1880093#1",
+  "pcfPaymentDate": "2026-02-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "DD3B56B5-0CB5-417A-9273-F1B4DC496695",
+  "pcfAccountidname": "שבי דונסקי (בת שבע)",
+  "createdon": "2026-09-11T14:38:36.000Z",
+  "_id": "B3C6A82F-6C89-4211-80BB-AFEAD7CAD887"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455899309",
+  "pcfPaymentDate": "2026-01-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "C6512937-6DB9-44AB-AF3E-11F2FE0CE475",
+  "pcfAccountidname": "מורן ניקסון אבו",
+  "createdon": "2026-09-20T02:30:09.000Z",
+  "_id": "BA8EDBE4-5085-478E-AFFA-B0B3F94E1FEF"
+ },
+ {
+  "pcfExternalSoftwareID1": "0535A626-D44B-4BB2-9C48-4EACA7194806#1",
+  "pcfPaymentDate": "2026-06-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "299383A8-9B92-4B9C-B2A3-C73E4C68B389",
+  "pcfAccountidname": "יסמין בן יוסף",
+  "createdon": "2026-09-11T13:44:29.000Z",
+  "_id": "183C55C9-2BF4-4F5A-ACBD-B16BC2BE3067"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501536089",
+  "pcfPaymentDate": "2026-07-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "6A4B5A49-EA39-49BB-ABD8-233457898A2B",
+  "pcfAccountidname": "גלית ראש",
+  "createdon": "2026-09-20T02:15:09.000Z",
+  "_id": "C4577D34-018C-4153-B32B-B1F14398C61E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500704921",
+  "pcfPaymentDate": "2026-07-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B3BD4BA1-3CA0-44BB-9E8C-5DF2F55776C1",
+  "pcfAccountidname": "לימור באומן",
+  "createdon": "2026-09-20T02:27:50.000Z",
+  "_id": "49A34BC2-634A-4281-914B-B227501E14F4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499804539",
+  "pcfPaymentDate": "2026-07-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "4D24CE57-B07C-4E89-BE24-265CC0FA66F8",
+  "pcfAccountidname": "יפית מויאל",
+  "createdon": "2026-09-20T02:10:38.000Z",
+  "_id": "A8BAAA97-4BE7-40E2-99D2-B2FB24D5699A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-481790395",
+  "pcfPaymentDate": "2026-05-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 442.000034,
+  "pcfAccountid": "13C7F3EE-F0AC-4797-948D-189C4558913E",
+  "pcfAccountidname": "נטלי עוקב",
+  "createdon": "2026-09-20T02:01:34.000Z",
+  "_id": "E09CFCDC-45C7-4E5A-B595-B337E5923E53"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471485143",
+  "pcfPaymentDate": "2026-03-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "A9E3CE37-87E6-4A6A-80C8-73BAE4B5A9E9",
+  "pcfAccountidname": "בללי אסתר",
+  "createdon": "2026-09-20T02:26:26.000Z",
+  "_id": "BAB9B216-583B-4B05-AE12-B36BD1E44935"
+ },
+ {
+  "pcfExternalSoftwareID1": "AC5862DA-504E-4D7D-833A-2FE4466AB9B5#1",
+  "pcfPaymentDate": "2026-06-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 258.99997,
+  "pcfAccountid": "66ECACCC-BCE8-47AC-9E47-F74FA033E8F8",
+  "pcfAccountidname": "מרגלית דרור",
+  "createdon": "2026-09-11T11:50:56.000Z",
+  "_id": "70633C3E-426C-4540-AD9C-B385A6399599"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-462317193",
+  "pcfPaymentDate": "2026-02-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "0FD8DDE8-E16E-46F0-A41B-0F6D9A36AF96",
+  "pcfAccountidname": "מורן לוי",
+  "createdon": "2026-09-20T02:00:37.000Z",
+  "_id": "16A3C479-137D-4621-AA9D-B40BE4EE2EF2"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491795978",
+  "pcfPaymentDate": "2026-06-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.00004,
+  "pcfAccountid": "CF3EC4BE-D2C0-4CEF-83E8-FA2B8066E5F3",
+  "pcfAccountidname": "לימור חיון",
+  "createdon": "2026-09-20T02:31:12.000Z",
+  "_id": "B1B57E94-08FC-402E-88F2-B4690E57FDF8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-487807281",
+  "pcfPaymentDate": "2026-05-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F1700B1D-C926-4537-9F9C-80531CBD5F39",
+  "pcfAccountidname": "סנאית סיטבון",
+  "createdon": "2026-09-20T02:36:00.000Z",
+  "_id": "4C3B8EEE-F661-4EC3-BBCA-B4738DB96CEA"
+ },
+ {
+  "pcfExternalSoftwareID1": "16CA4727-E07B-4632-9571-1864E961C357#1",
+  "pcfPaymentDate": "2026-04-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "9C46334D-4D5B-47DB-90FD-01ED19DEB6FF",
+  "pcfAccountidname": "תהילה נאומבורג",
+  "createdon": "2026-09-11T14:27:39.000Z",
+  "_id": "00F43980-3DC4-474F-9F32-B72A42ED019D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-467858435",
+  "pcfPaymentDate": "2026-02-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "E173413C-3C4C-4E13-A43C-79EC954E06D5",
+  "pcfAccountidname": "מתתיהו ריקי",
+  "createdon": "2026-09-20T02:33:48.000Z",
+  "_id": "B50156C1-5C91-4BD0-96E1-B737FE64745D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493332936",
+  "pcfPaymentDate": "2026-06-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "B4CFDE85-043C-4EBC-8CF2-D72518996E54",
+  "pcfAccountidname": "רינה משה חן",
+  "createdon": "2026-09-20T02:28:00.000Z",
+  "_id": "7F7DA53B-6B86-4F91-A8CD-B79269F99345"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500995382",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "F99141C0-40ED-4ECA-9662-74C8E5432493",
+  "pcfAccountidname": "מירב שרעבי",
+  "createdon": "2026-09-20T02:37:15.000Z",
+  "_id": "4CF9E469-EF6D-497F-BD14-B7A2049E9CAE"
+ },
+ {
+  "pcfExternalSoftwareID1": "8759D709-A5E0-4BD2-9FA8-8C5A6608ED93#1",
+  "pcfPaymentDate": "2026-04-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "D82E3FA9-15A8-45A5-BDCC-B9AC9FE773CD",
+  "pcfAccountidname": "מירי מלאכי",
+  "createdon": "2026-09-11T11:12:11.000Z",
+  "_id": "9105B8E3-C363-4492-94F2-B7B5C542C9A4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484630977",
+  "pcfPaymentDate": "2026-05-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E0C54B37-7CDE-4152-AD03-3686D5665E3E",
+  "pcfAccountidname": "בטי אשורי",
+  "createdon": "2026-09-20T02:33:36.000Z",
+  "_id": "9A636149-8D31-4592-8617-BA7B246DD30B"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485501297",
+  "pcfPaymentDate": "2026-05-20T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "D82E3FA9-15A8-45A5-BDCC-B9AC9FE773CD",
+  "pcfAccountidname": "מירי מלאכי",
+  "createdon": "2026-09-20T02:32:19.000Z",
+  "_id": "BB3C3845-255F-4523-9D79-BA8A93379D2C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502717795",
+  "pcfPaymentDate": "2026-07-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "64760178-0E6B-466C-B8A0-04F56D847D0A",
+  "pcfAccountidname": "לאה שיליץ",
+  "createdon": "2026-09-20T02:14:08.000Z",
+  "_id": "C73C91EF-B18D-4D8F-8543-BAF10860EF4E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485189086",
+  "pcfPaymentDate": "2026-05-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "29349AD3-4AF1-4C2E-A57E-4CD29901E4FA",
+  "pcfAccountidname": "גל מלכה",
+  "createdon": "2026-09-20T02:05:30.000Z",
+  "_id": "F0804591-6212-4D22-9CAE-BB00721EFFE4"
+ },
+ {
+  "pcfExternalSoftwareID1": "6A44CE5C-0E1B-4971-B680-DF8CBF9B9A6D#1",
+  "pcfPaymentDate": "2026-05-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B661C493-D976-4906-A28E-912F4390355A",
+  "pcfAccountidname": "רעיה טובול",
+  "createdon": "2026-09-10T23:31:05.000Z",
+  "_id": "FEB35EF5-9151-439B-97F7-BB1979491CDF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-476365707",
+  "pcfPaymentDate": "2026-04-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1650.000018,
+  "pcfAccountid": "036CE57A-5A56-4B25-A149-AFB5AA6C6F24",
+  "pcfAccountidname": "שני וייס",
+  "createdon": "2026-09-20T01:57:50.000Z",
+  "_id": "98A06A11-4D60-4E40-8D58-BC437E2ACDA7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482868841",
+  "pcfPaymentDate": "2026-05-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "672191F8-DCCA-4367-B652-9662489B22AE",
+  "pcfAccountidname": "כוכבית בריינר",
+  "createdon": "2026-09-20T02:14:40.000Z",
+  "_id": "6E7C6156-3209-482B-8E02-BC5868DF7BBF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499165728",
+  "pcfPaymentDate": "2026-07-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5F7827AF-80CC-498D-BA4D-5E921FEDE28D",
+  "pcfAccountidname": "רותם כהן",
+  "createdon": "2026-09-20T02:12:35.000Z",
+  "_id": "7C6DFE2B-4782-47CE-A09E-BDDEB1CA85DF"
+ },
+ {
+  "pcfExternalSoftwareID1": "6D650741-A460-4084-860A-13D7D60DBB1E#1",
+  "pcfPaymentDate": "2026-05-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "6AF07193-6DA2-463D-AAD1-19858A381378",
+  "pcfAccountidname": "לידור בלטצאנו",
+  "createdon": "2026-09-11T11:30:19.000Z",
+  "_id": "7908AC84-A19E-45C2-8B7C-BE9143E68821"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455520172",
+  "pcfPaymentDate": "2026-01-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "3982520D-6065-4C54-B3AA-87E5F701C32E",
+  "pcfAccountidname": "הילה עודד",
+  "createdon": "2026-09-20T02:08:50.000Z",
+  "_id": "DCEE68DD-6AE4-4667-9873-BECA3C4FD8C7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470161197",
+  "pcfPaymentDate": "2026-03-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 449.999962,
+  "pcfAccountid": "7904E3D5-53D7-454E-90B4-841D194D0CB4",
+  "pcfAccountidname": "יערית אוחיון שרביט",
+  "createdon": "2026-09-20T02:18:17.000Z",
+  "_id": "C77B8AC8-E02A-4B71-86B7-BFD1EEEBB894"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-507590162",
+  "pcfPaymentDate": "2026-08-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "F4862720-F96B-485B-A3F2-4711A1DDB677",
+  "pcfAccountidname": "חמוטל יחיא",
+  "createdon": "2026-09-20T02:36:14.000Z",
+  "_id": "D09EEED7-2457-40D7-8DA2-C0DAED3E5A84"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-489427292",
+  "pcfPaymentDate": "2026-06-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "913E0156-EB0F-4C29-9C71-94491856847E",
+  "pcfAccountidname": "שוריק בלקגיאן",
+  "createdon": "2026-09-20T02:23:45.000Z",
+  "_id": "198C28A2-2A54-4280-B862-C14438661786"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-485189111",
+  "pcfPaymentDate": "2026-05-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "98E0D42E-29EE-4A20-B8B3-207ED0C1D4CE",
+  "pcfAccountidname": "אילנה גולדמן",
+  "createdon": "2026-09-20T02:24:24.000Z",
+  "_id": "714C4CC5-950F-4893-BFE0-C1BD2B761BC0"
+ },
+ {
+  "pcfExternalSoftwareID1": "CAA22D26-569A-4AE3-9501-6539D6F5EEA1#1",
+  "pcfPaymentDate": "2026-06-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "623D701A-79A5-46AF-BBAF-631887A4E1CA",
+  "pcfAccountidname": "שרי נחשוני",
+  "createdon": "2026-09-11T14:16:55.000Z",
+  "_id": "2DABC2C0-5CE9-48D1-B130-C20973C9F306"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-458618310",
+  "pcfPaymentDate": "2026-01-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5D815DC7-E885-44AD-9E8B-DFFE43F842B9",
+  "pcfAccountidname": "טל בן שמחון",
+  "createdon": "2026-09-20T02:12:17.000Z",
+  "_id": "FB8F283F-0BFA-4C06-ABAA-C228BF6EE1C6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-499165493",
+  "pcfPaymentDate": "2026-07-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "36668406-7DCE-4E99-884B-19ED94221DF5",
+  "pcfAccountidname": "שני שופן",
+  "createdon": "2026-09-20T02:08:32.000Z",
+  "_id": "0FD12B3D-28E0-4C47-BA5E-C261B92E84A0"
+ },
+ {
+  "pcfExternalSoftwareID1": "83B47EC5-27E2-4AD7-B0EC-323790B2876C#1",
+  "pcfPaymentDate": "2026-02-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "5B58D015-11D3-4ACA-BB4D-89D8DFC70819",
+  "pcfAccountidname": "סולי נקש",
+  "createdon": "2026-09-11T14:49:39.000Z",
+  "_id": "7B294745-360D-4970-AC22-C27222C6DF33"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471711223",
+  "pcfPaymentDate": "2026-03-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "DD3B56B5-0CB5-417A-9273-F1B4DC496695",
+  "pcfAccountidname": "שבי דונסקי (בת שבע)",
+  "createdon": "2026-09-20T02:33:11.000Z",
+  "_id": "2E2D7A90-E863-4BEF-8B44-C2D5EDA48FFA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502164532",
+  "pcfPaymentDate": "2026-07-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "90F01CC0-103C-4284-A9F2-833680BC902F",
+  "pcfAccountidname": "שירלי סופר",
+  "createdon": "2026-09-20T02:23:37.000Z",
+  "_id": "54A591FC-56D6-4A5C-91E2-C341E0D426F6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493785318",
+  "pcfPaymentDate": "2026-06-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "6A1133AF-1E14-4068-BB4C-6FEDC93EEDBB",
+  "pcfAccountidname": "סיון שורץ",
+  "createdon": "2026-09-20T02:15:03.000Z",
+  "_id": "9432E400-4B5B-4448-A48B-C4000E8EBEE1"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-482289391",
+  "pcfPaymentDate": "2026-05-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "A58C094A-2377-4BEF-8709-CFC9799E85CE",
+  "pcfAccountidname": "אסתר סימן טוב",
+  "createdon": "2026-09-20T02:25:29.000Z",
+  "_id": "36BD4F73-AD56-49E5-84DE-C45F00A391E7"
+ },
+ {
+  "pcfExternalSoftwareID1": "049B2B7E-0A2D-4C86-AB8C-3080EE59F65C#1",
+  "pcfPaymentDate": "2026-03-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "7ADB761C-1F97-4929-850B-5786EB9D5629",
+  "pcfAccountidname": "לימור שושן",
+  "createdon": "2026-09-11T14:49:51.000Z",
+  "_id": "95B6A128-C9FD-4C27-9122-C46F2B5702EB"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469681164",
+  "pcfPaymentDate": "2026-03-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "92A78AE7-1A24-40A7-BC15-4949AC8ADEA0",
+  "pcfAccountidname": "חיה דשתי",
+  "createdon": "2026-09-20T02:23:54.000Z",
+  "_id": "52CAC281-D17D-42A3-A9ED-C58A46DC416A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-464713147",
+  "pcfPaymentDate": "2026-02-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "0C2425C0-F356-41E8-84DE-B880BEE704DD",
+  "pcfAccountidname": "זהבית גדייב",
+  "createdon": "2026-09-20T01:59:52.000Z",
+  "_id": "4E720D3D-8FAD-4B8E-BE3A-C59A04FD79D4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-497523758",
+  "pcfPaymentDate": "2026-07-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1325.000052,
+  "pcfAccountid": "1B88A159-DD78-427F-A2B6-E5D04B2AF1CE",
+  "pcfAccountidname": "דורית מילר",
+  "createdon": "2026-09-20T02:02:49.000Z",
+  "_id": "B5F17163-9BCE-4D2C-A44A-C681D44042A1"
+ },
+ {
+  "pcfExternalSoftwareID1": "596D19E2-5E5A-4FCF-B8CC-882A9CD16E7D#1",
+  "pcfPaymentDate": "2026-03-29T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "66CE6208-C54F-4625-B360-7B518090D795",
+  "pcfAccountidname": "מירב גרשון",
+  "createdon": "2026-09-11T14:49:44.000Z",
+  "_id": "A56BF6AF-7320-404D-B9E4-C6D7A1366D8A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491284591",
+  "pcfPaymentDate": "2026-06-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 284.999972,
+  "pcfAccountid": "899BAB2C-0596-4DD0-A660-AA3F6887CAC8",
+  "pcfAccountidname": "לימור יחזקאל",
+  "createdon": "2026-09-20T02:22:27.000Z",
+  "_id": "621DF56E-46E5-4BA0-9757-C6E5A3B7B0D6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500418806",
+  "pcfPaymentDate": "2026-07-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "A05E0358-61DD-46D3-854B-8D281EBFB4E1",
+  "pcfAccountidname": "נעמי חסון",
+  "createdon": "2026-09-20T02:24:45.000Z",
+  "_id": "F2985DFB-E981-49FF-8826-C73193273024"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466971084",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 395.000044,
+  "pcfAccountid": "CAE22C99-E733-42AA-BEED-552C50728AEE",
+  "pcfAccountidname": "אניטה גרכד",
+  "createdon": "2026-09-20T02:30:40.000Z",
+  "_id": "91DEC6F9-1733-4274-B214-C758B66EA497"
+ },
+ {
+  "pcfExternalSoftwareID1": "2D6252BF-B04A-4AC8-BBE0-CD7249AAC96D#1",
+  "pcfPaymentDate": "2026-08-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 475.000032,
+  "pcfAccountid": "C072B168-8FD7-4B05-93B9-BE16D35FA07B",
+  "pcfAccountidname": "אילה אליהו",
+  "createdon": "2026-09-11T13:44:32.000Z",
+  "_id": "B0AC824A-9C2E-41FE-822C-CA5E2B864060"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470738655",
+  "pcfPaymentDate": "2026-03-13T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "2F87B3F7-6BE1-41FC-928B-7981DE33ED5D",
+  "pcfAccountidname": "גלית חיים",
+  "createdon": "2026-09-20T02:07:07.000Z",
+  "_id": "04A92643-D8D1-4B36-92AE-CB0E1F5409DC"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471251203",
+  "pcfPaymentDate": "2026-03-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "FDB3F018-2007-46EA-BD35-08361D99DED7",
+  "pcfAccountidname": "חני נדב",
+  "createdon": "2026-09-20T02:37:34.000Z",
+  "_id": "E4451111-506D-4C8D-9E6D-CB6A2FA1431D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471908072",
+  "pcfPaymentDate": "2026-03-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "2DCF5DDE-2E02-4636-8BB9-E897D4D3C02E",
+  "pcfAccountidname": "אסטל בילר",
+  "createdon": "2026-09-20T02:06:27.000Z",
+  "_id": "E41CE72B-4995-4366-B024-CC9A92A87F7C"
+ },
+ {
+  "pcfExternalSoftwareID1": "03E47706-57EB-4CA1-9615-E42EE159B590#1",
+  "pcfPaymentDate": "2026-06-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "6A4B5A49-EA39-49BB-ABD8-233457898A2B",
+  "pcfAccountidname": "גלית ראש",
+  "createdon": "2026-09-11T11:30:09.000Z",
+  "_id": "6A30CC6A-9620-413D-8026-D00DF1C5A55C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469340232",
+  "pcfPaymentDate": "2026-03-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "854E9E1D-13C1-49B6-B0B5-A37E0A4A1CDE",
+  "pcfAccountidname": "איילת כהן מליחי",
+  "createdon": "2026-09-20T02:20:57.000Z",
+  "_id": "26D33F27-F430-4C16-BDF5-D02298907F67"
+ },
+ {
+  "pcfExternalSoftwareID1": "A587A465-4B35-4854-AE77-92D3D3DCEF80#1",
+  "pcfPaymentDate": "2026-04-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 1924.999962,
+  "pcfAccountid": "7838D752-DF0D-40C2-BE1D-7D5C60E99B78",
+  "pcfAccountidname": "לימור טרלובסקי",
+  "createdon": "2026-09-11T14:27:52.000Z",
+  "_id": "7FDE7B2C-9196-463E-8344-D17003F09AB3"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-472329166",
+  "pcfPaymentDate": "2026-03-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "E41CEEBD-C699-43EB-B483-E12B7141DC82",
+  "pcfAccountidname": "רויטל מזרחי",
+  "createdon": "2026-09-20T02:34:00.000Z",
+  "_id": "AC87B440-CD58-4649-AC3F-D269E9C4D970"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-497470972",
+  "pcfPaymentDate": "2026-07-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 676.999984,
+  "pcfAccountid": "C6A875D9-64C3-406A-8768-C148C9EA467D",
+  "pcfAccountidname": "עפרי סמואלוב",
+  "createdon": "2026-09-20T02:30:18.000Z",
+  "_id": "E1A754B6-D77B-48DE-971F-D2E9A1A6FA84"
+ },
+ {
+  "pcfExternalSoftwareID1": "F8AB09F2-BEA5-4A11-B862-2E60AAE9D9E4#1",
+  "pcfPaymentDate": "2026-06-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 355.00005,
+  "pcfAccountid": "49E28EC8-2038-43BE-AC70-5F54665C3FA2",
+  "pcfAccountidname": "ריקי גואטה",
+  "createdon": "2026-09-11T14:38:50.000Z",
+  "_id": "29A2BBAE-23F9-46DA-AAAB-D335C1B8D948"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491795958",
+  "pcfPaymentDate": "2026-06-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "EE796090-0FAC-44FF-A576-7FDAD835F345",
+  "pcfAccountidname": "שרה סאייג",
+  "createdon": "2026-09-20T02:35:10.000Z",
+  "_id": "0C5E890C-B651-402E-8298-D35056A55DB7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468186700",
+  "pcfPaymentDate": "2026-02-26T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "2EE632AB-65E4-443C-8461-56F96019E4E5",
+  "pcfAccountidname": "ליהיא קנפו",
+  "createdon": "2026-09-20T02:06:48.000Z",
+  "_id": "B01AE240-69DD-4F31-B8CB-D38329598686"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-462513388",
+  "pcfPaymentDate": "2026-02-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "32E5E52E-3DA4-4512-A4DD-1174490F99B7",
+  "pcfAccountidname": "ענת שם טוב",
+  "createdon": "2026-09-20T02:07:47.000Z",
+  "_id": "9878CE62-D294-434E-A9AC-D461B025F96E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471110045",
+  "pcfPaymentDate": "2026-03-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "52E3453F-D83B-4659-8086-3889B460F175",
+  "pcfAccountidname": "דפנה מלח",
+  "createdon": "2026-09-20T02:11:13.000Z",
+  "_id": "C6784E37-CA0F-4C3F-9CFD-D5651462DEDE"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-467850917",
+  "pcfPaymentDate": "2026-02-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "1382C666-2725-4154-9BD1-94B1FF64D46E",
+  "pcfAccountidname": "תהילה עדרי",
+  "createdon": "2026-09-20T02:01:24.000Z",
+  "_id": "451F9BBB-32CF-4D07-8FB1-D6910E82AA85"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-459669393",
+  "pcfPaymentDate": "2026-01-21T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "ACC5BBDB-E52F-472C-9095-B810E7FC216F",
+  "pcfAccountidname": "אביגיל צדוק",
+  "createdon": "2026-09-20T02:26:43.000Z",
+  "_id": "30E2AA4A-FA14-41E9-8EF5-D776E2D8C47F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-497469108",
+  "pcfPaymentDate": "2026-07-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "6327B2C6-DE42-4175-8A75-B240789609C0",
+  "pcfAccountidname": "רונית אברמוביץ'",
+  "createdon": "2026-09-20T02:13:23.000Z",
+  "_id": "89629221-F2D4-4FE3-9235-D89692A4EDB2"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-505898591",
+  "pcfPaymentDate": "2026-08-05T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "26647C41-37D0-4C0B-9707-2711667C7EC3",
+  "pcfAccountidname": "רויטל סולומון",
+  "createdon": "2026-09-20T02:04:44.000Z",
+  "_id": "F2B03AA1-1DD6-466B-B4B8-D8A3E8FDD586"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-474769249",
+  "pcfPaymentDate": "2026-04-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.000038,
+  "pcfAccountid": "A7650F61-480B-4A50-B374-2452BD7C6C61",
+  "pcfAccountidname": "חגית גור אריה",
+  "createdon": "2026-09-20T02:25:41.000Z",
+  "_id": "15A4E5A7-508C-4BE5-845B-DA0DD6CDC026"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-470547380",
+  "pcfPaymentDate": "2026-03-12T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 378.999952,
+  "pcfAccountid": "39AE6861-7298-4A84-9EC5-58D053E9C44F",
+  "pcfAccountidname": "ציפי טרקיי",
+  "createdon": "2026-09-20T02:08:59.000Z",
+  "_id": "B51185FB-3496-4239-9D1D-DAA5E75C1AC7"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-490442715",
+  "pcfPaymentDate": "2026-06-07T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "6AB63152-BCA5-460A-ABD7-04323FB8C32D",
+  "pcfAccountidname": "טמי שהרבני",
+  "createdon": "2026-09-20T02:15:11.000Z",
+  "_id": "740A1DF5-AC91-43F9-9C9D-DBEADFEC158D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-504851972",
+  "pcfPaymentDate": "2026-08-02T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "12AB227D-7CA7-427C-96F1-CC4B4ACD9A07",
+  "pcfAccountidname": "נהירה משה",
+  "createdon": "2026-09-20T02:01:22.000Z",
+  "_id": "9ABB8FE2-09BC-4447-A73D-DC5EC1927886"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460013994",
+  "pcfPaymentDate": "2026-01-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "58B40C10-4111-4410-B913-707923007868",
+  "pcfAccountidname": "מיטל גואטה",
+  "createdon": "2026-09-20T02:11:33.000Z",
+  "_id": "C71F70B2-AD4C-4114-9C3D-DDBFCBEA88FE"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-486411715",
+  "pcfPaymentDate": "2026-05-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 258.99997,
+  "pcfAccountid": "FA7940AB-0FE4-4DEA-B631-76717C2C08A3",
+  "pcfAccountidname": "שרון מאיר",
+  "createdon": "2026-09-20T02:37:17.000Z",
+  "_id": "1615DAF7-65DE-4B01-AD55-DE10E54C78C4"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-479951755",
+  "pcfPaymentDate": "2026-04-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "DB411B72-35E5-4601-97DB-706B82F2EF7E",
+  "pcfAccountidname": "עופרי לפיד",
+  "createdon": "2026-09-20T02:32:58.000Z",
+  "_id": "4B92B641-C313-4D48-812A-DE50896C0E40"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-458592106",
+  "pcfPaymentDate": "2026-01-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "CFCF5416-28F8-4705-B9E5-4B2B8D742915",
+  "pcfAccountidname": "אודליה קודיש",
+  "createdon": "2026-09-20T02:31:40.000Z",
+  "_id": "38E8AB57-570D-4E3F-ADCF-DF8A01243514"
+ },
+ {
+  "pcfExternalSoftwareID1": "70698231-20C9-4599-93E8-49EAC3077A4D#1",
+  "pcfPaymentDate": "2026-06-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "36668406-7DCE-4E99-884B-19ED94221DF5",
+  "pcfAccountidname": "שני שופן",
+  "createdon": "2026-09-11T11:12:08.000Z",
+  "_id": "522530A5-9B70-4075-A2A3-DFB399A54BC8"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-484353275",
+  "pcfPaymentDate": "2026-05-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "AF2B54AE-9904-4D9F-8C3D-A6577AABCD1E",
+  "pcfAccountidname": "חלי בן עמי",
+  "createdon": "2026-09-20T02:27:25.000Z",
+  "_id": "60FAB6D6-7A37-492C-A8AF-DFDBBDF25DD9"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-455726441",
+  "pcfPaymentDate": "2026-01-03T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "1BE72C92-6A9A-451D-8006-296469184079",
+  "pcfAccountidname": "שירית דביר",
+  "createdon": "2026-09-20T02:02:55.000Z",
+  "_id": "4E71E9BB-3084-49EF-9E91-E04830406AAA"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-471252989",
+  "pcfPaymentDate": "2026-03-16T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "B9075AB5-7C59-406D-A9E9-23599BDC98CF",
+  "pcfAccountidname": "סיון ימין",
+  "createdon": "2026-09-20T02:28:37.000Z",
+  "_id": "958C54B3-04D6-4676-B63E-E19A8A4F535C"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-469681757",
+  "pcfPaymentDate": "2026-03-08T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "2CA8734F-92E2-46BE-B3A1-92B0BF30BD78",
+  "pcfAccountidname": "שלומית אטדגי",
+  "createdon": "2026-09-20T02:06:05.000Z",
+  "_id": "6205EE2B-25C8-4296-B007-E2CFCBBE9287"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491537491",
+  "pcfPaymentDate": "2026-06-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "A9B6100A-F6CC-42D4-A5DF-EFAC0FF682EF",
+  "pcfAccountidname": "מורן קעטבי",
+  "createdon": "2026-09-20T02:26:24.000Z",
+  "_id": "6378AB43-E87E-45F8-8D14-E4689A5B4F61"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-502712931",
+  "pcfPaymentDate": "2026-07-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "AEF9EA5B-C888-4AE3-BB09-88915B4C7427",
+  "pcfAccountidname": "שירלי זיידל מוסקוביץ",
+  "createdon": "2026-09-20T02:27:11.000Z",
+  "_id": "68BDC612-F686-444D-9B30-E46D030A5CDF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-493230545",
+  "pcfPaymentDate": "2026-06-18T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "98699E38-BA7D-450B-B097-7263599D1C9E",
+  "pcfAccountidname": "ליזט סופר",
+  "createdon": "2026-09-20T02:24:22.000Z",
+  "_id": "D87BE0E2-EB87-4586-B3A5-E47537A2E91A"
+ },
+ {
+  "pcfExternalSoftwareID1": "7248C74A-0440-46FA-A084-C51EEBEE0791#1",
+  "pcfPaymentDate": "2026-01-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "C45526D3-8D4F-483D-AC05-19C3EEE911EB",
+  "pcfAccountidname": "רחל גבאי",
+  "createdon": "2026-09-11T12:46:05.000Z",
+  "_id": "B6E6E838-F859-4C7F-9528-E5435261A487"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501831333",
+  "pcfPaymentDate": "2026-07-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "299383A8-9B92-4B9C-B2A3-C73E4C68B389",
+  "pcfAccountidname": "יסמין בן יוסף",
+  "createdon": "2026-09-20T02:05:43.000Z",
+  "_id": "3D344324-AC23-4A0F-9F1F-E60E12F363DE"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-458355556",
+  "pcfPaymentDate": "2026-01-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "CC2F6CE0-A8C7-462E-8F02-4C239CFE0EF8",
+  "pcfAccountidname": "קרן-אור שניצר",
+  "createdon": "2026-09-20T02:30:46.000Z",
+  "_id": "54F24111-4310-41FB-9E1C-E75BDC5D519E"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-492980129",
+  "pcfPaymentDate": "2026-06-17T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 494.99997,
+  "pcfAccountid": "6AF07193-6DA2-463D-AAD1-19858A381378",
+  "pcfAccountidname": "לידור בלטצאנו",
+  "createdon": "2026-09-20T02:15:14.000Z",
+  "_id": "EC33ECB5-1760-4907-83F9-EBA27080C2FF"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-460128999",
+  "pcfPaymentDate": "2026-01-23T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "F416F526-F55B-40B3-B808-8CA6F5BE4613",
+  "pcfAccountidname": "עדי מור",
+  "createdon": "2026-09-20T02:36:09.000Z",
+  "_id": "9D3F9418-6B57-43D1-B45A-ECC01162C7D6"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-458081273",
+  "pcfPaymentDate": "2026-01-14T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "341C6D0C-0015-41B6-B1EE-054507E2E145",
+  "pcfAccountidname": "אורלי שוקרון",
+  "createdon": "2026-09-20T02:07:59.000Z",
+  "_id": "D72DBC90-4B1D-4452-BFDF-F031DB8AA593"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-501006918",
+  "pcfPaymentDate": "2026-07-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 425.00001,
+  "pcfAccountid": "D2F0FA89-4D05-48FF-B3F2-50113C3369FD",
+  "pcfAccountidname": "מלי מאזוז",
+  "createdon": "2026-09-20T02:31:50.000Z",
+  "_id": "CEE3EAFB-7439-4F45-9E02-F079A2641ECE"
+ },
+ {
+  "pcfExternalSoftwareID1": "1CB87DB0-2EB9-40E3-AC24-8C54C02971E2#1",
+  "pcfPaymentDate": "2026-06-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "64760178-0E6B-466C-B8A0-04F56D847D0A",
+  "pcfAccountidname": "לאה שיליץ",
+  "createdon": "2026-09-11T14:06:19.000Z",
+  "_id": "811AD1BB-EC69-45F8-81B3-F3313BC91FBB"
+ },
+ {
+  "pcfExternalSoftwareID1": "9C02A1C5-5BBD-4288-8681-DB7C2F6F0EDE#1",
+  "pcfPaymentDate": "2026-04-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "AF2B54AE-9904-4D9F-8C3D-A6577AABCD1E",
+  "pcfAccountidname": "חלי בן עמי",
+  "createdon": "2026-09-11T13:55:08.000Z",
+  "_id": "36B614EB-A202-4BEA-937B-F3C6245D2E8D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-509825302",
+  "pcfPaymentDate": "2026-08-19T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "B6101F20-4902-4482-A34D-F53A0BDDF0F4",
+  "pcfAccountidname": "אורטל אטיאס",
+  "createdon": "2026-09-20T02:28:13.000Z",
+  "_id": "5D690F0A-C024-443D-94E4-F49F51FB612A"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-500245543",
+  "pcfPaymentDate": "2026-07-15T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 916.999948,
+  "pcfAccountid": "8933B1BF-6EDE-467B-B842-858A8934A01A",
+  "pcfAccountidname": "גלית ישראלי",
+  "createdon": "2026-09-20T02:22:20.000Z",
+  "_id": "55386607-7450-4B66-A097-F5AAA958C647"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-490389457",
+  "pcfPaymentDate": "2026-06-06T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "F7E2925A-DBA4-4129-B83D-1D039A1D9B5E",
+  "pcfAccountidname": "רות אליאס",
+  "createdon": "2026-09-20T02:36:55.000Z",
+  "_id": "35084F90-EE4C-4DEB-8066-F5CB5D1D5222"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-495803147",
+  "pcfPaymentDate": "2026-06-28T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "051ACAC2-677D-489E-AD7A-485D058BBE10",
+  "pcfAccountidname": "עדי דור",
+  "createdon": "2026-09-20T01:58:23.000Z",
+  "_id": "77959558-0282-4F7B-AC43-F61D6CD29885"
+ },
+ {
+  "pcfExternalSoftwareID1": "AE1F653D-374B-4F8A-8221-6DAFB3EA46DC#1",
+  "pcfPaymentDate": "2026-04-10T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "864B448F-6FE6-44F4-BE2D-C192DF3DCF42",
+  "pcfAccountidname": "מורן רודניקי",
+  "createdon": "2026-09-11T14:16:52.000Z",
+  "_id": "CCFB2412-B291-4862-B685-F6E42476A8E1"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-468772362",
+  "pcfPaymentDate": "2026-03-01T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "21148F16-CAD5-4AE8-B39F-4938615432A0",
+  "pcfAccountidname": "ורד נח",
+  "createdon": "2026-09-20T02:03:30.000Z",
+  "_id": "8ADE34CF-F5B7-4044-AEC4-F81FA19FBF10"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-491537465",
+  "pcfPaymentDate": "2026-06-11T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 649,
+  "pcfAccountid": "28A48473-C2DB-4289-A6EF-99FDE09AB9CC",
+  "pcfAccountidname": "חני פרידמן",
+  "createdon": "2026-09-20T02:04:55.000Z",
+  "_id": "F418D178-6D7D-4793-918F-F83CDB19CF44"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-463062936",
+  "pcfPaymentDate": "2026-02-04T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 348.999986,
+  "pcfAccountid": "17D03CC7-CAEA-4B07-A69A-15724F0DA8E1",
+  "pcfAccountidname": "יעל צור",
+  "createdon": "2026-09-20T02:01:47.000Z",
+  "_id": "8B56933B-DB99-4862-A11A-F8EDAFA40BF1"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-467857683",
+  "pcfPaymentDate": "2026-02-25T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 565.99998,
+  "pcfAccountid": "930BCD4E-1D51-4B5D-B525-28D075FCAD43",
+  "pcfAccountidname": "מרי ניסנוב",
+  "createdon": "2026-09-20T02:23:57.000Z",
+  "_id": "0185DBEB-BAD9-4C9F-90E7-FD6C265A2A5F"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-466975453",
+  "pcfPaymentDate": "2026-02-22T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 532.00005,
+  "pcfAccountid": "3FE13BD7-64DC-48C2-98D6-EFFF87EFAD4E",
+  "pcfAccountidname": "נטלי שרביט",
+  "createdon": "2026-09-20T02:09:50.000Z",
+  "_id": "950DAC77-B280-4B0D-A107-FE35E8E3EF3D"
+ },
+ {
+  "pcfExternalSoftwareID1": "GROW-487453407",
+  "pcfPaymentDate": "2026-05-27T00:00:00.000Z",
+  "pcfPayedIncludingVAT": 385.000016,
+  "pcfAccountid": "02EB8E56-3D38-43A6-9A31-A510AAE1514F",
+  "pcfAccountidname": "אורית אלמליח",
+  "createdon": "2026-09-20T01:57:46.000Z",
+  "_id": "42F0473F-3D2A-4C01-87FC-FFC7277C34DF"
+ }
+]

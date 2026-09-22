@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>קליטת תשלום שאינו באשראי · אשף</title>
+<style>
+  :root{--rose:#b06a82;--rose-dark:#955a6e;--cream:#f7f2ee;--line:#e4dcdf;
+        --ink:#3a2f33;--muted:#8a7c81;--ok:#3f7d62;--warn:#a97c1f;--warn-bg:#fdf6e3;--err:#a8434f;--err-bg:#fbeef0}
+  *{box-sizing:border-box;font-family:'Segoe UI',Tahoma,Arial,sans-serif}
+  body{background:var(--cream);color:var(--ink);margin:0;padding:24px 14px;display:flex;justify-content:center}
+  .card{width:100%;max-width:560px;background:#fff;border:1.5px solid var(--rose);
+        border-radius:16px;padding:26px 24px 22px;box-shadow:0 8px 28px rgba(176,106,130,.12)}
+  h1{font-size:20px;font-weight:700;color:var(--rose);margin:0 0 4px;text-align:center}
+  .sub{font-size:13px;color:var(--muted);text-align:center;margin:0 0 18px}
+  .hidden{display:none!important}
+  .box{border:1px solid var(--line);border-radius:12px;padding:16px;margin-top:14px}
+  .box.warn{background:var(--warn-bg);border-color:var(--warn);color:var(--warn);font-size:13.5px;line-height:1.55}
+  .box.err{background:var(--err-bg);border-color:var(--err);color:var(--err);font-size:14px;line-height:1.6}
+  .gate-q{font-size:16.5px;font-weight:700;text-align:center;margin:18px 0 14px;line-height:1.6}
+  .gate-sub{font-size:13.5px;font-weight:600;color:var(--muted)}
+  .per-pay{margin-top:8px;padding:8px 10px;background:var(--cream);border-radius:8px;
+           font-size:13px;font-weight:600;color:var(--rose);text-align:center}
+  .novat{font-weight:400;color:var(--muted);font-size:12px}
+  input.f-first{direction:rtl;text-align:right}
+  /* ── אשף ─────────────────────────────── */
+  .steps{display:flex;gap:6px;justify-content:center;margin:0 0 16px}
+  .dot{width:26px;height:6px;border-radius:4px;background:var(--line);transition:background .2s}
+  .dot.on{background:var(--rose)}
+  .step-title{font-size:16px;font-weight:800;color:var(--rose);text-align:center;margin:2px 0 4px}
+  .step-sub{font-size:12.5px;color:var(--muted);text-align:center;margin:0 0 14px}
+  .q-big{font-size:17px;font-weight:700;text-align:center;margin:16px 0 14px;line-height:1.6}
+  .btn-row{display:flex;gap:10px;justify-content:center}
+  .btn-row button{min-width:120px}
+  button{padding:12px 16px;font-size:15px;font-weight:700;color:#fff;background:var(--rose);
+         border:none;border-radius:10px;cursor:pointer;transition:background .15s}
+  button:hover{background:var(--rose-dark)}
+  button:disabled{opacity:.55;cursor:default}
+  button.ghost{background:#fff;color:var(--rose);border:1.5px solid var(--rose)}
+  button.ghost:hover{background:var(--cream)}
+  label{display:block;font-size:13px;font-weight:600;margin:10px 0 4px}
+  input,select,textarea{width:100%;padding:10px 11px;font-size:14px;color:var(--ink);background:#fff;
+         border:1px solid var(--line);border-radius:9px;max-width:100%}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--rose);box-shadow:0 0 0 3px rgba(176,106,130,.15)}
+  .row-card{border:1.5px solid var(--line);border-radius:12px;padding:14px 14px 12px;margin-top:14px;position:relative;background:#fdfbfa;min-width:0}
+  .row-card h3{margin:0 0 2px;font-size:14.5px;color:var(--rose)}
+  .row-del{position:absolute;top:10px;left:10px;background:none;border:none;color:var(--err);
+           font-size:13px;font-weight:700;cursor:pointer;padding:2px 6px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0 12px}
+  .grid2 > div{min-width:0}
+  .totalbar{margin-top:16px;padding:12px 14px;border-radius:10px;background:var(--cream);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+  .totalbar b{color:var(--rose)}
+  #status{margin-top:16px;font-size:14px;text-align:center;min-height:20px;line-height:1.5}
+  .err-t{color:var(--err)}
+  .success-big{margin-top:20px;padding:20px 16px;background:#eef6f1;border:1.5px solid var(--ok);border-radius:14px;text-align:center}
+  .success-big .check{display:block;font-size:40px;line-height:1;margin-bottom:8px}
+  .success-big .big{display:block;font-size:22px;font-weight:800;color:var(--ok)}
+  .spin{display:inline-block;width:14px;height:14px;border:2px solid var(--line);border-top-color:var(--rose);
+        border-radius:50%;animation:s .7s linear infinite;vertical-align:-2px;margin-right:6px}
+  @keyframes s{to{transform:rotate(360deg)}}
+  .kv{font-size:12.5px;color:var(--muted);text-align:center;margin-top:2px}
+  ul.miss{margin:8px 0 0;padding-right:18px}
+  .nav-row{display:flex;justify-content:space-between;margin-top:16px}
+  .nav-row .spacer{flex:1}
+  /* באנר מוצר חדש */
+  .newprod{background:#fdfbfa}
+  .price{margin-top:10px;padding:12px 14px;border-radius:10px;border:2px solid var(--ok);
+    background:#eef6f1;color:#2c5c48;font-size:13.5px;line-height:1.6;display:flex;
+    align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .price .lbl{font-weight:800;color:var(--ok);font-size:15px}
+  .price .amt{font-weight:800;font-size:19px;color:var(--ok)}
+  .price .novat2{font-size:12px;opacity:.8;font-weight:600}
+  .price button{background:var(--ok);color:#fff;border:0;border-radius:8px;padding:8px 14px;
+    font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+  .price.none{background:#fff7ed;border-color:#b45309;color:#7c4a12}
+  .price.none .lbl,.price.none .amt{color:#b45309}
+  .grp{border-radius:12px;padding:14px 15px;margin-top:14px;border:2px solid;font-size:13.5px;line-height:1.6}
+  .grp .hdr{display:flex;align-items:center;gap:8px;font-weight:800;font-size:15px;margin-bottom:6px}
+  .grp .ic{font-size:19px;line-height:1}
+  .grp .nm{display:block;margin:9px 0 4px;padding:10px 12px;border-radius:9px;background:#fff;
+           font-weight:800;font-size:17px;text-align:center}
+  .grp .act{margin-top:9px;font-size:12.5px}
+  .grp.ok{background:#eef6f1;border-color:var(--ok);color:#2c5c48}
+  .grp.ok .hdr{color:var(--ok)}
+  .grp.ok .nm{color:var(--ok);border:1.5px solid var(--ok)}
+  .grp.miss{background:var(--err-bg);border-color:var(--err);color:var(--err)}
+  .grp.miss .hdr{color:var(--err)}
+  .grp.miss .nm{color:var(--err);border:1.5px dashed var(--err);font-size:15px}
+  .grp.na{background:var(--cream);border-color:var(--line);color:var(--muted)}
+  .grp .mini{background:none;border:none;color:inherit;font-family:inherit;font-size:12.5px;
+             text-decoration:underline;cursor:pointer;padding:4px 0 0;font-weight:600}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>קליטת תשלום שאינו באשראי</h1>
+  <p class="sub">אשף מדורג — כל שאלה במסך נפרד</p>
+  <p class="kv" id="dealInfo"></p>
+
+  <div class="steps" id="stepsBar">
+    <div class="dot" data-step="1"></div><div class="dot" data-step="2"></div>
+    <div class="dot" data-step="3"></div><div class="dot" data-step="4"></div>
+  </div>
+
+  <!-- STEP 0: loading -->
+  <div id="stepLoad"><p style="text-align:center">טוען את נתוני העסקה <span class="spin"></span></p></div>
+
+  <!-- STEP 1: אישור סוג התשלום -->
+  <div id="stepGate" class="hidden">
+    <div class="step-title">שלב 1 מתוך 4 · אמצעי התשלום</div>
+    <p class="q-big">האם הלקוחה שילמה באופן שאינו כרטיס אשראי?<br>
+      <span class="gate-sub">או דרך אשראי אמריקן אקספרס בלבד</span></p>
+    <div class="btn-row">
+      <button id="gateYes">כן — ממשיכים</button>
+      <button id="gateNo" class="ghost">לא</button>
+    </div>
+    <div id="gateNoMsg" class="box warn hidden">
+      תשלום בכרטיס אשראי נקלט דרך דף הסליקה הרגיל, לא דרך הטופס הזה.
+    </div>
+  </div>
+
+  <!-- STEP blocked (missing fields) -->
+  <div id="stepBlock" class="hidden">
+    <div class="box err">
+      <b>אי אפשר להמשיך — חסרים שדות בעסקה:</b>
+      <ul class="miss" id="missList"></ul>
+      יש למלא את השדות בכרטיס תהליך המכירה, לשמור, ואז ללחוץ רענון.
+    </div>
+    <div style="text-align:center;margin-top:14px"><button id="retryBtn" class="ghost">רענון ובדיקה מחדש</button></div>
+  </div>
+
+  <!-- STEP 2: מוצר חדש? -->
+  <div id="stepProduct" class="hidden">
+    <div class="step-title">שלב 2 מתוך 4 · המוצר שנרכש</div>
+    <p class="q-big">האם נדרש להקים מוצר (תהליך ליווי) עבור התשלום הזה?</p>
+    <div class="btn-row">
+      <button id="newProdYes">כן</button>
+      <button id="newProdNo" class="ghost">לא</button>
+    </div>
+    <div id="prodPick" class="hidden" style="margin-top:16px">
+      <label for="productSelect">המוצר שנרכש:</label>
+      <select id="productSelect"><option value="">טוען מוצרים…</option></select>
+      <p class="kv" id="prodHint"></p>
+      <div id="priceBox" class="price hidden"></div>
+    </div>
+    <div id="groupBanner" class="grp hidden"></div>
+    <div class="nav-row">
+      <button id="backTo1" class="ghost">חזרה</button>
+      <span class="spacer"></span>
+      <button id="toStep3" class="hidden" disabled>המשך</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: וידוא קבוצה -->
+  <div id="stepGroup" class="hidden">
+    <div class="step-title">שלב 3 מתוך 4 · קבוצת וואטסאפ</div>
+    <p class="q-big">האם זו הקבוצה הנכונה?</p>
+    <div id="groupBanner3"></div>
+    <div class="nav-row">
+      <button id="backTo2" class="ghost">חזרה</button>
+      <span class="spacer"></span>
+      <button id="toStep4">המשך לפרטי התשלום</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: פרטי התשלום -->
+  <div id="stepForm" class="hidden">
+    <div class="step-title">שלב 4 מתוך 4 · פרטי התשלום</div>
+    <div id="sigWarn" class="box warn hidden">
+      ⚠️ שימי לב: העסקה עדיין לא במצב <b>נחתם</b>. במסלולי ליווי חותמים לפני שגובים. אפשר להמשיך — באחריותך.
+    </div>
+    <div id="rows"></div>
+    <div style="margin-top:12px"><button id="addRow" class="ghost" type="button">+ הוספת אמצעי תשלום</button></div>
+    <div class="totalbar">
+      <span>סה"כ הוזן: <b id="sumEntered">0 ₪</b> <span class="novat" id="sumEnteredNoVat"></span></span>
+      <span>סכום העסקה: <b id="sumDeal">—</b></span>
+    </div>
+    <div id="sumWarn" class="box warn hidden">⚠️ הסכום שהוזן שונה מסכום העסקה. אפשר לשלוח, אך מומלץ לבדוק.</div>
+    <button id="sendBtn" type="button" style="width:100%;margin-top:18px">שליחה וקליטת התשלום</button>
+    <div id="status"></div>
+    <div class="nav-row"><button id="backTo3" class="ghost">חזרה</button><span class="spacer"></span></div>
+  </div>
+</div>
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+// 🔗 WF-27 · קליטת תשלום שאינו באשראי (n8n). יוצר תשלום (1039) ותיעודי תשלום (1018),
+//    ובסיום מפעיל את התהליך המקצועי — אך ורק אם סומן "רכישה של מוצר חדש".
+const WEBHOOK_URL = "https://n8n.srv964196.hstgr.cloud/webhook/manual-payment-roital";
+// 🔴 מזהה שליחה — נוצר פעם אחת לכל טעינת עמוד. מונע קליטה כפולה בלחיצה כפולה.
+const SUBMISSION_ID = 'FORM-' + Date.now().toString(36).toUpperCase() + '-' +
+                      Math.random().toString(36).slice(2, 8).toUpperCase();
+const OPPORTUNITY_OBJECT = 4;
+const ACCOUNT_OBJECT = 1;
+const PRODUCT_OBJECT = 14;
+const F_ACCOUNT    = "accountid";
+const F_PRODUCT    = "pcfProduct";
+const F_OWNER      = "ownerid";
+const F_GROUP      = "pcfWhatsAppToRef";
+const F_SIGSTATUS  = "pcfSignatureStatus";
+const GROUP_OBJECT = 1068;
+const CAT_MENTORING = ["101", "תוכנית ליווי"];
+const CAT_WORKSHOP  = ["100", "סדנה"];
+const CAT_CONTINUE  = ["102", "תוכנית המשך"];
+const F_SUM_AFTER  = "pcfsystemfield108";
+const F_SUM_BEFORE = "pcfsystemfield106";
+const F_PRODUCT_TYPE = "pcfProductType";
+const VAT_RATE = 0.18;
+const PRODUCT_STATUS_ACTIVE = 1;
+const PAYMENT_TYPES = [
+  {value:2, label:"העברה בנקאית"},
+  {value:3, label:"מזומן"},
+  {value:5, label:"שיקים"},
+  {value:4, label:"ERN"},
+  {value:7, label:"הוראת קבע"},
+  {value:1, label:"אמריקן אקספרס", amex:true}
+];
+/* ============================================================ */
+const $ = id => document.getElementById(id);
+const show = id => $(id).classList.remove('hidden');
+const hide = id => $(id).classList.add('hidden');
+function getOpportunityId(){
+  try{ return window.parent.location.pathname.split('/').filter(Boolean).pop(); }
+  catch(e){ return null; }
+}
+const opportunityId = getOpportunityId();
+let deal=null, account=null, productName='', productType=null;
+let groupRec=null;
+let sent = false;            // 🔴 חסימת שליחה כפולה — דגל פר-טעינת עמוד
+function dealAmount(){
+  const after = Number(deal && deal[F_SUM_AFTER]);
+  const before = Number(deal && deal[F_SUM_BEFORE]);
+  return (after && !isNaN(after)) ? after : ((before && !isNaN(before)) ? before : 0);
+}
+async function api(objType, id){
+  const res = await fetch(`/api/record/${objType}/${id}`, {headers:{'Content-Type':'application/json'}});
+  const j = await res.json();
+  return j && j.data ? j.data.Record : null;
+}
+/* ---------- אשף: ניהול מסכים ---------- */
+const STEPS = ['stepGate','stepProduct','stepGroup','stepForm'];
+let curStep = 1;
+function paintDots(){
+  document.querySelectorAll('.dot').forEach(d => d.classList.toggle('on', Number(d.dataset.step) <= curStep));
+}
+function gotoStep(n){
+  curStep = n;
+  STEPS.forEach((id, i) => { if(Number(id.slice(-1)) !== NaN){} });
+  ['stepGate','stepProduct','stepGroup','stepForm'].forEach((id, i) => {
+    const stepNo = i + 1;
+    if(stepNo === n) show(id); else hide(id);
+  });
+  paintDots();
+}
+/* ---------- load + validate ---------- */
+async function load(){
+  if(!opportunityId){ blockFatal("לא נמצא מזהה עסקה. יש לפתוח את הכפתור מתוך כרטיס תהליך מכירה."); return; }
+  try{
+    deal = await api(OPPORTUNITY_OBJECT, opportunityId);
+    if(!deal) throw new Error('no deal');
+    if(deal[F_ACCOUNT]){
+      try{ account = await api(ACCOUNT_OBJECT, deal[F_ACCOUNT]); }catch(e){}
+    }
+    if(deal[F_PRODUCT]){
+      try{
+        const p = await api(PRODUCT_OBJECT, deal[F_PRODUCT]);
+        productName = p && p.name ? p.name : '';
+        productType = p ? p[F_PRODUCT_TYPE] : null;
+      }catch(e){}
+    }
+    await loadGroup();
+    const nm = account && account.accountname ? account.accountname : '';
+    $('dealInfo').textContent = nm ? `לקוחה: ${nm}${productName ? ' · מוצר: '+productName : ''}` : '';
+    hide('stepLoad'); show('stepGate'); paintDots();
+  }catch(err){
+    blockFatal("שגיאה בטעינת נתוני העסקה. יש לרענן את העמוד.");
+  }
+}
+function blockFatal(msg){
+  hide('stepLoad'); hide('stepGate'); hide('stepForm'); hide('stepProduct'); hide('stepGroup');
+  $('missList').innerHTML = ''; show('stepBlock');
+  $('stepBlock').querySelector('.box.err').innerHTML = msg;
+  $('retryBtn').classList.add('hidden');
+}
+function validateFields(){
+  const missing = [];
+  if(!deal[F_OWNER])   missing.push("נציג/ת מכירות");
+  if(!deal[F_PRODUCT]) missing.push("מוצר ראשי מיועד");
+  return missing;
+}
+$('gateYes').addEventListener('click', async ()=>{
+  hide('gateNoMsg');
+  const missing = validateFields();
+  if(missing.length){
+    $('missList').innerHTML = missing.map(m=>`<li>${m}</li>`).join('');
+    hide('stepGate'); show('stepBlock');
+  }else{
+    gotoStep(2);
+    if(!productsLoaded) loadProducts();
+    renderGroupBanner();
+  }
+});
+$('gateNo').addEventListener('click', ()=> show('gateNoMsg'));
+$('retryBtn').addEventListener('click', async ()=>{
+  hide('stepBlock');
+  show('stepLoad');
+  deal = await api(OPPORTUNITY_OBJECT, opportunityId);
+  hide('stepLoad');
+  const missing = validateFields();
+  if(missing.length){
+    $('missList').innerHTML = missing.map(m=>`<li>${m}</li>`).join('');
+    show('stepBlock');
+  }else{
+    gotoStep(2);
+    if(!productsLoaded) loadProducts();
+    renderGroupBanner();
+  }
+});
+/* ---------- בקרת קבוצת הוואטסאפ ---------- */
+async function loadGroup(){
+  groupRec = null;
+  const gid = deal && deal[F_GROUP];
+  if(!gid) return;
+  try{ groupRec = await api(GROUP_OBJECT, gid); }catch(e){}
+}
+function selectedProductOption(){
+  if(!buyingNewProduct) return null;
+  const sel = $('productSelect');
+  if(!sel || !sel.value) return null;
+  return sel.selectedOptions[0] || null;
+}
+function inCat(cat, list){
+  const c = String(cat ?? '').trim();
+  return list.map(x => String(x).trim()).indexOf(c) > -1;
+}
+function groupSource(){
+  if(!buyingNewProduct) return 'noPurchase';
+  const o = selectedProductOption();
+  if(!o) return 'noProduct';
+  const cat = o.dataset ? o.dataset.cat : '';
+  if(inCat(cat, CAT_MENTORING)) return 'sale';
+  if(inCat(cat, CAT_WORKSHOP))  return 'cohort';
+  if(inCat(cat, CAT_CONTINUE))  return 'none';
+  const t = o.dataset ? String(o.dataset.type ?? '') : '';
+  if(t === '2') return 'sale';
+  if(t === '1') return 'cohort';
+  return 'unknown';
+}
+function selectedProductName(){
+  const o = selectedProductOption();
+  return o ? String(o.textContent || '').trim() : '';
+}
+/* הבאנר משני מקומות (שלב 2 תחתית + שלב 3 מרכז) — רינדור תוכן אחיד */
+function groupBannerHTML(){
+  const src = groupSource();
+  const pname = selectedProductName();
+  if(src === 'noPurchase'){
+    return {cls:'na', html:'<div class="hdr"><span class="ic">ℹ️</span>לא נבחרה הקמת מוצר</div>' +
+      'הלקוחה <b>לא תשויך לאף קבוצת וואטסאפ</b> ולא ייווצר תהליך ליווי — רק רשומות התשלום יירשמו.'};
+  }
+  if(src === 'noProduct'){
+    return {cls:'miss', html:'<div class="hdr"><span class="ic">🔴</span>טרם נבחר המוצר שנרכש</div>' +
+      '<span class="nm">לא נבחר מוצר</span>' +
+      'בלי בחירת מוצר לא ניתן לדעת לאיזו קבוצה הלקוחה תשויך.' +
+      '<div class="act">חזרו לשלב 2 ובחרו את המוצר.</div>'};
+  }
+  if(src === 'cohort'){
+    return {cls:'ok', html:'<div class="hdr"><span class="ic">ℹ️</span>' + escapeHtml(pname) + ' — הקבוצה נקבעת ממחזור הבוסט</div>' +
+      'הלקוחה תצורף אוטומטית לקבוצת הוואטסאפ של <b>מחזור הבוסט</b>. ' +
+      'השדה בעסקה אינו רלוונטי לרכישה הזו.'};
+  }
+  if(src === 'none'){
+    return {cls:'na', html:'<div class="hdr"><span class="ic">ℹ️</span>' + escapeHtml(pname) + ' — לא נדרשת קבוצה</div>' +
+      'בתוכנית המשך אין שיוך אוטומטי לקבוצת וואטסאפ.'};
+  }
+  if(src === 'unknown'){
+    return {cls:'miss', html:'<div class="hdr"><span class="ic">🔴</span>לא ניתן לקבוע את הקבוצה עבור ' + escapeHtml(pname) + '</div>' +
+      '<span class="nm">קטגוריית המוצר חסרה</span>' +
+      'למוצר שנבחר אין קטגוריה ראשית, ולכן לא ניתן לדעת אם הקבוצה מגיעה מהעסקה או ממחזור הבוסט.' +
+      '<div class="act">יש להשלים את הקטגוריה בכרטיס המוצר.</div>'};
+  }
+  const gname = groupRec && groupRec.name ? String(groupRec.name)
+              : (deal && deal[F_GROUP+'name'] ? String(deal[F_GROUP+'name']) : '');
+  if(deal && deal[F_GROUP] && gname){
+    const meta = groupRec ? [
+      groupRec.pcfCurrentCount ? 'בקבוצה כעת: ' + groupRec.pcfCurrentCount : '',
+      groupRec.pcfAvailableSlots ? 'מקומות פנויים: ' + groupRec.pcfAvailableSlots : '',
+      groupRec.pcfGroupStatusname || ''
+    ].filter(Boolean).join(' · ') : '';
+    return {cls:'ok', html:'<div class="hdr"><span class="ic">⚠️</span>זו הקבוצה שהלקוחה תשויך ותצורף אליה אוטומטית</div>' +
+      'ברכישת <b>' + escapeHtml(pname) + '</b>:' +
+      '<span class="nm">' + escapeHtml(gname) + '</span>' +
+      (meta ? '<div class="act">' + escapeHtml(meta) + '</div>' : '') +
+      '<div class="act">אם זו לא הקבוצה הנכונה — חזרו לכרטיס תהליך המכירה, עדכנו את השדה ' +
+      '"לאיזו קבוצת WhatsApp לשייך?" ולחצו רענון בטופס. <b>לפני</b> השליחה.</div>'};
+  }
+  return {cls:'miss', html:'<div class="hdr"><span class="ic">🔴</span>לא שויכה קבוצת וואטסאפ לעסקה</div>' +
+      '<span class="nm">השדה ריק</span>' +
+      'ברכישת <b>' + escapeHtml(pname) + '</b> הקבוצה נלקחת מתהליך המכירה. ' +
+      'הלקוחה <b>לא תצורף לאף קבוצה</b> ולא תקבל קישור הצטרפות בהודעת הוולקאם.' +
+      '<div class="act">יש למלא את השדה "לאיזו קבוצת WhatsApp לשייך?" בכרטיס תהליך המכירה ' +
+      '<b>לפני</b> השליחה, ואז לרענן את הטופס.</div>'};
+}
+function renderGroupBanner(){
+  const b = groupBannerHTML();
+  const el2 = $('groupBanner');
+  if(el2){ el2.className = 'grp ' + b.cls; el2.innerHTML = b.html; }
+}
+function escapeHtml(s){
+  return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&','<':'<','>':'>','"':'"'}[c]));
+}
+/* ---------- ניווט אשף ---------- */
+$('backTo1').addEventListener('click', ()=> gotoStep(1));
+$('backTo2').addEventListener('click', ()=> gotoStep(2));
+$('backTo3').addEventListener('click', ()=> gotoStep(3));
+/* ---------- מוצר חדש ---------- */
+let buyingNewProduct = false;
+let productsLoaded = false;
+function setNewProduct(on){
+  buyingNewProduct = on;
+  $('prodPick').classList.toggle('hidden', !on);
+  if(on && !productsLoaded) loadProducts();
+  renderGroupBanner();
+  updateStep2Continue();
+}
+$('newProdYes').addEventListener('click', ()=>setNewProduct(true));
+$('newProdNo').addEventListener('click', ()=>setNewProduct(false));
+function updateStep2Continue(){
+  const ok = !buyingNewProduct || (!!$('productSelect') && !!$('productSelect').value);
+  $('toStep3').classList.toggle('hidden', false);
+  $('toStep3').disabled = !ok;
+}
+$('toStep3').addEventListener('click', ()=>{
+  if(buyingNewProduct && !$('productSelect').value) return;
+  renderGroupBanner();
+  gotoStep(3);
+});
+async function loadProducts(){
+  const sel = $('productSelect');
+  const attempts = [
+    {label:'POST /api/query', run: () => fetch('/api/query', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({objecttype: PRODUCT_OBJECT, page_size: 200, page_number: 1,
+                              fields: 'productid,name,itemprice,pcfItempriceIncludingVAT,pcfProductType,categorycode,statuscode'})
+      })},
+    {label:'GET /api/record/14', run: () => fetch(`/api/record/${PRODUCT_OBJECT}`, {headers:{'Content-Type':'application/json'}})}
+  ];
+  let rows = null, usedLabel = '';
+  for(const a of attempts){
+    try{
+      const res = await a.run();
+      if(!res.ok) continue;
+      const j = await res.json();
+      const d = j && j.data ? j.data : j;
+      const arr = d.Data || d.Records || d.records || (Array.isArray(d) ? d : null);
+      if(Array.isArray(arr) && arr.length){ rows = arr; usedLabel = a.label; break; }
+    }catch(e){ }
+  }
+  if(!rows){
+    console.warn('טעינת מוצרים נכשלה בכל המועמדים — יש לדווח לאליאל');
+    sel.innerHTML = '<option value="">— לא ניתן לטעון מוצרים —</option>';
+    $('prodHint').innerHTML = '⚠️ לא ניתן לטעון את רשימת המוצרים. אפשר להמשיך בלי בחירה — הסנריו ייקח את המוצר המקושר לעסקה.';
+    productsLoaded = true;
+    return;
+  }
+  const active = rows.filter(r => {
+    const s = String(r.statuscode ?? r.statuscodename ?? '');
+    return s === String(PRODUCT_STATUS_ACTIVE) || s.includes('פעיל') && !s.includes('לא פעיל') || s === '';
+  });
+  const list = (active.length ? active : rows)
+    .filter(r => r.name)
+    .sort((a,b)=> String(a.name).localeCompare(String(b.name),'he'));
+  sel.innerHTML = '<option value="">— בחרי מוצר —</option>';
+  list.forEach(r => {
+    const id = r.productid || r.id;
+    if(!id) return;
+    const o = document.createElement('option');
+    o.value = id;
+    o.textContent = r.name;
+    o.dataset.type = r.pcfProductType ?? '';
+    o.dataset.cat  = r.categorycode ?? '';
+    const incl = Number(r.pcfItempriceIncludingVAT);
+    const excl = Number(r.itemprice);
+    const price = (incl && !isNaN(incl)) ? incl
+                : ((excl && !isNaN(excl)) ? Math.round(excl * (1 + VAT_RATE) * 100) / 100 : 0);
+    o.dataset.price = price || '';
+    o.dataset.priceSrc = (incl && !isNaN(incl)) ? 'incl' : ((excl && !isNaN(excl)) ? 'calc' : 'none');
+    sel.appendChild(o);
+  });
+  if(deal && deal[F_PRODUCT]) sel.value = deal[F_PRODUCT];
+  $('prodHint').textContent = 'המוצר שנבחר יקבע את תהליך הליווי שייווצר או יעודכן.';
+  productsLoaded = true;
+  sel.addEventListener('change', ()=>{ renderGroupBanner(); onProductChange(); updateStep2Continue(); });
+  renderGroupBanner();
+  onProductChange();
+  updateStep2Continue();
+}
+/* ---------- מחיר המוצר שנבחר ---------- */
+function selectedProductPrice(){
+  const sel = $('productSelect');
+  const o = sel && sel.selectedOptions[0];
+  if(!o || !o.value) return null;
+  const p = Number(o.dataset.price);
+  return { name: o.textContent, price: (p && !isNaN(p)) ? p : 0, src: o.dataset.priceSrc || 'none' };
+}
+function enteredTotal(){
+  let sum = 0;
+  document.querySelectorAll('.f-amount').forEach(i => sum += Number(i.value)||0);
+  return sum;
+}
+function fillProductPrice(){
+  const p = selectedProductPrice();
+  if(!p || !p.price) return;
+  if(!$('rows').children.length) addPaymentRow();
+  const first = $('rows').children[0].querySelector('.f-amount');
+  first.value = p.price;
+  recalc();
+  showPerPayment($('rows').children[0]);
+  renderPriceBox();
+}
+function renderPriceBox(){
+  const box = $('priceBox');
+  if(!buyingNewProduct){ box.classList.add('hidden'); return; }
+  const p = selectedProductPrice();
+  if(!p){ box.classList.add('hidden'); return; }
+  box.classList.remove('hidden');
+  if(!p.price){
+    box.className = 'price none';
+    box.innerHTML = '<div><span class="lbl">⚠️ למוצר הזה אין מחיר בכרטיס המוצר</span>' +
+      '<div class="novat2">יש להזין את הסכום ידנית, ולעדכן את המחיר בכרטיס המוצר בפיירברי.</div></div>';
+    return;
+  }
+  const entered = enteredTotal();
+  const matches = Math.abs(entered - p.price) < 0.01;
+  const calcNote = p.src === 'calc' ? ' <span class="novat2">(חושב מהמחיר לפני מע"מ)</span>' : '';
+  box.className = 'price' + (matches || !entered ? '' : ' none');
+  box.innerHTML =
+    '<div><span class="lbl">מחיר המוצר</span>' +
+    '<div><span class="amt">' + nis(p.price) + '</span> ' +
+    '<span class="novat2">כולל מע"מ · ללא מע"מ: ' + nis(beforeVat(p.price)) + '</span>' + calcNote + '</div>' +
+    (entered && !matches
+      ? '<div class="novat2" style="margin-top:5px">הסכום שהוזן כרגע: <b>' + nis(entered) + '</b> — שונה ממחיר המוצר.</div>'
+      : '') +
+    '</div>' +
+    (matches ? '<div class="novat2">✓ הסכום תואם</div>'
+             : '<button type="button" id="fillPrice">מילוי הסכום</button>');
+  const btn = $('fillPrice');
+  if(btn) btn.addEventListener('click', fillProductPrice);
+}
+function onProductChange(){
+  renderPriceBox();
+  const p = selectedProductPrice();
+  if(p && p.price && enteredTotal() === 0) fillProductPrice();
+}
+/* ---------- פרטי תשלום ---------- */
+let rowSeq = 0;
+function addPaymentRow(){
+  rowSeq++;
+  const div = document.createElement('div');
+  div.className = 'row-card';
+  div.dataset.row = rowSeq;
+  div.innerHTML = `
+    <h3>אמצעי תשלום ${$('rows').children.length+1}</h3>
+    ${$('rows').children.length ? '<button type="button" class="row-del">✕ הסרה</button>' : ''}
+    <div class="grid2">
+      <div><label>סוג תשלום</label>
+        <select class="f-type">${PAYMENT_TYPES.map(t=>`<option value="${t.value}">${t.label}</option>`).join('')}</select></div>
+      <div><label>סכום (₪, כולל מע"מ)</label>
+        <input class="f-amount" type="number" min="0" step="0.01" placeholder="0"></div>
+      <div><label>מספר תשלומים</label>
+        <input class="f-count" type="number" min="1" max="36" step="1" value="1"></div>
+      <div><label>תאריך תשלום ראשון</label>
+        <input class="f-first" type="date" value="${today()}"></div>
+    </div>
+    <div class="per-pay hidden"></div>
+    <label>הערות</label>
+    <textarea class="f-notes" rows="1" placeholder="מספרי צ'קים, אסמכתא, הסכמות מיוחדות..."></textarea>
+  `;
+  $('rows').appendChild(div);
+  const del = div.querySelector('.row-del');
+  if(del) del.addEventListener('click', ()=>{ div.remove(); renumber(); recalc(); });
+  div.querySelector('.f-amount').addEventListener('input', ()=>{ recalc(); showPerPayment(div); });
+  div.querySelector('.f-count').addEventListener('input', ()=>showPerPayment(div));
+}
+function today(){
+  const d = new Date();
+  const p = x => String(x).padStart(2,'0');
+  return `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}`;
+}
+function perPaymentAmount(total, count){
+  if(!total || count < 1) return 0;
+  return Math.round((total / count) * 100) / 100;
+}
+function beforeVat(amountInclVat){
+  if(!amountInclVat) return 0;
+  return Math.round((amountInclVat / (1 + VAT_RATE)) * 100) / 100;
+}
+const nis = n => n.toLocaleString('he-IL', {maximumFractionDigits:2}) + ' ₪';
+function showPerPayment(div){
+  const box = div.querySelector('.per-pay');
+  const total = Number(div.querySelector('.f-amount').value)||0;
+  const count = Math.max(1, parseInt(div.querySelector('.f-count').value)||1);
+  if(!total){ box.classList.add('hidden'); box.innerHTML=''; return; }
+  const lines = [`סכום: ${nis(total)} <span class="novat">(ללא מע"מ: ${nis(beforeVat(total))})</span>`];
+  if(count > 1){
+    const each = perPaymentAmount(total, count);
+    lines.push(`${count} תשלומים · כל תשלום: ${nis(each)} <span class="novat">(ללא מע"מ: ${nis(beforeVat(each))})</span>`);
+  }
+  box.innerHTML = lines.join('<br>');
+  box.classList.remove('hidden');
+}
+$('toStep4').addEventListener('click', ()=>{
+  const sig = String(deal[F_SIGSTATUS] ?? '');
+  const sigName = String(deal[F_SIGSTATUS+'name'] ?? '');
+  const signed = (sig === '2') || sigName.includes('נחתם');
+  const isPremium = String(productType ?? '') === '2';
+  if(isPremium && !signed) show('sigWarn'); else hide('sigWarn');
+  $('sumDeal').textContent = dealAmount() ? dealAmount().toLocaleString('he-IL')+' ₪' : 'לא מולא';
+  if(!$('rows').children.length) addPaymentRow();
+  recalc();
+  gotoStep(4);
+});
+function renumber(){
+  [...$('rows').children].forEach((d,i)=> d.querySelector('h3').textContent = `אמצעי תשלום ${i+1}`);
+}
+function recalc(){
+  let sum = 0;
+  document.querySelectorAll('.f-amount').forEach(i=> sum += Number(i.value)||0);
+  $('sumEntered').textContent = nis(sum);
+  $('sumEnteredNoVat').textContent = sum ? `(ללא מע"מ: ${nis(beforeVat(sum))})` : '';
+  const dealSum = dealAmount();
+  if(dealSum && sum && Math.abs(sum-dealSum) > 0.01) show('sumWarn'); else hide('sumWarn');
+  if(typeof renderPriceBox === 'function') renderPriceBox();
+  return sum;
+}
+$('addRow').addEventListener('click', addPaymentRow);
+/* ---------- send ---------- */
+function collect(){
+  const payments = [];
+  for(const div of $('rows').children){
+    const type = div.querySelector('.f-type');
+    const amount = Number(div.querySelector('.f-amount').value)||0;
+    const count = Math.max(1, parseInt(div.querySelector('.f-count').value)||1);
+    const first = div.querySelector('.f-first').value;
+    const notes = div.querySelector('.f-notes').value.trim();
+    const cfg = PAYMENT_TYPES.find(t => String(t.value) === type.value && t.label === type.selectedOptions[0].textContent);
+    payments.push({
+      payment_type: Number(type.value),
+      payment_type_label: type.selectedOptions[0].textContent,
+      is_amex: !!(cfg && cfg.amex),
+      amount_including_vat: amount,
+      amount_before_vat: beforeVat(amount),
+      number_of_payments: count,
+      amount_per_payment: perPaymentAmount(amount, count),
+      amount_per_payment_before_vat: beforeVat(perPaymentAmount(amount, count)),
+      first_payment_date: first,
+      notes
+    });
+  }
+  return payments;
+}
+function validateForm(payments){
+  if(buyingNewProduct && !($('productSelect') && $('productSelect').value)){
+    return 'סומנה רכישה של מוצר חדש — יש לבחור את המוצר שנרכש.';
+  }
+  for(let i=0;i<payments.length;i++){
+    const p = payments[i];
+    if(!p.amount_including_vat) return `יש למלא סכום באמצעי תשלום ${i+1}.`;
+    if(!p.first_payment_date)   return `יש למלא תאריך תשלום ראשון באמצעי תשלום ${i+1}.`;
+  }
+  return null;
+}
+async function send(){
+  // 🔴 חסימת שליחה כפולה — דגל קשיח פר-טעינת עמוד. אחרי שליחה אחת הכפתור מת סופית.
+  if(sent) return;
+  const btn = $('sendBtn');
+  const payments = collect();
+  const err = validateForm(payments);
+  if(err){ setStatus(err,'err-t'); return; }
+  const payload = {
+    source: "manual_payment_button",
+    submission_id: SUBMISSION_ID,
+    opportunity_id: opportunityId,
+    phone: (deal && deal.pcfTelephone1) || (account && account.telephone1) || '',
+    account_id: deal[F_ACCOUNT] || null,
+    account_name: account ? (account.accountname || '') : '',
+    product_id: deal[F_PRODUCT] || null,
+    product_name: productName,
+    product_type: productType ?? null,
+    owner_id: deal[F_OWNER] || null,
+    whatsapp_group_id: deal[F_GROUP] || null,
+    whatsapp_group_name: (groupRec && groupRec.name) || deal[F_GROUP+'name'] || '',
+    whatsapp_group_source: groupSource(),
+    signature_status: deal[F_SIGSTATUS] ?? null,
+    deal_amount: dealAmount(),
+    total_entered: recalc(),
+    total_entered_before_vat: beforeVat(recalc()),
+    vat_rate: VAT_RATE,
+    new_product_purchase: buyingNewProduct,
+    purchased_product_id: buyingNewProduct ? ($('productSelect').value || deal[F_PRODUCT] || null) : null,
+    purchased_product_name: buyingNewProduct
+      ? (($('productSelect').selectedOptions[0] || {}).textContent || '').replace('— בחרי מוצר —','')
+      : '',
+    payments
+  };
+  if(WEBHOOK_URL.indexOf('http') !== 0){
+    console.log('PAYLOAD (webhook not connected yet):', JSON.stringify(payload, null, 2));
+    setStatus('⚠️ הוובהוק עדיין לא חובר — הטופס תקין וה-payload מוכן (נרשם בקונסול), אך לא נשלח.', 'err-t');
+    return;
+  }
+  sent = true;                 // 🔴 נעילה מיידית — כל לחיצה נוספת מנוטרלת
+  btn.disabled = true;
+  btn.textContent = 'נשלח — התהליך פועל…';
+  setStatus('שולח <span class="spin"></span>');
+  try{
+    // 🔴 המתנה מוארכת (120 שניות): WF-27 משיב מיד אחרי יצירת רשומות התשלום,
+    //    והתהליך המקצועי רץ ברקע. ה-timeout הוא רשת ביטחון בלבד.
+    const c = new AbortController(); const t = setTimeout(()=>c.abort(), 120000);
+    const res = await fetch(WEBHOOK_URL, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload), signal: c.signal
+    });
+    clearTimeout(t);
+    if(res.status !== 200){ setStatus(`השליחה נכשלה (קוד ${res.status}). יש לבדוק את הרשומות בכרטיס העסקה לפני ניסיון נוסף.`, 'err-t'); return; }
+    let out = null;
+    try{ out = await res.json(); }catch(e){}
+    if(out && out.success === false){
+      setStatus('הקליטה הסתיימה עם שגיאות. יש לבדוק את הרשומות בכרטיס העסקה. לא לשלוח שוב — ייתכן שחלק מהרשומות כבר נוצרו.', 'err-t');
+      console.warn('WF-27 result:', out);
+      return;
+    }
+    if(out && out.branch === 'DUPLICATE'){
+      setStatus('⚠️ השליחה הזו כבר נקלטה — לא נוצרו רשומות כפולות.', 'err-t');
+      btn.style.display = 'none';
+      return;
+    }
+    const s = $('status'); s.className='success-big';
+    const n = out ? (out.operations || []).length : 0;
+    const pro = out && out.professionalProcess && out.professionalProcess.fired;
+    s.innerHTML = '<span class="check">✓</span><span class="big">התשלום נקלט בהצלחה!</span>' +
+      (n ? 'נוצרו ' + n + ' רשומות בכרטיס העסקה.' : 'הרשומות נוצרות כעת במערכת.') +
+      (pro ? '<br>תהליך הליווי מוקם כעת ברקע — יעודכן תוך דקות ספורות.' : '');
+    btn.style.display='none';
+  }catch(e){
+    // 🔴 שינוי חשוב: timeout אינו "נסי שוב". הריצה ממשיכה ב-n8n ברקע.
+    setStatus('⏳ לא התקבלה תשובה בזמן — אך <b>התהליך ממשיך לרוץ ברקע</b>.' +
+      '<br><b>אין לשלוח שוב!</b> המתינו כדקה ורעננו את כרטיס העסקה לוודא שנוצרו רשומות התשלום.' +
+      '<br>אם אחרי 2 דקות לא נוצר כלום — פנו לאליאל.', 'err-t');
+  }
+}
+function setStatus(html, cls){ const s=$('status'); s.className=cls||''; s.innerHTML=html; }
+$('sendBtn').addEventListener('click', send);
+load();
+</script>
+</body>
+</html>

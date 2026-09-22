@@ -1,0 +1,786 @@
+{
+ "success": true,
+ "data": [
+  {
+   "label": "שדה מותאם אישית בחירה 7",
+   "fieldName": "pcfQuestionSelect7",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "רמת פעילות גופנית",
+   "fieldName": "pcfQuestionSelect2",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "הזדמנות",
+   "fieldName": "opportunityid",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סכום העסקה - למחוק (לא בשימוש)",
+   "fieldName": "estimatedvalue",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "Deleted on",
+   "fieldName": "deletedon",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך כניסה אחרונה",
+   "fieldName": "pcfLastentry",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "קטגוריה ראשית (שיקוף)",
+   "fieldName": "pcfQuestionText2",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מפנה (UTM Ref)",
+   "fieldName": "pcfUtmRef",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "לינק למסמך האחרון",
+   "fieldName": "pcfcfDocLink",
+   "systemFieldTypeId": "c820d32f-44df-4c2a-9c1e-18734e864fd5",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך סגירה משוער (לא בשימוש)",
+   "fieldName": "estimatedclosedate",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מילת חיפוש (UTM Keyword)",
+   "fieldName": "pcfUTMSkeyword",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סה\"כ הוחזר כולל מע\"מ 🔒",
+   "fieldName": "pcfTotalRefundedIncludingVat",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סה\"כ שולם כולל מע\"מ 🔒",
+   "fieldName": "pcfTotalPaidIncludingVat",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "טלפון ראשי",
+   "fieldName": "pcfTelephone1",
+   "systemFieldTypeId": "3f62f67a-1cee-403a-bec6-aa02a9804edb",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך עדכון סטטוס 🔒",
+   "fieldName": "pcfStatusUpdateTime",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מודעה (UTM Ad)",
+   "fieldName": "pcfUTMSad",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 6",
+   "fieldName": "pcfQuestionText6",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "איש קשר - מקושר - ישן (לא בשימוש)",
+   "fieldName": "pcfPrimaryContact",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 13",
+   "fieldName": "pcfQuestionText13",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "אירוע - מקושר",
+   "fieldName": "pcfEvent",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "עודכן בתאריך",
+   "fieldName": "modifiedon",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "ת.ז",
+   "fieldName": "pcfidnumber",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "טופס הרשמה",
+   "fieldName": "pcfRegistrationForm",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סיכוי (לא בשימוש)",
+   "fieldName": "closeprobability",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סה\"כ עסקה אחרי הנחה",
+   "fieldName": "pcfsystemfield108",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "לקוח פעיל",
+   "fieldName": "pcfisactive",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "אישור דיוור",
+   "fieldName": "pcfMailingConfirmation",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 10",
+   "fieldName": "pcfQuestionText10",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מקור הגעה (UTM Source)",
+   "fieldName": "pcfUTMSsource",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "יתרה לתשלום כולל מע\"מ 🔒",
+   "fieldName": "pcfLeftToPayIncludingVat",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "אחוז הנחה לעסקה:",
+   "fieldName": "pcfsystemfield107",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "יתרת לתשלום לפני מעמ 🔒",
+   "fieldName": "pcfmoneylefttopay2",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תיאור",
+   "fieldName": "description",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית בחירה 4",
+   "fieldName": "pcfQuestionSelect4",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "דואר אלקטרוני משני",
+   "fieldName": "pcfemailaddress2",
+   "systemFieldTypeId": "c713d2f7-8fa9-43c3-8062-f07486eaf567",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "דף",
+   "fieldName": "pcfPage",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית מספר 7",
+   "fieldName": "pcfQuestionNumber7",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "לינק לשאלון",
+   "fieldName": "pcfFormLink",
+   "systemFieldTypeId": "c820d32f-44df-4c2a-9c1e-18734e864fd5",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סטטוס מסמך חתימה",
+   "fieldName": "pcfSignatureStatus",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מחיר מוצר לפני מע'מ",
+   "fieldName": "pcfQuestionNumber4",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך לידה",
+   "fieldName": "pcfBirthdaydate",
+   "systemFieldTypeId": "83bf530c-e04c-462b-9ffc-a46f750fc072",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "קהל יעד (UTM AdSet)",
+   "fieldName": "pcfUTMSadset",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תחום עיסוק",
+   "fieldName": "pcfOccupation",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "לקוחה - מקושר",
+   "fieldName": "accountid",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 15",
+   "fieldName": "pcfQuestionText15",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "נוצר בתאריך",
+   "fieldName": "createdon",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 4",
+   "fieldName": "pcfQuestionText4",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מספר פגישות מכירה",
+   "fieldName": "pcfsalesmeetingnum",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סה\"כ הוחזר לפני מע\"מ 🔒",
+   "fieldName": "pcfTotalRefunded",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "הגדרות משתמש - לא לגעת",
+   "fieldName": "pcfsystemsettings",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית בחירה 10",
+   "fieldName": "pcfQuestionSelect10",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "אתר",
+   "fieldName": "pcfWebsite",
+   "systemFieldTypeId": "c820d32f-44df-4c2a-9c1e-18734e864fd5",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך משימה הבאה 🔒",
+   "fieldName": "pcfnextmission",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "יתרה לתשלום לפני מע\"מ",
+   "fieldName": "pcfmoneylefttopay1",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך פעולה אחרונה (לא בשימוש)",
+   "fieldName": "lastactiondate",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "העדפות תזונה",
+   "fieldName": "pcfQuestionSelect1",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית מספר 9",
+   "fieldName": "pcfQuestionNumber9",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "דואר אלקטרוני ראשי",
+   "fieldName": "pcfemailaddress",
+   "systemFieldTypeId": "c713d2f7-8fa9-43c3-8062-f07486eaf567",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סה\"כ שולם לפני מע\"מ 🔒",
+   "fieldName": "pcfmoneypaid1",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "יחידה עסקית - מקושר",
+   "fieldName": "pcfBusinessUnit",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סיבת הפנייה ללא רלוונטי",
+   "fieldName": "pcfRequestIsNotRelevant",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "לאיזו קבוצת WhatsApp לשייך?",
+   "fieldName": "pcfWhatsAppToRef",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "משקל יעד",
+   "fieldName": "pcfQuestionNumber2",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית מספר 10",
+   "fieldName": "pcfQuestionNumber10",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך לפולואפ",
+   "fieldName": "pcfFollowUpTime",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "טלפון משני",
+   "fieldName": "pcfTelephone2",
+   "systemFieldTypeId": "3f62f67a-1cee-403a-bec6-aa02a9804edb",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "משפך (Funnel)",
+   "fieldName": "pcfFunnels",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "משקל התחלתי",
+   "fieldName": "pcfQuestionNumber1",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "ת. פעולה הבאה",
+   "fieldName": "nextactiondate",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך פעולה הבאה",
+   "fieldName": "nextactivitydate",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך פגישה הבאה 🔒",
+   "fieldName": "pcfnextmeeting",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "קמפיין (UTM Campaign)",
+   "fieldName": "pcfUTMScampaign",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "רגישיות תזונה",
+   "fieldName": "pcfQuestionText1",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "נוצר על ידי (מערכת/אנושי)",
+   "fieldName": "pcfCreatedByPersonOrSystem",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שבועות במתנה 🎁",
+   "fieldName": "pcfWeeksGift",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית בחירה 5",
+   "fieldName": "pcfQuestionSelect5",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "עיר מגורים",
+   "fieldName": "pcfCity",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מגדר",
+   "fieldName": "pcfGender",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תוכן (UTM Content)",
+   "fieldName": "pcfUTMScontent",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "רחוב",
+   "fieldName": "pcfBillingstreet",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "דירוג חום ליד",
+   "fieldName": "pcfLeadLevel",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית מספר 6",
+   "fieldName": "pcfQuestionNumber6",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "משקל נוכחי",
+   "fieldName": "pcfQuestionNumber3",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 9",
+   "fieldName": "pcfQuestionText9",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "אחוז הנחה מקסימלי (שיקוף)",
+   "fieldName": "pcfQuestionNumber5",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "גיל",
+   "fieldName": "pcfAge",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 12",
+   "fieldName": "pcfQuestionText12",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תהליך מכירה - אב",
+   "fieldName": "pcfParentSale",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מיקוד",
+   "fieldName": "pcfbillingzipcode",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית מספר 8",
+   "fieldName": "pcfQuestionNumber8",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך עדכון DB חיצוני",
+   "fieldName": "pcfExternalDBUpdate",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מספר בית / כניסה",
+   "fieldName": "pcfApt",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "הרשמה לבוסט",
+   "fieldName": "pcfBoostLinked",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 11",
+   "fieldName": "pcfQuestionText11",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מחזור שנסגר כולל מע\"מ 🔒",
+   "fieldName": "pcfincomingcashflow",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 8",
+   "fieldName": "pcfQuestionText8",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מספר הזמנות סגורות 🔒",
+   "fieldName": "pcfnumberoforders1",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "נוצר על ידי",
+   "fieldName": "createdby",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 14",
+   "fieldName": "pcfQuestionText14",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית בחירה 3",
+   "fieldName": "pcfQuestionSelect3",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מספר שיחות מכירה",
+   "fieldName": "pcfSalesCallsNum",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מצב משפחתי",
+   "fieldName": "pcfRelationshipStatus",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "ארץ",
+   "fieldName": "pcfCountry",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 5",
+   "fieldName": "pcfQuestionText5",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שם העסקה",
+   "fieldName": "name",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מספר הזמנות פוטנציאליות 🔒",
+   "fieldName": "pcfTotalNumberOfOrders",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מזהה מערכת חיצונית 1",
+   "fieldName": "pcfExternalSoftwareID1",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית בחירה 8",
+   "fieldName": "pcfQuestionSelect8",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מוצר (UTM Product)",
+   "fieldName": "pcfUtmProduct",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מחזור בוסט - מקושר",
+   "fieldName": "pcfCourse",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "הרשמה חוזרת",
+   "fieldName": "pcfReregistration",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סטטוס מכירתי",
+   "fieldName": "statuscode",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "תאריך סגירת עסקה 🔒",
+   "fieldName": "pcfclosedate",
+   "systemFieldTypeId": "ce972d02-5013-46d4-9d1d-f09df1ac346a",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מיקום הגעה (UTM Placement)",
+   "fieldName": "pcfUTMSplacement",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "עודכן על ידי",
+   "fieldName": "modifiedby",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מס' ימים מאז שינוי סטטוס",
+   "fieldName": "pcfdayspast",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית בחירה 9",
+   "fieldName": "pcfQuestionSelect9",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מזהה מערכת חיצונית 2",
+   "fieldName": "pcfExternalSoftwareID2",
+   "systemFieldTypeId": "a1e7ed6f-5083-477b-b44c-9943a6181359",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סוג עסק",
+   "fieldName": "pcfBusinessType",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מוצר ראשי מיועד - מקושר",
+   "fieldName": "pcfProduct",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "איש קשר - מקושר",
+   "fieldName": "contacttid",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מחזור שנסגר לפני מע\"מ 🔒",
+   "fieldName": "pcfRevenue",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית בחירה 6",
+   "fieldName": "pcfQuestionSelect6",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 3",
+   "fieldName": "pcfQuestionText3",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "שדה מותאם אישית טקסט 7",
+   "fieldName": "pcfQuestionText7",
+   "systemFieldTypeId": "80108f9d-1e75-40fa-9fa9-02be4ddc1da1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "נציג מכירות - מקושר",
+   "fieldName": "ownerid",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "Deleted by",
+   "fieldName": "deletedby",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "מילתה שאלון לאחר בוסט?",
+   "fieldName": "pcfFormFilled",
+   "systemFieldTypeId": "b4919f2e-2996-48e4-a03c-ba39fb64386c",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "צורת הגעה (UTM Medium)",
+   "fieldName": "pcfUTMSmedium",
+   "systemFieldTypeId": "a8fcdf65-91bc-46fd-82f6-1234758345a1",
+   "systemName": "Opportunity"
+  },
+  {
+   "label": "סכום העסקה:",
+   "fieldName": "pcfsystemfield106",
+   "systemFieldTypeId": "6a34bfe3-fece-4da1-9136-a7b1e5ae3319",
+   "systemName": "Opportunity"
+  }
+ ],
+ "message": ""
+}

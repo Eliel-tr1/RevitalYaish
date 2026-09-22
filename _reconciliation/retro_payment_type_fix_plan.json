@@ -1,0 +1,1817 @@
+{
+ "A_manual_empty_cat": [
+  {
+   "name": "התשלום של אתי מנשה | תוכנית ליווי 22 שבועות | 5,660 ₪ | 1 תשלומים · העברה בנקאית",
+   "customobject1039id": "A3C9E168-E93B-4504-8660-3996C34852FE",
+   "pcfPaymentType": 2,
+   "pcfPaymentTypename": "העברה בנקאית",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 1,
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MUCOIDO2-THN0MP-P1",
+   "_id": "A3C9E168-E93B-4504-8660-3996C34852FE"
+  },
+  {
+   "name": "התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | 4,455 ₪ | 9 תשלומים · הוראת קבע",
+   "customobject1039id": "9868A0D2-B623-4327-AEC1-3C08B8784268",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 9,
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1",
+   "_id": "9868A0D2-B623-4327-AEC1-3C08B8784268"
+  },
+  {
+   "name": "התשלום של רותם רפאלוב ויטרו בדיקה | תוכנית ליווי 28 שבועות | 2,500 ₪ | 1 תשלומים · העברה בנקאית",
+   "customobject1039id": "8D90D5FB-F281-4FDC-83C7-BD33C2E2EC67",
+   "pcfPaymentType": 2,
+   "pcfPaymentTypename": "העברה בנקאית",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 1,
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU2KFJ28-4WACUQ-P1",
+   "_id": "8D90D5FB-F281-4FDC-83C7-BD33C2E2EC67"
+  },
+  {
+   "name": "התשלום של מונה אשקר | תוכנית המשך אישית | 1,098 ₪ | 1 תשלומים · העברה בנקאית",
+   "customobject1039id": "BAFA1B77-6DF6-4114-9300-BE021BBCDE50",
+   "pcfPaymentType": 2,
+   "pcfPaymentTypename": "העברה בנקאית",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 1,
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MUCQ6WJI-9E8SVD-P1",
+   "_id": "BAFA1B77-6DF6-4114-9300-BE021BBCDE50"
+  }
+ ],
+ "B_1039_type7": [
+  {
+   "name": "הוראת הקבע של ורד נח | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "67233709-031E-4B20-A872-01D24F1D380B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-21148F16-349",
+   "_id": "67233709-031E-4B20-A872-01D24F1D380B"
+  },
+  {
+   "name": "הוראת הקבע של שרון מאיר | ליווי תזונה אונליין - רגיל | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "37B90761-B870-4548-AD69-04CEA2C4FCB7",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-FA7940AB-349",
+   "_id": "37B90761-B870-4548-AD69-04CEA2C4FCB7"
+  },
+  {
+   "name": "הוראת הקבע של יפעת מרקו | מוצר לא מזוהה | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "B27D49E2-206C-4585-B755-077360D73033",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-228683DF-349",
+   "_id": "B27D49E2-206C-4585-B755-077360D73033"
+  },
+  {
+   "name": "הוראת הקבע של מיה פרובשטיין | ליווי תזונה אונליין - רגיל | 179 ₪ | חיוב חודשי",
+   "customobject1039id": "1D7E33C3-94FD-4779-B23B-0B2BE2E1F3EB",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-31E3651D-179",
+   "_id": "1D7E33C3-94FD-4779-B23B-0B2BE2E1F3EB"
+  },
+  {
+   "name": "הוראת הקבע של אילנה גליקליך | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "5CF8C5B7-5B5D-4925-86AC-258343B3CD96",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-9B3BB18C-349",
+   "_id": "5CF8C5B7-5B5D-4925-86AC-258343B3CD96"
+  },
+  {
+   "name": "הוראת הקבע של אילה כהן | ליווי תזונה אונליין - רגיל | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "9E142BC7-1A23-4190-BCF3-27199F8248D2",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-E6877B4C-349",
+   "_id": "9E142BC7-1A23-4190-BCF3-27199F8248D2"
+  },
+  {
+   "name": "הוראת הקבע של רעיה טובול | ליווי תזונה אונליין - רגיל | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "81EF467B-AB08-4F48-A1F4-3A07935F03CA",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-B661C493-649",
+   "_id": "81EF467B-AB08-4F48-A1F4-3A07935F03CA"
+  },
+  {
+   "name": "הוראת הקבע של בתיה אהרון | ליווי תזונה אונליין - רגיל | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "2A1786E5-A6CF-4975-9262-3A10B180CA43",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-7280A957-649",
+   "_id": "2A1786E5-A6CF-4975-9262-3A10B180CA43"
+  },
+  {
+   "name": "התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | 4,455 ₪ | 9 תשלומים · הוראת קבע",
+   "customobject1039id": "9868A0D2-B623-4327-AEC1-3C08B8784268",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 9,
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1",
+   "_id": "9868A0D2-B623-4327-AEC1-3C08B8784268"
+  },
+  {
+   "name": "הוראת הקבע של שלומית אברהם שוקר | ליווי תזונה אונליין - רגיל | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "C0B08A16-CD72-4A9A-B9AD-42946EECEDD6",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-2F0C4889-649",
+   "_id": "C0B08A16-CD72-4A9A-B9AD-42946EECEDD6"
+  },
+  {
+   "name": "הוראת הקבע של רחל גבאי | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "7F28AD30-9599-4644-8FBE-446CC618AD11",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-C45526D3-349",
+   "_id": "7F28AD30-9599-4644-8FBE-446CC618AD11"
+  },
+  {
+   "name": "הוראת הקבע של מרתה דוד | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "7D7040C1-3082-4667-8761-4CE93C93696C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-DEE5E900-349",
+   "_id": "7D7040C1-3082-4667-8761-4CE93C93696C"
+  },
+  {
+   "name": "הוראת הקבע של דקלה אביבי | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "EF4BAA37-F84B-484F-9218-4F4DC6D90E77",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-6BB7159C-349",
+   "_id": "EF4BAA37-F84B-484F-9218-4F4DC6D90E77"
+  },
+  {
+   "name": "הוראת הקבע של חופית כהן | ליווי תזונה אונליין - רגיל | 300 ₪ | חיוב חודשי",
+   "customobject1039id": "5FB11D33-E2FD-4B7A-B473-532B85DADDF6",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-A7753517-300",
+   "_id": "5FB11D33-E2FD-4B7A-B473-532B85DADDF6"
+  },
+  {
+   "name": "הוראת הקבע של חני ציטאיאט | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "B4D33B25-17EF-4010-B744-5D2E7DDA67B4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-BA2D2064-349",
+   "_id": "B4D33B25-17EF-4010-B744-5D2E7DDA67B4"
+  },
+  {
+   "name": "הוראת הקבע של מדלן בן עמי | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "C91537CA-07D0-4E07-B1B2-5DADD7EDAB33",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-8DB6D04D-349",
+   "_id": "C91537CA-07D0-4E07-B1B2-5DADD7EDAB33"
+  },
+  {
+   "name": "הוראת הקבע של נועה פיירשטיין | ליווי תזונה אונליין - מנטורית אישית | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "9EE66CC0-98D6-45E2-979C-600436F01D20",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-A46AD5D2-649",
+   "_id": "9EE66CC0-98D6-45E2-979C-600436F01D20"
+  },
+  {
+   "name": "הוראת הקבע של לירון גבריאלוב | ליווי תזונה אונליין - רגיל | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "0337D276-CA14-40DF-B298-696A44B6EB5D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-DB11D095-349",
+   "_id": "0337D276-CA14-40DF-B298-696A44B6EB5D"
+  },
+  {
+   "name": "הוראת הקבע של רוחמה סעידי | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "E44FF30F-5D81-4657-B186-6A77166568D8",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-37C430FB-349",
+   "_id": "E44FF30F-5D81-4657-B186-6A77166568D8"
+  },
+  {
+   "name": "הוראת הקבע של חגית בדני | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "CC8D1005-2FE5-4325-9286-6C6E055AFC35",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-0F361143-349",
+   "_id": "CC8D1005-2FE5-4325-9286-6C6E055AFC35"
+  },
+  {
+   "name": "הוראת הקבע של אופירה שלום | ליווי תזונה אונליין - מנטורית אישית | 249 ₪ | חיוב חודשי",
+   "customobject1039id": "77B64560-6089-40AE-B005-6FC42BC8FF68",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-F11CF928-249",
+   "_id": "77B64560-6089-40AE-B005-6FC42BC8FF68"
+  },
+  {
+   "name": "הוראת הקבע של קרן פיטוסי | ליווי תזונה אונליין - רגיל | 197 ₪ | חיוב חודשי",
+   "customobject1039id": "4DAFB00D-0AFB-4655-B113-7411BC24A23B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-A85106D7-197",
+   "_id": "4DAFB00D-0AFB-4655-B113-7411BC24A23B"
+  },
+  {
+   "name": "הוראת הקבע של שירה יסכה תורג'מן | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "F8AC02B8-35F5-4631-8C9A-758FF9CCE7EC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-299D93BE-349",
+   "_id": "F8AC02B8-35F5-4631-8C9A-758FF9CCE7EC"
+  },
+  {
+   "name": "הוראת הקבע של נינה ציוני | ליווי תזונה אונליין - רגיל | 159 ₪ | חיוב חודשי",
+   "customobject1039id": "A1B514C1-AAF3-45D3-9169-79B3FC8B9F9E",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-8A077B29-159",
+   "_id": "A1B514C1-AAF3-45D3-9169-79B3FC8B9F9E"
+  },
+  {
+   "name": "הוראת הקבע של גלית שמואל | ליווי תזונה אונליין - רגיל | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "D832BA5B-2990-4CB9-A77B-7C4953B1B82B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-87660675-649",
+   "_id": "D832BA5B-2990-4CB9-A77B-7C4953B1B82B"
+  },
+  {
+   "name": "הוראת הקבע של יעל לוק | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "45F89519-1993-4008-A308-80557E8AE940",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-445573AA-349",
+   "_id": "45F89519-1993-4008-A308-80557E8AE940"
+  },
+  {
+   "name": "הוראת הקבע של חופית דאקר | תוכנית ליווי 22 שבועות | 548 ₪ | חיוב חודשי",
+   "customobject1039id": "F5CEF466-604F-419E-8F17-85922A85E9BF",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-8B7F9FE7-548",
+   "_id": "F5CEF466-604F-419E-8F17-85922A85E9BF"
+  },
+  {
+   "name": "הוראת הקבע של אוסנת טנסקי | ליווי תזונה אונליין - מנטורית אישית | 346 ₪ | חיוב חודשי",
+   "customobject1039id": "4E028415-687D-46F3-9FB2-8682A53CE611",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-8EB024D3-346",
+   "_id": "4E028415-687D-46F3-9FB2-8682A53CE611"
+  },
+  {
+   "name": "הוראת הקבע של מרגלית דרור | ליווי תזונה אונליין - רגיל | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "8BA42D9A-1271-462E-B79C-9337ABE9E9E0",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-66ECACCC-349",
+   "_id": "8BA42D9A-1271-462E-B79C-9337ABE9E9E0"
+  },
+  {
+   "name": "הוראת הקבע של גלי זפרני | ליווי תזונה אונליין - רגיל | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "A0187815-B261-469C-A3AD-94D5EF18954F",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-61FF36DE-349",
+   "_id": "A0187815-B261-469C-A3AD-94D5EF18954F"
+  },
+  {
+   "name": "הוראת הקבע של שרה קויאט | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "F7A4BA75-ED47-4464-A7FE-A19BF96F29A6",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-7F85CCC7-349",
+   "_id": "F7A4BA75-ED47-4464-A7FE-A19BF96F29A6"
+  },
+  {
+   "name": "הוראת הקבע של סער וינברג | תוכנית ליווי 6 שבועות | 1 ₪ | חיוב חודשי",
+   "customobject1039id": "81687746-DFBB-4E74-8464-A2D0D5D75E00",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-F0F93BEA-1",
+   "_id": "81687746-DFBB-4E74-8464-A2D0D5D75E00"
+  },
+  {
+   "name": "הוראת הקבע של יעל קראוס | ליווי תזונה אונליין - רגיל | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "25D7B0A4-936B-400C-8E95-A362FD1FDA69",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-7CD47965-649",
+   "_id": "25D7B0A4-936B-400C-8E95-A362FD1FDA69"
+  },
+  {
+   "name": "הוראת הקבע של אוסנת טנסקי | ליווי תזונה אונליין - מנטורית אישית | 179 ₪ | חיוב חודשי",
+   "customobject1039id": "F6C54AAD-58BA-426C-943F-A9F408D3ADD5",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-8EB024D3-179",
+   "_id": "F6C54AAD-58BA-426C-943F-A9F408D3ADD5"
+  },
+  {
+   "name": "הוראת הקבע של נטלי בינמין | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "E2354934-BDF1-4D49-86E3-B2475E044743",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-6473BE3F-349",
+   "_id": "E2354934-BDF1-4D49-86E3-B2475E044743"
+  },
+  {
+   "name": "הוראת הקבע של שרון קוניאק | ליווי תזונה אונליין - מנטורית אישית | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "87BA3182-F845-47C8-8E19-B346A629D532",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-EF05E023-649",
+   "_id": "87BA3182-F845-47C8-8E19-B346A629D532"
+  },
+  {
+   "name": "הוראת הקבע של ענת פוליבודה | ליווי תזונה אונליין - רגיל | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "0CE05D45-4328-4659-8E34-B56E2713E8A8",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-1A3BE892-649",
+   "_id": "0CE05D45-4328-4659-8E34-B56E2713E8A8"
+  },
+  {
+   "name": "הוראת הקבע של ברקת יתום | ליווי תזונה אונליין - מנטורית אישית | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "C97626F9-FA6B-4BEB-AB61-B5FABE4ED6E9",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-912FB4EC-649",
+   "_id": "C97626F9-FA6B-4BEB-AB61-B5FABE4ED6E9"
+  },
+  {
+   "name": "הוראת הקבע של נטלי בינמין | ליווי תזונה אונליין - מנטורית אישית | 359 ₪ | חיוב חודשי",
+   "customobject1039id": "82A009B6-022B-4D28-814A-BA7FBE398BC7",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-6473BE3F-359",
+   "_id": "82A009B6-022B-4D28-814A-BA7FBE398BC7"
+  },
+  {
+   "name": "הוראת הקבע של עמית ששון | ליווי תזונה אונליין - רגיל | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "EEB375CE-2A97-4243-9311-BAE2A399F22D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-F341C3AA-349",
+   "_id": "EEB375CE-2A97-4243-9311-BAE2A399F22D"
+  },
+  {
+   "name": "הוראת הקבע של אודליה קודיש | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "83B93DB3-9D33-4A3F-85B1-BB5DE9B0BE8A",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-CFCF5416-349",
+   "_id": "83B93DB3-9D33-4A3F-85B1-BB5DE9B0BE8A"
+  },
+  {
+   "name": "הוראת הקבע של טניה אינס | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "122A4381-1090-4A3C-BB9E-BD2208EBD0D3",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-2E567CA7-349",
+   "_id": "122A4381-1090-4A3C-BB9E-BD2208EBD0D3"
+  },
+  {
+   "name": "הוראת הקבע של עירית אברשטרק | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "C22FA1A4-A3C5-432C-B193-BF41272C4815",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-CA1A1723-349",
+   "_id": "C22FA1A4-A3C5-432C-B193-BF41272C4815"
+  },
+  {
+   "name": "הוראת הקבע של ליטל מרציאנו | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "0C5967C4-6A23-4207-B588-C0B7F5635226",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-AEF5160A-349",
+   "_id": "0C5967C4-6A23-4207-B588-C0B7F5635226"
+  },
+  {
+   "name": "הוראת הקבע של ליה סגל | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "96B37E36-903E-4B4D-967E-C1D9F4269A74",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-6D65DA36-349",
+   "_id": "96B37E36-903E-4B4D-967E-C1D9F4269A74"
+  },
+  {
+   "name": "הוראת הקבע של שושי ראובני לוי | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "3CF860BF-A68B-468F-A553-C365FB47F3EC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-86A9A578-349",
+   "_id": "3CF860BF-A68B-468F-A553-C365FB47F3EC"
+  },
+  {
+   "name": "הוראת הקבע של אשרת מוסקוביץ' | ליווי תזונה אונליין - רגיל | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "8A6B3F89-7E4D-427C-991D-C6DE6FF5D873",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-D40E0404-349",
+   "_id": "8A6B3F89-7E4D-427C-991D-C6DE6FF5D873"
+  },
+  {
+   "name": "הוראת הקבע של סמדר בן עזרא | ליווי תזונה אונליין - רגיל | 649 ₪ | חיוב חודשי",
+   "customobject1039id": "FA928EFA-2843-4AF7-9CAC-C880F39D414E",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-03B01D22-649",
+   "_id": "FA928EFA-2843-4AF7-9CAC-C880F39D414E"
+  },
+  {
+   "name": "הוראת הקבע של לימור חמו | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "D3B1004D-293B-490F-AF7A-C9A546D92BD3",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-25AAB749-349",
+   "_id": "D3B1004D-293B-490F-AF7A-C9A546D92BD3"
+  },
+  {
+   "name": "הוראת הקבע של רחל דסטה | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "183C14B2-663C-48CF-98AF-D90436EF8022",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-54518752-349",
+   "_id": "183C14B2-663C-48CF-98AF-D90436EF8022"
+  },
+  {
+   "name": "הוראת הקבע של אלכס זיגדון | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "F20A3023-F8BE-48E6-B4BD-E7D4A35C27A3",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-0856E83D-349",
+   "_id": "F20A3023-F8BE-48E6-B4BD-E7D4A35C27A3"
+  },
+  {
+   "name": "הוראת הקבע של אביבית יפרח | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "4574A960-E8D8-4480-9896-E8E0A2138D11",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-398EB0FE-349",
+   "_id": "4574A960-E8D8-4480-9896-E8E0A2138D11"
+  },
+  {
+   "name": "הוראת הקבע של אילנית פיילאוב | ליווי תזונה אונליין - רגיל | 159 ₪ | חיוב חודשי",
+   "customobject1039id": "F92DB0CF-9392-4732-A810-E96D1572E761",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-0BE9B3B5-159",
+   "_id": "F92DB0CF-9392-4732-A810-E96D1572E761"
+  },
+  {
+   "name": "הוראת הקבע של אסטל בילר | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "B6EA8469-36CD-4AB9-B457-ED0119E477EF",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-2DCF5DDE-349",
+   "_id": "B6EA8469-36CD-4AB9-B457-ED0119E477EF"
+  },
+  {
+   "name": "הוראת הקבע של זהבה כהן | ליווי תזונה אונליין - מנטורית אישית | 349 ₪ | חיוב חודשי",
+   "customobject1039id": "FA68C0A5-46D6-4553-ABB8-FCE948C10EEF",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfPaymentCategory": null,
+   "pcfPaymentCategoryname": null,
+   "pcfNumberOfPayments": 0,
+   "pcfExternalSoftwareID1": "GROW-DD-RECO-65C597DF-349",
+   "_id": "FA68C0A5-46D6-4553-ABB8-FCE948C10EEF"
+  }
+ ],
+ "C_1018_type7": [
+  {
+   "name": "תיעוד התשלום הו\"ק של אורנה אוחיון | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "A5701BD0-7BAE-481B-8A73-055646772FEC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512375857",
+   "_id": "A5701BD0-7BAE-481B-8A73-055646772FEC"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של גלית בוצצו | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "1E289E86-9D5E-422F-8193-0573781D5BC8",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510694799",
+   "_id": "1E289E86-9D5E-422F-8193-0573781D5BC8"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אורטל קלנדרוב | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "EE08E2B7-EE83-4708-8D6F-0584D0511A2A",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510979300",
+   "_id": "EE08E2B7-EE83-4708-8D6F-0584D0511A2A"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מורן לוי | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "B3849B64-E9FB-42E3-9108-073C9B4F8342",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513330042",
+   "_id": "B3849B64-E9FB-42E3-9108-073C9B4F8342"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של סיגלית איצקוביץ | מוצר לא מזוהה",
+   "customobject1018id": "36229882-E6B3-49A6-8E86-08257BEF59B4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511252481",
+   "_id": "36229882-E6B3-49A6-8E86-08257BEF59B4"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של תמי בנואליד | מוצר לא מזוהה",
+   "customobject1018id": "7C392886-AB92-41FF-9053-0A4E29B86C8B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513351379",
+   "_id": "7C392886-AB92-41FF-9053-0A4E29B86C8B"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עדי זהבי | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "080058B6-1C8A-4054-8491-0C68417F8809",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513699449",
+   "_id": "080058B6-1C8A-4054-8491-0C68417F8809"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מלי אור | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "91BF1520-7352-4033-BA89-0C6D178B384F",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513094279",
+   "_id": "91BF1520-7352-4033-BA89-0C6D178B384F"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מדלן בן עמי | מוצר לא מזוהה",
+   "customobject1018id": "7A4BD5BA-311F-473D-9521-0D593FAEFF4B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514545725",
+   "_id": "7A4BD5BA-311F-473D-9521-0D593FAEFF4B"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שירה לוינסקי | מוצר לא מזוהה",
+   "customobject1018id": "FB4038A2-AAF3-4DD5-BB8C-111330748C26",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513003754",
+   "_id": "FB4038A2-AAF3-4DD5-BB8C-111330748C26"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עדי דור | מוצר לא מזוהה",
+   "customobject1018id": "D2F5216D-05EF-4B7A-B769-155693E6ED09",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512372628",
+   "_id": "D2F5216D-05EF-4B7A-B769-155693E6ED09"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של רונית אברמוביץ | מוצר לא מזוהה",
+   "customobject1018id": "D57EFE9A-0FFB-4A4E-BB0A-1631B6FE5FA4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514271839",
+   "_id": "D57EFE9A-0FFB-4A4E-BB0A-1631B6FE5FA4"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שרי לוין | מוצר לא מזוהה",
+   "customobject1018id": "5A01F2FC-87A1-40EE-943E-17E84CF0B740",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512375599",
+   "_id": "5A01F2FC-87A1-40EE-943E-17E84CF0B740"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עדנה דסה | מוצר לא מזוהה",
+   "customobject1018id": "E529F66B-157E-42A3-9B04-199081722A2D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510643666",
+   "_id": "E529F66B-157E-42A3-9B04-199081722A2D"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של דקל ליסט | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "45DFDF1D-8807-45F0-9D4D-1DBB5031E05B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515360008",
+   "_id": "45DFDF1D-8807-45F0-9D4D-1DBB5031E05B"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אירן צנסטי | מוצר לא מזוהה",
+   "customobject1018id": "15E76BBB-6BC1-47BC-8033-21158F7F0572",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514515033",
+   "_id": "15E76BBB-6BC1-47BC-8033-21158F7F0572"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שילת וליט | מוצר לא מזוהה",
+   "customobject1018id": "C67ED470-B792-4FA0-B03E-212F3881FB50",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510732976",
+   "_id": "C67ED470-B792-4FA0-B03E-212F3881FB50"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של גלית מיצנר | מוצר לא מזוהה",
+   "customobject1018id": "50DEFA11-414D-4A19-97EF-21F19547DCB9",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512358036",
+   "_id": "50DEFA11-414D-4A19-97EF-21F19547DCB9"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של רינה רדא | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "BF110A6A-4538-4BEE-A846-279FED815159",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514261210",
+   "_id": "BF110A6A-4538-4BEE-A846-279FED815159"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אביגיל צדוק | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "DA3A27E4-E695-474A-8CBB-28782F59A076",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510383605",
+   "_id": "DA3A27E4-E695-474A-8CBB-28782F59A076"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ריקי גואטה | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "5B47CACD-97A2-4A9A-AC1A-28AC048CFFDD",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511791879",
+   "_id": "5B47CACD-97A2-4A9A-AC1A-28AC048CFFDD"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של איילת כהן מליחי | מוצר לא מזוהה",
+   "customobject1018id": "BF01E661-4AAA-4D5B-916D-28C09B380C78",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514553942",
+   "_id": "BF01E661-4AAA-4D5B-916D-28C09B380C78"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של איילת גולדשטיין | מוצר לא מזוהה",
+   "customobject1018id": "1B88D484-F9D5-49B2-A821-2EF0D60BC745",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513005464",
+   "_id": "1B88D484-F9D5-49B2-A821-2EF0D60BC745"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של לילך קאפח | מוצר לא מזוהה",
+   "customobject1018id": "9A724530-B815-4AE4-BB80-2FEDF8786F00",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514502486",
+   "_id": "9A724530-B815-4AE4-BB80-2FEDF8786F00"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אורית אלימלח ממלכת אור | מוצר לא מזוהה",
+   "customobject1018id": "3A6E4CD8-31BE-4800-9B58-30D17A72CD54",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512044929",
+   "_id": "3A6E4CD8-31BE-4800-9B58-30D17A72CD54"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 1/9 | לתאריך 16/09/2026",
+   "customobject1018id": "B8B37698-B679-47BE-AE3C-31FF79B5517A",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-1",
+   "_id": "B8B37698-B679-47BE-AE3C-31FF79B5517A"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שרה | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "B67E77D8-FA14-440D-BE24-3249906F12CC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514790968",
+   "_id": "B67E77D8-FA14-440D-BE24-3249906F12CC"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עדן פחימה | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "F244FA41-8003-45AB-968D-32D1D7BDB4A8",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514556631",
+   "_id": "F244FA41-8003-45AB-968D-32D1D7BDB4A8"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שיר בן שושן | מוצר לא מזוהה",
+   "customobject1018id": "428D80D6-5C8D-4F7A-897A-32DA4BA29ABC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514933958",
+   "_id": "428D80D6-5C8D-4F7A-897A-32DA4BA29ABC"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אלדמע פולק חנן | מוצר לא מזוהה",
+   "customobject1018id": "2C08AFE0-F31F-4449-8A43-33D86FFDCBA5",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515261589",
+   "_id": "2C08AFE0-F31F-4449-8A43-33D86FFDCBA5"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של יעל בן מלך | מוצר לא מזוהה",
+   "customobject1018id": "E0578F62-6D37-4412-B46A-3938246349D1",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510644897",
+   "_id": "E0578F62-6D37-4412-B46A-3938246349D1"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של איריס פרידלר | מוצר לא מזוהה",
+   "customobject1018id": "9F60612A-1882-4F3E-9B8C-39855EF3E40C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512337850",
+   "_id": "9F60612A-1882-4F3E-9B8C-39855EF3E40C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של איילת | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "53BC24A3-0987-4ED9-90E0-399FF75D9046",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514823968",
+   "_id": "53BC24A3-0987-4ED9-90E0-399FF75D9046"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של קארין מזרחי | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "373F8A24-34DA-4EC1-B8DE-39C507931158",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512389830",
+   "_id": "373F8A24-34DA-4EC1-B8DE-39C507931158"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של הילה עודד | מוצר לא מזוהה",
+   "customobject1018id": "A932B77A-F019-4B91-A89F-3B9E8EA4DB47",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513672015",
+   "_id": "A932B77A-F019-4B91-A89F-3B9E8EA4DB47"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של זלדי שיף | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "28E3ABA0-E67B-412F-9695-3D4691D82655",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513963767",
+   "_id": "28E3ABA0-E67B-412F-9695-3D4691D82655"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שוריק בלקגיאן | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "6E257F73-6A6B-439A-B757-3E14E9C5E8CB",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513967250",
+   "_id": "6E257F73-6A6B-439A-B757-3E14E9C5E8CB"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 7/9 | לתאריך 16/03/2027",
+   "customobject1018id": "6F16CEE9-DE58-4683-9B29-405BB24698C3",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-7",
+   "_id": "6F16CEE9-DE58-4683-9B29-405BB24698C3"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 8/9 | לתאריך 16/04/2027",
+   "customobject1018id": "B1466FAF-D2D5-4B11-9824-44D0241B9D1C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-8",
+   "_id": "B1466FAF-D2D5-4B11-9824-44D0241B9D1C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אביטל גריידי | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "4EFF4121-9DD3-4AAE-857B-459FCC7B4051",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511274672",
+   "_id": "4EFF4121-9DD3-4AAE-857B-459FCC7B4051"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עינת קורול | מוצר לא מזוהה",
+   "customobject1018id": "39EC53EB-755E-425F-90BC-45FD16F85102",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510637139",
+   "_id": "39EC53EB-755E-425F-90BC-45FD16F85102"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שנטל רוסק | מוצר לא מזוהה",
+   "customobject1018id": "1226D24B-D9B7-4B7A-8301-463A38779044",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512358397",
+   "_id": "1226D24B-D9B7-4B7A-8301-463A38779044"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עירית עזאני | מוצר לא מזוהה",
+   "customobject1018id": "91AE19D5-C80A-4154-B89D-4C067E83A132",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512372611",
+   "_id": "91AE19D5-C80A-4154-B89D-4C067E83A132"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של חגית גרינברג | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "0F92EAE8-4B3E-4A57-827A-4E783C7EB6A9",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514794771",
+   "_id": "0F92EAE8-4B3E-4A57-827A-4E783C7EB6A9"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אביטל מעודה | מוצר לא מזוהה",
+   "customobject1018id": "82D35D03-1E71-4FDA-BF3C-4F3DCB06EAD4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510698248",
+   "_id": "82D35D03-1E71-4FDA-BF3C-4F3DCB06EAD4"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של חני שמולביץ | מוצר לא מזוהה",
+   "customobject1018id": "0B424AA3-2B05-4268-99C0-4F7E0DDF8301",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512350044",
+   "_id": "0B424AA3-2B05-4268-99C0-4F7E0DDF8301"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של קרול לבי | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "F0960EB9-476A-4D33-8783-553F465C00A7",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511271956",
+   "_id": "F0960EB9-476A-4D33-8783-553F465C00A7"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של דניאלה עזב | מוצר לא מזוהה",
+   "customobject1018id": "B705B151-E43B-43DE-B79C-5684F7A7F992",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514268726",
+   "_id": "B705B151-E43B-43DE-B79C-5684F7A7F992"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 2/9 | לתאריך 16/10/2026",
+   "customobject1018id": "9A7AE0DA-2DFB-46E2-9101-57745EE82CAA",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-2",
+   "_id": "9A7AE0DA-2DFB-46E2-9101-57745EE82CAA"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של גלית בן שושן | מוצר לא מזוהה",
+   "customobject1018id": "A12235D2-D7CE-429C-A9EB-587629E23AE6",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513698293",
+   "_id": "A12235D2-D7CE-429C-A9EB-587629E23AE6"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אפרת דהן ברקי | מוצר לא מזוהה",
+   "customobject1018id": "627E6253-BAEE-47D1-B284-5934F6B1103D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511253082",
+   "_id": "627E6253-BAEE-47D1-B284-5934F6B1103D"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אביבה אור | מוצר לא מזוהה",
+   "customobject1018id": "1A1FDC72-19C1-4661-8C3C-5AB95C066B89",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511264743",
+   "_id": "1A1FDC72-19C1-4661-8C3C-5AB95C066B89"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של נילי אסולין | מוצר לא מזוהה",
+   "customobject1018id": "5D14A273-4A06-418D-A2CC-5B5EAFE71F1C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514937343",
+   "_id": "5D14A273-4A06-418D-A2CC-5B5EAFE71F1C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אסתר וחש סלוקי | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "37C576EB-955D-49B4-8C02-5C04CFC2F206",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511253015",
+   "_id": "37C576EB-955D-49B4-8C02-5C04CFC2F206"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אושרת דרעי סויסה | מוצר לא מזוהה",
+   "customobject1018id": "04411706-A01C-491D-993C-5CFC072818B6",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513007105",
+   "_id": "04411706-A01C-491D-993C-5CFC072818B6"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של חיה פדידה | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "B0206182-3918-42B1-8D7A-5D51CB207C8E",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514556839",
+   "_id": "B0206182-3918-42B1-8D7A-5D51CB207C8E"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של רויטל סולמון | מוצר לא מזוהה",
+   "customobject1018id": "B1EFADC9-5055-4088-A503-5D5E089C9585",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514563935",
+   "_id": "B1EFADC9-5055-4088-A503-5D5E089C9585"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שושי שרון | מוצר לא מזוהה",
+   "customobject1018id": "FED2F173-EFDF-42EF-A930-5DEB0CFF493F",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514563296",
+   "_id": "FED2F173-EFDF-42EF-A930-5DEB0CFF493F"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של לריסה פנחסוב | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "29CDD9D7-A3B1-48B7-A6B4-63AC499DB198",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513982319",
+   "_id": "29CDD9D7-A3B1-48B7-A6B4-63AC499DB198"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של סופיה אבייב | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "29AF709B-1852-494E-AB0E-64F4F78152F4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513966443",
+   "_id": "29AF709B-1852-494E-AB0E-64F4F78152F4"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ליאת בן מויאל | מוצר לא מזוהה",
+   "customobject1018id": "AB0864B0-8055-4E3A-952F-6576E38DF541",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512387041",
+   "_id": "AB0864B0-8055-4E3A-952F-6576E38DF541"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של רוחמה סעידי | מוצר לא מזוהה",
+   "customobject1018id": "339A9C19-BFF8-4769-9756-6606BACCE23E",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515254952",
+   "_id": "339A9C19-BFF8-4769-9756-6606BACCE23E"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מלי נאור | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "6064A5E2-52D8-4672-8E3B-6BCD279E687E",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510704707",
+   "_id": "6064A5E2-52D8-4672-8E3B-6BCD279E687E"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ענת שם טוב | מוצר לא מזוהה",
+   "customobject1018id": "B196F36C-50F1-4DFD-810B-6FBF5A3C5A7D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513671989",
+   "_id": "B196F36C-50F1-4DFD-810B-6FBF5A3C5A7D"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שני תשובה | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "3025F382-AA03-4833-B633-70943E8AF6C5",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510638379",
+   "_id": "3025F382-AA03-4833-B633-70943E8AF6C5"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ליהיא קנפו | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "89E8FE0C-4A69-428C-9E62-763F6DED0C53",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511768609",
+   "_id": "89E8FE0C-4A69-428C-9E62-763F6DED0C53"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שירלי זיידל | מוצר לא מזוהה",
+   "customobject1018id": "9E204176-D2D4-4FFF-99CB-7E7FFA589ADE",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511268764",
+   "_id": "9E204176-D2D4-4FFF-99CB-7E7FFA589ADE"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של רויטל לופו | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "5FE08165-2FB7-48AB-915F-814C4E331D76",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510705969",
+   "_id": "5FE08165-2FB7-48AB-915F-814C4E331D76"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של בת חן משי | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "3F6FFAEF-F3CB-40C1-B8CF-8240B090595B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510388782",
+   "_id": "3F6FFAEF-F3CB-40C1-B8CF-8240B090595B"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של הדס לוי | מוצר לא מזוהה",
+   "customobject1018id": "4BE1CF49-0DA1-4C69-8F9C-83DFF7DFEBE1",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514274864",
+   "_id": "4BE1CF49-0DA1-4C69-8F9C-83DFF7DFEBE1"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אלינור מינץ | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "30022A9E-6D8B-4C98-A8D2-85CE9ACE458D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510638152",
+   "_id": "30022A9E-6D8B-4C98-A8D2-85CE9ACE458D"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של תהילה בר שלום | מוצר לא מזוהה",
+   "customobject1018id": "012A80C0-8D8C-4F0C-8AB2-8643A2646A2D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512347255",
+   "_id": "012A80C0-8D8C-4F0C-8AB2-8643A2646A2D"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 5/9 | לתאריך 16/01/2027",
+   "customobject1018id": "EF9BB700-A455-4D21-9531-865D1818E442",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-5",
+   "_id": "EF9BB700-A455-4D21-9531-865D1818E442"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שירלי סופר | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "093438D7-40DD-4FC3-97C8-86C3E3F78E07",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511008549",
+   "_id": "093438D7-40DD-4FC3-97C8-86C3E3F78E07"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של טמי שהרבני | מוצר לא מזוהה",
+   "customobject1018id": "E027DBE1-F333-4CC8-A83B-874C77028225",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514937356",
+   "_id": "E027DBE1-F333-4CC8-A83B-874C77028225"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מיטל גואטה | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "B6391E1A-0CC3-4BC9-9DB7-894260298A36",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510637708",
+   "_id": "B6391E1A-0CC3-4BC9-9DB7-894260298A36"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של לישי כהן | מוצר לא מזוהה",
+   "customobject1018id": "5F0382AC-2D65-4F7C-B8A3-8EEFA264E03C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512361431",
+   "_id": "5F0382AC-2D65-4F7C-B8A3-8EEFA264E03C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שני | סדנה בוסט",
+   "customobject1018id": "0E7080BE-A1BA-4FFF-8FCB-909F0B389F1A",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514784626",
+   "_id": "0E7080BE-A1BA-4FFF-8FCB-909F0B389F1A"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של נטלי עוקב | מוצר לא מזוהה",
+   "customobject1018id": "E03FC940-A047-4614-81F0-924D8222454C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514556754",
+   "_id": "E03FC940-A047-4614-81F0-924D8222454C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של יפה זמיר | מוצר לא מזוהה",
+   "customobject1018id": "562435BD-B423-4F42-BA1D-92DC76A7811C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510382001",
+   "_id": "562435BD-B423-4F42-BA1D-92DC76A7811C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מרתה דוד | מוצר לא מזוהה",
+   "customobject1018id": "6AE4D761-D5D0-40E8-9695-934C4D64201E",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512342518",
+   "_id": "6AE4D761-D5D0-40E8-9695-934C4D64201E"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של יהודית אביטל | מוצר לא מזוהה",
+   "customobject1018id": "50715F1F-552A-4890-AE81-93D487F53743",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510645040",
+   "_id": "50715F1F-552A-4890-AE81-93D487F53743"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ורדה פלסמן | מוצר לא מזוהה",
+   "customobject1018id": "60C84047-077C-476B-BE97-95D5F00FE514",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512042062",
+   "_id": "60C84047-077C-476B-BE97-95D5F00FE514"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 9/9 | לתאריך 16/05/2027",
+   "customobject1018id": "896AA725-232B-4212-9ADC-96E2309013B0",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-9",
+   "_id": "896AA725-232B-4212-9ADC-96E2309013B0"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ויוי זהב | מוצר לא מזוהה",
+   "customobject1018id": "029B8C13-6080-4583-910C-978859772475",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513005250",
+   "_id": "029B8C13-6080-4583-910C-978859772475"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אביגיל רפאל | מוצר לא מזוהה",
+   "customobject1018id": "E0F3402A-F333-440B-951C-97A1C9AA4BCE",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513964934",
+   "_id": "E0F3402A-F333-440B-951C-97A1C9AA4BCE"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מיכל קלרמן | מוצר לא מזוהה",
+   "customobject1018id": "D01E219E-A7CE-4F91-8574-9B3ED815721B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513349060",
+   "_id": "D01E219E-A7CE-4F91-8574-9B3ED815721B"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מירי שכטר | מוצר לא מזוהה",
+   "customobject1018id": "0DF9C569-B208-4520-AD2B-A7603B93FAD5",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513698224",
+   "_id": "0DF9C569-B208-4520-AD2B-A7603B93FAD5"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אורנה ניסים | מוצר לא מזוהה",
+   "customobject1018id": "4634CF3C-7662-4835-89B1-A9A885E3C6C4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514003049",
+   "_id": "4634CF3C-7662-4835-89B1-A9A885E3C6C4"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של דנה ליבוביץ לוי | מוצר לא מזוהה",
+   "customobject1018id": "1E93C537-BA81-41D2-98C5-AABEAB2B8FC2",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515028993",
+   "_id": "1E93C537-BA81-41D2-98C5-AABEAB2B8FC2"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אודיה ביליג | מוצר לא מזוהה",
+   "customobject1018id": "A2E252AD-47B0-437C-814C-AE265B9A9840",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513958590",
+   "_id": "A2E252AD-47B0-437C-814C-AE265B9A9840"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של תמר ברגר | מוצר לא מזוהה",
+   "customobject1018id": "198EDCB5-934C-4DD8-A247-AFD7D627E230",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512345391",
+   "_id": "198EDCB5-934C-4DD8-A247-AFD7D627E230"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של צפורה רבקה | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "CE0C0761-A688-4DB1-BDD3-B17D92DB63C2",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510698964",
+   "_id": "CE0C0761-A688-4DB1-BDD3-B17D92DB63C2"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של חגית גור אריה | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "7ACB5300-F857-4105-A3CF-B482BDD80080",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513680333",
+   "_id": "7ACB5300-F857-4105-A3CF-B482BDD80080"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אורית מכבי | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "7FCE507D-4C55-4A2C-8AF2-B532B53E9F20",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510636129",
+   "_id": "7FCE507D-4C55-4A2C-8AF2-B532B53E9F20"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של סנאית סיטבון | מוצר לא מזוהה",
+   "customobject1018id": "2BAAE9A3-6D62-4FEE-A14E-B97CE310F803",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512339924",
+   "_id": "2BAAE9A3-6D62-4FEE-A14E-B97CE310F803"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של לירון ארד | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "06724CB5-E71F-454E-8418-B988520B2C01",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510704479",
+   "_id": "06724CB5-E71F-454E-8418-B988520B2C01"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אילנה מגירה | מוצר לא מזוהה",
+   "customobject1018id": "563BFA5E-F7BB-4DDF-BCC5-BC2E380964E4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510703409",
+   "_id": "563BFA5E-F7BB-4DDF-BCC5-BC2E380964E4"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 3/9 | לתאריך 16/11/2026",
+   "customobject1018id": "20D516F5-114A-447C-A931-BCEA5A93CB4F",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-3",
+   "_id": "20D516F5-114A-447C-A931-BCEA5A93CB4F"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ליאת כורך | מוצר לא מזוהה",
+   "customobject1018id": "D07087F6-3B1E-4C10-ACF5-BD18784D93E3",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514935367",
+   "_id": "D07087F6-3B1E-4C10-ACF5-BD18784D93E3"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עפרי סמואלוב | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "CB6AF06C-262E-40D6-893D-BDC89F9340A4",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514274417",
+   "_id": "CB6AF06C-262E-40D6-893D-BDC89F9340A4"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של דנה נפתליהו | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "F8E03F7F-CED5-48D7-A4D6-BEB8ED83A1AE",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513334649",
+   "_id": "F8E03F7F-CED5-48D7-A4D6-BEB8ED83A1AE"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של לירון גבריאלוב | מוצר לא מזוהה",
+   "customobject1018id": "27550C29-A740-4351-8230-BEF71800E5FC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512372598",
+   "_id": "27550C29-A740-4351-8230-BEF71800E5FC"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של סילבי מויאל | מוצר לא מזוהה",
+   "customobject1018id": "CC885737-05BE-4A70-B7E1-BF5201C5FA5C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515255008",
+   "_id": "CC885737-05BE-4A70-B7E1-BF5201C5FA5C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של יהודית קופנהגן | מוצר לא מזוהה",
+   "customobject1018id": "04A691B8-950B-49A4-B33E-C305AE213ECB",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510977656",
+   "_id": "04A691B8-950B-49A4-B33E-C305AE213ECB"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של קארין ברשאן | מוצר לא מזוהה",
+   "customobject1018id": "DA3F2B49-A767-4C45-AC8C-C31C1F33F18B",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512358044",
+   "_id": "DA3F2B49-A767-4C45-AC8C-C31C1F33F18B"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מרי ניסנוב | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "FC22F0E6-44E5-48DF-A80D-C3C29A872197",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511253383",
+   "_id": "FC22F0E6-44E5-48DF-A80D-C3C29A872197"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מרגלית קליין | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "33B226E6-0728-44A1-8166-C436FC1A082E",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510699125",
+   "_id": "33B226E6-0728-44A1-8166-C436FC1A082E"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של חגית פרונסקי | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "C8E990F7-CECA-45BD-B79A-C43859F2A10A",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512356472",
+   "_id": "C8E990F7-CECA-45BD-B79A-C43859F2A10A"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מוריה יזרעאלי | מוצר לא מזוהה",
+   "customobject1018id": "7BDC7AA3-FC3B-49B0-B135-C4BA6968C6EC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512345387",
+   "_id": "7BDC7AA3-FC3B-49B0-B135-C4BA6968C6EC"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 6/9 | לתאריך 16/02/2027",
+   "customobject1018id": "9DA14A58-3B4E-4359-BE61-C72C6ACF5F1C",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-6",
+   "_id": "9DA14A58-3B4E-4359-BE61-C72C6ACF5F1C"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שירה לוינסקי | מוצר לא מזוהה",
+   "customobject1018id": "C2897660-1DB4-4433-BA13-C80FF047C360",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514613311",
+   "_id": "C2897660-1DB4-4433-BA13-C80FF047C360"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אפרת קנזין | מוצר לא מזוהה",
+   "customobject1018id": "7204D4A8-5FA1-47C0-9C56-CFA4905F4C31",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512338513",
+   "_id": "7204D4A8-5FA1-47C0-9C56-CFA4905F4C31"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מור גבאי | מוצר לא מזוהה",
+   "customobject1018id": "60944F00-1D7B-48DD-866D-D0AC05767475",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511796459",
+   "_id": "60944F00-1D7B-48DD-866D-D0AC05767475"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מור דגן | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "F75819C6-FFFE-4B7F-8BCD-D0B85F7CE211",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515132679",
+   "_id": "F75819C6-FFFE-4B7F-8BCD-D0B85F7CE211"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ריקי מתתיהו | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "95168F6F-EC18-4B97-9BE9-D3559409F743",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511253388",
+   "_id": "95168F6F-EC18-4B97-9BE9-D3559409F743"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של תהילה עדרי | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "36CA1F3A-3FAE-4ED3-8D4C-D3EE7EC24B06",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511253342",
+   "_id": "36CA1F3A-3FAE-4ED3-8D4C-D3EE7EC24B06"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של רויטל ביטון | מוצר לא מזוהה",
+   "customobject1018id": "8863D708-6DF6-4B02-9B6C-DB84CE52E6F8",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514504614",
+   "_id": "8863D708-6DF6-4B02-9B6C-DB84CE52E6F8"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של בתיה אהרון | מוצר לא מזוהה",
+   "customobject1018id": "0EB98DE7-E911-4186-924A-DEB19DA89FDB",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510639638",
+   "_id": "0EB98DE7-E911-4186-924A-DEB19DA89FDB"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מורן זהר | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "49FD4ECC-DBE4-4B79-96BF-DF8C0210AFEB",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-513662125",
+   "_id": "49FD4ECC-DBE4-4B79-96BF-DF8C0210AFEB"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שגית | תוכנית ליווי 22 שבועות",
+   "customobject1018id": "82BDBA15-7130-45F4-BF33-E24CD1FE1AF0",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514124612",
+   "_id": "82BDBA15-7130-45F4-BF33-E24CD1FE1AF0"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של לאה שיליץ | מוצר לא מזוהה",
+   "customobject1018id": "4AF5A183-C3FF-494C-A86C-E2636FCCFAED",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-511275364",
+   "_id": "4AF5A183-C3FF-494C-A86C-E2636FCCFAED"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של נלי בן דרור | מוצר לא מזוהה",
+   "customobject1018id": "6E905C78-0F98-4FAE-B5DC-E2EC3045B9B3",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512338582",
+   "_id": "6E905C78-0F98-4FAE-B5DC-E2EC3045B9B3"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אורטל קלנדרוב | מוצר לא מזוהה",
+   "customobject1018id": "C472CED6-2E52-4267-B87B-E3033175A903",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510399525",
+   "_id": "C472CED6-2E52-4267-B87B-E3033175A903"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של נטע אמסלם | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "901AF2C2-BFD7-405A-A515-E6A85C327957",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515275853",
+   "_id": "901AF2C2-BFD7-405A-A515-E6A85C327957"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של צילה רטס | מוצר לא מזוהה",
+   "customobject1018id": "74B690EC-D682-498B-89D6-E8A1537F8734",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514932743",
+   "_id": "74B690EC-D682-498B-89D6-E8A1537F8734"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שרית שגב | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "B2CA39E8-65D4-462F-9D9E-E8BB3EB09EA5",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514125371",
+   "_id": "B2CA39E8-65D4-462F-9D9E-E8BB3EB09EA5"
+  },
+  {
+   "name": "תיעוד התשלום של יהודית סואייה | תוכנית ליווי 17 שבועות | חיוב 4/9 | לתאריך 16/12/2026",
+   "customobject1018id": "11F5C7E2-468F-4598-835D-E9152322C6C2",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "MANUAL-FORM-MU3U8KZB-V06VDF-P1-4",
+   "_id": "11F5C7E2-468F-4598-835D-E9152322C6C2"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של לימור טרלובסקי | מוצר לא מזוהה",
+   "customobject1018id": "7F706A66-8DAE-4B77-8CF0-EAED5B9DEB33",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512372572",
+   "_id": "7F706A66-8DAE-4B77-8CF0-EAED5B9DEB33"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שלומית אטדגי | מוצר לא מזוהה",
+   "customobject1018id": "F49B06C6-1DA9-4130-A2E1-EE156C141FCC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-515244797",
+   "_id": "F49B06C6-1DA9-4130-A2E1-EE156C141FCC"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של אודליה זוגייר | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "8CA286E5-DB17-4B7C-BEBA-EF10175A8EF1",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512424500",
+   "_id": "8CA286E5-DB17-4B7C-BEBA-EF10175A8EF1"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של דנה אליהו | מוצר לא מזוהה",
+   "customobject1018id": "A77FB174-0E71-40E6-A1DB-EFD986855906",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510980405",
+   "_id": "A77FB174-0E71-40E6-A1DB-EFD986855906"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של יסמין בן יוסף | מוצר לא מזוהה",
+   "customobject1018id": "910FFC9E-8DAF-4755-86F9-F06E123B493F",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510644887",
+   "_id": "910FFC9E-8DAF-4755-86F9-F06E123B493F"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של עדי | תוכנית ליווי 28 שבועות",
+   "customobject1018id": "63E15549-578B-488A-A87B-F1B06520987F",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512441421",
+   "_id": "63E15549-578B-488A-A87B-F1B06520987F"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של חלי ורדי | מוצר לא מזוהה",
+   "customobject1018id": "2EC92A0E-FD92-4B64-81B8-F24B8D23BBEB",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512042839",
+   "_id": "2EC92A0E-FD92-4B64-81B8-F24B8D23BBEB"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ללי בארי | מוצר לא מזוהה",
+   "customobject1018id": "7D25CA31-4D5E-44EB-A4C0-F2F8C040C912",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514271891",
+   "_id": "7D25CA31-4D5E-44EB-A4C0-F2F8C040C912"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מ.ש מוזיקה והפקות | מוצר לא מזוהה",
+   "customobject1018id": "38F7C6EF-91DF-4360-A2F8-F3F9F1445BB3",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510389878",
+   "_id": "38F7C6EF-91DF-4360-A2F8-F3F9F1445BB3"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של הילה פרץ | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "732712E6-70E6-4FA8-BB0A-F4EA6507730F",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-514291643",
+   "_id": "732712E6-70E6-4FA8-BB0A-F4EA6507730F"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של שירן עזריה | מוצר לא מזוהה",
+   "customobject1018id": "43B0D118-AEC6-41F3-AEB2-F523698A4D59",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512042838",
+   "_id": "43B0D118-AEC6-41F3-AEB2-F523698A4D59"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של חגית טל | מוצר לא מזוהה",
+   "customobject1018id": "42D9F73C-6A68-45EB-870D-F69DBA5296AC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510981179",
+   "_id": "42D9F73C-6A68-45EB-870D-F69DBA5296AC"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ריקי אמסלם | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "2E6787B9-6492-4113-A71C-F92AB10D92AD",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510641608",
+   "_id": "2E6787B9-6492-4113-A71C-F92AB10D92AD"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ערין עואד | מוצר לא מזוהה",
+   "customobject1018id": "798DBD76-3968-414B-B485-FA49F05D798D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-512372592",
+   "_id": "798DBD76-3968-414B-B485-FA49F05D798D"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של גלית ראש | תוכנית ליווי 17 שבועות",
+   "customobject1018id": "4510D7F8-477D-410B-B6EF-FDA92BE36DE8",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510392183",
+   "_id": "4510D7F8-477D-410B-B6EF-FDA92BE36DE8"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של ורד אקבס | מוצר לא מזוהה",
+   "customobject1018id": "9BDCE87A-F37D-4298-ADED-FEB90180209D",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510981481",
+   "_id": "9BDCE87A-F37D-4298-ADED-FEB90180209D"
+  },
+  {
+   "name": "תיעוד התשלום הו\"ק של מרב צבירי | תוכנית ליווי 12 שבועות",
+   "customobject1018id": "89AD7AE4-27A9-49A8-B464-FF46C359D8CC",
+   "pcfPaymentType": 7,
+   "pcfPaymentTypename": "הוראת קבע",
+   "pcfExternalSoftwareID1": "GROW-510383588",
+   "_id": "89AD7AE4-27A9-49A8-B464-FF46C359D8CC"
+  }
+ ]
+}
