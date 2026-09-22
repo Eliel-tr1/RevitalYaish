@@ -143,7 +143,6 @@
       <p class="kv" id="prodHint"></p>
       <div id="priceBox" class="price hidden"></div>
     </div>
-    <div id="groupBanner" class="grp hidden"></div>
     <div class="nav-row">
       <button id="backTo1" class="ghost">חזרה</button>
       <span class="spacer"></span>
@@ -404,8 +403,8 @@ function groupBannerHTML(){
 }
 function renderGroupBanner(){
   const b = groupBannerHTML();
-  const el2 = $('groupBanner');
-  if(el2){ el2.className = 'grp ' + b.cls; el2.innerHTML = b.html; }
+  const el3 = $('groupBanner3');
+  if(el3){ el3.className = 'grp ' + b.cls; el3.innerHTML = b.html; }
 }
 function escapeHtml(s){
   return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&','<':'<','>':'>','"':'"'}[c]));
@@ -528,28 +527,23 @@ function renderPriceBox(){
   if(!p.price){
     box.className = 'price none';
     box.innerHTML = '<div><span class="lbl">⚠️ למוצר הזה אין מחיר בכרטיס המוצר</span>' +
-      '<div class="novat2">יש להזין את הסכום ידנית, ולעדכן את המחיר בכרטיס המוצר בפיירברי.</div></div>';
+      '<div class="novat2">יש להזין את הסכום ידנית בשלב פרטי התשלום, ולעדכן את המחיר בכרטיס המוצר בפיירברי.</div></div>';
     return;
   }
-  const entered = enteredTotal();
-  const matches = Math.abs(entered - p.price) < 0.01;
-  const calcNote = p.src === 'calc' ? ' <span class="novat2">(חושב מהמחיר לפני מע"מ)</span>' : '';
-  box.className = 'price' + (matches || !entered ? '' : ' none');
+  // 🔴 סער 22/09: אין כפתור "מילוי הסכום". הסכום של המוצר הנבחר בטופס ימולא אוטומטית
+  //    בשלב פרטי התשלום — רק אם שום סכום לא הוזן ידנית קודם (לא דורס הזנה ידנית).
+  box.className = 'price';
   box.innerHTML =
     '<div><span class="lbl">מחיר המוצר</span>' +
     '<div><span class="amt">' + nis(p.price) + '</span> ' +
-    '<span class="novat2">כולל מע"מ · ללא מע"מ: ' + nis(beforeVat(p.price)) + '</span>' + calcNote + '</div>' +
-    (entered && !matches
-      ? '<div class="novat2" style="margin-top:5px">הסכום שהוזן כרגע: <b>' + nis(entered) + '</b> — שונה ממחיר המוצר.</div>'
-      : '') +
-    '</div>' +
-    (matches ? '<div class="novat2">✓ הסכום תואם</div>'
-             : '<button type="button" id="fillPrice">מילוי הסכום</button>');
-  const btn = $('fillPrice');
-  if(btn) btn.addEventListener('click', fillProductPrice);
+    '<span class="novat2">כולל מע"מ · ללא מע"מ: ' + nis(beforeVat(p.price)) + '</span>' +
+    (p.src === 'calc' ? ' <span class="novat2">(חושב מהמחיר לפני מע"מ)</span>' : '') + '</div>' +
+    '<div class="novat2" style="margin-top:5px">הסכום ימולא אוטומטית בשלב פרטי התשלום ✓</div>' +
+    '</div>';
 }
 function onProductChange(){
   renderPriceBox();
+  // מילוי אוטומטי רק כששום סכום לא הוזן עדיין — אחרת מה שהוקלד ידנית נשאר.
   const p = selectedProductPrice();
   if(p && p.price && enteredTotal() === 0) fillProductPrice();
 }
@@ -616,8 +610,14 @@ $('toStep4').addEventListener('click', ()=>{
   const signed = (sig === '2') || sigName.includes('נחתם');
   const isPremium = String(productType ?? '') === '2';
   if(isPremium && !signed) show('sigWarn'); else hide('sigWarn');
-  $('sumDeal').textContent = dealAmount() ? dealAmount().toLocaleString('he-IL')+' ₪' : 'לא מולא';
+  // 🔴 סער 22/09: סכום העסקה בשלב 4 = המוצר שנבחר **בטופס** (כשמדובר ברכישת מוצר),
+  //    ולא סכום תהליך המכירה. אם כבר הוזן סכום ידנית — זה נשאר ומוצגת אזהרת פער.
+  const p = buyingNewProduct ? selectedProductPrice() : null;
+  const targetSum = (p && p.price) ? p.price : dealAmount();
+  $('sumDeal').textContent = targetSum ? targetSum.toLocaleString('he-IL')+' ₪' : 'לא מולא';
   if(!$('rows').children.length) addPaymentRow();
+  // מילוי אוטומטי של הסכום מהמוצר — רק אם כלום לא הוזן ידנית עד עכשיו.
+  if(p && p.price && enteredTotal() === 0) fillProductPrice();
   recalc();
   gotoStep(4);
 });
@@ -629,8 +629,10 @@ function recalc(){
   document.querySelectorAll('.f-amount').forEach(i=> sum += Number(i.value)||0);
   $('sumEntered').textContent = nis(sum);
   $('sumEnteredNoVat').textContent = sum ? `(ללא מע"מ: ${nis(beforeVat(sum))})` : '';
-  const dealSum = dealAmount();
-  if(dealSum && sum && Math.abs(sum-dealSum) > 0.01) show('sumWarn'); else hide('sumWarn');
+  // השוואת פער מול היעד: המוצר שנבחר בטופס (ברכישה) או סכום תהליך המכירה.
+  const p = buyingNewProduct ? selectedProductPrice() : null;
+  const targetSum = (p && p.price) ? p.price : dealAmount();
+  if(targetSum && sum && Math.abs(sum-targetSum) > 0.01) show('sumWarn'); else hide('sumWarn');
   if(typeof renderPriceBox === 'function') renderPriceBox();
   return sum;
 }
