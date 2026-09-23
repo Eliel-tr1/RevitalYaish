@@ -1,0 +1,248 @@
+{
+ "createdAt": "2026-08-19T20:36:33.526Z",
+ "updatedAt": "2026-09-14T19:06:18.544Z",
+ "id": "0fcPnJp1DdknzwpF",
+ "name": "WF-22 · ראוטר תהליכים מקצועיים",
+ "active": true,
+ "isArchived": false,
+ "nodes": [
+  {
+   "parameters": {
+    "httpMethod": "POST",
+    "path": "pro-setup-roital",
+    "responseMode": "responseNode",
+    "options": {}
+   },
+   "id": "Webhook · סיום תשלום",
+   "name": "Webhook · סיום תשלום",
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2,
+   "position": [
+    -300,
+    300
+   ],
+   "webhookId": "wf22-pro-router"
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 14, fields: [{name:\"productid\"},{name:\"name\"},{name:\"categorycode\"},{name:\"pcfDurationWeeks\"},{name:\"pcfwhatsappgroup\"},{name:\"ownerid\"},{name:\"statuscode\"},{name:\"pcfpaymentpageid\"}], pageSize: 100, pageNumber: 1 }) }}"
+   },
+   "id": "קטלוג המוצרים (14)",
+   "name": "קטלוג המוצרים (14)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    -80,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "\n// ============================================================================\n// WF-22 · סיווג המוצר וניתוב לתהליך המקצועי הנכון\n// ============================================================================\n// הראוטר לא מבצע שום כתיבה. תפקידו היחיד: להחליט לאיזה תהליך להעביר,\n// ולהעשיר את ה-payload בקטגוריה של המוצר.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nconst ROUTES = {\n  BOOST:     '/webhook/pro-boost-roital',\n  MENTORING: '/webhook/pro-mentoring-roital',\n  CONTINUE:  '/webhook/pro-continue-roital',\n};\nconst BOOST_PRODUCT_IDS = ['2F73403A-20DE-47A7-B0CB-DF4761B45F21'];\nconst N8N_BASE = 'https://n8n.srv964196.hstgr.cloud';\n\nfunction LOGIC(ctx) {\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const U = (v) => S(v).toUpperCase();\n  const raw = ctx.raw || {};\n  const d = (raw && raw.body && typeof raw.body === 'object') ? raw.body : raw;\n  const products = (ctx.productResp && Array.isArray(ctx.productResp.data)) ? ctx.productResp.data : [];\n\n  const productId = U(d.productId);\n  const product = products.find((p) => U(p.productid) === productId) || null;\n  const cat = product && product.categorycode !== null && product.categorycode !== undefined\n    ? parseInt(product.categorycode, 10) : null;\n\n  let branch = null; const why = [];\n  if (productId && BOOST_PRODUCT_IDS.map(U).indexOf(productId) !== -1) {\n    branch = 'BOOST'; why.push('מזהה המוצר הוא סדנת הבוסט.');\n  } else if (cat === 101) { branch = 'MENTORING'; why.push('קטגוריה ראשית 101 — תוכנית ליווי.'); }\n  else if (cat === 102) { branch = 'CONTINUE'; why.push('קטגוריה ראשית 102 — תוכנית המשך.'); }\n  else if (cat === 100) { why.push('קטגוריה 100 שאינה סדנת הבוסט — אין תהליך מקצועי מוגדר.'); }\n  else { why.push('לא נמצא מוצר תואם בקטלוג — לא ניתן לסווג.'); }\n\n  const IDLE = { url: N8N_BASE + '/webhook/pro-noop-roital', route: null };\n  if (!branch) {\n    return [{ json: { routed: false, branch: null, reasons: why,\n      productId, productName: S(d.productName) || (product ? S(product.name) : ''),\n      categoryCode: cat, targetUrl: '', payload: {}, _skip: true } }];\n  }\n  const payload = Object.assign({}, d, {\n    categoryCode: cat,\n    productName: S(d.productName) || (product ? S(product.name) : ''),\n  });\n  return [{ json: { routed: true, branch, reasons: why, productId,\n    productName: payload.productName, categoryCode: cat,\n    targetUrl: N8N_BASE + ROUTES[branch], payload, _skip: false } }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ raw: $('Webhook · סיום תשלום').first().json, productResp: $input.first().json });\n"
+   },
+   "id": "סיווג וניתוב",
+   "name": "סיווג וניתוב",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    140,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "={{ $json.targetUrl || 'https://api.fireberry.com/api/v3/query' }}",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json._skip ? {} : $json.payload) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 120000
+    }
+   },
+   "id": "העברה לתהליך המקצועי",
+   "name": "העברה לתהליך המקצועי",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    360,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ { routed: $('סיווג וניתוב').first().json.routed, branch: $('סיווג וניתוב').first().json.branch, reasons: $('סיווג וניתוב').first().json.reasons, product: $('סיווג וניתוב').first().json.productName, categoryCode: $('סיווג וניתוב').first().json.categoryCode, result: $json } }}",
+    "options": {
+     "responseCode": 200
+    }
+   },
+   "id": "תגובה",
+   "name": "תגובה",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    580,
+    300
+   ]
+  }
+ ],
+ "connections": {
+  "Webhook · סיום תשלום": {
+   "main": [
+    [
+     {
+      "node": "קטלוג המוצרים (14)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קטלוג המוצרים (14)": {
+   "main": [
+    [
+     {
+      "node": "סיווג וניתוב",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "סיווג וניתוב": {
+   "main": [
+    [
+     {
+      "node": "העברה לתהליך המקצועי",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "העברה לתהליך המקצועי": {
+   "main": [
+    [
+     {
+      "node": "תגובה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1",
+  "timezone": "Asia/Jerusalem",
+  "saveManualExecutions": true,
+  "saveDataErrorExecution": "all",
+  "saveDataSuccessExecution": "all"
+ },
+ "staticData": null,
+ "meta": null,
+ "pinData": null,
+ "versionId": "ba8e975a-7e8c-43b1-8dea-9c6c539413be",
+ "triggerCount": 1,
+ "shared": [
+  {
+   "createdAt": "2026-08-19T20:36:33.528Z",
+   "updatedAt": "2026-08-19T20:36:33.528Z",
+   "role": "workflow:owner",
+   "workflowId": "0fcPnJp1DdknzwpF",
+   "projectId": "8n5t87og6JZ0AXPr",
+   "project": {
+    "createdAt": "2025-08-18T16:54:33.537Z",
+    "updatedAt": "2025-08-18T17:04:43.601Z",
+    "id": "8n5t87og6JZ0AXPr",
+    "name": "Eliel Trabulsky <eliel@vitrue.co.il>",
+    "type": "personal",
+    "icon": null,
+    "description": null,
+    "projectRelations": [
+     {
+      "createdAt": "2025-08-18T16:54:33.538Z",
+      "updatedAt": "2025-08-18T16:54:33.538Z",
+      "role": "project:personalOwner",
+      "userId": "6530ce58-2475-45da-97a4-bf0ec489a180",
+      "projectId": "8n5t87og6JZ0AXPr",
+      "user": {
+       "createdAt": "2025-08-18T16:54:32.972Z",
+       "updatedAt": "2026-09-22T22:09:23.000Z",
+       "id": "6530ce58-2475-45da-97a4-bf0ec489a180",
+       "email": "eliel@vitrue.co.il",
+       "firstName": "Eliel",
+       "lastName": "Trabulsky",
+       "personalizationAnswers": {
+        "version": "v4",
+        "personalization_survey_submitted_at": "2025-08-18T17:04:51.259Z",
+        "personalization_survey_n8n_version": "1.106.3"
+       },
+       "settings": {
+        "userActivated": true,
+        "firstSuccessfulWorkflowId": "9Yey7n3lWYHw4uZL",
+        "userActivatedAt": 1755882878466,
+        "npsSurvey": {
+         "waitingForResponse": true,
+         "ignoredCount": 2,
+         "lastShownAt": 1790084758181
+        },
+        "easyAIWorkflowOnboarded": true
+       },
+       "role": "global:owner",
+       "disabled": false,
+       "mfaEnabled": false,
+       "lastActiveAt": "2026-09-22",
+       "isPending": false
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "tags": []
+}

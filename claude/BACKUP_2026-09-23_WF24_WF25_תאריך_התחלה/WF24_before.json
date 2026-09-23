@@ -1,0 +1,1571 @@
+{
+ "createdAt": "2026-08-19T20:36:37.513Z",
+ "updatedAt": "2026-09-16T08:54:48.214Z",
+ "id": "LciQfMEuU2GKWRjI",
+ "name": "WF-24 · תהליך מקצועי — תוכנית ליווי",
+ "active": true,
+ "isArchived": false,
+ "nodes": [
+  {
+   "parameters": {
+    "httpMethod": "POST",
+    "path": "pro-mentoring-roital",
+    "responseMode": "responseNode",
+    "options": {}
+   },
+   "id": "webhook",
+   "name": "Webhook · תהליך מקצועי",
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2,
+   "position": [
+    -400,
+    300
+   ],
+   "webhookId": "wf24-pro-mentoring"
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · צומת 1 — קליטת הוובהוק מ-WF-20, נירמול וסיווג הענף המקצועי\n// ============================================================================\n// התהליך המקצועי מופעל אך ורק בסיום מוצלח של תהליך התשלום (WF-20), דרך\n// וובהוק נפרד. ההפרדה מכוונת: בעתיד אפשר יהיה להפעיל את אותו תהליך מקצועי\n// מטריגר אחר לגמרי (שיוך ידני, ייבוא, מכירה טלפונית) בלי לגעת בתשלומים.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nconst EXPECTED_BRANCH = 'MENTORING';\nconst CFG = {\n  // 🔴 מתג הבטיחות הראשי. true = תצוגה מקדימה בלבד, אפס כתיבה, אפס הודעות.\n  DRY_RUN: false,\n  // חשבונות שעבורם הריצה מתבצעת בפועל גם כש-DRY_RUN דלוק.\n  LIVE_TEST_PHONES: [],                              // 12/09 — לייב לכולם, רשימת הבדיקה רוקנה\n  LIVE_TEST_ACCOUNT_IDS: [],\n\n  // 🔴 מתגי בטיחות נפרדים לפעולות שאי-אפשר לבטל.\n  //    גם כשהריצה חיה — אלה נשלטים בנפרד.\n  SEND_WELCOME: true,          // שליחת הודעת וולקאם בקלאודצ'אט\n  JOIN_WA_GROUP: true,         // צירוף אוטומטי לקבוצת וואטסאפ דרך GreenAPI\n\n  FIREBERRY_BASE: 'https://api.fireberry.com',\n  N8N_BASE: 'https://n8n.srv964196.hstgr.cloud',\n  CC_BASE: 'https://console.thecloud.chat/api',\n\n  // ---- מיפוי ערכים שאומת מול החשבון החי 19/08/2026 ----\n  SALE_STATUS_CLOSED: 11,      // \"עסקה נסגרה בהצלחה\" — אין ערך בשם \"סגור\"\n  MENTOR_STATUS_ACTIVE: 2,     // 1051.pcfStatus = \"ליווי בתהליך\"\n  PROGRAM_BOOST: 1, PROGRAM_PREMIUM: 2, PROGRAM_ADVANCED: 3, PROGRAM_CONTINUE: 4,\n  // ── אנשי קשר בגוגל ──────────────────────────────────────────────────\n  // 🔴 הודלק 23/08 אחרי שהקרדנציאל אושר ונבדק חי (חיפוש + יצירה).\n  GOOGLE_CONTACTS_ENABLED: true,\n\n  MENU_STATUS_READY: 5,        // 1059.pcfMenuStatus = \"מוכן - לשליחה\"\n  MENU_TYPE_STANDARD: 1,       // 1059.pcfMenuType = \"סטנדרטי\" (2 = \"אישי\")\n  GROUP_STATUS_ACTIVE: 1,      // 1068.pcfGroupStatus = \"פעילה\"\n  COHORT_STATUS_OPEN: 1,       // 1007.pcfStatus = \"פתוח להרשמה\"\n\n  CAT_WORKSHOP: 100, CAT_MENTORING: 101, CAT_CONTINUE: 102,\n  BOOST_PRODUCT_IDS: ['2F73403A-20DE-47A7-B0CB-DF4761B45F21'],   // סדנה בוסט\n  BOOST_MENU_CATALOG_ID: 'F87058F9-BB76-40A6-951E-C32208C7A558', // קטלוג תפריט · תפריט בוסט\n\n  // 🔴 \"שבועות במתנה 🎁\" הוא picklist שבו הערך 5 מייצג את התווית \"0\".\n  //    parseInt על הערך היה מוסיף 5 שבועות מתנה למי שקיבל אפס.\n  WEEKS_GIFT_MAP: { 1: 1, 2: 2, 3: 3, 4: 4, 5: 0 },\n\n  CONTINUE_END_DATE: '2099-01-01T00:00:00Z',\n\n  CC_FLOW_BOOST: 'f201689s4391241',   // Welcome_boost_flow\n  CC_FLOW_MENTOR: 'f201689s4391239',  // Welcome_livuy_flow\n  CC_FIELD_GROUP_LINK: 'wa_group_invite_link',\n  CC_FIELD_PRODUCT: 'purchased_product_name',\n  CC_FIELD_WEEKS: 'program_weeks',\n  // 🔴 שם המנטורית בהודעת הוולקאם — נלקח מ**מדריכת קבוצת הוואטסאפ**\n  //    שאליה הלקוחה מצורפת, ולא מהמוצר. הנחיית אליאל 20/08.\n  CC_FIELD_MENTOR: 'mentor_name',\n  // 🔴 תוקן 15/09 — השדה קיים בקלאודצ'אט בדיוק לצורך הזה\n  //    (var_ns f201689v16638207, תיאור: \"תאריך תחילת מחזור הבוסט... הודעת וולקאם בוסט\"),\n  //    אבל אף קוד לא כתב אליו עד עכשיו. welcome_boost_v2 דורש אותו ב-{{2}}\n  //    ובלעדיו מטא דוחה את השליחה עם #131008.\n  CC_FIELD_BOOST_CYCLE_DATE: 'boost_cycle_start_date',\n\n  DEFAULT_TASK_PRIORITY: 5, DEFAULT_TASK_TYPE: 5, DEFAULT_TASK_STATUS: 1,\n  EMPTY_GUID: '00000000-0000-0000-0000-000000000000',\n};\n\nfunction LOGIC(ctx) {\n  const cfg = Object.assign({}, CFG, ctx.cfgOverride || {});\n  const raw = ctx.raw || {};\n  // ה-payload מגיע מ-WF-20 עטוף ב-body של הוובהוק; תומכים גם בקריאה ישירה.\n  const d = (raw && raw.body && typeof raw.body === 'object') ? raw.body : raw;\n\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const normPhone = (p) => {\n    let x = S(p).replace(/\\D/g, '');\n    if (x.indexOf('972') === 0) x = '0' + x.slice(3);\n    return x;\n  };\n  const phone = normPhone(d.phone || d.payerPhone);\n\n  const nowISO = ctx.nowISO || new Date().toISOString();\n  const todayISO = nowISO.slice(0, 10) + 'T00:00:00Z';\n  const purchaseDateISO = S(d.purchaseDate) || S(d.paymentDateISO) || todayISO;\n\n  const execId = S(d.sourceExecutionId);\n  const sourceExecutionUrl = S(d.executionUrl) ||\n    (execId ? `${cfg.N8N_BASE}/workflow/${S(d.sourceWorkflowId)}/executions/${execId}` : '');\n\n  const productId = S(d.productId).toUpperCase();\n  const categoryCode = d.categoryCode === undefined || d.categoryCode === null\n    ? null : parseInt(d.categoryCode, 10);\n\n  // ---- סיווג הענף המקצועי ----\n  // בוסט מזוהה לפי **המוצר עצמו** (כך נכתב באפיון), השאר לפי הקטגוריה הראשית.\n  const boostIds = (cfg.BOOST_PRODUCT_IDS || []).map((x) => S(x).toUpperCase());\n  let branchKey = 'UNKNOWN';\n  const reasons = [];\n  if (productId && boostIds.indexOf(productId) !== -1) {\n    branchKey = 'BOOST'; reasons.push('זוהה לפי מזהה המוצר — סדנת בוסט.');\n  } else if (categoryCode === cfg.CAT_MENTORING) {\n    branchKey = 'MENTORING'; reasons.push('זוהה לפי קטגוריה ראשית 101 — תוכנית ליווי.');\n  } else if (categoryCode === cfg.CAT_CONTINUE) {\n    branchKey = 'CONTINUE'; reasons.push('זוהה לפי קטגוריה ראשית 102 — תוכנית המשך.');\n  } else if (categoryCode === cfg.CAT_WORKSHOP) {\n    // סדנה שאינה הבוסט (למשל הרצאת אורח) — אין לה תהליך מקצועי מוגדר.\n    branchKey = 'NO_PROCESS'; reasons.push('קטגוריה 100 שאינה סדנת הבוסט — אין תהליך מקצועי מוגדר.');\n  } else {\n    reasons.push('לא ניתן לסווג: אין מזהה מוצר מוכר ואין קטגוריה ראשית.');\n  }\n\n  // הענף המצופה מוזרק לכל workflow בנפרד — כל תהליך מטפל בענף שלו בלבד.\n  const expected = ctx.expectedBranch || null;\n  if (expected) {\n    if (branchKey === 'UNKNOWN') {\n      branchKey = expected;\n      reasons.push(`לא הגיעה קטגוריה — התהליך הופעל ישירות ולכן נלקח הענף שלו (${expected}).`);\n    } else if (branchKey !== expected) {\n      reasons.push(`🔴 הענף שזוהה (${branchKey}) אינו הענף של התהליך הזה (${expected}) — לא בוצעה שום פעולה.`);\n      branchKey = 'WRONG_BRANCH';\n    }\n  }\n\n  const isLiveTest =\n    (cfg.LIVE_TEST_PHONES || []).indexOf(phone) !== -1 ||\n    (cfg.LIVE_TEST_ACCOUNT_IDS || []).map((x) => S(x).toUpperCase())\n      .indexOf(S(d.accountid).toUpperCase()) !== -1;\n\n  return [{\n    json: {\n      _cfg: cfg,\n      _raw: d,\n      branchKey,\n      classifyReasons: reasons,\n      accountid: S(d.accountid),\n      accountName: S(d.accountName) || S(d.fullName) || 'לקוחה',\n      phone,\n      email: S(d.email || d.payerEmail),\n      phone972: phone ? ('972' + phone.replace(/^0/, '')) : '',\n      saleid: S(d.saleid),\n      productId,\n      productName: S(d.productName) || 'מוצר לא מזוהה',\n      categoryCode,\n      grossTotal: parseFloat(d.grossTotal || 0) || 0,\n      asmachta: S(d.asmachta),\n      transactionId: S(d.transactionId),\n      // 🔴 איך התקבל התשלום. נדרש כדי להסביר לנציגה למה חסרה קבוצה:\n      //    דף הסליקה וטופס התשלום שאינו אשראי **מחייבים** בחירת קבוצה;\n      //    הקמת הו״ק מתוך גראו עוקפת את שניהם ולכן אי אפשר לאכוף שם.\n      paymentBranch: S(d.paymentBranch),\n      purchaseDateISO,\n      nowISO, todayISO,\n      sourceExecutionUrl,\n      // מזהה אידמפוטנטיות — מונע הקמה כפולה של אותו תהליך מקצועי\n      idemKey: `PRO-${branchKey}-${S(d.asmachta) || S(d.transactionId) || S(d.saleid)}`,\n      liveTest: isLiveTest,\n      DRY_RUN: (cfg.DRY_RUN === false) ? false : !isLiveTest,\n    },\n  }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ raw: $input.first().json, expectedBranch: EXPECTED_BRANCH });\n"
+   },
+   "id": "קליטה וסיווג",
+   "name": "קליטה וסיווג",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    -180,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 4, fields: [{name:\"opportunityid\"},{name:\"name\"},{name:\"accountid\"},{name:\"ownerid\"},{name:\"statuscode\"},{name:\"pcfProduct\"},{name:\"pcfCourse\"},{name:\"pcfWhatsAppToRef\"},{name:\"pcfWeeksGift\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"opportunityid\", operator:\"eq\", value: ($('קליטה וסיווג').first().json.saleid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 1, pageNumber: 1 }) }}"
+   },
+   "id": "תהליך מכירה (4)",
+   "name": "תהליך מכירה (4)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    40,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 14, fields: [{name:\"productid\"},{name:\"name\"},{name:\"categorycode\"},{name:\"pcfDurationWeeks\"},{name:\"pcfwhatsappgroup\"},{name:\"ownerid\"},{name:\"statuscode\"},{name:\"pcfpaymentpageid\"}], pageSize: 100, pageNumber: 1 }) }}"
+   },
+   "id": "המוצר (14)",
+   "name": "המוצר (14)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    260,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1051, fields: [{name:\"customobject1051id\"},{name:\"name\"},{name:\"pcfaccountid\"},{name:\"pcfSale\"},{name:\"pcfProduct\"},{name:\"pcfStatus\"},{name:\"pcfCurrentProgram\"},{name:\"pcfBoostLinked\"},{name:\"pcfActualGroup\"},{name:\"ownerid\"},{name:\"pcfStartDate\"},{name:\"pcfEstimatedEndDate\"},{name:\"pcfCurrentWeek\"},{name:\"pcfWeeksNumber\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfExternalSoftwareID2\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfaccountid\", operator:\"eq\", value: ($('קליטה וסיווג').first().json.accountid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 10, pageNumber: 1, orderBy: [{name:\"createdon\", order:\"desc\"}] }) }}"
+   },
+   "id": "תהליך ליווי קיים (1051)",
+   "name": "תהליך ליווי קיים (1051)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    480,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1007, fields: [{name:\"customobject1007id\"},{name:\"name\"},{name:\"pcfStatus\"},{name:\"pcfStartDate\"},{name:\"pcfEndDate\"},{name:\"pcfwhatspgrouprelated\"},{name:\"pcfEventLink\"},{name:\"ownerid\"}], pageSize: 100, pageNumber: 1, orderBy: [{name:\"pcfStartDate\", order:\"asc\"}] }) }}"
+   },
+   "id": "מחזורי בוסט (1007)",
+   "name": "מחזורי בוסט (1007)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    700,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1068, fields: [{name:\"customobject1068id\"},{name:\"name\"},{name:\"pcfGreenApiId\"},{name:\"pcfGroupLink\"},{name:\"ownerid\"},{name:\"pcfCurrentProgram\"},{name:\"pcfGroupStatus\"},{name:\"pcfCapacity\"},{name:\"pcfCurrentCount\"},{name:\"pcfAvailableSlots\"}], pageSize: 100, pageNumber: 1 }) }}"
+   },
+   "id": "קבוצות WhatsApp (1068)",
+   "name": "קבוצות WhatsApp (1068)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    920,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1060, fields: [{name:\"customobject1060id\"},{name:\"name\"},{name:\"pcfMenuUrl\"},{name:\"pcfMenuType\"}], pageSize: 100, pageNumber: 1 }) }}"
+   },
+   "id": "קטלוג תפריטים (1060)",
+   "name": "קטלוג תפריטים (1060)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1140,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1059, fields: [{name:\"customobject1059id\"},{name:\"name\"},{name:\"pcfaccountid\"},{name:\"pcfFollowupProcess\"},{name:\"pcfMenuStatus\"},{name:\"pcfrelatedietmenu\"},{name:\"pcfNotes\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfaccountid\", operator:\"eq\", value: ($('קליטה וסיווג').first().json.accountid || '00000000-0000-0000-0000-000000000000')}] }], pageSize: 50, pageNumber: 1, orderBy: [{name:\"createdon\", order:\"desc\"}] }) }}"
+   },
+   "id": "הקצאות תפריט (1059)",
+   "name": "הקצאות תפריט (1059)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1360,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · צומת המוח — בניית תוכנית הפעולה המקצועית\n// ============================================================================\n// כל ההכרעות העסקיות יושבות כאן, בקוד טהור, ונבדקות ע\"י test/run_tests.js\n// מתוך קובץ ה-workflow הבנוי — כלומר מה שנבדק הוא מה שרץ בפועל.\n//\n// שלושה ענפים, מבנה זהה:\n//   1. איתור תהליך המכירה  2. איתור הקבוצה/המחזור  3. עדכון המכירה\n//   4. יצירה/עדכון של תהליך הליווי  5. נגזרות (תפריט / משימה / הערה)\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction PLAN_CORE(ctx) {\n  const ev = ctx.ev;\n  const cfg = ev._cfg;\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const U = (v) => S(v).toUpperCase();\n  const rows = (r) => {\n    if (!r) return [];\n    if (Array.isArray(r)) return r;\n    if (Array.isArray(r.data)) return r.data;\n    if (r.data && Array.isArray(r.data.Data)) return r.data.Data;\n    if (r.data && r.data.Record) return [r.data.Record];\n    return [];\n  };\n  const cut = (s, n) => { const t = S(s); return t.length > n ? t.slice(0, n - 1) + '…' : t; };\n  const num = (v) => { const n = parseFloat(v); return isNaN(n) ? 0 : n; };\n\n  function addDaysISO(iso, days) {\n    const m = String(iso || '').match(/^(\\d{4})-(\\d{2})-(\\d{2})/);\n    if (!m) return null;\n    const base = Date.UTC(+m[1], +m[2] - 1, +m[3]);\n    const d = new Date(base + days * 86400000);\n    const p = (x) => String(x).padStart(2, '0');\n    return `${d.getUTCFullYear()}-${p(d.getUTCMonth() + 1)}-${p(d.getUTCDate())}T00:00:00Z`;\n  }\n\n  // 🔴 נוסף 15/09 — פורמט תאריך להודעת הוולקאם בוסט (DD.MM.YYYY),\n  //    לפי הדוגמה בתבנית welcome_boost_v2 בקלאודצ'אט.\n  function formatDMY(iso) {\n    const m = String(iso || '').match(/^(\\d{4})-(\\d{2})-(\\d{2})/);\n    if (!m) return '';\n    return `${m[3]}.${m[2]}.${m[1]}`;\n  }\n\n  const ops = [];\n  const warnings = [];\n  const decisions = ev.classifyReasons ? ev.classifyReasons.slice() : [];\n  const add = (o) => { ops.push(o); return '@' + o.ref; };\n  const lookupOrOmit = (obj, key, val) => { if (S(val)) obj[key] = S(val); return obj; };\n\n  const sales      = rows(ctx.saleResp);\n  const products   = rows(ctx.productResp);\n  const mentorings = rows(ctx.mentoringResp);\n  const cohorts    = rows(ctx.cohortResp);\n  const groups     = rows(ctx.groupsResp);\n  const menuAssign = rows(ctx.menuAssignResp);\n\n  const custLabel = ev.accountName || 'לקוחה';\n  const execLink = ev.sourceExecutionUrl\n    ? `<a href=\"${ev.sourceExecutionUrl}\">${ev.sourceExecutionUrl}</a>` : 'לא נמסר';\n\n  // ---------- 0. ענפים שאין להם תהליך מקצועי ----------\n  const HALT = { NO_PROCESS: 'למוצר הזה אין תהליך מקצועי מוגדר — לא בוצעה שום פעולה.',\n    UNKNOWN: 'לא ניתן היה לסווג את המוצר לענף מקצועי — לא בוצעה שום פעולה.',\n    WRONG_BRANCH: 'המוצר שייך לענף מקצועי אחר — התהליך הזה לא נגע בכלום.' };\n  if (HALT[ev.branchKey]) {\n    return { branch: ev.branchKey, ops: [], warnings, decisions,\n      summary: HALT[ev.branchKey], cc: null, wa: null };\n  }\n\n  // ---------- 1. תהליך המכירה ----------\n  // 🔴 הכרעת אליאל 19/08: משתמשים בתהליך המכירה ש-WF-20 כבר שייך אליו את\n  //    התשלום, ולא מחפשים מחדש לפי קטגוריה. כך אין שום סיכוי שהכסף ישב על\n  //    מכירה אחת והתהליך המקצועי על אחרת.\n  const sale = sales.find((s) => U(s.opportunityid) === U(ev.saleid)) || sales[0] || null;\n  if (!sale) {\n    warnings.push('לא נמצא תהליך מכירה — התהליך המקצועי לא יכול להימשך.');\n    taskOp('taskNoSale', `אין תהליך מכירה לתהליך מקצועי · ${custLabel}`,\n      `התקבל סיום תשלום אך לא נמצא תהליך מכירה מקושר.\\n` +\n      `מוצר: ${ev.productName} · לקוחה: ${custLabel} · טלפון: ${ev.phone}\\n` +\n      `ריצת התשלום: ${ev.sourceExecutionUrl}`);\n    return { branch: ev.branchKey + '_NO_SALE', ops, warnings, decisions,\n      summary: 'לא נמצא תהליך מכירה — נפתחה משימה לטיפול ידני.', cc: null, wa: null };\n  }\n  const saleId = S(sale.opportunityid);\n  decisions.push(`תהליך המכירה: ${S(sale.name)} (שויך ע\"י תהליך התשלום).`);\n\n  const product = products.find((p) => U(p.productid) === U(ev.productId)) || products[0] || null;\n  const productName = product ? S(product.name) : ev.productName;\n\n  // ---------- 2. הקבוצה והמחזור ----------\n  const groupById = (id) => groups.find((g) => U(g.customobject1068id) === U(id)) || null;\n  const cohortById = (id) => cohorts.find((c) => U(c.customobject1007id) === U(id)) || null;\n\n  let cohort = null, group = null;\n\n  if (ev.branchKey === 'BOOST') {\n    cohort = cohortById(sale.pcfCourse);\n    if (cohort) {\n      decisions.push(`מחזור הבוסט נלקח מהשיוך הקיים בתהליך המכירה: ${S(cohort.name)}.`);\n    } else {\n      // נפילה: המחזור הפתוח להרשמה עם תאריך הפתיחה המוקדם ביותר.\n      const open = cohorts\n        .filter((c) => pickNum(c.pcfStatus) === cfg.COHORT_STATUS_OPEN)\n        .sort((a, b) => S(a.pcfStartDate).localeCompare(S(b.pcfStartDate)));\n      cohort = open[0] || null;\n      if (cohort) {\n        decisions.push(`בתהליך המכירה לא היה מחזור משויך — נבחר המחזור הפתוח להרשמה: ${S(cohort.name)}.`);\n        warnings.push('מחזור הבוסט נבחר אוטומטית ולא מתוך שיוך קיים — מומלץ לאמת.');\n      }\n    }\n    if (cohort) group = groupById(cohort.pcfwhatspgrouprelated);\n    if (!cohort) {\n      warnings.push('לא נמצא מחזור בוסט פתוח להרשמה.');\n      taskOp('taskNoCohort', `אין מחזור בוסט למכירה · ${custLabel}`,\n        `הלקוחה רכשה סדנת בוסט אך לא נמצא מחזור לשייך אליו.\\n` +\n        `תהליך מכירה: ${saleId}\\nריצת התשלום: ${ev.sourceExecutionUrl}`);\n    } else if (!group) {\n      warnings.push(`למחזור \"${S(cohort.name)}\" אין קבוצת WhatsApp מקושרת — הלקוחה לא תצורף ולא תקבל קישור.`);\n      taskOp('taskNoGroup', `אין קבוצת WhatsApp למחזור · ${custLabel}`,\n        `מחזור: ${S(cohort.name)}\\nאין קבוצה מקושרת, ולכן אין קישור הזמנה ואין צירוף אוטומטי.\\n` +\n        `ריצת התשלום: ${ev.sourceExecutionUrl}`);\n    }\n  } else if (ev.branchKey === 'MENTORING') {\n    // 🔴 הכרעת הלקוחה 20/08: בענף הליווי הקבוצה נקבעת **ידנית בתהליך המכירה**,\n    //    בשדה \"לאיזו קבוצת WhatsApp לשייך?\". לא מהמוצר, ובלי שום נפילה\n    //    אוטומטית — בחירת קבוצה בשביל הלקוחה היא ניחוש, והיא נפסלה.\n    group = groupById(sale.pcfWhatsAppToRef);\n    if (group) {\n      decisions.push(`הקבוצה נלקחה מתהליך המכירה (שיוך ידני): ${S(group.name)}.`);\n    } else {\n      warnings.push('🔴 בתהליך המכירה לא שויכה קבוצת WhatsApp — הלקוחה לא תצורף לקבוצה ולא תקבל קישור הצטרפות.');\n      // 🔴 הכרעת אליאל 14/09: כשהשדה ריק — משימה מפורשת לשיוך ידני **בשני המקומות**\n      //    (במערכת ובוואטסאפ), עם הסבר הסיבה, כדי שמי ששכח ילמד לפעם הבאה.\n      //    שני מסלולי התשלום הרגילים מחייבים בחירת קבוצה; רק הקמת הו\"ק מתוך\n      //    מערכת גרואו עוקפת אותם, ולכן זה המקור הסביר לפער.\n      const soBackOffice = S(ev.paymentBranch) === 'STANDING_ORDER_BACKOFFICE';\n      const causeLine = soBackOffice\n        ? 'הסיבה: התשלום הוקם כהוראת קבע **ישירות במערכת גרואו**, ולא דרך דף הסליקה או טופס התשלום שאינו אשראי. ' +\n          'שני המסלולים האלה מחייבים בחירת קבוצה — הקמה ידנית בגרואו עוקפת אותם, ולכן השדה נשאר ריק.'\n        : 'הסיבה: השדה \"לאיזו קבוצת WhatsApp לשייך?\" בתהליך המכירה נשאר ריק. ' +\n          'דף הסליקה וטופס התשלום שאינו אשראי מחייבים בחירת קבוצה — אם התשלום לא עבר דרכם, אין מי שימלא את השדה.';\n      taskOp('taskNoGroup', `שיוך ידני לקבוצת WhatsApp · ${custLabel}`,\n        `הלקוחה רכשה ${productName}, אך לא שויכה לאף קבוצת WhatsApp — לא במערכת ולא בוואטסאפ.\\n\\n` +\n        `${causeLine}\\n\\n` +\n        `🔴 מה צריך לעשות — שתי פעולות, שתיהן חובה:\\n` +\n        `1. בתהליך המכירה — למלא את השדה \"לאיזו קבוצת WhatsApp לשייך?\" בקבוצה הנכונה.\\n` +\n        `2. בוואטסאפ — לצרף את הלקוחה לאותה קבוצה ידנית. הצירוף האוטומטי לא רץ, ולכן היא לא בפנים.\\n\\n` +\n        `⚠️ בלי שתי הפעולות: הלקוחה לא תקבל הודעת וולקאם, לא תשויך למנטורית, ולא תהיה בקבוצה.\\n\\n` +\n        `למניעה בפעם הבאה: הקמת הוראת קבע מתוך גרואו אינה מאפשרת לבחור קבוצה. ` +\n        `כשמקימים הו\"ק כך — יש למלא את השדה בתהליך המכירה בפיירברי מיד לאחר מכן.\\n\\n` +\n        `מוצר: ${productName}\\nתהליך מכירה: ${saleId}\\nריצת התשלום: ${ev.sourceExecutionUrl}`);\n    }\n  }\n\n  function pickNum(v) {\n    if (v === null || v === undefined || v === '') return null;\n    const n = parseInt(v, 10);\n    return isNaN(n) ? null : n;\n  }\n\n  // ---------- 3. המדריכה ----------\n  // 🔴 שני מקורות שונים, לפי הענף (הכרעת הלקוחה 20/08):\n  //    ליווי  → המדריכה של **המוצר שנרכש** (מנהל המוצר בכרטיס המוצר).\n  //    בוסט   → מדריכת הקבוצה של מחזור הבוסט (הכרעת אליאל 19/08).\n  //    המשך   → אין דרישה; נלקח מה שקיים.\n  const needsGroup = (ev.branchKey === 'BOOST' || ev.branchKey === 'MENTORING');\n  let mentorId = '';\n  if (ev.branchKey === 'MENTORING') {\n    mentorId = S(product && product.ownerid);\n    if (mentorId) {\n      decisions.push('המדריכה נלקחה מהמוצר שנרכש.');\n    } else {\n      mentorId = S(sale.ownerid);\n      warnings.push('למוצר שנרכש אין מדריכה משויכת — נלקח נציג המכירות מתהליך המכירה. מומלץ להשלים \"מנהל מוצר\" בכרטיס המוצר.');\n    }\n  } else {\n    mentorId = S(group && group.ownerid)\n            || S(cohort && cohort.ownerid)\n            || S(product && product.ownerid)\n            || S(sale.ownerid);\n    if (group && S(group.ownerid)) decisions.push('המדריכה נלקחה מרשומת קבוצת ה-WhatsApp.');\n    else if (needsGroup && mentorId) warnings.push('לקבוצה אין מדריכה משויכת — נלקחה נפילה (אחראי המחזור / מנהל המוצר / נציג המכירות).');\n  }\n\n  // ---------- 4. תאריכים ומספר שבועות ----------\n  const giftMap = cfg.WEEKS_GIFT_MAP || {};\n  const giftRaw = pickNum(sale.pcfWeeksGift);\n  const giftWeeks = (giftRaw !== null && giftMap[giftRaw] !== undefined) ? giftMap[giftRaw] : 0;\n  const productWeeks = product ? (num(product.pcfDurationWeeks) || 0) : 0;\n  // בענף ההמשך אין אורך תוכנית — הליווי פתוח (סיום 01.01.2099).\n  const totalWeeks = (ev.branchKey === 'CONTINUE') ? 0 : (productWeeks + giftWeeks);\n\n  let startDate = ev.purchaseDateISO;\n  let endDate = null;\n  if (ev.branchKey === 'BOOST') {\n    endDate = S(cohort && cohort.pcfEndDate) || null;\n    if (!endDate) warnings.push('למחזור הבוסט אין תאריך סיום — \"תאריך סיום ליווי\" יישאר ריק.');\n  } else if (ev.branchKey === 'MENTORING') {\n    endDate = totalWeeks > 0 ? addDaysISO(ev.purchaseDateISO, totalWeeks * 7) : null;\n    if (!productWeeks) warnings.push('למוצר אין \"מספר שבועות לתהליך\" — לא ניתן לחשב תאריך סיום ליווי.');\n    if (giftWeeks) decisions.push(`נוספו ${giftWeeks} שבועות מתנה מתהליך המכירה (סה\"כ ${totalWeeks} שבועות).`);\n  } else if (ev.branchKey === 'CONTINUE') {\n    startDate = null;                       // \"לא לגעת\" — לפי האפיון\n    endDate = cfg.CONTINUE_END_DATE;\n  }\n\n  // ---------- 5. אידמפוטנטיות ----------\n  const existing = mentorings.find((m) => U(m.pcfaccountid) === U(ev.accountid)) || null;\n  const alreadyDone = existing && S(existing.pcfExternalSoftwareID2) === S(ev.idemKey);\n  if (alreadyDone) {\n    decisions.push('DUPLICATE — התהליך המקצועי הזה כבר בוצע עבור אותה רכישה.');\n    return { branch: 'DUPLICATE', ops: [], warnings, decisions,\n      summary: 'הרכישה הזו כבר טופלה — לא בוצעה שום פעולה נוספת.',\n      mentoringId: S(existing.customobject1051id), cc: null, wa: null };\n  }\n\n  // ---------- 6. עדכון תהליך המכירה ----------\n  const saleBody = { statuscode: cfg.SALE_STATUS_CLOSED, pcfStatusUpdateTime: ev.nowISO };\n  lookupOrOmit(saleBody, 'pcfProduct', ev.productId);\n  if (ev.branchKey === 'BOOST') {\n    lookupOrOmit(saleBody, 'pcfCourse', cohort && cohort.customobject1007id);\n    lookupOrOmit(saleBody, 'pcfWhatsAppToRef', group && group.customobject1068id);\n  }\n  // 🔴 בענף הליווי שדה הקבוצה בתהליך המכירה הוא **קלט ידני** — לא נכתב אליו.\n  //    דריסה שלו הייתה מוחקת בחירה שהצוות עשה במו ידיו.\n  add({ ref: 'sale', kind: 'update', object: '4', recordId: saleId,\n    label: 'עדכון תהליך המכירה (4)', body: saleBody });\n\n  // ---------- 7. תהליך הליווי (1051) — רשומה אחת ללקוחה ----------\n  const programByBranch = {\n    BOOST: cfg.PROGRAM_BOOST, MENTORING: cfg.PROGRAM_PREMIUM, CONTINUE: cfg.PROGRAM_CONTINUE,\n  };\n  const mentBody = {\n    name: cut(`ליווי ${productName} - ${custLabel}`, 190),\n    pcfStatus: cfg.MENTOR_STATUS_ACTIVE,\n    pcfStatusUpdateTime: ev.nowISO,\n    pcfCurrentProgram: programByBranch[ev.branchKey],\n    pcfCreatedByPersonOrSystem: 2,\n    pcfExternalSoftwareID2: ev.idemKey,\n  };\n  lookupOrOmit(mentBody, 'pcfaccountid', ev.accountid);\n  lookupOrOmit(mentBody, 'pcfSale', saleId);\n  lookupOrOmit(mentBody, 'pcfProduct', ev.productId);\n  lookupOrOmit(mentBody, 'ownerid', mentorId);\n  if (ev.branchKey !== 'CONTINUE') {\n    mentBody.pcfCurrentWeek = 0;\n    if (startDate) mentBody.pcfStartDate = startDate;\n  }\n  if (endDate) mentBody.pcfEstimatedEndDate = endDate;\n  if (ev.branchKey === 'BOOST') {\n    lookupOrOmit(mentBody, 'pcfBoostLinked', cohort && cohort.customobject1007id);\n    lookupOrOmit(mentBody, 'pcfActualGroup', group && group.customobject1068id);\n  } else if (ev.branchKey === 'MENTORING') {\n    lookupOrOmit(mentBody, 'pcfActualGroup', group && group.customobject1068id);\n    if (totalWeeks > 0) mentBody.pcfWeeksNumber = totalWeeks;\n  }\n\n  let mentRef;\n  if (existing) {\n    mentRef = add({ ref: 'mentoring', kind: 'update', object: '1051',\n      recordId: S(existing.customobject1051id),\n      label: 'עדכון תהליך הליווי הקיים (1051)', body: mentBody });\n    decisions.push('נמצאה רשומת ליווי קיימת ללקוחה — עודכנה במקום ליצור חדשה.');\n  } else {\n    mentRef = add({ ref: 'mentoring', kind: 'create', object: '1051',\n      label: 'יצירת תהליך ליווי (1051)', body: mentBody });\n    decisions.push('לא נמצאה רשומת ליווי — נוצרה רשומה חדשה.');\n  }\n\n  // ---------- 8. הקצאה לתפריט — ענף הבוסט בלבד ----------\n  if (ev.branchKey === 'BOOST') {\n    const menuCatalog = rows(ctx.menuCatalogResp)\n      .find((m) => U(m.customobject1060id) === U(cfg.BOOST_MENU_CATALOG_ID)) || null;\n    const menuName = menuCatalog ? S(menuCatalog.name) : 'תפריט בוסט';\n    // 🔴 לאובייקט 1059 אין שדה \"מזהה מערכת חיצונית\" (אומת חי — הקריאה נכשלת\n    //    ב-Invalid field name). לכן מפתח האידמפוטנטיות נכתב בשדה \"הערות\".\n    const menuStamp = `נוצר אוטומטית · מזהה: ${ev.idemKey}`;\n    const dupMenu = menuAssign.find((m) => S(m.pcfNotes).indexOf(ev.idemKey) !== -1);\n    if (dupMenu) {\n      decisions.push('הקצאת התפריט כבר קיימת לרכישה הזו — לא נוצרה כפילות.');\n    } else {\n      const menuBody = {\n        name: cut(`${menuName} - ${custLabel} 📃`, 190),\n        pcfMenuStatus: cfg.MENU_STATUS_READY,\n        // 🔴 תפריט הבוסט הוא תמיד סטנדרטי — לא נבנה אישית ללקוחה.\n        pcfMenuType: cfg.MENU_TYPE_STANDARD,\n        pcfsendtime: ev.purchaseDateISO,\n        pcfCreatedByPersonOrSystem: 2,\n        pcfNotes: menuStamp,\n        pcfFollowupProcess: mentRef,\n      };\n      lookupOrOmit(menuBody, 'pcfaccountid', ev.accountid);\n      lookupOrOmit(menuBody, 'ownerid', mentorId);\n      lookupOrOmit(menuBody, 'pcfrelatedietmenu', cfg.BOOST_MENU_CATALOG_ID);\n      add({ ref: 'menu', kind: 'create', object: '1059',\n        label: 'יצירת הקצאה לתפריט (1059)', body: menuBody });\n      if (!menuCatalog) warnings.push('לא נמצאה רשומת קטלוג התפריט של הבוסט — נכתב שם ברירת מחדל.');\n    }\n  }\n\n  // ---------- 9. משימה למנטורית — ענף הליווי בלבד ----------\n  if (ev.branchKey === 'MENTORING') {\n    taskOp('taskMenu', `בחירת תפריט ל${custLabel}`,\n      `הלקוחה רכשה ${productName} והצטרפה לליווי.\\n` +\n      `יש לבחור ולשייך לה תפריט מתאים.\\n` +\n      `תאריך הצטרפות: ${S(ev.purchaseDateISO).slice(0, 10)}\\n` +\n      `ריצת התשלום: ${ev.sourceExecutionUrl}`,\n      { ownerid: mentorId, objectRef: mentRef, objectType: 1051, due: ev.purchaseDateISO });\n  }\n\n  // ---------- 10. הערה בתהליך הליווי ----------\n  const noteHtml = `<div dir=\"rtl\">התקבלה רכישה והתהליך המקצועי הוקם אוטומטית.<br>` +\n    `מוצר: <b>${productName}</b> · סכום: <b>${ev.grossTotal ? ev.grossTotal.toFixed(2) + ' ₪' : '—'}</b>` +\n    (cohort ? `<br>מחזור בוסט: <b>${S(cohort.name)}</b>` : '') +\n    (group ? `<br>קבוצת WhatsApp: <b>${S(group.name)}</b>`\n      : (ev.branchKey === 'MENTORING'\n        ? `<br>🔴 <b>לא שויכה קבוצת WhatsApp.</b> השדה \"לאיזו קבוצת WhatsApp לשייך?\" בתהליך המכירה נשאר ריק` +\n          (S(ev.paymentBranch) === 'STANDING_ORDER_BACKOFFICE'\n            ? ' — התשלום הוקם כהוראת קבע ישירות במערכת גרואו, מסלול שאינו מחייב בחירת קבוצה.'\n            : '.') +\n          `<br>נפתחה משימה לשיוך ידני <b>במערכת ובוואטסאפ</b>. הלקוחה אינה בקבוצה עד שיבוצע.`\n        : '')) +\n    (ev.branchKey === 'MENTORING' && totalWeeks ? `<br>אורך התוכנית: <b>${totalWeeks} שבועות</b>` +\n      (giftWeeks ? ` (כולל ${giftWeeks} מתנה)` : '') : '') +\n    `<br><b>המשך התהליך מתנהל בריטיינר.</b>` +\n    `<br>ריצת התשלום: ${execLink}</div>`;\n  add({ ref: 'note', kind: 'create', object: 'note', label: 'הערה על תהליך הליווי',\n    body: { notetext: noteHtml, objectid: mentRef, objecttypecode: 1051 } });\n\n  // ---------- 11. הודעת וולקאם וצירוף לקבוצה ----------\n  const wantsWelcome = (ev.branchKey === 'BOOST' || ev.branchKey === 'MENTORING');\n  const cc = wantsWelcome ? {\n    enabled: cfg.SEND_WELCOME !== false,\n    flowNs: ev.branchKey === 'BOOST' ? cfg.CC_FLOW_BOOST : cfg.CC_FLOW_MENTOR,\n    phone972: ev.phone972,\n    // 🔴 16/09/2026 — נדרש כדי ליצור מנויה בקלאודצ'אט כשאין לה, ולכתוב את\n    //    המזהה החדש חזרה לתיק הלקוחה בפיירברי.\n    accountid: S(ev.accountid),\n    accountName: custLabel,\n    email: S(ev.email),\n    fields: (() => {\n      const f = [{ name: cfg.CC_FIELD_GROUP_LINK, value: S(group && group.pcfGroupLink) }];\n      // 🔴 שם המנטורית בהודעה נלקח ממדריכת **קבוצת הוואטסאפ** שאליה הלקוחה\n      //    מצורפת — לא מהמוצר ולא מהמחזור. הנחיית אליאל 20/08.\n      //    התבנית בקלאודצ'אט לא נשלחת כשהשדה ריק, ולכן חסר כאן = אין הודעה.\n      f.push({ name: cfg.CC_FIELD_MENTOR, value: S(group && group.owneridname) });\n      if (ev.branchKey === 'BOOST') {\n        // 🔴 תוקן 15/09 — welcome_boost_v2 דורש {{2}} = תאריך תחילת המחזור.\n        //    השדה קיים בקלאודצ'אט אבל אף קוד לא כתב אליו עד עכשיו,\n        //    ולכן כל שליחה נדחתה במטא עם #131008 (send-sub-flow החזיר ok\n        //    כי זו רק קליטה, והדחיה בפועל קרתה בצד מטא, בשקט מבחינת n8n).\n        f.push({ name: cfg.CC_FIELD_BOOST_CYCLE_DATE, value: formatDMY(cohort && cohort.pcfStartDate) });\n      }\n      if (ev.branchKey === 'MENTORING') {\n        f.push({ name: cfg.CC_FIELD_PRODUCT, value: productName });\n        f.push({ name: cfg.CC_FIELD_WEEKS, value: totalWeeks ? String(totalWeeks) : '' });\n      }\n      return f.filter((x) => S(x.value) !== '');\n    })(),\n  } : null;\n  if (cc && !S(group && group.pcfGroupLink)) {\n    warnings.push('לקבוצה אין \"לינק לקבוצה\" — הודעת הוולקאם תצא בלי קישור הצטרפות.');\n  }\n  if (cc && !S(group && group.owneridname)) {\n    warnings.push('🔴 לקבוצת הוואטסאפ אין מדריכה משויכת — שדה \"מנטורית\" יישאר ריק ' +\n      'והתבנית בקלאודצ\\'אט לא תישלח. יש להשלים את המדריכה ברשומת הקבוצה.');\n  }\n  if (cc && ev.branchKey === 'BOOST' && !S(cohort && cohort.pcfStartDate)) {\n    warnings.push('🔴 למחזור הבוסט אין \"תאריך התחלה\" — הודעת הוולקאם תיכשל אצל מטא (#131008), ' +\n      'כי {{2}} יישאר ריק.');\n  }\n\n  const wa = (wantsWelcome && group && S(group.pcfGreenApiId)) ? {\n    enabled: cfg.JOIN_WA_GROUP !== false,\n    groupId: S(group.pcfGreenApiId),\n    groupRecordId: S(group.customobject1068id),\n    groupName: S(group.name),\n    inviteLink: S(group.pcfGroupLink),\n    chatId: ev.phone972 ? ev.phone972 + '@c.us' : '',\n  } : null;\n\n  const summaryByBranch = {\n    BOOST: 'הוקם תהליך ליווי בוסט, שויך מחזור וקבוצה, ונוצרה הקצאה לתפריט.',\n    MENTORING: 'הוקם תהליך ליווי, שויכה קבוצה, ונפתחה משימה לבחירת תפריט.',\n    CONTINUE: 'הוקם/עודכן תהליך ליווי המשך.',\n  };\n\n  function taskOp(ref, subject, description, opts) {\n    const o = opts || {};\n    // 🔴 taskOp נקרא גם לפני ש-saleId מוגדר (מסלול \"אין תהליך מכירה\").\n    //    גישה ישירה ל-const לפני האתחול זורקת ReferenceError ומפילה את כל\n    //    התהליך המקצועי. נתפס חי 30/08. הגישה נעשית דרך try.\n    let _saleId = '';\n    try { _saleId = saleId; } catch (e) { _saleId = ''; }\n    const b = {\n      subject: cut(subject, 190),\n      description: cut(description, 4000),\n      statuscode: cfg.DEFAULT_TASK_STATUS,\n      prioritycode: cfg.DEFAULT_TASK_PRIORITY,\n      tasktypecode: cfg.DEFAULT_TASK_TYPE,\n      scheduledend: o.due || ev.todayISO,\n      pcfCreatedByPersonOrSystem: 2,\n      pcfExternalSoftwareID1: `${ev.idemKey}-TASK-${ref}`,\n    };\n    lookupOrOmit(b, 'pcfSale', _saleId);\n    lookupOrOmit(b, 'pcfClient', ev.accountid);\n    lookupOrOmit(b, 'ownerid', o.ownerid || S(sale && sale.ownerid));\n    if (o.objectRef) { b.objectid = o.objectRef; b.objecttypecode = o.objectType || 1051; }\n    return add({ ref, kind: 'create', object: '10', label: 'משימה לנציגה', body: b });\n  }\n\n  return {\n    branch: ev.branchKey, ops, warnings, decisions,\n    summary: summaryByBranch[ev.branchKey] || 'התהליך המקצועי הושלם.',\n    saleId, productName, mentorId,\n    cohortId: S(cohort && cohort.customobject1007id),\n    cohortName: S(cohort && cohort.name),\n    groupId: S(group && group.customobject1068id),\n    groupName: S(group && group.name),\n    totalWeeks, giftWeeks, startDate, endDate,\n    existingMentoringId: S(existing && existing.customobject1051id),\n    cc, wa,\n  };\n}\n\nfunction LOGIC(ctx) {\n  const ev = ctx.ev;\n  const cfg = ev._cfg;\n  const out = PLAN_CORE(ctx);\n  const dry = (cfg.DRY_RUN === false) ? false : !ev.liveTest;\n  if (ev.liveTest) out.decisions.push('🔴 חשבון בדיקה מורשה — הריצה מתבצעת בפועל.');\n  else if (dry) out.decisions.push('🔒 DRY_RUN — תצוגה מקדימה בלבד. אפס כתיבה, אפס הודעות, אפס צירוף לקבוצה.');\n  return [{ json: Object.assign({}, ev, out, { DRY_RUN: dry, liveTest: ev.liveTest }) }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  ev: $('קליטה וסיווג').first().json,\n  saleResp: $('תהליך מכירה (4)').first().json,\n  productResp: $('המוצר (14)').first().json,\n  mentoringResp: $('תהליך ליווי קיים (1051)').first().json,\n  cohortResp: $('מחזורי בוסט (1007)').first().json,\n  groupsResp: $('קבוצות WhatsApp (1068)').first().json,\n  menuCatalogResp: $('קטלוג תפריטים (1060)').first().json,\n  menuAssignResp: $('הקצאות תפריט (1059)').first().json,\n});\n"
+   },
+   "id": "בניית תוכנית מקצועית",
+   "name": "בניית תוכנית מקצועית",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1580,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "conditions": [
+      {
+       "id": "dry",
+       "leftValue": "={{ $json.DRY_RUN }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ],
+     "combinator": "and"
+    },
+    "options": {}
+   },
+   "id": "מצב בדיקה (DRY_RUN)?",
+   "name": "מצב בדיקה (DRY_RUN)?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    1800,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ { success: true, dryRun: true, note: \"DRY_RUN — לא נכתבה שום רשומה, לא נשלחה שום הודעה ולא בוצע שום צירוף לקבוצה. זו תצוגה מקדימה בלבד.\", branch: $json.branch, summary: $json.summary, decisions: $json.decisions, warnings: $json.warnings, account: { id: $json.accountid, name: $json.accountName }, saleid: $json.saleId, product: $json.productName, cohort: $json.cohortName, group: $json.groupName, weeks: $json.totalWeeks, giftWeeks: $json.giftWeeks, startDate: $json.startDate, endDate: $json.endDate, plannedOperations: $json.ops, welcome: $json.cc, whatsappGroup: $json.wa, sourceExecutionUrl: $json.sourceExecutionUrl } }}",
+    "options": {
+     "responseCode": 200
+    }
+   },
+   "id": "תגובה · תצוגה מקדימה",
+   "name": "תגובה · תצוגה מקדימה",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    2020,
+    180
+   ]
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · פירוק תוכנית הפעולה לשני גלי ביצוע\n// ============================================================================\n// גל 1 — רשומת האב (תהליך הליווי). גל 2 — כל מה שמפנה אליה או לא מפנה לכלום.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const base = plan._cfg.FIREBERRY_BASE;\n  const ops = Array.isArray(plan.ops) ? plan.ops : [];\n\n  const NOOP = {\n    _noop: true, ref: '_noop', method: 'POST', url: `${base}/api/v3/query`,\n    body: { objectType: 1051, fields: [{ name: 'customobject1051id' }], pageSize: 1, pageNumber: 1 },\n    label: 'ללא פעולת אב — קריאת קריאה-בלבד לשמירת רציפות',\n  };\n\n  // 🔒 מנעול בטיחות שני: תוכנית שאינה מסומנת לכתיבה לא מייצרת שום קריאת כתיבה.\n  if (plan.DRY_RUN !== false) {\n    return [{ json: Object.assign({}, NOOP, { _childOps: [], _blocked: true,\n      label: '🔒 נחסם — התוכנית אינה מסומנת לכתיבה בפועל' }) }];\n  }\n\n  const refsIn = (op) => {\n    const out = [];\n    const walk = (v) => {\n      if (typeof v === 'string' && v.charAt(0) === '@') out.push(v.slice(1));\n      else if (Array.isArray(v)) v.forEach(walk);\n      else if (v && typeof v === 'object') Object.keys(v).forEach((k) => walk(v[k]));\n    };\n    walk(op.body);\n    if (op.recordIdRef) out.push(String(op.recordIdRef).replace(/^@/, ''));\n    return out;\n  };\n\n  const referenced = new Set();\n  ops.forEach((o) => refsIn(o).forEach((r) => referenced.add(r)));\n  const parentOp = ops.find((o) => referenced.has(o.ref)) || null;\n  const parentRef = parentOp ? parentOp.ref : null;\n  const rest = ops.filter((o) => !parentRef || o.ref !== parentRef);\n\n  function toRequest(op) {\n    const url = op.kind === 'update'\n      ? `${base}/api/record/${op.object}/${op.recordId}`\n      : `${base}/api/record/${op.object}`;\n    return {\n      _noop: false, ref: op.ref, label: op.label, object: op.object,\n      kind: op.kind, recordId: op.recordId || '',\n      method: op.kind === 'update' ? 'PUT' : 'POST', url, body: op.body,\n    };\n  }\n\n  const parentReq = parentOp ? toRequest(parentOp) : NOOP;\n  return [{ json: Object.assign({}, parentReq, {\n    _childOps: rest,\n    _planRef: { branch: plan.branch, summary: plan.summary },\n  }) }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ plan: $('בניית תוכנית מקצועית').first().json });\n"
+   },
+   "id": "הפרדת פעולת האב",
+   "name": "הפרדת פעולת האב",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    2020,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.method }}",
+    "url": "={{ $json.url }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.body) }}"
+   },
+   "id": "יצירת תהליך הליווי",
+   "name": "יצירת תהליך הליווי",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2240,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "🔴 כותב לפיירברי רק כשהתוכנית מסומנת לכתיבה בפועל."
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1051, fields: [{name:\"customobject1051id\"},{name:\"name\"},{name:\"pcfExternalSoftwareID2\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfExternalSoftwareID2\", operator:\"eq\", value: ((($('הפרדת פעולת האב').first().json.body || {}).pcfExternalSoftwareID2) || \"___none___\")}] }], orderBy: [{name:\"createdon\", order:\"desc\"}], pageSize: 5, pageNumber: 1 }) }}"
+   },
+   "id": "אימות יצירת האב",
+   "name": "אימות יצירת האב",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2460,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "🔴 פיירברי עלול להחזיר 400 ולכתוב את הרשומה בכל זאת — כאן בודקים."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · חילוץ מזהה האב ובניית פעולות גל 2\n// ============================================================================\n// 🔴 פיירברי עלול להחזיר HTTP 400 ולכתוב את הרשומה בכל זאת (אומת 19/08).\n//    לכן כשחילוץ המזהה נכשל — בודקים בשאילתת האימות אם היא בכל זאת נוצרה.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction extractRecordId(resp, object) {\n  if (!resp || typeof resp !== 'object') return '';\n  const idKey = `customobject${object}id`;\n  const cands = [\n    resp[idKey], resp.id, resp._id, resp.noteid,\n    resp.data && resp.data[idKey], resp.data && resp.data.id, resp.data && resp.data._id,\n    resp.Record && resp.Record[idKey],\n    resp.data && resp.data.Record && resp.data.Record[idKey],\n    resp.data && resp.data.Data && resp.data.Data[0] && resp.data.Data[0][idKey],\n  ];\n  for (const c of cands) {\n    const v = (c === undefined || c === null) ? '' : String(c).trim();\n    if (v && /^[0-9a-fA-F-]{30,}$/.test(v)) return v;\n  }\n  return '';\n}\n\nfunction resolveRefs(value, refs) {\n  if (typeof value === 'string' && value.charAt(0) === '@') {\n    const key = value.slice(1);\n    return refs[key] !== undefined ? refs[key] : '';\n  }\n  if (Array.isArray(value)) return value.map((v) => resolveRefs(v, refs));\n  if (value && typeof value === 'object') {\n    const out = {};\n    for (const k of Object.keys(value)) {\n      const rv = resolveRefs(value[k], refs);\n      // הפניה ריקה בשדה מזהה מחזירה 403 בפיירברי — לא כותבים אותה כלל\n      if (rv === '' && typeof value[k] === 'string' && value[k].charAt(0) === '@') continue;\n      out[k] = rv;\n    }\n    return out;\n  }\n  return value;\n}\n\nfunction buildRequest(op, refs, base) {\n  const rid = op.recordIdRef\n    ? String(refs[String(op.recordIdRef).replace(/^@/, '')] || '')\n    : String(op.recordId || '');\n  if (op.kind === 'update' && !rid) {\n    return { _noop: true, ref: op.ref, label: `${op.label} — דולג (מזהה לא נפתר)`,\n      object: op.object, kind: op.kind, recordId: '',\n      method: 'POST', url: `${base}/api/v3/query`,\n      body: { objectType: 1051, fields: [{ name: 'customobject1051id' }], pageSize: 1, pageNumber: 1 } };\n  }\n  const url = op.kind === 'update'\n    ? `${base}/api/record/${op.object}/${rid}`\n    : `${base}/api/record/${op.object}`;\n  return { _noop: false, ref: op.ref, label: op.label, object: op.object,\n    kind: op.kind, recordId: rid,\n    method: op.kind === 'update' ? 'PUT' : 'POST',\n    url, body: resolveRefs(op.body, refs) };\n}\n\nfunction LOGIC(ctx) {\n  const parent = ctx.parent;\n  const plan = ctx.plan;\n  const base = plan._cfg.FIREBERRY_BASE;\n\n  const NOOP = {\n    _noop: true, ref: '_noop', label: 'אין פעולות בגל זה',\n    method: 'POST', url: `${base}/api/v3/query`,\n    body: { objectType: 1051, fields: [{ name: 'customobject1051id' }], pageSize: 1, pageNumber: 1 },\n  };\n\n  if (parent._blocked || plan.DRY_RUN !== false) {\n    return [{ json: Object.assign({}, NOOP, { _blocked: true,\n      label: '🔒 נחסם — התוכנית אינה מסומנת לכתיבה בפועל' }) }];\n  }\n\n  let parentId = parent._noop ? '' : extractRecordId(ctx.createResp, parent.object);\n  let parentRecovered = false;\n  if (!parent._noop && !parentId) {\n    if (parent.kind === 'update' && parent.recordId) {\n      parentId = String(parent.recordId);\n    } else {\n      const rows = (ctx.verifyResp && Array.isArray(ctx.verifyResp.data)) ? ctx.verifyResp.data : [];\n      const key = `customobject${parent.object}id`;\n      const hit = rows.find((r) => r && r[key]);\n      if (hit) { parentId = String(hit[key]); parentRecovered = true; }\n    }\n  }\n\n  const parentFailed = !parent._noop && !parentId;\n  const refs = {};\n  if (parent.ref) refs[parent.ref] = parentId;\n\n  const childOps = Array.isArray(parent._childOps) ? parent._childOps : [];\n  const extra = { _parentId: parentId, _parentFailed: parentFailed, _parentRecovered: parentRecovered };\n  if (childOps.length === 0) return [{ json: Object.assign({}, NOOP, extra) }];\n  return childOps.map((op) => ({ json: Object.assign(buildRequest(op, refs, base), extra) }));\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  parent: $('הפרדת פעולת האב').first().json,\n  createResp: $('יצירת תהליך הליווי').first().json,\n  verifyResp: $input.first().json,\n  plan: $('בניית תוכנית מקצועית').first().json,\n});\n"
+   },
+   "id": "בניית פעולות המשך",
+   "name": "בניית פעולות המשך",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    2680,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.method }}",
+    "url": "={{ $json.url }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.body) }}"
+   },
+   "id": "ביצוע פעולות בפיירברי",
+   "name": "ביצוע פעולות בפיירברי",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2900,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · הכנת שליחת הוולקאם בקלאודצ'אט\n// ============================================================================\n// 🔴 אין בדיקת חלון 24 שעות. כל הודעות המערכת הן תבניות וואטסאפ מאושרות,\n//    שמותרות לשליחה בכל זמן. הבדיקה שהייתה כאן הוסרה ב-20/08/2026\n//    אחרי שאומת חי שהשליחה יוצאת גם כשה-allow_send_message הוא false.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const cfg = plan._cfg;\n  const cc = plan.cc;\n  const base = cfg.CC_BASE;\n  const IDLE = `${base}/flow/user-fields`;   // קריאה קריאה-בלבד לשמירת רציפות הזרימה\n\n  // 🔴 ccBase חייב להיכלל גם במסלול הדילוג — הצמתים הבאים בונים ממנו את\n  //    כתובת ה-idle, ובלעדיו נוצרת כתובת יחסית וה-workflow נופל.\n  const skip = (why) => [{ json: {\n    ccSkip: true, ccSkipReason: why, ccUrl: IDLE, ccMethod: 'GET', ccBody: {},\n    ccBase: base, flowNs: '', phone972: '', fields: [],\n    ccAccountId: '', ccAccountName: '', ccEmail: '', fbBase: cfg.FIREBERRY_BASE,\n  } }];\n\n  if (!cc) return skip('לענף הזה אין הודעת וולקאם מוגדרת');\n  if (plan.DRY_RUN !== false) return skip('DRY_RUN — לא נשלחת שום הודעה');\n  if (cc.enabled === false) return skip('שליחת הוולקאם כבויה במתג SEND_WELCOME');\n  if (!cc.phone972) return skip('אין טלפון תקין ללקוחה');\n\n  return [{ json: {\n    ccSkip: false, ccSkipReason: '',\n    ccUrl: `${base}/subscriber/get-info-by-user-id?user_id=${encodeURIComponent(cc.phone972)}`,\n    ccMethod: 'GET', ccBody: {},\n    ccBase: base, flowNs: cc.flowNs, phone972: cc.phone972, fields: cc.fields || [],\n    ccAccountId: cc.accountid || '', ccAccountName: cc.accountName || '',\n    ccEmail: cc.email || '', fbBase: cfg.FIREBERRY_BASE,\n  } }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ plan: $('בניית תוכנית מקצועית').first().json });\n"
+   },
+   "id": "הכנת וולקאם",
+   "name": "הכנת וולקאם",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    3120,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.ccMethod }}",
+    "url": "={{ $json.ccUrl }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "קלאודצ'אט · איתור מנויה",
+   "name": "קלאודצ'אט · איתור מנויה",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    3340,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "CCRevitalYaish01",
+     "name": "CloudChat Revital Yaish"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · ניתוח תשובת המנויה בקלאודצ'אט + בניית קריאת כתיבת השדות\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const prep = ctx.prep;\n  const resp = ctx.resp || {};\n  const base = prep.ccBase || (ctx.plan && ctx.plan._cfg && ctx.plan._cfg.CC_BASE) || 'https://console.thecloud.chat/api';\n  const IDLE = `${base}/flow/user-fields`;\n\n  const out = (o) => [{ json: Object.assign({}, prep, o) }];\n  if (prep.ccSkip) return out({ ccUrl: IDLE, ccMethod: 'GET', ccBody: {} });\n\n  const d = resp.data || resp || {};\n  const userNs = String(d.user_ns || d.userNs || (d.subscriber && d.subscriber.user_ns) || '').trim();\n  // allow_send_message עשוי להגיע כבוליאני, כמחרוזת, או לא להגיע כלל.\n  const rawAllow = (d.allow_send_message !== undefined) ? d.allow_send_message\n                 : (d.subscriber && d.subscriber.allow_send_message);\n  const allow = (rawAllow === undefined || rawAllow === null)\n    ? null : (rawAllow === true || rawAllow === 1 || String(rawAllow).toLowerCase() === 'true' || String(rawAllow) === '1');\n\n  // ==========================================================================\n  // 🔴 16/09/2026, הכרעת אליאל — \"אם אין למשתמשת חשבון קלאודצ'אט, המערכת\n  //    צריכה ליצור אותה. זה לא יכול להסתכם בזה שאין.\"\n  //    נתפס חי אצל יהודית סואייה: לקוחה ששילמה על תוכנית ליווי ולא קיבלה\n  //    וולקאם, כי לא היה לה מנוי — למרות שכבר עברה בשרשרת פעם אחת (בוסט).\n  //    מכאן: אין מנויה ⇒ יוצרים אותה, וכותבים את המזהה חזרה לפיירברי.\n  // ==========================================================================\n  if (!userNs) {\n    const phone = String(prep.phone972 || '').trim();\n    if (!phone) {\n      return out({ ccSkip: true, ccSkipReason: 'אין טלפון תקין — לא ניתן ליצור מנויה',\n        ccUrl: IDLE, ccMethod: 'GET', ccBody: {} });\n    }\n    const full = String(prep.ccAccountName || '').trim();\n    const sp = full.indexOf(' ');\n    const first = sp > 0 ? full.slice(0, sp) : full;\n    const last = sp > 0 ? full.slice(sp + 1) : '';\n    const user = { phone: phone };\n    if (first) user.first_name = first;\n    if (last) user.last_name = last;\n    if (prep.ccEmail) user.email = prep.ccEmail;\n    return out({ ccNeedCreate: true, userNs: '',\n      ccUrl: `${base}/subscriber/create-many`, ccMethod: 'POST',\n      ccBody: { users: [user] } });\n  }\n  // ============================================================================\n  // 🔴 שונה 20/08/2026 לפי הנחיית אליאל.\n  // היה כאן חסם: allow_send_message === false ⇒ לא שולחים.\n  // זה היה שגוי — כל הודעות המערכת יוצאות דרך תבניות וואטסאפ מאושרות,\n  // שמותרות לשליחה בכל זמן ואינן כפופות לחלון 24 השעות.\n  // אומת חי מול קלאודצ'אט: שליחה למנוי עם allow_send_message=false\n  // אכן יצאה (last_message_at התקדם, type=out).\n  // מכאן והלאה: מצב החלון נרשם לדיווח בלבד ואינו עוצר כלום.\n  // ============================================================================\n  return out({ userNs, ccNeedCreate: false,\n    outsideWindow: allow === false,\n    ccWindowUnknown: allow === null,\n    ccUrl: IDLE, ccMethod: 'GET', ccBody: {} });\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  prep: $('הכנת וולקאם').first().json,\n  resp: $input.first().json,\n  plan: $('בניית תוכנית מקצועית').first().json,\n});\n"
+   },
+   "id": "ניתוח מנויה",
+   "name": "ניתוח מנויה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    3560,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.ccMethod }}",
+    "url": "={{ $json.ccUrl }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.ccBody || {}) }}"
+   },
+   "id": "קלאודצ'אט · יצירת מנויה",
+   "name": "קלאודצ'אט · יצירת מנויה",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    3670,
+    540
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "CCRevitalYaish01",
+     "name": "CloudChat Revital Yaish"
+    }
+   },
+   "notes": "יוצר מנויה בקלאודצ'אט כשאין. כשיש — קריאת סרק."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · קליטת תוצאת יצירת המנויה בקלאודצ'אט + בניית עדכון פיירברי\n// ============================================================================\n// 🔴 נוסף 16/09/2026 (הכרעת אליאל): כשאין ללקוחה מנוי בקלאודצ'אט, המערכת\n//    יוצרת אותו במקום לוותר על ההודעה. הצומת הזה קורא את תשובת היצירה,\n//    מחלץ את ה-user_ns החדש, ובונה כתיבה של pcfCloudChatId לתיק הלקוחה\n//    בפיירברי — כדי שבפעם הבאה בכלל לא נגיע לכאן.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const prev = ctx.prev;\n  const resp = ctx.resp || {};\n  const base = prev.ccBase || 'https://console.thecloud.chat/api';\n  const fb = prev.fbBase || 'https://api.fireberry.com';\n  const IDLE = `${base}/flow/user-fields`;\n  const FB_IDLE = `${fb}/api/v3/query`;\n  const FB_IDLE_BODY = { objectType: 1, fields: [{ name: 'accountid' }], pageSize: 1, pageNumber: 1 };\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const out = (o) => [{ json: Object.assign({}, prev, o) }];\n\n  // מסלול \"הכול תקין מראש\" — אין יצירה, ממשיכים ישר לכתיבת השדות.\n  const fieldsCall = (ns) => ({\n    ccUrl: `${base}/subscriber/set-user-fields-by-name`, ccMethod: 'PUT',\n    ccBody: { user_ns: ns, data: prev.fields || [] },\n  });\n\n  if (prev.ccSkip) {\n    return out(Object.assign({ fbUrl: FB_IDLE, fbMethod: 'POST', fbBody: FB_IDLE_BODY },\n      { ccUrl: IDLE, ccMethod: 'GET', ccBody: {} }));\n  }\n  if (prev.ccNeedCreate !== true) {\n    return out(Object.assign({ fbUrl: FB_IDLE, fbMethod: 'POST', fbBody: FB_IDLE_BODY },\n      fieldsCall(prev.userNs)));\n  }\n\n  // ---- ניתוח תשובת היצירה ----\n  // {\"status\":\"ok\",\"data\":{\"inserted\":1,\"results\":[{\"user_ns\":\"...\",\"phone\":\"+972...\"}]}}\n  const d = resp.data || resp || {};\n  const results = Array.isArray(d.results) ? d.results\n                : (Array.isArray(d.data && d.data.results) ? d.data.results : []);\n  let ns = '';\n  for (let i = 0; i < results.length; i++) {\n    const cand = S(results[i].user_ns);\n    if (cand) { ns = cand; break; }\n  }\n  if (!ns) ns = S(d.user_ns) || S(d.data && d.data.user_ns);\n\n  if (!ns) {\n    return out({ ccSkip: true, ccCreateFailed: true,\n      ccSkipReason: 'יצירת המנויה בקלאודצ\\'אט נכשלה — לא נשלחה הודעה',\n      ccUrl: IDLE, ccMethod: 'GET', ccBody: {},\n      fbUrl: FB_IDLE, fbMethod: 'POST', fbBody: FB_IDLE_BODY });\n  }\n\n  const o = Object.assign({ userNs: ns, ccCreated: true,\n    ccWindowUnknown: true, outsideWindow: false }, fieldsCall(ns));\n\n  // כתיבת המזהה חזרה לתיק הלקוחה — רק כשיש מזהה לקוחה.\n  if (S(prev.ccAccountId)) {\n    o.fbUrl = `${fb}/api/record/1/${S(prev.ccAccountId)}`;\n    o.fbMethod = 'PUT';\n    o.fbBody = { pcfCloudChatId: ns };\n  } else {\n    o.fbUrl = FB_IDLE; o.fbMethod = 'POST'; o.fbBody = FB_IDLE_BODY;\n    o.ccIdNotSaved = 'אין מזהה לקוחה — המזהה בקלאודצ\\'אט לא נשמר בפיירברי';\n  }\n  return out(o);\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ prev: $('ניתוח מנויה').first().json, resp: $input.first().json });\n"
+   },
+   "id": "קליטת יצירת המנויה",
+   "name": "קליטת יצירת המנויה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    3780,
+    540
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.fbMethod }}",
+    "url": "={{ $json.fbUrl }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.fbBody || {}) }}"
+   },
+   "id": "פיירברי · שמירת מזהה קלאודצ'אט",
+   "name": "פיירברי · שמירת מזהה קלאודצ'אט",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    3890,
+    540
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "שומר את pcfCloudChatId בתיק הלקוחה. כשאין יצירה — קריאת סרק."
+  },
+  {
+   "parameters": {
+    "method": "={{ $('קליטת יצירת המנויה').first().json.ccMethod }}",
+    "url": "={{ $('קליטת יצירת המנויה').first().json.ccUrl }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($('קליטת יצירת המנויה').first().json.ccBody || {}) }}"
+   },
+   "id": "קלאודצ'אט · כתיבת שדות",
+   "name": "קלאודצ'אט · כתיבת שדות",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    3990,
+    540
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "CCRevitalYaish01",
+     "name": "CloudChat Revital Yaish"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · אימות כתיבת השדות ובניית קריאת שליחת הפלואו\n// ============================================================================\n// 🔴 קלאודצ'אט מחזיר status: ok גם כשהוא מתעלם בשקט משדה שאינו קיים.\n//    לכן התשובה נבדקת בגוף, לא רק בקוד ה-HTTP.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const prev = ctx.prev;\n  const resp = ctx.resp || {};\n  const base = prev.ccBase || 'https://console.thecloud.chat/api';\n  const IDLE = `${base}/flow/user-fields`;\n  const out = (o) => [{ json: Object.assign({}, prev, o) }];\n\n  if (prev.ccSkip) return out({ ccUrl: IDLE, ccMethod: 'GET', ccBody: {} });\n\n  const okBody = String(resp.status || (resp.data && resp.data.status) || '').toLowerCase() === 'ok'\n              || resp.success === true || !!resp.data;\n  if (!okBody) {\n    return out({ ccSkip: true, ccSkipReason: 'כתיבת השדות בקלאודצ\\'אט נכשלה — לא נשלחה הודעה',\n      ccFieldsFailed: true, ccUrl: IDLE, ccMethod: 'GET', ccBody: {} });\n  }\n  return out({ ccFieldsOk: true,\n    ccUrl: `${base}/subscriber/send-sub-flow`, ccMethod: 'POST',\n    ccBody: { user_ns: prev.userNs, sub_flow_ns: prev.flowNs } });\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ prev: $('קליטת יצירת המנויה').first().json, resp: $input.first().json });\n"
+   },
+   "id": "בניית שליחת הפלואו",
+   "name": "בניית שליחת הפלואו",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    4000,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.ccMethod }}",
+    "url": "={{ $json.ccUrl }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.ccBody || {}) }}"
+   },
+   "id": "קלאודצ'אט · שליחת וולקאם",
+   "name": "קלאודצ'אט · שליחת וולקאם",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    4220,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "CCRevitalYaish01",
+     "name": "CloudChat Revital Yaish"
+    }
+   },
+   "notes": "🔴 שולח את הודעת הוולקאם ללקוחה. פעולה בלתי הפיכה."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · הכנת הקריאה לצירוף לקבוצת וואטסאפ\n// ============================================================================\n// הצירוף עצמו יושב ב-WF-26 (workflow נפרד) — הוא היחיד שמחזיק את הטוקן של\n// GreenAPI, וכך שאר התהליכים ניתנים לייצוא ולשיתוף בלי לחשוף מפתח.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const cfg = plan._cfg;\n  const wa = plan.wa;\n  const IDLE = `${cfg.FIREBERRY_BASE}/api/v3/query`;\n  const idleBody = { objectType: 1051, fields: [{ name: 'customobject1051id' }], pageSize: 1, pageNumber: 1 };\n\n  const skip = (why) => [{ json: {\n    waSkip: true, waSkipReason: why, waUrl: IDLE, waBody: idleBody,\n  } }];\n\n  if (!wa) return skip('אין קבוצה עם מזהה GreenAPI לשייך אליה');\n  if (plan.DRY_RUN !== false) return skip('DRY_RUN — לא מבוצע צירוף לקבוצה');\n  if (wa.enabled === false) return skip('הצירוף האוטומטי כבוי במתג JOIN_WA_GROUP');\n  if (!wa.chatId) return skip('אין טלפון תקין ללקוחה');\n\n  return [{ json: {\n    waSkip: false, waSkipReason: '',\n    waUrl: `${cfg.N8N_BASE}/webhook/wa-join-roital`,\n    waBody: {\n      groupId: wa.groupId, chatId: wa.chatId, groupName: wa.groupName,\n      groupRecordId: wa.groupRecordId, accountName: plan.accountName,\n      source: plan.branch, executionUrl: plan.sourceExecutionUrl,\n    },\n    waGroupName: wa.groupName, waInviteLink: wa.inviteLink,\n  } }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ plan: $('בניית תוכנית מקצועית').first().json });\n"
+   },
+   "id": "הכנת צירוף לקבוצה",
+   "name": "הכנת צירוף לקבוצה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    4440,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "={{ $json.waUrl }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 70000
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.waBody || {}) }}"
+   },
+   "id": "צירוף לקבוצת וואטסאפ",
+   "name": "צירוף לקבוצת וואטסאפ",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    4660,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "קורא ל-WF-26, שהוא היחיד שמחזיק את הטוקן של GreenAPI.",
+   "onError": "continueRegularOutput"
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-23 · אנשי קשר בגוגל — הכנת החיפוש\n// ============================================================================\n// כשלקוחה מצטרפת לבוסט, מוסיפים אותה לאנשי הקשר של הטלפון שמנהל את\n// קבוצות הוואטסאפ — אחרת היא מופיעה בקבוצה כמספר בלבד.\n//\n// 🔴 קודם בודקים אם המספר כבר קיים. איש קשר כפול גרוע מאיש קשר חסר.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan || {};\n  const cfg = plan._cfg || {};\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n\n  const out = (o) => [{ json: Object.assign({}, ctx.prev || {}, o) }];\n  const skip = (why) => out({ gcSkip: true, gcSkipReason: why, gcQuery: '' });\n\n  if (cfg.GOOGLE_CONTACTS_ENABLED !== true) {\n    return skip('סנכרון אנשי קשר בגוגל כבוי בקונפיגורציה');\n  }\n  if (plan.branchKey !== 'BOOST') {\n    return skip('איש קשר נוצר רק בהצטרפות לבוסט');\n  }\n  if (plan.DRY_RUN) return skip('DRY_RUN — לא נוצר איש קשר');\n\n  const phone = S(plan.phone);\n  const name = S(plan.accountName);\n  if (!phone) return skip('אין טלפון ללקוחה — אי אפשר לבדוק כפילות');\n  if (!name) return skip('אין שם ללקוחה — לא ניצור איש קשר בלי שם');\n\n  // ── שם איש הקשר: \"שם מלא - מחזור בוסט\" ──\n  // מחזור הבוסט מגיע כ\"בוסט 23-30.8.26\"; מסירים את השנה כדי לקבל\n  // \"סער וינברג - בוסט 23-30.8\" לפי הפורמט שאליאל ביקש.\n  const cohortRaw = S(plan.cohortName);\n  const cohort = cohortRaw.replace(/\\.(\\d{2})$/, '');\n  const displayName = cohort ? `${name} - ${cohort}` : name;\n\n  // ── וריאציות הטלפון לחיפוש ──\n  // גוגל שומר מספרים בפורמטים שונים (0533435240 / 972533435240 / +972-53-343-5240).\n  // החיפוש נעשה על הספרות בלבד, וההשוואה בצד שלנו על 9 הספרות האחרונות.\n  const digits = phone.replace(/\\D/g, '');\n  const local = digits.indexOf('972') === 0 ? '0' + digits.slice(3) : digits;\n  const intl = local.indexOf('0') === 0 ? '972' + local.slice(1) : local;\n\n  return out({\n    gcSkip: false, gcSkipReason: '',\n    gcQuery: local,\n    gcPhoneLocal: local,\n    gcPhoneIntl: '+' + intl,\n    gcPhoneTail: local.slice(-9),\n    gcDisplayName: displayName,\n    gcGivenName: name.split(/\\s+/)[0] || name,\n    gcFamilyName: name.split(/\\s+/).slice(1).join(' ') || cohort || '-',\n    gcEmail: S(plan.email),\n    gcSaleUrl: S(plan.saleId || plan.saleid) ? `https://app.fireberry.com/app/record/4/${S(plan.saleId || plan.saleid)}` : '',\n    gcCohort: cohort,\n  });\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ plan: $('בניית תוכנית מקצועית').first().json, prev: $input.first().json });\n"
+   },
+   "id": "אנשי קשר · הכנה",
+   "name": "אנשי קשר · הכנה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    4880,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "combinator": "and",
+     "conditions": [
+      {
+       "id": "pro-gcif",
+       "leftValue": "={{ $json.gcSkip !== true }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ]
+    },
+    "looseTypeValidation": true,
+    "options": {}
+   },
+   "id": "לבדוק אנשי קשר?",
+   "name": "לבדוק אנשי קשר?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2,
+   "position": [
+    5000,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "resource": "contact",
+    "operation": "getAll",
+    "returnAll": true,
+    "fields": [
+     "names",
+     "phoneNumbers"
+    ],
+    "useQuery": false,
+    "rawData": false,
+    "options": {}
+   },
+   "id": "גוגל · חיפוש איש קשר",
+   "name": "גוגל · חיפוש איש קשר",
+   "type": "n8n-nodes-base.googleContacts",
+   "typeVersion": 1,
+   "position": [
+    5100,
+    560
+   ],
+   "onError": "continueRegularOutput",
+   "alwaysOutputData": true,
+   "credentials": {
+    "googleContactsOAuth2Api": {
+     "id": "v9RMiUvEwxlrxzEW",
+     "name": "Google Contacts account"
+    }
+   },
+   "notes": "חיפוש לפי מספר הטלפון. כשל כאן ⇒ לא יוצרים, כדי לא לייצר כפילות."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-23 · הכרעה — האם ליצור איש קשר חדש\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const prep = ctx.prep || {};\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const out = (o) => [{ json: Object.assign({}, prep, o) }];\n\n  if (prep.gcSkip) return out({ gcCreate: false, gcFound: false });\n\n  const resp = ctx.resp;\n  // 🔴 שגיאה בחיפוש אינה \"לא נמצא\". יצירה על סמך חיפוש שנכשל = איש קשר כפול.\n  //    השגיאה עשויה להגיע בשתי צורות: כאובייקט, או כפריט בתוך המערך —\n  //    למשל rate limit: [{\"error\":\"The service is receiving too many requests\"}].\n  //    נתפס חי 30/08 בזמן הבדיקות. בלי הבדיקה הזו הענף היה יוצר כפילות.\n  function errOf(r) {\n    if (!r) return '';\n    if (Array.isArray(r)) {\n      for (let i = 0; i < r.length; i++) {\n        const e = r[i] && (r[i].error || (r[i].json && r[i].json.error));\n        if (e) return S(typeof e === 'string' ? e : (e.message || JSON.stringify(e)));\n      }\n      return '';\n    }\n    if (r.error) return S(typeof r.error === 'string' ? r.error : (r.error.message || JSON.stringify(r.error)));\n    if (r.message && !r.results) return S(r.message);\n    return '';\n  }\n  const errText = errOf(resp);\n  if (errText) {\n    return out({ gcCreate: false, gcFound: false, gcSkip: true,\n      gcSkipReason: 'החיפוש באנשי הקשר נכשל — לא נוצר איש קשר כדי לא לייצר כפילות: ' + errText });\n  }\n\n  const rows = Array.isArray(resp) ? resp\n             : (resp && Array.isArray(resp.results)) ? resp.results\n             : (resp && Array.isArray(resp.connections)) ? resp.connections\n             : (resp && resp.json) ? [resp] : [];\n\n  // 🔴 אומת חי 23/08: צומת גוגל של n8n מחזיר את הטלפונים כאובייקט לפי סוג —\n  //    {\"mobile\":[\"0522283506\"],\"home\":[...]} — ולא כמערך של {value}.\n  //    גם \"names\" מגיע כאובייקט ולא כמערך. שתי הצורות מטופלות, אחרת ההשוואה\n  //    לעולם לא תתפוס והמערכת תייצר אנשי קשר כפולים.\n  function phoneDigits(p) {\n    const out = [];\n    const pn = p && p.phoneNumbers;\n    if (!pn) return out;\n    if (Array.isArray(pn)) {\n      pn.forEach((x) => out.push(S(x && (x.canonicalForm || x.value || x))));\n    } else if (typeof pn === 'object') {\n      Object.keys(pn).forEach((k) => {\n        const v = pn[k];\n        if (Array.isArray(v)) v.forEach((x) => out.push(S(x && (x.value || x))));\n        else out.push(S(v && (v.value || v)));\n      });\n    }\n    return out.map((x) => x.replace(/\\D/g, '')).filter(Boolean);\n  }\n  function displayName(p) {\n    const n = p && p.names;\n    if (!n) return '';\n    if (Array.isArray(n)) return S(n[0] && n[0].displayName);\n    return S(n.displayName || n.unstructuredName);\n  }\n\n  const tail = S(prep.gcPhoneTail);\n  let matched = null;\n  for (let i = 0; i < rows.length && !matched; i++) {\n    const p = rows[i] && (rows[i].person || rows[i]);\n    const nums = phoneDigits(p);\n    for (let k = 0; k < nums.length; k++) {\n      if (tail && nums[k].slice(-9) === tail) { matched = p; break; }\n    }\n  }\n\n  if (matched) {\n    const nm = displayName(matched);\n    return out({ gcCreate: false, gcFound: true, gcExistingName: nm,\n      gcSkipReason: `המספר כבר שמור באנשי הקשר${nm ? ' בשם \"' + nm + '\"' : ''}` });\n  }\n  return out({ gcCreate: true, gcFound: false });\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ prep: $('אנשי קשר · הכנה').first().json, resp: $input.all().map((i) => i.json) });\n"
+   },
+   "id": "הכרעת איש קשר",
+   "name": "הכרעת איש קשר",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    5200,
+    560
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "combinator": "and",
+     "conditions": [
+      {
+       "id": "pro-gcif2",
+       "leftValue": "={{ $json.gcCreate === true }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ]
+    },
+    "looseTypeValidation": true,
+    "options": {}
+   },
+   "id": "ליצור איש קשר?",
+   "name": "ליצור איש קשר?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2,
+   "position": [
+    5300,
+    560
+   ]
+  },
+  {
+   "parameters": {
+    "resource": "contact",
+    "operation": "create",
+    "familyName": "={{ $json.gcFamilyName }}",
+    "givenName": "={{ $json.gcGivenName }}",
+    "additionalFields": {
+     "phoneUi": {
+      "phoneValues": [
+       {
+        "type": "mobile",
+        "value": "={{ $json.gcPhoneLocal }}"
+       }
+      ]
+     },
+     "emailsUi": {
+      "emailsValues": [
+       {
+        "type": "home",
+        "value": "={{ $json.gcEmail }}"
+       }
+      ]
+     },
+     "relationsUi": {
+      "relationsValues": [
+       {
+        "type": "friend",
+        "value": "={{ $json.gcCohort }}"
+       }
+      ]
+     },
+     "note": "={{ 'מחזור: ' + ($json.gcCohort || '—') + ' | תהליך מכירה: ' + ($json.gcSaleUrl || '—') }}"
+    },
+    "options": {}
+   },
+   "id": "גוגל · יצירת איש קשר",
+   "name": "גוגל · יצירת איש קשר",
+   "type": "n8n-nodes-base.googleContacts",
+   "typeVersion": 1,
+   "position": [
+    5400,
+    700
+   ],
+   "onError": "continueRegularOutput",
+   "alwaysOutputData": true,
+   "credentials": {
+    "googleContactsOAuth2Api": {
+     "id": "v9RMiUvEwxlrxzEW",
+     "name": "Google Contacts account"
+    }
+   },
+   "notes": "🔴 פעולה בלתי הפיכה — נוצר איש קשר אמיתי בחשבון הגוגל."
+  },
+  {
+   "parameters": {
+    "jsCode": "\n// ============================================================================\n// WF-23 · איחוד תוצאת אנשי הקשר לשלושת המסלולים\n// ============================================================================\n// לצומת הזה שלושה מקורות: דילוג, \"כבר קיים\", ו\"נוצר\". הוא מנרמל את שלושתם\n// לאובייקט אחד כדי שהסיכום ידווח עליהם באותה שפה.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const j = ctx.item || {};\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const created = !!(j.resourceName || (j.names && j.names.length));\n  const gc = j.gcSkip\n    ? { attempted: false, created: false, found: false, reason: S(j.gcSkipReason) }\n    : (j.gcFound\n        ? { attempted: true, created: false, found: true, reason: S(j.gcSkipReason), name: S(j.gcExistingName) }\n        : { attempted: true, created: created, found: false,\n            reason: created ? '' : 'יצירת איש הקשר לא אושרה ע\"י גוגל',\n            name: S(j.gcDisplayName), resourceName: S(j.resourceName) });\n  const base = (j.gcSkip || j.gcCreate !== undefined) ? j : (ctx.prep || {});\n  // 🔴 בתשובת גוגל אין את שדות ההכנה — השם נלקח מהצומת שהכין אותו.\n  if (!gc.name && base.gcDisplayName) gc.name = S(base.gcDisplayName);\n  return [{ json: Object.assign({}, base, { googleContact: gc }) }];\n}\n\n// ==== N8N BINDING ====\nconst j = $input.first().json || {};\nlet __prep = {};\ntry { __prep = $('אנשי קשר · הכנה').first().json || {}; } catch (e) { __prep = {}; }\nreturn LOGIC({ item: j, prep: __prep });\n"
+   },
+   "id": "איחוד תוצאת אנשי הקשר",
+   "name": "איחוד תוצאת אנשי הקשר",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    5500,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-2X · סיכום הריצה\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const parent = ctx.parent;\n\n  const looksLikeError = (r) => {\n    if (!r || typeof r !== 'object') return true;\n    if (r.success === false) return true;\n    if (r.Message || r.message) return true;\n    if (r.error) return true;\n    return false;\n  };\n\n  const results = [];\n  if (!parent._noop && !parent._blocked) {\n    results.push({\n      wave: 1, ref: parent.ref, label: parent.label, object: parent.object, kind: parent.kind,\n      ok: ctx.parentRecovered ? true : !looksLikeError(ctx.parentResp),\n      recovered: !!ctx.parentRecovered, recordId: ctx.parentId || '', response: ctx.parentResp,\n    });\n  }\n  (ctx.childReqs || []).forEach((req, i) => {\n    if (!req || req._noop || req._blocked) return;\n    results.push({\n      wave: 2, ref: req.ref, label: req.label, object: req.object, kind: req.kind,\n      ok: !looksLikeError((ctx.childResps || [])[i]), recordId: req.recordId || '',\n      response: (ctx.childResps || [])[i],\n    });\n  });\n\n  const failed = results.filter((r) => !r.ok);\n  const parentFailed = (ctx.childReqs || []).some((r) => r && r._parentFailed);\n\n  const cc = ctx.ccFinal || {};\n  const ccResp = ctx.ccResp || {};\n  const ccSent = !cc.ccSkip && (String(ccResp.status || (ccResp.data && ccResp.data.status) || '').toLowerCase() === 'ok'\n                 || ccResp.success === true || !!ccResp.data);\n  const wa = ctx.waFinal || {};\n  const waResp = ctx.waResp || {};\n\n  return [{\n    json: {\n      success: failed.length === 0 && !parentFailed,\n      dryRun: plan.DRY_RUN, liveTest: plan.liveTest,\n      branch: plan.branch, summary: plan.summary,\n      decisions: plan.decisions, warnings: plan.warnings,\n      account: { id: plan.accountid, name: plan.accountName, phone: plan.phone },\n      saleid: plan.saleId, product: plan.productName,\n      cohort: plan.cohortName || null, group: plan.groupName || null,\n      mentoringId: ctx.parentId || plan.existingMentoringId || '',\n      weeks: plan.totalWeeks || null, giftWeeks: plan.giftWeeks || 0,\n      startDate: plan.startDate || null, endDate: plan.endDate || null,\n      operations: results,\n      failedCount: failed.length,\n      parentIdMissing: !!parentFailed,\n      parentRecovered: !!ctx.parentRecovered,\n      welcome: {\n        sent: !!ccSent,\n        skipped: !!cc.ccSkip,\n        reason: cc.ccSkipReason || '',\n        windowUnknown: !!cc.ccWindowUnknown,\n        flow: cc.flowNs || '',\n      },\n      whatsappGroup: {\n        attempted: !wa.waSkip,\n        skipped: !!wa.waSkip,\n        reason: wa.waSkipReason || '',\n        joined: !!(waResp && (waResp.joined === true || (waResp.data && waResp.data.joined === true))),\n        groupName: wa.waGroupName || plan.groupName || '',\n        inviteLink: wa.waInviteLink || '',\n        response: waResp,\n      },\n      googleContact: ctx.googleContact || null,\n      sourceExecutionUrl: plan.sourceExecutionUrl,\n    },\n  }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  plan: $('בניית תוכנית מקצועית').first().json,\n  parent: $('הפרדת פעולת האב').first().json,\n  parentResp: $('יצירת תהליך הליווי').first().json,\n  parentId: ($('בניית פעולות המשך').first().json || {})._parentId || '',\n  parentRecovered: !!($('בניית פעולות המשך').first().json || {})._parentRecovered,\n  childReqs: $('בניית פעולות המשך').all().map((i) => i.json),\n  childResps: $('ביצוע פעולות בפיירברי').all().map((i) => i.json),\n  ccFinal: $('בניית שליחת הפלואו').first().json,\n  ccResp: $('קלאודצ\\'אט · שליחת וולקאם').first().json,\n  waFinal: $('הכנת צירוף לקבוצה').first().json,\n  waResp: $('צירוף לקבוצת וואטסאפ').first().json,\n  googleContact: ($input.first().json || {}).googleContact || null,\n});\n"
+   },
+   "id": "סיכום הריצה",
+   "name": "סיכום הריצה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    5700,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ $json }}",
+    "options": {
+     "responseCode": 200
+    }
+   },
+   "id": "תגובה · סיכום",
+   "name": "תגובה · סיכום",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    5900,
+    420
+   ]
+  }
+ ],
+ "connections": {
+  "Webhook · תהליך מקצועי": {
+   "main": [
+    [
+     {
+      "node": "קליטה וסיווג",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קליטה וסיווג": {
+   "main": [
+    [
+     {
+      "node": "תהליך מכירה (4)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "תהליך מכירה (4)": {
+   "main": [
+    [
+     {
+      "node": "המוצר (14)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "המוצר (14)": {
+   "main": [
+    [
+     {
+      "node": "תהליך ליווי קיים (1051)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "תהליך ליווי קיים (1051)": {
+   "main": [
+    [
+     {
+      "node": "מחזורי בוסט (1007)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מחזורי בוסט (1007)": {
+   "main": [
+    [
+     {
+      "node": "קבוצות WhatsApp (1068)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קבוצות WhatsApp (1068)": {
+   "main": [
+    [
+     {
+      "node": "קטלוג תפריטים (1060)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קטלוג תפריטים (1060)": {
+   "main": [
+    [
+     {
+      "node": "הקצאות תפריט (1059)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הקצאות תפריט (1059)": {
+   "main": [
+    [
+     {
+      "node": "בניית תוכנית מקצועית",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בניית תוכנית מקצועית": {
+   "main": [
+    [
+     {
+      "node": "מצב בדיקה (DRY_RUN)?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מצב בדיקה (DRY_RUN)?": {
+   "main": [
+    [
+     {
+      "node": "תגובה · תצוגה מקדימה",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "הפרדת פעולת האב",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הפרדת פעולת האב": {
+   "main": [
+    [
+     {
+      "node": "יצירת תהליך הליווי",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "יצירת תהליך הליווי": {
+   "main": [
+    [
+     {
+      "node": "אימות יצירת האב",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "אימות יצירת האב": {
+   "main": [
+    [
+     {
+      "node": "בניית פעולות המשך",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בניית פעולות המשך": {
+   "main": [
+    [
+     {
+      "node": "ביצוע פעולות בפיירברי",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ביצוע פעולות בפיירברי": {
+   "main": [
+    [
+     {
+      "node": "הכנת וולקאם",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הכנת וולקאם": {
+   "main": [
+    [
+     {
+      "node": "קלאודצ'אט · איתור מנויה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קלאודצ'אט · איתור מנויה": {
+   "main": [
+    [
+     {
+      "node": "ניתוח מנויה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ניתוח מנויה": {
+   "main": [
+    [
+     {
+      "node": "קלאודצ'אט · יצירת מנויה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קלאודצ'אט · יצירת מנויה": {
+   "main": [
+    [
+     {
+      "node": "קליטת יצירת המנויה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קליטת יצירת המנויה": {
+   "main": [
+    [
+     {
+      "node": "פיירברי · שמירת מזהה קלאודצ'אט",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "פיירברי · שמירת מזהה קלאודצ'אט": {
+   "main": [
+    [
+     {
+      "node": "קלאודצ'אט · כתיבת שדות",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קלאודצ'אט · כתיבת שדות": {
+   "main": [
+    [
+     {
+      "node": "בניית שליחת הפלואו",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בניית שליחת הפלואו": {
+   "main": [
+    [
+     {
+      "node": "קלאודצ'אט · שליחת וולקאם",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קלאודצ'אט · שליחת וולקאם": {
+   "main": [
+    [
+     {
+      "node": "הכנת צירוף לקבוצה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הכנת צירוף לקבוצה": {
+   "main": [
+    [
+     {
+      "node": "צירוף לקבוצת וואטסאפ",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "צירוף לקבוצת וואטסאפ": {
+   "main": [
+    [
+     {
+      "node": "אנשי קשר · הכנה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "אנשי קשר · הכנה": {
+   "main": [
+    [
+     {
+      "node": "לבדוק אנשי קשר?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "לבדוק אנשי קשר?": {
+   "main": [
+    [
+     {
+      "node": "גוגל · חיפוש איש קשר",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "איחוד תוצאת אנשי הקשר",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "גוגל · חיפוש איש קשר": {
+   "main": [
+    [
+     {
+      "node": "הכרעת איש קשר",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הכרעת איש קשר": {
+   "main": [
+    [
+     {
+      "node": "ליצור איש קשר?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ליצור איש קשר?": {
+   "main": [
+    [
+     {
+      "node": "גוגל · יצירת איש קשר",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "איחוד תוצאת אנשי הקשר",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "גוגל · יצירת איש קשר": {
+   "main": [
+    [
+     {
+      "node": "איחוד תוצאת אנשי הקשר",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "איחוד תוצאת אנשי הקשר": {
+   "main": [
+    [
+     {
+      "node": "סיכום הריצה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "סיכום הריצה": {
+   "main": [
+    [
+     {
+      "node": "תגובה · סיכום",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1",
+  "timezone": "Asia/Jerusalem",
+  "saveManualExecutions": true,
+  "saveDataErrorExecution": "all",
+  "saveDataSuccessExecution": "all"
+ },
+ "staticData": null,
+ "meta": null,
+ "pinData": null,
+ "versionId": "39481c56-d131-4062-815d-cf344e8013e5",
+ "triggerCount": 1,
+ "shared": [
+  {
+   "createdAt": "2026-08-19T20:36:37.515Z",
+   "updatedAt": "2026-08-19T20:36:37.515Z",
+   "role": "workflow:owner",
+   "workflowId": "LciQfMEuU2GKWRjI",
+   "projectId": "8n5t87og6JZ0AXPr",
+   "project": {
+    "createdAt": "2025-08-18T16:54:33.537Z",
+    "updatedAt": "2025-08-18T17:04:43.601Z",
+    "id": "8n5t87og6JZ0AXPr",
+    "name": "Eliel Trabulsky <eliel@vitrue.co.il>",
+    "type": "personal",
+    "icon": null,
+    "description": null,
+    "projectRelations": [
+     {
+      "createdAt": "2025-08-18T16:54:33.538Z",
+      "updatedAt": "2025-08-18T16:54:33.538Z",
+      "role": "project:personalOwner",
+      "userId": "6530ce58-2475-45da-97a4-bf0ec489a180",
+      "projectId": "8n5t87og6JZ0AXPr",
+      "user": {
+       "createdAt": "2025-08-18T16:54:32.972Z",
+       "updatedAt": "2026-09-22T22:09:23.000Z",
+       "id": "6530ce58-2475-45da-97a4-bf0ec489a180",
+       "email": "eliel@vitrue.co.il",
+       "firstName": "Eliel",
+       "lastName": "Trabulsky",
+       "personalizationAnswers": {
+        "version": "v4",
+        "personalization_survey_submitted_at": "2025-08-18T17:04:51.259Z",
+        "personalization_survey_n8n_version": "1.106.3"
+       },
+       "settings": {
+        "userActivated": true,
+        "firstSuccessfulWorkflowId": "9Yey7n3lWYHw4uZL",
+        "userActivatedAt": 1755882878466,
+        "npsSurvey": {
+         "waitingForResponse": true,
+         "ignoredCount": 2,
+         "lastShownAt": 1790084758181
+        },
+        "easyAIWorkflowOnboarded": true
+       },
+       "role": "global:owner",
+       "disabled": false,
+       "mfaEnabled": false,
+       "lastActiveAt": "2026-09-22",
+       "isPending": false
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "tags": []
+}
