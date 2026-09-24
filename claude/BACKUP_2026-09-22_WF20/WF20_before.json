@@ -1,0 +1,1341 @@
+{
+ "createdAt": "2026-08-19T10:59:07.164Z",
+ "updatedAt": "2026-09-16T08:49:24.083Z",
+ "id": "p1AfsAeXcrlhtiNk",
+ "name": "WF-20 · ראוטר תשלומים מרכזי — GROW → Fireberry",
+ "active": true,
+ "isArchived": false,
+ "nodes": [
+  {
+   "parameters": {
+    "httpMethod": "POST",
+    "path": "grow-payment-roital",
+    "responseMode": "responseNode",
+    "options": {
+     "rawBody": false
+    }
+   },
+   "id": "Webhook · GROW",
+   "name": "Webhook · GROW",
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2,
+   "position": [
+    -400,
+    300
+   ],
+   "webhookId": "wf20-grow-router"
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · צומת 1 — נירמול וסיווג ה-webhook שהתקבל מגרואו\n// ============================================================================\n// כל הלוגיקה כאן טהורה (LOGIC) כדי שניתן יהיה לבדוק אותה מחוץ ל-n8n.\n// ============================================================================\n\n// ==== CONFIG ====\nconst CFG = {\n  // 🔴 עלייה לאוויר 19/08/2026 באישור אליאל — הכתיבה פתוחה לכל הלקוחות.\n  //    להחזרה למצב בדיקה: DRY_RUN = true. אז רק החשבונות שברשימות\n  //    LIVE_TEST_PHONES / LIVE_TEST_ACCOUNT_IDS ימשיכו להיכתב.\n  DRY_RUN: false,\n  VAT_PERCENT: 18,                     // אחוז מע\"מ\n  N8N_BASE: 'https://n8n.srv964196.hstgr.cloud',\n  FIREBERRY_BASE: 'https://api.fireberry.com',\n  // האם ליצור \"תיעוד תשלום\" כבר בהקמת הוראת קבע.\n  // האפיון של אליאל אומר שלא — החיוב הראשון מגיע בנפרד כאירוע חיוב.\n  CREATE_DOC_ON_STANDING_ORDER_SETUP: false,\n  // וורקפלואו הקמת המוצרים בפיירברי — טרם נוצר. השארת נקודת חיבור.\n  // 🔗 סיום תשלום מוצלח מפעיל את WF-22 — הראוטר של התהליכים המקצועיים.\n  PRODUCT_SETUP_WEBHOOK_URL: 'https://n8n.srv964196.hstgr.cloud/webhook/pro-setup-roital',\n  DEFAULT_TASK_PRIORITY: 5,            // גבוהה\n  DEFAULT_TASK_TYPE: 5,                // מכירה\n  DEFAULT_TASK_STATUS: 1,              // פתוח\n  EMPTY_GUID: '00000000-0000-0000-0000-000000000000',\n\n  // ── 🔴 חשבונות בדיקה מורשים לכתיבה בפועל ─────────────────────────────\n  // כל תשלום ששייך לאחד מאלה ירוץ *מלא* — הרשומות ייווצרו בפיירברי —\n  // גם כאשר DRY_RUN=true. כל שאר הלקוחות נשארים בתצוגה מקדימה בלבד.\n  // הוגדר לבקשת אליאל 19/08/2026 כדי לראות את התוצאה בפועל על חשבון סער.\n  LIVE_TEST_PHONES: [],                                  // 12/09 — לייב לכולם, רשימת הבדיקה רוקנה\n  // 🔴 20/08 — רשומת הלקוחה של סער נמחקה לצורך טסט מאפס. המזהה כאן יתעדכן\n  //    לרשומה החדשה ברגע שתיווצר. הוא נחוץ במיוחד לוובהוק החשבונית, שאינו\n  //    נושא טלפון כלל ולכן מזוהה רק דרך הלקוחה שברשומת התשלום.\n  LIVE_TEST_ACCOUNT_IDS: [],\n  // 🔴 זיהוי לפי **שם הלקוחה** — שורד מחיקה ויצירה מחדש של רשומת הלקוחה.\n  //    נחוץ במיוחד לוובהוק החשבונית, שאינו נושא טלפון ולכן מזוהה רק דרך\n  //    הלקוחה שברשומת התשלום. (נוסף 20/08 אחרי מחיקת רשומת הבדיקה.)\n  LIVE_TEST_ACCOUNT_NAMES: [],\n\n  // 🔴 חשבונית שלא ניתן לשייך לאף תשלום — תמיד רצה בפועל, ופותחת משימה בלבד.\n  // הסיבה: ה-payload של החשבונית מכיל שלושה שדות ואין בו לקוחה, ולכן היא לא\n  // יכולה לעבור את רשימת ההיתר. בלי זה המסמך נעלם בשקט. המשימה אינה רשומה\n  // כספית ולכן בטוחה גם ללקוחות אמיתיות.\n  ALWAYS_LIVE_UNMATCHED_INVOICE: true,\n\n  // ── 🔴🔴 שיוך לפי קרבת זמן — הוסר לחלוטין ב-20/08/2026 ────────────────\n  //    הכלל, בלי יוצא מן הכלל ובלי מתג:\n  //        שיוך של תשלום או של מסמך חשבונאי נעשה אך ורק לפי מזהה חד-ערכי.\n  //    אין חלון זמן · אין \"המועמד היחיד\" · אין \"האחרון שנוצר\" · אין ניחוש לפי סכום.\n  //    (רקע: חשבונית של לקוחה אחת שויכה לתשלום של לקוחה אחרת.)\n\n  // תווית סוג המסמך לפי קידומת מספר המסמך. ברירת המחדל כשאין התאמה.\n  DOC_TYPE_DEFAULT: 'מסמך חשבונאי',\n  // סוג המסמך נגזר מסדרת המספור של גרואו. אומת ע\"י אליאל 19/08/2026\n  // מתוך פתיחת המסמכים עצמם.\n  DOC_TYPE_BY_PREFIX: {\n    '49': 'חשבונית מס/קבלה',   // מסמך משולב — נפוץ בתשלום בודד\n    '25': 'חשבונית מס',        // הראשון מבין הזוג בפריסת תשלומים\n    '50': 'קבלה',              // השני מבין הזוג\n    '60': 'חשבונית זיכוי',     // 🔴 טעון אימות מול אליאל — נצפה בזיכוי 20/08\n  },\n\n  // 🔴 מספרי הטלפון של העסק עצמו, כפי שהם מודפסים על גבי המסמכים.\n  //    הם מסוננים מזיהוי הטלפון ב-PDF, אחרת נזהה את רויטל כלקוחה.\n  DOC_OWN_PHONES: ['0524153323'],\n\n  // האם לקרוא את ה-PDF של המסמך כדי לחלץ ממנו טלפון ומספר מסמך מקורי\n  PARSE_DOCUMENT_PDF: true,\n\n  // 🔴 המתנה לפני שיוך מסמך, בשניות.\n  //    גרואו שולחת את הרכישה בשני פורמטים; רק השני נושא את מזהה העסקה\n  //    שמשלים את רשומת התשלום. וובהוק החשבונית מגיע לעיתים ביניהם.\n  //    אומת חי 23/08 — פער של שנייה עד 6 שניות. 25 שניות = פי 4 מרווח,\n  //    ועדיין בתוך הטיימאאוט המקובל של וובהוק כך שגרואו לא תשלח שוב.\n  //    0 = בלי המתנה.\n  INVOICE_SYNC_WAIT_SECONDS: 25,\n\n  // 🔴 רישום סכום הזיכוי על רשומת התשלום. אושר ע\"י אליאל 20/08/2026.\n  //    נכתב **רק** כשהתשלום זוהה מתוך מספר המסמך המודפס בזיכוי, והסכום נקרא.\n  WRITE_REFUND_ON_CREDIT: true,\n\n  // 🔴 מסמך שלא ניתן לשייך — האם בכל זאת ליצור לו רשומה בפיירברי?\n  //    true  = הרשומה נוצרת בלי שיוך + משימה לשיוך ידני (ברירת המחדל).\n  //    false = משימה בלבד, המסמך לא נשמר בשום מקום.\n  CREATE_UNMATCHED_DOCUMENT: true,\n\n  // בחירת תהליך המכירה:\n  //   true  = רק תהליך מכירה פתוח שהמוצר שלו זהה למוצר שנרכש; אין כזה —\n  //           נפתח תהליך מכירה חדש. (הכרעת אליאל 14/09/2026:\n  //           \"זה אמור להתלות על המוצר שנבחר במעמד הסליקה\")\n  //   false = תהליך המכירה הפתוח העדכני ביותר, בלי קשר למוצר (התנהגות 19/08)\n  // 🔴 לפני 14/09 הדגל היה false, ולכן רכישת ליווי של לקוחה עם ליד בוסט פתוח\n  //    נתלתה על ליד הבוסט — ו-WF-22 דרס בו את המוצר וסגר אותו.\n  SALE_MATCH_BY_PRODUCT: true,\n\n  // 🔴 15/09/2026 — הכרעת אליאל: תהליכי המכירה מסודרים לפי **קטגוריית המוצר**\n  //    (בוסט / פרימיום / המשך), לא לפי המוצר המדויק. כשמתקבל תשלום ויש תהליך\n  //    מכירה פתוח **מאותה קטגוריה** — משייכים אליו, גם אם המוצר שונה, ומעדכנים\n  //    בו את המוצר לפי מה שנסלק בפועל. לא פותחים תהליך חדש.\n  //    דוגמה: ליד פתוח על \"תוכנית המשך אונליין\" + תשלום על \"תוכנית המשך אישית\"\n  //    ⇒ אותו תהליך מכירה, המוצר מתעדכן לאישית.\n  SALE_MATCH_BY_CATEGORY: true,\n\n  // 🔴 15/09/2026 — חיפוש תהליך מכירה גם בין ה**סגורות**.\n  // בלי זה כל חיוב הו\"ק חוזר (שמגיע אחרי שהעסקה כבר \"נסגרה בהצלחה\") פתח\n  // עסקה חדשה, וזה בדיוק המקור לכפילויות שאוחדו. הסטטוס של העסקה הסגורה\n  // לא משתנה — רק נתלים עליה.\n  SALE_MATCH_INCLUDE_CLOSED: true,\n\n  // 🔴 16/09/2026 — ליד פתוח בלי מוצר קולט את הרכישה במקום שתיפתח עסקה חדשה.\n  SALE_MATCH_EMPTY_LEAD: true,\n\n  // מרווח בין תשלומים בפריסה, בחודשים. גרואו לא שולח את תאריכי החיוב\n  // העתידיים — הם נגזרים מתאריך התשלום הראשון. (החלטת אליאל 19/08/2026)\n  INSTALLMENT_INTERVAL_MONTHS: 1,\n\n  // חיוב הוראת קבע שאין לו רשומת הוראה בפיירברי — האם ליצור אותה רטרואקטיבית.\n  // true = הכסף נרשם ונפתחת משימת אימות. false = משימה בלבד, בלי רשומה כספית.\n  // 🔴 כבוי מ-19/08 בהוראת אליאל, עד לאחר מעבר הנתונים מה-CRM הישן (04–05/09).\n  //    ב-GROW יש 238 הוראות קבע פעילות ו-330 פריסות אשראי פתוחות שהוקמו לפני\n  //    שהמערכת הזו עלתה. המיגרציה תיצור להן רשומות תשלום מה-CRM הישן.\n  //    אם הריפוי העצמי היה דלוק, כל חיוב שנכנס בינתיים היה יוצר רשומה\n  //    רטרואקטיבית שהמיגרציה תשכפל. במקום זה — משימה בלבד, בלי רשומה כספית.\n  //    ⚠️ להדליק בחזרה אחרי שהמיגרציה הושלמה ואומתה.\n  //    ⚠️ הודלק מחדש 20/08 בהוראת אליאל (\"אני לא רוצה שזה יאבד ולא ירשם\"),\n  //    עם מפתח איחוד ודאי: pcfID = מזהה ההו\"ק בגרואו. במעבר הנתונים יש לאחד\n  //    לפי המפתח הזה ולא ליצור רשומה שנייה.\n  SELF_HEAL_STANDING_ORDER: true,\n\n  // 🔴 סימון לרשומות שנוצרו רטרואקטיבית מתוך חיוב — כדי שיהיה אפשר לאתר\n  //    ולאחד אותן במעבר הנתונים.\n  RETRO_PREFIX: '[רטרו — לאיחוד במעבר] ',\n\n  // 🔴 מקורות תשלום שמעידים שההוראה **הוקמה עכשיו** ולא נגבתה ע\"י המנוע.\n  //    אומת חי 20/08: הקמה חדשה מגיעה עם paymentSource=\"Payment Links\",\n  //    בעוד חיוב חוזר של הוראה קיימת מגיע עם \"מערכת חיצונית\".\n  STANDING_ORDER_SETUP_SOURCES: ['payment links', 'עמוד תשלום', 'payment page'],\n\n  // 🔴 הו\"ק שהוקמה **ידנית מתוך מערכת גרואו** (בק-אופיס), ולא דרך עמוד תשלום.\n  //    גרואו שולחת אותה בדיוק כמו חיוב חוזר — paymentSource=\"מערכת חיצונית\" —\n  //    ולכן היא זוהתה עד 14/09/2026 כחיוב של הוראה ותיקה, ושרשרת הקמת המוצר\n  //    לא רצה. המבחין היחיד והאמין: **מזהה ההו\"ק אינו מוכר לפיירברי**.\n  //    אומת על 250 ריצות: 30 חיובים ותיקים הגיעו כולם עם \"ריצת הוראת קבע\",\n  //    ו-5 הקמות מהבק-אופיס הגיעו כולן עם \"מערכת חיצונית\". הפרדה מלאה.\n  STANDING_ORDER_BACKOFFICE_SOURCES: ['מערכת חיצונית'],\n\n  // 🔴 מספר התשלומים ברשומת הוראת קבע.\n  // האפיון ביקש 0, אבל **פיירברי קורס** כשמגיעים 0 יחד עם סכום:\n  // השדה המחושב \"כל תשלום לפני מע\\\"מ\" מחלק את הסכום במספר התשלומים,\n  // וחלוקה באפס מחזירה \"An internal error has occured\" (HTTP 400).\n  // אומת בבידוד 19/08. null = לא לשלוח את השדה כלל (הוא נשאר ריק, וזה נכון\n  // סמנטית — להוראת קבע אין מספר תשלומים ידוע מראש).\n  // 🔴 \"מספר תשלומים = 0\" בגוף יצירה (POST) + סכום ⇒ פיירברי מחזיר 400\n  //    (השדה המחושב \"כל תשלום לפני מע\\\"מ\" מחלק באפס).\n  //    **אותו ערך בעדכון (PUT) עובר תקין.** לכן ההוראה נוצרת בלי השדה,\n  //    ומיד אחריה פעולת עדכון כותבת בו 0. אליאל אישר 19/08 שהשדה המחושב\n  //    לא חייב להתחשב — העיקר שהערך יופיע.\n  STANDING_ORDER_PAYMENTS_COUNT: 0,\n  STANDING_ORDER_COUNT_VIA_UPDATE: true,\n  // 🔴 שיוך חיוב לתיעוד תשלום נעשה **אך ורק לפי מזהה**. כלל קשיח, בלי מתג:\n  //    לא נמצא מזהה תואם ⇒ לא נוגעים בשום רשומה, נפתחת משימה.\n\n  // ── מזהי GROW נוספים למוצר ────────────────────────────────────────────\n  // לחלק מהמוצרים יש בגרואו יותר ממזהה אחד (מוצר כפול / כמה עמודי מכירה).\n  // כאן ממפים מזהה שמגיע בוובהוק → הערך שיושב ב-pcfpaymentpageid בפיירברי.\n  // אומת חי 19/08: הבוסט נסלק דרך מוצר 618998 / עמוד 3753502,\n  // בעוד שבפיירברי רשומים 618977 / עמוד 3753607. שניהם \"עמוד מכירה בוסט\".\n  // ריק — 19/08/2026 תוקן הנתון עצמו: pcfpaymentpageid של \"סדנה בוסט\"\n  // עודכן מ-618977 ל-618998, שהוא מזהה המוצר שגרואו שולח בפועל.\n  // הטבלה נשארת כמנגנון למקרה שיתגלה מוצר עם יותר ממזהה אחד.\n  PRODUCT_ID_ALIASES: {},\n\n  // ── מיפוי שמות מוצרים מהמערכת הישנה → מזהה מוצר בפיירברי ──────────────\n  // במערכת הישנה שמות המוצרים בגרואו לא זהים לשמות בקטלוג החדש, ולכן\n  // ההתאמה לפי טוקנים נכשלה והתשלום נשאר בלי מוצר. אליאל מסר את המיפוי\n  // הידני, 15/09/2026. ההשוואה היא על **מחרוזת מלאה מנורמלת** (בלי\n  // מקפים/גרשיים/רווחים כפולים) — לא \"מכיל\", כדי ש-\"ליווי\" לבדו לא יבלע\n  // כל שם אחר.\n  PRODUCT_NAME_ALIASES: {\n    'ליווי תזונה אונליין רגיל': '58A4D4F9-5921-4BFC-BA8E-518877FAA375',          // תוכנית המשך אונליין\n    'ליווי תזונה אונליין מנטורית אישית': 'D2CE0670-275A-4EF9-96BA-167F5CA053D6', // תוכנית המשך אישית\n    'ליווי אונליין מנטורית אישית': '58A4D4F9-5921-4BFC-BA8E-518877FAA375',       // תוכנית המשך אונליין\n    'ליווי': '58A4D4F9-5921-4BFC-BA8E-518877FAA375',                             // תוכנית המשך אונליין\n  },\n\n  // ── מפתחות הוובהוק של גרואו → סוג האירוע ──────────────────────────────\n  // גרואו שולח בכל payload את מפתח הוובהוק שדרכו הוא נשלח. זהו מקור הניתוב\n  // הראשון והמהימן ביותר — עדיף על ניחוש לפי מבנה ה-payload.\n  // הוגדרו ע\"י אליאל בחשבון של רויטל, 19/08/2026.\n  WEBHOOK_KEYS: {\n    'a3e4507c-1c47-c26b-2abb-c1dbdc894825': 'INVOICE',          // הפקת חשבונית\n    '49e11133-7633-db07-e030-51addc8bc5aa': 'RECURRING_FAILED', // הוראת קבע שנכשלה\n    'c7c0105e-ac70-969a-bea3-16ac05f64ea9': 'PAYMENT',          // כל העסקאות חוץ מהו\"ק\n    '9a6e5e82-e4a8-370c-d701-1a6838c8dbdb': 'STANDING_ORDER',   // הו\"ק — הקמה וחיובים\n  },\n};\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const cfg = ctx.cfg;\n  const items = ctx.items || [];\n  const first = items[0] ? items[0].json : {};\n\n  // --- 1. חילוץ ה-payload מכל העטיפות האפשריות ---\n  let raw = (first && first.body !== undefined) ? first.body : first;\n  if (typeof raw === 'string') {\n    try { raw = JSON.parse(raw); } catch (e) { /* נשאר מחרוזת */ }\n  }\n  if (Array.isArray(raw)) raw = raw[0] || {};\n  if (!raw || typeof raw !== 'object') raw = {};\n\n  // גרואו — מערכת paymentLinks עוטפת ב-{err,status,data}\n  const isWrapped = Object.prototype.hasOwnProperty.call(raw, 'data') &&\n                    raw.data && typeof raw.data === 'object' && !Array.isArray(raw.data);\n  const d = isWrapped ? raw.data : raw;\n\n  // --- 2. עזרים ---\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const num = (v) => {\n    if (v === undefined || v === null || v === '') return 0;\n    const n = parseFloat(String(v).replace(/[^\\d.\\-]/g, ''));\n    return isNaN(n) ? 0 : n;\n  };\n  const round2 = (n) => Math.round((Number(n) + Number.EPSILON) * 100) / 100;\n  // הנטו נשמר בארבע ספרות — פיירברי מחשב ממנו מחדש את הסכום כולל מע\"מ.\n  const round4 = (n) => Math.round((Number(n) + Number.EPSILON) * 10000) / 10000;\n\n  function normPhone(p) {\n    let digits = S(p).replace(/\\D/g, '');\n    if (!digits) return '';\n    if (digits.startsWith('972')) digits = '0' + digits.slice(3);\n    else if (digits.startsWith('00972')) digits = '0' + digits.slice(5);\n    if (digits.length === 9 && !digits.startsWith('0')) digits = '0' + digits;\n    return digits;\n  }\n\n  // גרואו שולח dd/MM/yy (וגם d/M/yy). מחזיר ISO עם סיומת Z (פיירברי שומר שעה מקומית עם Z).\n  function growDateToISO(s) {\n    const t = S(s);\n    if (!t) return '';\n    const m = t.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{2,4})$/);\n    if (m) {\n      let [, dd, mm, yy] = m;\n      let year = parseInt(yy, 10);\n      if (yy.length === 2) year += 2000;\n      const p = (x) => String(parseInt(x, 10)).padStart(2, '0');\n      return `${year}-${p(mm)}-${p(dd)}T00:00:00Z`;\n    }\n    const dt = new Date(t);\n    if (!isNaN(dt.getTime())) return dt.toISOString().replace(/\\.\\d{3}Z$/, 'Z');\n    return '';\n  }\n\n  const nowISO = ctx.now || new Date().toISOString().replace(/\\.\\d{3}Z$/, 'Z');\n  const todayISO = nowISO.slice(0, 10) + 'T00:00:00Z';\n\n  // --- 3. סיווג סוג האירוע ---\n  // הערה קריטית: לגרואו ארבעה מבנים שונים לחלוטין.\n  //   INVOICE           = {transactionCode, invoiceNumber, invoiceUrl}  (3 שדות בלבד)\n  //   RECURRING_FAILED  = snake_case {regular_payment_id, error_message, charges_attempts, ...}\n  //   RECURRING_CHARGE  = שטוח, עם directDebitId / paymentSource=\"ריצת הוראת קבע\"\n  //   PAYMENT           = paymentLinks (עטוף ב-data) או legacy/API שטוח\n  const hasInvoiceFields = !!(S(raw.invoiceUrl) || S(raw.invoiceNumber) || S(d.invoiceUrl) || S(d.invoiceNumber));\n  const hasPayerFields   = !!(S(d.fullName) || S(d.payerPhone) || S(d.sum) || S(d.paymentSum));\n  const isFailedRecur    = !!(S(raw.regular_payment_id) || S(raw.charges_attempts) || S(raw.error_message));\n\n  const paymentTypeRaw  = S(d.paymentType);\n  const paymentSource   = S(d.paymentSource);\n  const directDebitId   = S(d.directDebitId) || S(d.recurringDebitId) || S(raw.regular_payment_id);\n  const isStandingLabel = /הוראת\\s*קבע/.test(paymentTypeRaw) || /הוראת\\s*קבע/.test(S(d.transactionType));\n  const isRecurRun      = /ריצת\\s*הוראת\\s*קבע/.test(paymentSource);\n  // 🔴 האם ההוראה הוקמה ברגע זה (לקוחה עברה בעמוד תשלום) או שזהו חיוב חוזר\n  //    שמנוע גרואו הריץ. זה ההבדל בין \"רכישה חדשה\" ל\"חיוב של הוראה ותיקה\".\n  const setupSources    = (cfg.STANDING_ORDER_SETUP_SOURCES || []).map((x) => String(x).toLowerCase());\n  const isSetupSource   = !isRecurRun && !!paymentSource &&\n                          setupSources.indexOf(paymentSource.toLowerCase()) !== -1;\n  const boSources       = (cfg.STANDING_ORDER_BACKOFFICE_SOURCES || []).map((x) => String(x).toLowerCase());\n  const isBackOfficeSource = !isRecurRun && !isSetupSource && !!paymentSource &&\n                          boSources.indexOf(paymentSource.toLowerCase()) !== -1;\n\n  // ── מקור ניתוב ראשון: מפתח הוובהוק שגרואו שולח ──\n  const webhookKey = S(d.webhookKey) || S(d.webhook_key) || S(raw.webhookKey) || S(raw.webhook_key);\n  const keyedType = webhookKey ? (cfg.WEBHOOK_KEYS[webhookKey] || null) : null;\n  const keyWarnings = [];\n  if (webhookKey && !keyedType) {\n    keyWarnings.push(`מפתח הוובהוק ${webhookKey} אינו מוכר — הסיווג נעשה לפי מבנה ה-payload. יש להוסיף אותו ל-WEBHOOK_KEYS.`);\n  }\n  if (!webhookKey) {\n    keyWarnings.push('ה-payload הגיע בלי מפתח וובהוק — הסיווג נעשה לפי מבנה ה-payload בלבד.');\n  }\n\n  let eventType, classifiedBy = 'webhookKey';\n  if (keyedType === 'INVOICE') {\n    eventType = 'INVOICE';\n  } else if (keyedType === 'RECURRING_FAILED') {\n    eventType = 'RECURRING_FAILED';\n  } else if (keyedType === 'STANDING_ORDER') {\n    // אותו מפתח משרת גם הקמה וגם חיוב חודשי — ההפרדה לפי סימני חיוב חוזר\n    eventType = (isRecurRun || directDebitId) ? 'RECURRING_CHARGE' : 'STANDING_ORDER_SETUP';\n  } else if (keyedType === 'PAYMENT') {\n    // המפתח מוגדר \"כל העסקאות חוץ מהו״ק\". אם בכל זאת הגיעה הו״ק — ה-payload גובר,\n    // כי יצירת הו״ק כתשלום רגיל היא שגיאה כספית ולא רק שגיאת סיווג.\n    if (isRecurRun || (directDebitId && isStandingLabel)) {\n      eventType = 'RECURRING_CHARGE';\n      keyWarnings.push('הוובהוק \"כל העסקאות חוץ מהו״ק\" קיבל חיוב הוראת קבע — הסיווג תוקן לפי ה-payload.');\n    } else if (isStandingLabel) {\n      eventType = 'STANDING_ORDER_SETUP';\n      keyWarnings.push('הוובהוק \"כל העסקאות חוץ מהו״ק\" קיבל הקמת הוראת קבע — הסיווג תוקן לפי ה-payload.');\n    } else {\n      eventType = 'PAYMENT';\n    }\n  } else {\n    // ── נפילה: סיווג לפי מבנה ה-payload ──\n    classifiedBy = 'heuristic';\n    if (isFailedRecur)                        eventType = 'RECURRING_FAILED';\n    else if (hasInvoiceFields && !hasPayerFields) eventType = 'INVOICE';\n    else if (isRecurRun || (directDebitId && isStandingLabel && !isWrapped && !S(d.productData))) eventType = 'RECURRING_CHARGE';\n    else if (isStandingLabel)                 eventType = 'STANDING_ORDER_SETUP';\n    else if (hasPayerFields)                  eventType = 'PAYMENT';\n    else                                      eventType = 'UNKNOWN';\n  }\n\n  // חיוב ראשון של הוראת קבע מגיע כאירוע \"תשלום רגיל\" ולא כאירוע recurring (מתועד בפלייבוק).\n  // לכן STANDING_ORDER_SETUP מכסה גם אותו.\n\n  // --- 4. הצלחה / כישלון ---\n  // paymentLinks: status=\"שולם\" / statusCode=\"2\".  legacy/recurring: אין שדה סטטוס כלל —\n  // גרואו יורה את הוובהוק רק על הצלחה, ולכשל יש וובהוק נפרד. לכן היעדר סטטוס = הצלחה.\n  const statusLabel = S(d.status);\n  const statusCode  = S(d.statusCode);\n  let isSuccess;\n  if (eventType === 'RECURRING_FAILED') isSuccess = false;\n  else if (statusLabel || statusCode)   isSuccess = (statusLabel === 'שולם' || statusCode === '2');\n  else                                  isSuccess = true;\n\n  // --- 5. סכומים ---\n  const grossTotal = round2(num(d.sum) || num(d.paymentSum) || num(raw.sum) || 0);\n  const vatDiv     = 1 + (cfg.VAT_PERCENT / 100);\n  const netTotal   = round4(grossTotal / vatDiv);\n  const periodicalGross = round2(num(d.periodicalPaymentSum) || 0);\n  const firstPayGross   = round2(num(d.firstPaymentSum) || 0);\n\n  // --- 6. מספר תשלומים ---\n  // ⚠️ גוצ'ה: paymentLinks שולח allPaymentsNum (עם s), legacy שולח allPaymentNum (בלי s).\n  // ⚠️ גוצ'ה: גרואו שולח \"0\" כמספר תשלומים בעסקה בודדת. \"0\" הוא truthy במחרוזת — || נכשל.\n  const allRaw = (d.allPaymentsNum !== undefined && d.allPaymentsNum !== '') ? d.allPaymentsNum\n               : (d.allPaymentNum !== undefined && d.allPaymentNum !== '') ? d.allPaymentNum : '';\n  let installmentsTotal = parseInt(S(allRaw), 10);\n  if (!installmentsTotal || installmentsTotal < 1) installmentsTotal = 1;\n  // ⚠️ אומת חי 19/08: `paymentsNum` אינו אינדקס התשלום הנוכחי אלא **מספר החיובים\n  // המחזוריים שאחרי הראשון**. עסקה ב-4 תשלומים שלחה allPaymentsNum=4, paymentsNum=3.\n  const periodicalCountRaw = S(d.paymentsNum);\n  const periodicalCount = periodicalCountRaw === '' ? 0 : (parseInt(periodicalCountRaw, 10) || 0);\n\n  // --- 7. אמצעי תשלום (פיקליסט פיירברי 1039/1018.pcfPaymentType) ---\n  // ⚠️ אין להסתמך על d.paymentType של גרואו — מתועד שהוא שלח \"2\" על עסקת ויזה ודאית.\n  const cardSuffix = S(d.cardSuffix) || S(raw.card_suffix);\n  const cardBrand  = S(d.cardBrand);\n  const descBlob   = [S(d.description), S(d.paymentDesc), S(d.transactionType), paymentTypeRaw].join(' ');\n  let fbPaymentType;\n  if (eventType === 'STANDING_ORDER_SETUP') fbPaymentType = 7;          // הוראת קבע\n  else if (cardSuffix || cardBrand)         fbPaymentType = 1;          // אשראי\n  else if (/ביט|bit/i.test(descBlob))       fbPaymentType = 6;          // העברה ב Bit\n  else if (/העברה\\s*בנקאית/.test(descBlob)) fbPaymentType = 2;\n  else                                      fbPaymentType = 1;          // ברירת מחדל — אשראי\n\n  // --- 8. מוצרים ---\n  // price_mark=\"1\" = שורת הנחה/קופון — חובה לסנן.\n  const productRows = Array.isArray(d.productData) ? d.productData : [];\n  const realProducts = productRows.filter((p) => S(p && p.price_mark) !== '1');\n  const primaryProduct = realProducts.find((p) => S(p.product_id) && S(p.product_id) !== '0') || realProducts[0] || null;\n  // ── קופון / הנחה ────────────────────────────────────────────────────\n  // גרואו מסמן שורת הנחה ב-price_mark=\"1\". השם הוא שם הקופון והמחיר הוא\n  // סכום ההנחה. כשגרואו לא מפרט שורה כזו — ההנחה נגזרת מהפרש בין מחיר\n  // המחירון של שורות המוצר לבין הסכום שנגבה בפועל.\n  const discountRows = productRows.filter((p) => S(p && p.price_mark) === '1');\n  const lineTotal = (r) => num(r && r.price) * (num(r && r.quantity) || 1);\n  const listedTotal = round2(realProducts.reduce((a, r) => a + lineTotal(r), 0));\n  let couponCode = discountRows.length ? S(discountRows[0].name) : '';\n  let couponDiscount = discountRows.length\n    ? round2(discountRows.reduce((a, r) => a + Math.abs(lineTotal(r)), 0))\n    : 0;\n  let couponSource = discountRows.length ? 'שורת הנחה מגרואו' : '';\n// הנחה נגזרת — רק אם גרואו לא פירט שורת הנחה, ויש פער אמיתי מול המחירון\n  if (!couponDiscount && listedTotal > 0 && grossTotal > 0 && listedTotal - grossTotal > 0.01) {\n    couponDiscount = round2(listedTotal - grossTotal);\n    couponSource = 'חושב מהפרש מול מחיר המחירון';\n  }\n  const growProductId   = primaryProduct ? S(primaryProduct.product_id) : '';\n  const growProductName = primaryProduct ? S(primaryProduct.name) : '';\n  // מזהה עמוד/קישור התשלום בגרואו. בחשבון של רויטל היו בעבר ערכים מסוג זה\n  // בשדה pcfpaymentpageid, ולכן מחפשים את המוצר לפי שני המפתחות במקביל.\n  const growProcessId   = S(d.paymentLinkProcessId) || S(d.processId);\n\n  // --- 9. מזהים ---\n  const transactionId   = S(d.transactionId);\n  const transactionCode = S(d.transactionCode) || S(raw.transactionCode);\n  const asmachta        = S(d.asmachta);\n  const invoiceNumber   = S(raw.invoiceNumber) || S(d.invoiceNumber);\n  const invoiceUrl      = S(raw.invoiceUrl) || S(d.invoiceUrl) || S(raw.invoiceURL) || S(d.invoiceURL);\n  // מזהה שיוצג כ\"מזהה חיוב\" ברשומה. עדיפות למזהה המספרי של גרואו.\n  const chargeId = transactionId || transactionCode || asmachta;\n\n  // ── מפתח האידמפוטנטיות ─────────────────────────────────────────────────\n  // 🔴 אומת חי 19/08/2026: אותה עסקה מגיעה פעמיים בשני פורמטים שונים —\n  //    paymentLinks (דרך Make) עם transactionId בלבד, ו-legacy (ישירות מגרואו)\n  //    עם transactionCode בלבד. **asmachta זהה בשניהם** ולכן היא המפתח היחיד\n  //    שמונע יצירת שתי רשומות תשלום על אותו כסף.\n  const idemKeyBase = eventType === 'INVOICE'\n    ? `GROW-INV-${invoiceNumber || transactionCode}`\n    : `GROW-${asmachta || transactionId || transactionCode}`;\n\n  const phone = normPhone(d.payerPhone || raw.phone || d.phone);\n\n  return [{\n    json: {\n      _cfg: cfg,\n      _raw: raw,\n      _d: d,\n\n      eventType,\n      isSuccess,\n      isWrapped,\n\n      // אבחון ניתוב\n      webhookKey,\n      webhookKeyLabel: keyedType || '',\n      classifiedBy,\n      keyWarnings,\n\n      // צד לקוח\n      phone,\n      fullName: S(d.fullName) || S(raw.payer_name),\n      email: S(d.payerEmail) || S(raw.email),\n\n      // כספים\n      grossTotal, netTotal, periodicalGross, firstPayGross,\n      vatPercent: cfg.VAT_PERCENT,\n\n      // פריסה\n      installmentsTotal, periodicalCount,\n\n      // אמצעי\n      fbPaymentType, cardSuffix, cardBrand,\n\n      // מוצר\n      growProductId, growProductName, growProcessId,\n      couponCode, couponDiscount, couponSource, listedTotal,\n      // תיאור העסקה / שם עמוד המכירה — מקור ההתאמה האחרון כשאין productData כלל\n      // (הפורמט הישיר של גרואו לא נושא מוצרים, רק paymentDesc).\n      descriptionText: S(d.paymentDesc) || S(d.description),\n      productCount: realProducts.length,\n\n      // מזהים\n      transactionId, transactionCode, asmachta, directDebitId, chargeId,\n      paymentSource, isSetupSource, isBackOfficeSource, isRecurRun,\n      invoiceNumber, invoiceUrl,\n      identifyParam: S(d.identifyParam) || S(raw.identifyParam),\n      idemKeyBase,\n\n      // תאריכים\n      paymentDateISO: growDateToISO(d.paymentDate) || todayISO,\n      nowISO, todayISO,\n\n      // שגיאת חיוב חוזר\n      failureMessage: S(raw.error_message),\n      chargeAttempts: S(raw.charges_attempts),\n\n      // ריצה\n      executionUrl: ctx.executionUrl || '',\n      DRY_RUN: cfg.DRY_RUN,\n    },\n  }];\n}\n\n// ==== N8N BINDING ====\nconst __ctx = {\n  cfg: CFG,\n  items: $input.all(),\n  now: new Date().toISOString().replace(/\\.\\d{3}Z$/, 'Z'),\n  executionUrl: `${CFG.N8N_BASE}/workflow/${$workflow.id}/executions/${$execution.id}`,\n};\nreturn LOGIC(__ctx);\n"
+   },
+   "id": "נירמול וסיווג",
+   "name": "נירמול וסיווג",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    -180,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "combinator": "and",
+     "conditions": [
+      {
+       "id": "wf20-isdoc",
+       "leftValue": "={{ $json.eventType === 'INVOICE' && !!$json.invoiceUrl && $json._cfg.PARSE_DOCUMENT_PDF !== false }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ]
+    },
+    "looseTypeValidation": true,
+    "options": {}
+   },
+   "id": "מסמך עם קובץ?",
+   "name": "מסמך עם קובץ?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2,
+   "position": [
+    -100,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "method": "GET",
+    "url": "={{ $json.invoiceUrl }}",
+    "options": {
+     "timeout": 30000,
+     "response": {
+      "response": {
+       "responseFormat": "file",
+       "outputPropertyName": "data"
+      }
+     }
+    }
+   },
+   "id": "הורדת המסמך (PDF)",
+   "name": "הורדת המסמך (PDF)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    -20,
+    460
+   ],
+   "onError": "continueRegularOutput",
+   "notes": "המסמך של גרואו הוא PDF ישיר. כשל כאן לא מפיל — ממשיכים בלי הטקסט."
+  },
+  {
+   "parameters": {
+    "operation": "pdf",
+    "binaryPropertyName": "data",
+    "options": {}
+   },
+   "id": "חילוץ טקסט מהמסמך",
+   "name": "חילוץ טקסט מהמסמך",
+   "type": "n8n-nodes-base.extractFromFile",
+   "typeVersion": 1,
+   "position": [
+    60,
+    460
+   ],
+   "onError": "continueRegularOutput"
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · קריאת פרטי המסמך מתוך ה-PDF\n// ============================================================================\n// למה זה קיים:\n//   וובהוק המסמך של גרואו נושא ארבעה שדות בלבד — transactionCode, invoiceNumber,\n//   invoiceUrl, identifyParam — ו-identifyParam מגיע ריק. בזיכוי, גרואו פותחת\n//   עסקה חדשה עם מזהה חדש שאינו קשור למקורית, ולכן השיוך לפי מזהה העסקה נכשל.\n//\n//   אבל ה-PDF עצמו נושא שני מזהים חד-ערכיים מודפסים:\n//     1. טלפון הלקוחה.\n//     2. מספר המסמך המקורי — \"זיכוי עבור חשבונית מס קבלה מספר 49680\".\n//\n//   שניהם מזהים ודאיים, לא ניחוש. אנחנו קוראים אותם וממשיכים לזהות לפיהם.\n//\n// 🔴 חילוץ טקסט מ-PDF בעברית מחזיר את המילים בסדר הפוך ועם רווחים שבורים\n//    (\"קב לה\"). לכן כל התאמה נעשית על מחרוזת שטוחה — בלי רווחים ובלי סימני\n//    כיווניות — ומחפשים את המספר **משני צידי** מילת המפתח.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const base = Object.assign({}, ctx.ev || {});\n  const cfg = Object.assign({}, base._cfg || {}, ctx.cfgOverride || {});\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n\n  const raw = S(ctx.text);\n  base.docTextFound = !!raw;\n  if (!raw) return [{ json: base }];\n\n  // מחרוזת שטוחה: בלי סימני כיווניות, בלי גרשיים, בלי רווחים\n  const flat = raw\n    .replace(/[‎‏‪-‮⁦-⁩]/g, '')\n    .replace(/[\"'׳״]/g, '')\n    .replace(/\\s+/g, '');\n\n  // ---------- 1. טלפון הלקוחה ----------\n  const OWN = (cfg.DOC_OWN_PHONES || []).map((p) => S(p).replace(/\\D/g, ''));\n  const found = (raw.match(/0\\d{1,2}-?\\d{7}/g) || [])\n    .map((p) => p.replace(/\\D/g, ''))\n    .filter((p) => p.length === 9 || p.length === 10);\n  const uniq = [];\n  found.forEach((p) => { if (uniq.indexOf(p) === -1) uniq.push(p); });\n  const candidates = uniq.filter((p) => OWN.indexOf(p) === -1);\n\n  base.docPhonesAll = uniq;\n  if (candidates.length === 1) {\n    base.docPhone = candidates[0];\n    // 🔴 הטלפון מה-PDF ממלא את שדה החיפוש רק כשהוובהוק לא נשא טלפון משלו.\n    if (!S(base.phone)) base.phone = candidates[0];\n  } else {\n    base.docPhone = '';\n    base.docPhoneWhy = candidates.length === 0\n      ? 'לא נמצא טלפון לקוחה במסמך'\n      : `נמצאו ${candidates.length} מספרי טלפון במסמך — אסור לנחש`;\n  }\n\n  // ---------- 2. מספר המסמך המקורי (זיכוי עבור מסמך X) ----------\n  // 🔴 אסור לשטח את כל המסמך לפני החיפוש: התאריך \"20/08/2026\" נצמד למספר\n  //    ומייצר \"202649680\". לכן עובדים **שורה-שורה**, ורק על השורה שמכילה\n  //    גם \"מספר\" וגם \"עבור\"/\"זיכוי\" — זו שורת ההפניה.\n  //    המספר עשוי להופיע לפני המילה או אחריה, תלוי בהיפוך ה-RTL.\n  // הכיתוב במסמך: \"זיכוי עבור {סוג מסמך} מספר {מספר}\"\n  // מחלצים גם את המספר וגם את סוג המסמך.\n  let ref = '', refType = '';\n  // 🔴 חילוץ הטקסט מחזיר את המילים בסדר הפוך, ולכן \"חשבונית מס קבלה\"\n  //    מופיע כ-\"קבלהמסחשבונית\". בודקים את שתי הצורות, מהארוכה לקצרה,\n  //    אחרת \"קבלה\" יתפוס ראשון ויסתיר את הסוג האמיתי.\n  const DOC_WORDS = [\n    ['חשבוניתמס/קבלה', 'חשבונית מס/קבלה'],\n    ['קבלה/מסחשבונית', 'חשבונית מס/קבלה'],\n    ['חשבוניתמסקבלה', 'חשבונית מס/קבלה'],\n    ['קבלהמסחשבונית', 'חשבונית מס/קבלה'],\n    ['חשבוניתזיכוי', 'חשבונית זיכוי'],\n    ['זיכויחשבונית', 'חשבונית זיכוי'],\n    ['חשבוניתעסקה', 'חשבונית עסקה'],\n    ['עסקהחשבונית', 'חשבונית עסקה'],\n    ['חשבוניתמס', 'חשבונית מס'],\n    ['מסחשבונית', 'חשבונית מס'],\n    ['קבלה', 'קבלה'],\n  ];\n  // 🔴 הנוסח על המסמך אינו אחיד: \"זיכוי עבור קבלה מספר X\",\n  //    \"זיכוי עבור חשבונית מס מספר X\", \"זיכוי עבור חשבונית מס קבלה מספר X\",\n  //    ולעיתים בלי המילה \"מספר\" בכלל. לכן:\n  //      שלב 1 — שורת ההפניה מזוהה לפי \"עבור\" (או \"זיכוי\"), לא לפי סוג המסמך.\n  //      שלב 2 — המספר נלקח קודם מצמידות ל\"מספר\", ואם אין — כל מספר בשורה\n  //               שאינו מספר המסמך הנוכחי ואינו תאריך.\n  //      שלב 3 — סוג המסמך מזוהה אם אפשר, אבל **אינו תנאי** — ההצלבה נעשית\n  //               לפי המספר בלבד, ולכן כל סוג מסמך נתפס.\n  const clean = (t) => t.replace(/[‎‏‪-‮⁦-⁩]/g, '').replace(/[\"'׳״]/g, '').replace(/\\s+/g, '');\n  const selfNum = S(base.invoiceNumber);\n  const lines = raw.split(/[\\r\\n]+/);\n  for (let i = 0; i < lines.length && !ref; i++) {\n    const ln = clean(lines[i]);\n    if (ln.indexOf('עבור') === -1 && ln.indexOf('זיכוי') === -1) continue;\n\n    let cand = '';\n    const mm = ln.match(/(\\d{3,9})מספר/) || ln.match(/מספר(\\d{3,9})/);\n    if (mm && mm[1] !== selfNum) {\n      cand = mm[1];\n    } else {\n      // בלי המילה \"מספר\" — כל מספר בשורה שאינו המסמך עצמו ואינו תאריך\n      const nums = (ln.replace(/\\d{1,2}\\/\\d{1,2}\\/\\d{2,4}/g, '#').match(/\\d{3,9}/g) || [])\n        .filter((n) => n !== selfNum);\n      if (nums.length === 1) cand = nums[0];\n    }\n    if (!cand) continue;\n    ref = cand;\n    for (let k = 0; k < DOC_WORDS.length && !refType; k++) {\n      if (ln.indexOf(DOC_WORDS[k][0]) !== -1) refType = DOC_WORDS[k][1];\n    }\n  }\n  base.docRefType = refType;\n  base.docRefNumber = (ref && ref !== S(base.invoiceNumber)) ? ref : '';\n  if (ref && ref === S(base.invoiceNumber)) {\n    base.docRefWhy = 'המספר שנמצא זהה למספר המסמך עצמו — לא הפניה';\n  }\n\n  // ---------- 3. סכום הזיכוי ----------\n  const a = flat.match(/לזיכוי[^\\d₪]{0,8}₪?(-?[\\d,]+(?:\\.\\d+)?)/);\n  const amt = a ? Number(String(a[1]).replace(/,/g, '')) : NaN;\n  base.docRefundAmount = isFinite(amt) ? Math.abs(amt) : null;\n\n  // ---------- 4. האם זה מסמך זיכוי ----------\n  base.docIsCredit = flat.indexOf('חשבוניתזיכוי') !== -1 || flat.indexOf('זיכוי') !== -1;\n\n  base.docTextSnippet = raw.slice(0, 600);\n  return [{ json: base }];\n}\n\n// ==== N8N BINDING ====\nlet __text = '';\ntry { __text = String(($input.first().json || {}).text || ''); } catch (e) { __text = ''; }\nreturn LOGIC({ ev: $('נירמול וסיווג').first().json, text: __text });\n"
+   },
+   "id": "קריאת פרטי המסמך",
+   "name": "קריאת פרטי המסמך",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    140,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "combinator": "and",
+     "conditions": [
+      {
+       "id": "wf20-waitdoc",
+       "leftValue": "={{ $json.eventType === 'INVOICE' && $json._cfg.INVOICE_SYNC_WAIT_SECONDS > 0 }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ]
+    },
+    "looseTypeValidation": true,
+    "options": {}
+   },
+   "id": "מסמך? המתנה לסנכרון",
+   "name": "מסמך? המתנה לסנכרון",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2,
+   "position": [
+    220,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "amount": "={{ $json._cfg.INVOICE_SYNC_WAIT_SECONDS }}",
+    "unit": "seconds"
+   },
+   "id": "המתנה לסנכרון גרואו",
+   "name": "המתנה לסנכרון גרואו",
+   "type": "n8n-nodes-base.wait",
+   "typeVersion": 1.1,
+   "position": [
+    300,
+    460
+   ],
+   "webhookId": "wf20-invoice-wait",
+   "notes": "מונע מרוץ מול הוובהוק השני של גרואו שמשלים את מזהה העסקה."
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1, fields: [{name:\"accountid\"},{name:\"accountname\"},{name:\"ownerid\"},{name:\"telephone1\"},{name:\"telephone2\"},{name:\"emailaddress1\"}], filter: [{ type: \"or\", conditions: [{fieldName:\"telephone1\", operator:\"eq\", value: ($json.phone || \"___none___\")},{fieldName:\"telephone2\", operator:\"eq\", value: ($json.phone || \"___none___\")}]}], pageSize: 1, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "חיפוש לקוחה לפי טלפון (1)",
+   "name": "חיפוש לקוחה לפי טלפון (1)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    40,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1039, fields: [{name:\"customobject1039id\"},{name:\"name\"},{name:\"pcfID\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfExternalSoftwareID2\"},{name:\"pcfAccountid\"},{name:\"pcfSale\"},{name:\"ownerid\"},{name:\"pcfPaymentType\"},{name:\"pcfPaymentCategory\"},{name:\"pcfStatus\"},{name:\"pcfNumberOfPayments\"},{name:\"pcfNeedToPayIncludingVat\"},{name:\"pcfTotalRefunded\"},{name:\"pcfTotalRefundedIncludingVat\"},{name:\"createdon\"}], filter: [{ type: \"or\", conditions: [{fieldName:\"pcfExternalSoftwareID1\", operator:\"eq\", value: ($('קריאת פרטי המסמך').first().json.idemKeyBase || \"___none___\")},{fieldName:\"pcfID\", operator:\"eq\", value: ($('קריאת פרטי המסמך').first().json.transactionId || \"___none___\")},{fieldName:\"pcfID\", operator:\"eq\", value: ($('קריאת פרטי המסמך').first().json.transactionCode || \"___none___\")},{fieldName:\"pcfID\", operator:\"eq\", value: ($('קריאת פרטי המסמך').first().json.directDebitId || \"___none___\")},{fieldName:\"pcfExternalSoftwareID2\", operator:\"eq\", value: ($('קריאת פרטי המסמך').first().json.transactionCode || \"___none___\")}]}], orderBy: [{name:\"createdon\", order:\"desc\"}], pageSize: 5, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "חיפוש תשלום לפי מזהה עסקה (1039)",
+   "name": "חיפוש תשלום לפי מזהה עסקה (1039)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    260,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 4, fields: [{name:\"opportunityid\"},{name:\"accountid\"},{name:\"name\"},{name:\"ownerid\"},{name:\"statuscode\"},{name:\"pcfProduct\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"accountid\", operator:\"eq\", value: ((($('חיפוש לקוחה לפי טלפון (1)').first().json.data || [])[0] || {}).accountid || (($('חיפוש תשלום לפי מזהה עסקה (1039)').first().json.data || [])[0] || {}).pcfAccountid || '00000000-0000-0000-0000-000000000000')}]}], orderBy: [{name:\"createdon\", order:\"desc\"}], pageSize: 20, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "חיפוש תהליך מכירה (4)",
+   "name": "חיפוש תהליך מכירה (4)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    480,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1039, fields: [{name:\"customobject1039id\"},{name:\"name\"},{name:\"pcfID\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfExternalSoftwareID2\"},{name:\"pcfAccountid\"},{name:\"pcfSale\"},{name:\"ownerid\"},{name:\"pcfPaymentType\"},{name:\"pcfPaymentCategory\"},{name:\"pcfStatus\"},{name:\"pcfNumberOfPayments\"},{name:\"pcfNeedToPayIncludingVat\"},{name:\"pcfTotalRefunded\"},{name:\"pcfTotalRefundedIncludingVat\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfAccountid\", operator:\"eq\", value: ((($('חיפוש לקוחה לפי טלפון (1)').first().json.data || [])[0] || {}).accountid || (($('חיפוש תשלום לפי מזהה עסקה (1039)').first().json.data || [])[0] || {}).pcfAccountid || '00000000-0000-0000-0000-000000000000')}]}], orderBy: [{name:\"createdon\", order:\"desc\"}], pageSize: 20, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "חיפוש תשלומים של הלקוחה (1039)",
+   "name": "חיפוש תשלומים של הלקוחה (1039)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    700,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1018, fields: [{name:\"customobject1018id\"},{name:\"name\"},{name:\"pcfPaymentCollection\"},{name:\"pcfPaymetStatus\"},{name:\"pcfAccountid\"},{name:\"pcfSale\"},{name:\"ownerid\"},{name:\"pcfReference\"},{name:\"pcfInvoiceNumber1\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfPaymentDate\"},{name:\"pcfPayedIncludingVAT\"},{name:\"pcfrefundtotal\"},{name:\"createdon\"}], filter: [{ type: \"or\", conditions: [{fieldName:\"pcfAccountid\", operator:\"eq\", value: ((($('חיפוש לקוחה לפי טלפון (1)').first().json.data || [])[0] || {}).accountid || (($('חיפוש תשלום לפי מזהה עסקה (1039)').first().json.data || [])[0] || {}).pcfAccountid || '00000000-0000-0000-0000-000000000000')},{fieldName:\"pcfPaymentCollection\", operator:\"eq\", value: ((($('חיפוש תשלום לפי מזהה עסקה (1039)').first().json.data || [])[0] || {}).customobject1039id || '00000000-0000-0000-0000-000000000000')}]}], orderBy: [{name:\"createdon\", order:\"desc\"}], pageSize: 100, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "חיפוש תיעודי תשלום (1018)",
+   "name": "חיפוש תיעודי תשלום (1018)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    920,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1038, fields: [{name:\"customobject1038id\"},{name:\"name\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfPaymentCollection\"},{name:\"createdon\"}], orderBy: [{name:\"createdon\", order:\"desc\"}], pageSize: 40, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "מסמכים אחרונים (1038)",
+   "name": "מסמכים אחרונים (1038)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1030,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1038, fields: [{name:\"customobject1038id\"},{name:\"name\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfPaymentCollection\"},{name:\"pcfPaymentRecord\"},{name:\"pcfaccountid\"},{name:\"pcfLinkedSale\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfExternalSoftwareID1\", operator:\"eq\", value: (\"GROW-INV-\" + (($('קריאת פרטי המסמך').first().json.docRefNumber) || \"___none___\"))}]}], pageSize: 5, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "מסמך המקור לפי מספר (1038)",
+   "name": "מסמך המקור לפי מספר (1038)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1085,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 1018, fields: [{name:\"customobject1018id\"},{name:\"name\"},{name:\"pcfPaymentCollection\"},{name:\"pcfPaymetStatus\"},{name:\"pcfAccountid\"},{name:\"pcfSale\"},{name:\"ownerid\"},{name:\"pcfReference\"},{name:\"pcfInvoiceNumber1\"},{name:\"pcfExternalSoftwareID1\"},{name:\"pcfPaymentDate\"},{name:\"pcfPayedIncludingVAT\"},{name:\"pcfrefundtotal\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfInvoiceNumber1\", operator:\"eq\", value: (($('קריאת פרטי המסמך').first().json.docRefNumber) || \"___none___\")}]}], pageSize: 5, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "תיעוד המקור לפי מספר מסמך (1018)",
+   "name": "תיעוד המקור לפי מספר מסמך (1018)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1140,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: 14, fields: [{name:\"productid\"},{name:\"name\"},{name:\"pcfpaymentpageid\"},{name:\"pcfpaymenturl\"},{name:\"pcfPaymentPageIdSO\"},{name:\"pcfPaymentUrlSO\"},{name:\"itemprice\"},{name:\"pcfItempriceIncludingVAT\"},{name:\"categorycode\"},{name:\"statuscode\"}], pageSize: 100, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "קטלוג המוצרים (14)",
+   "name": "קטלוג המוצרים (14)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    1140,
+    300
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · צומת 7 — בניית תוכנית הפעולה (PLAN)\n// ============================================================================\n// כל ההחלטות העסקיות נמצאות כאן, בקוד טהור, כדי שכל ענף ניתן לבדיקה אוטומטית.\n// הפלט: רשימת פעולות כתיבה מסודרת. שום קריאה לפיירברי לא מתבצעת בצומת הזה.\n// הפניה לתוצאה של פעולה קודמת נכתבת כמחרוזת \"@ref\" ונפתרת בצומת הביצוע.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction PLAN_CORE(ctx) {\n  const ev = ctx.ev;\n  const cfg = ev._cfg;\n  const S = (v) => (v === undefined || v === null) ? '' : String(v).trim();\n  const rows = (resp) => {\n    if (!resp) return [];\n    if (Array.isArray(resp.data)) return resp.data;                       // /api/v3/query\n    if (resp.data && Array.isArray(resp.data.Data)) return resp.data.Data; // /api/query legacy\n    if (Array.isArray(resp)) return resp;\n    return [];\n  };\n  const cut = (s, n) => { const t = S(s); return t.length > n ? t.slice(0, n) : t; };\n  // הוספת חודשים לתאריך ISO, עם הצמדה לסוף החודש כשהיום לא קיים בו\n  // (31/01 + חודש ⇒ 28/02 או 29/02, ולא 03/03).\n  function addMonthsISO(iso, months) {\n    const m = String(iso || '').match(/^(\\d{4})-(\\d{2})-(\\d{2})/);\n    if (!m) return null;\n    let y = parseInt(m[1], 10);\n    let mo = parseInt(m[2], 10) - 1 + months;\n    let dd = parseInt(m[3], 10);\n    y += Math.floor(mo / 12); mo = ((mo % 12) + 12) % 12;\n    const leap = (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;\n    const dim = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][mo];\n    if (dd > dim) dd = dim;\n    const pad = (x) => String(x).padStart(2, '0');\n    return `${y}-${pad(mo + 1)}-${pad(dd)}T00:00:00Z`;\n  }\n  const round2 = (n) => Math.round((Number(n) + Number.EPSILON) * 100) / 100;\n  // 🔴 אומת חי 19/08: פיירברי דורס את השדה \"כולל מע\"מ\" ומחשב אותו מחדש מהנטו.\n  // לכן הנטו נשמר בארבע ספרות — אחרת הברוטו שנשמר סוטה מהסכום שנגבה בפועל.\n  const round4 = (n) => Math.round((Number(n) + Number.EPSILON) * 10000) / 10000;\n  // פיקליסט בפיירברי חוזר לפעמים כמספר, לפעמים כמחרוזת, לפעמים כתווית עברית.\n  const pickNum = (v, labelMap) => {\n    if (v === undefined || v === null || v === '') return null;\n    if (typeof v === 'number') return v;\n    const s = String(v).trim();\n    if (/^\\d+$/.test(s)) return parseInt(s, 10);\n    if (labelMap && labelMap[s] !== undefined) return labelMap[s];\n    return null;\n  };\n  const PT_LABELS = { 'אשראי': 1, 'העברה בנקאית': 2, 'מזומן': 3, 'ERN': 4, 'שיקים': 5, 'העברה ב Bit': 6, 'הוראת קבע': 7 };\n  // 🔴 08/09/2026 — \"סוג תשלום\" (pcfPaymentCategory): שדה חדש, נפרד מ\"אמצעי תשלום\".\n  // תיקון לבאג שבו הוראת קבע נכתבה כאמצעי תשלום (ראו PC_LABELS/buildPaymentBody למטה).\n  const PC_LABELS = { 'רגיל': 1, 'תשלומים': 2, 'הוראת קבע': 3 };\n  const DS_LABELS = { 'תשלום נפרע בהצלחה': 1, 'זיכוי בוצע בהצלחה': 2, 'ממתין לפירעון': 3, 'תשלום לא עבר': 4 };\n  const PS_LABELS = { 'בתהליך פירעון': 1, 'נפרע בהצלחה': 2, 'בוטל חלקית': 3, 'בוטל מלא': 4, 'בתהליכים משפטיים': 5, 'נדרש לבצע גבייה': 6 };\n\n  const ops = [];\n  const warnings = Array.isArray(ev.keyWarnings) ? ev.keyWarnings.slice() : [];\n  const decisions = [];\n  const add = (o) => { ops.push(o); return '@' + o.ref; };\n\n  // ---------- קלט מהשאילתות ----------\n  const accounts   = rows(ctx.accountResp);\n  const txPayments = rows(ctx.txPaymentResp);   // 1039 לפי מזהה עסקה / הו\"ק / מפתח אידמפוטנטיות\n  const sales      = rows(ctx.saleResp);        // 4\n  const openPays   = rows(ctx.openPaymentsResp);// 1039 של הלקוחה\n  const docs       = rows(ctx.docsResp);        // 1018\n  const products   = rows(ctx.productResp);     // 14\n  const recentDocs = rows(ctx.existingDocResp);   // 1038 — 40 האחרונים\n  const refDocs    = rows(ctx.refDocResp);        // 1038 — מסמך המקור לפי מספר מודפס\n  const refRecs    = rows(ctx.refRecordResp);     // 1018 — תיעוד המקור לפי \"מספר מסמך\"\n\n  // ---------- 0. אין שיוך לפי קרבת זמן — בשום מצב ----------\n  // 🔴🔴 הוסר לחלוטין ב-20/08/2026 בהוראת אליאל, אחרי תקלה אמיתית:\n  //    חשבונית מס/קבלה של לקוחה אחת (1,238 ₪, הו\"ק ליווי) שויכה לתשלום\n  //    של לקוחה **אחרת** (159 ₪, בוסט) רק כי היא הייתה המועמדת היחידה\n  //    \"בסביבה\". הכלל מעכשיו, בלי יוצא מן הכלל ובלי מתג להדלקה:\n  //\n  //        שיוך של תשלום או של מסמך חשבונאי נעשה אך ורק לפי מזהה חד-ערכי.\n  //\n  //    אין חלון זמן, אין \"המועמד היחיד\", אין \"האחרון שנוצר\", אין ניחוש לפי סכום.\n  //    חשבונית שאין לה מזהה תואם ⇒ ענף INVOICE_NO_MATCH: משימה בלבד, אפס מסמכים.\n  //    ⚠️ אל תחזירו את המנגנון הזה. ה-payload של וובהוק החשבונית מכיל רק\n  //       transactionCode / invoiceNumber / invoiceUrl — אין בו סכום ואין טלפון,\n  //       ולכן אין שום דרך לאמת התאמה. ניחוש הוא הדבר היחיד שנשאר, והוא נפסל.\n\n  // ---------- 1. זיהוי הלקוחה ----------\n  // סדר עדיפויות: לפי טלפון → מתוך רשומת תשלום שנמצאה לפי מזהה עסקה (למקרה החשבונית, שאין בה טלפון)\n  const txPayment = txPayments[0] || null;\n  let account = accounts[0] || null;\n  let accountid   = account ? S(account.accountid) : (txPayment ? S(txPayment.pcfAccountid) : '');\n  let accountName = account ? S(account.accountname) : (txPayment ? S(txPayment.pcfAccountidname) : '');\n  let accountEmail = account ? S(account.emailaddress1) : '';\n  let accountOwner = account ? S(account.ownerid) : '';\n  let accountFound = !!accountid;\n  // 🔴 מסמן שהחשבון נוצר עכשיו ברצף הזה (ולא נמצא קיים) — כדי שאפשר יהיה\n  // להשמיט בהמשך הערות-משנה שתלויות ברשומה שנוצרת אחרי העסקה (ראו סעיף 6ב).\n  let accountNewlyCreated = false;\n  // 🔴 האזהרה נדחית עד אחרי בלוק יצירת הלקוחה (1א) — מאז תיקון 14/09 לקוחה\n  //    שלא נמצאה **נוצרת** ברוב המקרים, והנוסח \"ייווצרו בלי שיוך ותיפתח משימה\"\n  //    כבר לא נכון. מדווחים את מה שקרה בפועל, לא את מה שהיה נכון פעם.\n\n  // ---------- 1א. יצירת לקוחה חדשה כשלא נמצאה — תיקון שורש 14/09/2026 ----------\n  // 🔴 החלטת אליאל 14/09: אם מישהי שאין לה כרטיס בפיירברי פשוט רוכשת (בלי ליד\n  // קודם), אסור שהתשלום ייפול יתום עם משימה בלבד. יוצרים לקוחה חדשה באותה\n  // נשימה — בדיוק כמו שכבר קורה לתהליך המכירה כשיש חשבון בלי עסקה פתוחה\n  // (ראו סעיף 3א למטה, \"sel.createNew && accountFound\"). הפעולה נוספת ל-ops\n  // בתור הראשונה ברשימה, כך שהיא הופכת אוטומטית ל\"פעולת האב\" של גל 1\n  // (הפרדת פעולת האב בוחרת את הפעולה הראשונה שמופנית אליה ע\"י פעולה אחרת),\n  // ותהליך המכירה/התשלום/התיעודים שנוצרים בעקבותיה מפנים אליה עם \"@newAccount\".\n  // מוגבל בכוונה: רק eventType=PAYMENT מוצלח (בדיוק התרחיש שאליאל תיאר —\n  // \"מישהי שלא השאירה פרטים פשוט רוכשת\"). לא לחשבונית (INVOICE, וובהוק נפרד\n  // בלי טלפון בגוף הבקשה — עלול להתנגש עם לקוחה שכבר נוצרה מאירוע התשלום\n  // הרגיל שקדם לו), ולא לחיובי הו\"ק/פריסה קיימים (יש להם טיפול ייעודי משלהם,\n  // ומרמזים על היסטוריה שכבר הייתה אמורה להיות בפיירברי). דורש טלפון בפועל —\n  // בלעדיו אין שום מזהה יציב שמונע כפילות בעתיד.\n  if (!accountFound && ev.eventType === 'PAYMENT' && ev.isSuccess === true && S(ev.phone)) {\n    const newAccountRef = add({\n      ref: 'newAccount', kind: 'create', object: '1',\n      label: 'יצירת לקוחה חדשה (1) — לא נמצאה לפי טלפון (תיקון שורש 14/09/2026)',\n      body: Object.assign(\n        {\n          accountname: S(ev.fullName) || 'לקוחה לא מזוהה (גרואו)',\n          telephone1: ev.phone,\n          pcfCreatedByPersonOrSystem: 2,\n          pcfStatusUpdateTime: ev.nowISO,\n        },\n        S(ev.email) ? { emailaddress1: ev.email } : {}\n      ),\n    });\n    accountid = newAccountRef;\n    accountFound = true;\n    accountNewlyCreated = true;\n    accountName = S(ev.fullName) || 'לקוחה לא מזוהה (גרואו)';\n    accountEmail = S(ev.email);\n    decisions.push('לא נמצאה לקוחה לפי הטלפון — נוצרה לקוחה חדשה אוטומטית (תיקון שורש 14/09/2026, על בסיס טלפון+שם+אימייל מהוובהוק).');\n  }\n  if (!accountFound) {\n    warnings.push('לא נמצאה לקוחה בפיירברי לפי הטלפון שהתקבל מגרואו — הרשומות ייווצרו בלי שיוך ותיפתח משימה לטיפול ידני.');\n  }\n\n  // ---------- 1ב. השלמת שם/אימייל ללקוחה קיימת — תיקון 16/09/2026 ----------\n  // 🔴 מקרה סיון פורטל 16/09: הלקוחה נמצאה לפי טלפון, אבל כרטיס ההגירה שלה היה\n  //    בלי שם — שדה הלקוחה בתהליך המכירה נראה ריק והמסמך נקרא \"לקוחה לא מזוהה\".\n  //    כשגרואו שולח שם מלא / אימייל והשדה בכרטיס ריק — משלימים. לא דורסים ערך קיים לעולם.\n  if (accountFound && !accountNewlyCreated && account\n      && ev.eventType === 'PAYMENT' && ev.isSuccess === true\n      && /^[0-9a-fA-F-]{30,}$/.test(S(accountid))) {\n    const fill = {};\n    if (!S(account.accountname) && S(ev.fullName)) fill.accountname = S(ev.fullName);\n    if (!S(account.emailaddress1) && S(ev.email) && S(ev.email).indexOf('@') > 0) fill.emailaddress1 = S(ev.email);\n    if (Object.keys(fill).length) {\n      add({\n        ref: 'accountFill', kind: 'update', object: '1', recordId: S(accountid),\n        label: 'השלמת שם/אימייל חסרים בכרטיס הלקוחה (1) — תיקון 16/09/2026',\n        body: fill,\n      });\n      if (fill.accountname) accountName = fill.accountname;\n      if (fill.emailaddress1) accountEmail = fill.emailaddress1;\n      decisions.push('בכרטיס הלקוחה חסרו פרטים — הושלמו מגרואו: ' + Object.keys(fill).map((k) => `${k}=\"${fill[k]}\"`).join(', ') + '.');\n    }\n  }\n\n  // ---------- 2. תהליך מכירה פתוח ----------\n  // \"פתוח\" = כל סטטוס שאינו 11 (נסגרה) / 12 (הופסדה) / 13 (בוטלה). החדש ביותר לפי תאריך פתיחה.\n  const CLOSED = [11, 12, 13];\n  const CLOSED_LABELS = ['עסקה נסגרה בהצלחה', 'עסקה הופסדה', 'עסקה בוטלה'];\n  const openSales = sales.filter((s) => {\n    const c = pickNum(s.statuscode, { 'עסקה נסגרה בהצלחה': 11, 'עסקה הופסדה': 12, 'עסקה בוטלה': 13 });\n    if (c !== null) return CLOSED.indexOf(c) === -1;\n    return CLOSED_LABELS.indexOf(S(s.statuscode)) === -1;\n  }).sort((a, b) => String(b.createdon || '').localeCompare(String(a.createdon || '')));\n\n  // בחירת המכירה נדחית עד אחרי התאמת המוצר (סעיף 3) — ראה selectSale() בהמשך.\n\n  // ---------- 3. התאמת מוצר ----------\n  // גרואו לא שולח מזהה יציב אחד. לכן מושכים את כל קטלוג המוצרים ומתאימים\n  // בארבע דרכים, מהחזקה לחלשה. אומת חי: קישור התשלום מסתיים ב-base64 של\n  // מזהה עמוד התשלום (למשל \"Mzc1MzYwNw\" ⇒ 3753607).\n  function b64decode(str) {\n    const A = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';\n    let t = String(str || '').replace(/[^A-Za-z0-9+/]/g, '');\n    let out = '', bits = 0, acc = 0;\n    for (let i = 0; i < t.length; i++) {\n      const v = A.indexOf(t.charAt(i));\n      if (v < 0) continue;\n      acc = (acc << 6) | v; bits += 6;\n      if (bits >= 8) { bits -= 8; out += String.fromCharCode((acc >> bits) & 0xFF); }\n    }\n    return out;\n  }\n  function urlProcessId(url) {\n    const u = S(url); if (!u) return '';\n    const tail = u.replace(/\\/+$/, '').split('-').pop();\n    if (!tail || tail.length < 6) return '';\n    const dec = b64decode(tail);\n    return /^\\d{4,}$/.test(dec) ? dec : '';\n  }\n  function normName(x) {\n    return S(x).replace(/[\"'׳״]/g, '').replace(/[-–—]/g, ' ').replace(/\\s+/g, ' ').trim();\n  }\n  // 🔴 מספר בן ספרה אחת הוא הטוקן המבחין בין מוצרי הליווי\n  // (\"תוכנית ליווי 5 שבועות\"). סינון לפי אורך>=2 השמיט אותו, ואז כל\n  // מוצרי הליווי קיבלו את אותו ניקוד — תיקו שבו אף מוצר לא נבחר.\n  function tokens(x) {\n    return normName(x).split(' ').filter((w) => w.length >= 2 || /^\\d$/.test(w));\n  }\n\n  // שני מסלולי תשלום לכל מוצר: אשראי רגיל והו״ק.\n  // כל דף תשלום בגרואו = product_id ו-processId נפרדים, לכן חובה\n  // לבדוק את שני השדות — אחרת רכישה בהו״ק לא תזוהה והמוצר לא יוקם.\n  const PAY_ROUTES = [\n    { key: 'אשראי רגיל', idField: 'pcfpaymentpageid', urlField: 'pcfpaymenturl' },\n    { key: 'הו\"ק', idField: 'pcfPaymentPageIdSO', urlField: 'pcfPaymentUrlSO' },\n  ];\n\n  // קטגוריית מוצר מתוך הקטלוג (100=בוסט · 101=פרימיום/ליווי · 102=המשך)\n  function catOfProduct(pid) {\n    const id = S(pid).toUpperCase();\n    if (!id) return '';\n    const pr = products.find((x) => S(x.productid).toUpperCase() === id);\n    return pr ? S(pr.categorycode) : '';\n  }\n\n  function matchProduct() {\n    if (!products.length) return { product: null, how: 'אין קטלוג', route: '', matchedId: '' };\n    const alias = cfg.PRODUCT_ID_ALIASES || {};\n    const cand = [S(ev.growProductId), S(ev.growProcessId)].filter(Boolean);\n    const aliased = cand.map((c) => S(alias[c])).filter(Boolean);\n    const all = cand.concat(aliased);\n\n    for (let i = 0; i < PAY_ROUTES.length; i++) {\n      const r = PAY_ROUTES[i];\n      const byId = products.find((pr) => S(pr[r.idField]) && all.indexOf(S(pr[r.idField])) !== -1);\n      if (byId) {\n        const mid = S(byId[r.idField]);\n        return {\n          product: byId, route: r.key, matchedId: mid,\n          how: aliased.length && cand.indexOf(mid) === -1 ? 'alias' : 'pageid',\n        };\n      }\n    }\n\n    let hit = products.find((pr) => S(pr.productid) && all.indexOf(S(pr.productid)) !== -1);\n    if (hit) return { product: hit, how: 'productid', route: '', matchedId: S(hit.productid) };\n\n    for (let j = 0; j < PAY_ROUTES.length; j++) {\n      const r2 = PAY_ROUTES[j];\n      const byUrl = products.find((pr) => { const id = urlProcessId(pr[r2.urlField]); return id && all.indexOf(id) !== -1; });\n      if (byUrl) return { product: byUrl, how: 'קישור תשלום', route: r2.key, matchedId: urlProcessId(byUrl[r2.urlField]) };\n    }\n\n    // מיפוי ידני של שמות מהמערכת הישנה (PRODUCT_NAME_ALIASES).\n    // קודם לניקוד הטוקנים — זהו מקור ודאי שנמסר ע\"י המשתמש, ולכן חזק יותר\n    // מהיוריסטיקה. ההשוואה על מחרוזת מלאה מנורמלת בלבד.\n    const nameAlias = cfg.PRODUCT_NAME_ALIASES || {};\n    const rawNames = [ev.growProductName, ev.descriptionText];\n    for (let k = 0; k < rawNames.length; k++) {\n      const key = normName(rawNames[k]);\n      if (!key) continue;\n      const aliasPid = S(nameAlias[key]);\n      if (!aliasPid) continue;\n      const byAliasName = products.find(\n        (pr) => S(pr.productid).toUpperCase() === aliasPid.toUpperCase());\n      if (byAliasName) {\n        return { product: byAliasName, how: 'alias שם', route: '', matchedId: '' };\n      }\n    }\n\n    // נפילה אחרונה — התאמה לפי שם, רק אם יש מנצח יחיד ומובהק.\n    // כשאין productData כלל (הפורמט הישיר של גרואו) משתמשים בתיאור העסקה.\n    const gTok = tokens(ev.growProductName || ev.descriptionText);\n    if (gTok.length) {\n      const scored = products.map((pr) => ({\n        pr, score: tokens(pr.name).filter((w) => gTok.indexOf(w) !== -1).length,\n      })).filter((x) => x.score > 0).sort((a, b) => b.score - a.score);\n      if (scored.length && (scored.length === 1 || scored[0].score > scored[1].score)) {\n        return { product: scored[0].pr, how: 'שם', route: '', matchedId: '' };\n      }\n    }\n    return { product: null, how: '', route: '', matchedId: '' };\n  }\n\n  const pm = matchProduct();\n  let product = pm.product;\n  let productId = product ? S(product.productid) : '';\n\n  // וובהוקים בפורמט legacy (הו\"ק, חיוב חוזר) לא נושאים productData כלל.\n  // במקרה כזה המוצר נגזר מתהליך המכירה שמקושר לרשומת התשלום המקורית.\n  const byId = (pid) => products.find((x) => S(x.productid).toUpperCase() === S(pid).toUpperCase()) || null;\n  if (!product && txPayment && S(txPayment.pcfSale)) {\n    const srcSale = sales.find((x) => S(x.opportunityid).toUpperCase() === S(txPayment.pcfSale).toUpperCase());\n    if (srcSale && S(srcSale.pcfProduct)) {\n      const viaSale = byId(srcSale.pcfProduct);\n      if (viaSale) { product = viaSale; productId = S(viaSale.productid); pm.how = 'מתהליך המכירה של התשלום המקורי'; }\n    }\n  }\n  let productName = product ? S(product.name) : (ev.growProductName || 'מוצר לא מזוהה');\n  if (product && pm.how === 'alias') {\n    decisions.push(`המוצר הותאם דרך טבלת המזהים הנוספים (${ev.growProductId || ev.growProcessId} → ${S(pm.matchedId)}).`);\n  }\n  if (product && pm.how === 'alias שם') {\n    decisions.push(`המוצר \"${S(product.name)}\" הותאם לפי טבלת שמות המערכת הישנה (\"${normName(ev.growProductName || ev.descriptionText)}\").`);\n  }\n  if (product && pm.route) {\n    decisions.push(`המוצר \"${S(product.name)}\" זוהה במסלול התשלום \"${pm.route}\" (${pm.how === 'קישור תשלום' ? 'לפי קישור התשלום' : 'לפי מזהה GROW'}).`);\n  }\n  if (product && pm.how === 'שם') {\n    warnings.push(`המוצר \"${productName}\" הותאם לפי טקסט (\"${ev.growProductName || ev.descriptionText}\") ולא לפי מזהה — מומלץ להשלים את מזהה GROW ${ev.growProductId || ev.growProcessId} בשדה \"מזהה מוצר GROW - אשראי רגיל\" או \"מזהה מוצר GROW - הו״ק\" לפי מסלול הרכישה.`);\n  }\n  if (product && pm.how === 'מתהליך המכירה של התשלום המקורי') {\n    decisions.push('המוצר נגזר מתהליך המכירה של רשומת התשלום המקורית (הוובהוק לא נשא נתוני מוצר).');\n  }\n  if ((ev.growProductId || ev.growProcessId) && !product) {\n    warnings.push(`מזהי המוצר מגרואו (product_id=${ev.growProductId || '—'}, payment_link=${ev.growProcessId || '—'}) לא נמצאו באף מוצר בפיירברי — לא בשדות האשראי הרגיל ולא בשדות ההו״ק. שם המוצר נלקח מגרואו כפי שהוא.`);\n  }\n\n  // ---------- 3א. בחירת תהליך המכירה — לפי המוצר שנרכש ----------\n  // החלטת אליאל 19/08/2026: \"לפי מוצר בלבד — אם נרכש בוסט, זה רק תהליך מכירה של בוסט.\"\n  // אומת חי: השדה pcfProduct מאוכלס ב-30/30 תהליכי המכירה האחרונים.\n  function selectSale() {\n    // 🔴 כשקיימת רשומת תשלום שהאירוע הזה משתייך אליה (חשבונית, חיוב חוזר,\n    //    מסירה חוזרת) — המכירה נלקחת *ממנה בלבד*. אסור לבחור מכירה מחדש:\n    //    זה שייך את המסמך לעסקה אחרת של אותה לקוחה. (נתפס בהרצה חיה 19/08.)\n    if (txPayment) {\n      const linked = S(txPayment.pcfSale);\n      if (!linked) return { sale: null, why: 'רשומת התשלום המקורית אינה משויכת לתהליך מכירה' };\n      const full = sales.find((x) => S(x.opportunityid).toUpperCase() === linked.toUpperCase());\n      return { sale: full || { opportunityid: linked, ownerid: S(txPayment.ownerid) },\n               why: 'נלקח מרשומת התשלום המקורית' };\n    }\n    // 🔴 15/09/2026 — עוזרים לבחירה: אותה חיפוש בדיוק, פעם על הפתוחים ופעם\n    //    על *כל* העסקאות (כולל סגורות). ראה ההערה על CLOSED בהמשך.\n    function pickExact(pool) {\n      if (!productId) return null;\n      const hit = pool.filter((x) => S(x.pcfProduct).toUpperCase() === productId.toUpperCase());\n      return hit.length ? hit[0] : null;\n    }\n    function pickCategory(pool) {\n      if (!cfg.SALE_MATCH_BY_CATEGORY || !productCategory) return null;\n      const hit = pool.filter((x) => {\n        const c = catOfProduct(x.pcfProduct);\n        return c && c === productCategory;\n      });\n      return hit.length ? hit[0] : null;\n    }\n\n    if (!cfg.SALE_MATCH_BY_PRODUCT || !productId) {\n      if (openSales.length) return { sale: openSales[0], why: 'הפתוח החדש ביותר' };\n    }\n\n    // ── 1. עסקה פתוחה של אותו מוצר בדיוק ──\n    const byProduct = openSales.length ? pickExact(openSales) : null;\n    if (byProduct) return { sale: byProduct, why: 'התאמה למוצר שנרכש' };\n\n    // 🔴 15/09/2026 — התאמה לפי **קטגוריה**. תהליך מכירה מייצג קטגוריה\n    //    (בוסט / פרימיום / המשך) ולא מוצר בודד, ולכן תשלום על מוצר אחר\n    //    מאותה קטגוריה מצטרף לתהליך הפתוח הקיים והמוצר שלו מתעדכן.\n    const byCatOpen = openSales.length ? pickCategory(openSales) : null;\n    if (byCatOpen) {\n      return { sale: byCatOpen, updateProduct: true,\n        why: `אין תהליך מכירה פתוח של \"${productName}\", אבל יש פתוח מאותה קטגוריה — התשלום משויך אליו והמוצר שבו מתעדכן` };\n    }\n\n    // ── 3. עסקה **סגורה** של אותה קטגוריה ──\n    // 🔴 15/09/2026, הכרעת אליאל: תהליך המכירה מייצג קטגוריה (בוסט/פרימיום/\n    //    המשך) ויש בדיוק אחד כזה ללקוחה. חיוב הו\"ק חוזר או רכישה נוספת באותה\n    //    קטגוריה מגיעים אחרי שהעסקה כבר נסגרה בהצלחה — ולכן החיפוש רק בין\n    //    הפתוחות פתח עסקה חדשה בכל פעם וייצר בדיוק את הכפילויות שאיחדנו.\n    //    לכן: אם אין פתוחה מתאימה — מחפשים בכל העסקאות, כולל הסגורות.\n    //    הסטטוס של העסקה הסגורה **לא משתנה** — היא נשארת \"נסגרה בהצלחה\".\n    if (cfg.SALE_MATCH_INCLUDE_CLOSED !== false) {\n      const exactAny = pickExact(sales);\n      if (exactAny) {\n        return { sale: exactAny, attachedToClosed: true,\n          why: `אין תהליך מכירה פתוח, אבל קיים תהליך של \"${productName}\" — התשלום משויך אליו ולא נפתח חדש` };\n      }\n      const catAny = pickCategory(sales);\n      if (catAny) {\n        return { sale: catAny, updateProduct: true, attachedToClosed: true,\n          why: `אין תהליך מכירה פתוח, אבל קיים תהליך מאותה קטגוריה — התשלום משויך אליו והמוצר שבו מתעדכן` };\n      }\n    }\n\n    // ── 3ב. ליד פתוח **בלי מוצר** ──\n    // 🔴 16/09/2026 — נתפס אצל יהודית סואייה: להגירה יש 14,764 לידים\n    //    (\"עסקה - X | ליד\") בלי מוצר כלל. הם חסרי קטגוריה, ולכן כל החיפושים\n    //    לפי מוצר/קטגוריה דילגו עליהם ונפתחה עסקה חדשה — בדיוק מול הליד\n    //    הפתוח שהמשתמש מצפה שהתשלום ייתלה עליו.\n    //    ליד הוא שלב טרום-רכישה; רכישה הופכת אותו לעסקה ומעדכנת את המוצר.\n    //    מכוון שהוא בא **אחרי** חיפוש הסגורות — לקוחה עם עסקה סגורה מאותה\n    //    קטגוריה לא תייצר עסקה שנייה בקטגוריה הזו דרך ליד ישן.\n    if (cfg.SALE_MATCH_EMPTY_LEAD !== false && productId) {\n      const emptyLead = openSales.filter((x) => !S(x.pcfProduct));\n      if (emptyLead.length) {\n        return { sale: emptyLead[0], updateProduct: true, attachedToLead: true,\n          why: `נמצא תהליך מכירה פתוח בלי מוצר (ליד) — התשלום משויך אליו והמוצר שלו נקבע ל\"${productName}\"` };\n      }\n    }\n\n    // ── 4. אין שום התאמה — עסקה חדשה ──\n    return { sale: null, createNew: true, why: sales.length\n      ? `אין ללקוחה תהליך מכירה מהקטגוריה של \"${productName}\" — ייפתח תהליך מכירה חדש`\n      : 'אין ללקוחה שום תהליך מכירה — ייפתח תהליך מכירה חדש' };\n  }\n\n  const productCategory = catOfProduct(productId);\n  const sel = selectSale();\n  let sale = sel.sale;\n  // 🔴 אם אין תהליך פתוח ויש לחשבון — פותחים תהליך מכירה חדש לחלוטין (13/09/2026).\n  // אין כאן סגירה/מחזור/קבוצה — זה תפקידם של WF-22/23, בדיוק כמו בכל רכישה תקינה רגילה.\n  if (sel.createNew && accountFound) {\n    const newSaleRef = add({\n      ref: 'newSale', kind: 'create', object: '4', label: 'יצירת תהליך מכירה חדש (4)',\n      body: Object.assign(\n        { name: `העסקה של ${accountName || ev.fullName || 'לקוחה לא מזוהה'}`,\n          accountid, ownerid: accountOwner || '', statuscode: 2, pcfCreatedByPersonOrSystem: 2 },\n        productId ? { pcfProduct: productId } : {},\n        // 🔴 16/09/2026 — פיירברי לא מעתיקה טלפון/אימייל מהלקוחה לעסקה. כותבים במפורש.\n        (S(ev.phone) || (account && S(account.telephone1))) ? { pcfTelephone1: S(ev.phone) || S(account.telephone1) } : {},\n        (S(ev.email) || accountEmail) ? { pcfemailaddress: S(ev.email) || accountEmail } : {}\n      ),\n    });\n    sale = { opportunityid: newSaleRef, ownerid: accountOwner || '' };\n  }\n  // 🔴 שויכנו לתהליך פתוח מאותה קטגוריה אבל של מוצר אחר — מעדכנים בו את המוצר\n  //    לפי מה שנסלק בפועל. (הכרעת אליאל 15/09/2026)\n  if (sel.attachedToLead && sale) {\n    decisions.push(`התשלום שויך לליד הפתוח שכבר היה ללקוחה (${S(sale.name) || S(sale.opportunityid)}) — הליד הפך לעסקה במקום שתיפתח כפילות.`);\n  }\n  if (sel.attachedToClosed && sale) {\n    decisions.push(`התשלום שויך לתהליך מכירה קיים שכבר נסגר (${S(sale.name) || S(sale.opportunityid)}) — לפי הכלל שתהליך מכירה אחד לכל קטגוריה. הסטטוס שלו לא שונה.`);\n  }\n  if (sel.updateProduct && sale && productId\n      && S(sale.pcfProduct).toUpperCase() !== S(productId).toUpperCase()) {\n    add({ ref: 'saleProduct', kind: 'update', object: '4',\n      recordId: S(sale.opportunityid),\n      label: 'עדכון המוצר בתהליך המכירה לפי מה שנסלק',\n      body: { pcfProduct: productId } });\n    decisions.push(`המוצר בתהליך המכירה עודכן ל\"${productName}\" לפי התשלום שהתקבל (היה: ${S(sale.pcfProductname) || '—'}).`);\n  }\n  // אם עדיין אין מוצר — לגזור אותו מתהליך המכירה שנבחר (למשל הקמת הו\"ק בפורמט legacy)\n  if (!product && sale && S(sale.pcfProduct)) {\n    const viaSel = byId(sale.pcfProduct);\n    if (viaSel) {\n      product = viaSel; productId = S(viaSel.productid); productName = S(viaSel.name);\n      decisions.push('המוצר נגזר מתהליך המכירה שנבחר (הוובהוק לא נשא נתוני מוצר).');\n      // 🔴 אם תיאור החיוב מדבר על מוצר אחר — לא לבלוע בשקט.\n      const descTok = tokens(ev.growProductName || ev.descriptionText);\n      if (descTok.length) {\n        const selTok = tokens(productName);\n        const overlap = descTok.filter((w) => selTok.indexOf(w) !== -1).length;\n        if (overlap < 2) {\n          warnings.push(`תיאור החיוב (\"${ev.growProductName || ev.descriptionText}\") אינו תואם את המוצר שנבחר מתהליך המכירה (\"${productName}\") — יש לאמת ידנית איזה מוצר נרכש.`);\n        }\n      }\n    }\n  }\n  // 🔴 15/09/2026 — עד היום, כשלא היה **שום** מזהה מוצר בוובהוק (הפורמט הישיר\n  //    של גרואו) וגם ההתאמה לפי שם נכשלה, המערכת שתקה לגמרי: לא אזהרה ולא משימה.\n  //    התוצאה — \"מוצר לא מזוהה\" נכתב לרשומות, WF-22 לא יכול לסווג בלי קטגוריה,\n  //    ולכן **שום תהליך מקצועי לא רץ**: אין ליווי, אין קבוצה, אין תפריט, אין וולקאם.\n  //    נתפס חי אצל חן בוסקילה (ריצה 254620): תיאור התשלום היה\n  //    \"ליווי אונליין מנטורית אישית\", שלא תואם לאף שם מוצר בקטלוג.\n  //    מעכשיו — כישלון זיהוי מוצר ברכישה **תמיד** מדווח בקול.\n  // מתריעים רק כשהזיהוי הכושל **באמת עולה במשהו** — כלומר ברכישה חדשה או\n  // בהקמת הוראת קבע, שבהן אמורה לרוץ שרשרת הקמת המוצר. חיוב חודשי של הוראה\n  // ותיקה לא מקים שום דבר, ולכן משימה עליו היא רעש בלבד (21 מתוך 250 ריצות\n  // אחרונות היו כאלה — כולן חיובי המשך של לקוחות המשך ותיקות).\n  const isPurchaseEvent = S(ev.eventType) === 'PAYMENT'\n    || ev.isSetupSource === true || ev.isBackOfficeSource === true;\n  const productUnidentified = !product && ev.isSuccess === true && isPurchaseEvent;\n  // 🔴 מחושב **אחרי** כל נפילות הזיהוי, כולל הגזירה מתהליך המכירה — אחרת\n  //    היינו פותחים משימה גם כשהמוצר בסוף כן זוהה.\n\n  const saleid = sale ? S(sale.opportunityid) : '';\n  const saleFound = !!saleid;\n  if (saleFound) decisions.push(`תהליך מכירה נבחר — ${sel.why}.`);\n  else warnings.push(`לא שויך תהליך מכירה: ${sel.why}. הרשומות ייווצרו בלי שיוך ותיפתח משימה לטיפול ידני.`);\n  const ownerid = (sale && S(sale.ownerid)) || accountOwner || '';\n\n  // ---------- 4. שמות ידידותיים ----------\n  const custLabel = accountName || ev.fullName || 'לקוחה לא מזוהה';\n  const money = (n) => `${round2(n)} ₪`;\n\n  // ---------- 5. עזרים לבניית גופי רשומות ----------\n  function lookupOrOmit(obj, key, val) { if (S(val)) obj[key] = S(val); return obj; }\n\n  function buildPaymentBody(opts) {\n    const b = {\n      name: cut(opts.name, 190),\n      // 1 = בתהליך פירעון · 2 = נפרע בהצלחה (רכישה בתשלום אחד שנפרע במלואו)\n      pcfStatus: opts.status || 1,\n      pcfstatusupdatedate: ev.nowISO,\n      pcfID: S(opts.chargeId),\n      // 🔴 08/09/2026 — \"אמצעי תשלום\" חייב לתאר אמצעי תשלום אמיתי בלבד (אשראי/מזומן/...)\n      // ולעולם לא \"הוראת קבע\". מעכשיו האם זו הוראת קבע נכתב אך ורק ב-pcfPaymentCategory.\n      pcfPaymentType: opts.paymentType,\n      pcfNeedToPay: opts.net,\n      pcfNeedToPayIncludingVat: opts.gross,\n      pcftaxincludecode: 1,                           // כולל מע\"מ = כן\n      pcfFirstPaymentDate: opts.firstPaymentDate,\n      pcfLastPaymentDate: opts.lastPaymentDate || opts.firstPaymentDate,\n      pcfNextPaymentDate: opts.nextPaymentDate || null,\n      pcfCreatedByPersonOrSystem: 2,                  // מערכת\n      pcfExternalSoftwareID1: opts.idemKey,\n      // מזהה העסקה בפורמט ה-legacy של גרואו — זהו המפתח שוובהוק החשבונית מגיע איתו.\n      pcfExternalSoftwareID2: S(ev.transactionCode) || 'GROW',\n    };\n    // קופון — נכתב רק כשיש הנחה בפועל\n    if (ev.couponDiscount > 0) {\n      b.pcfCouponDiscount = ev.couponDiscount;\n      b.pcfCouponCode = cut(ev.couponCode || 'הנחה ללא קוד', 190);\n    }\n    // 🔴 מספר תשלומים 0 + סכום = קריסה בפיירברי (חלוקה באפס בשדה המחושב).\n    // null ⇒ השדה לא נשלח כלל.\n    if (opts.numberOfPayments !== null && opts.numberOfPayments !== undefined) {\n      b.pcfNumberOfPayments = opts.numberOfPayments;\n    }\n    // 🔴 08/09/2026 — \"סוג תשלום\" (רגיל/תשלומים/הוראת קבע) — שדה חדש על 1039,\n    //    נפרד לגמרי מ\"אמצעי תשלום\". נכתב תמיד כשמועבר מה-caller.\n    if (opts.paymentCategory !== null && opts.paymentCategory !== undefined) {\n      b.pcfPaymentCategory = opts.paymentCategory;\n    }\n    lookupOrOmit(b, 'pcfAccountid', accountid);\n    lookupOrOmit(b, 'pcfSale', saleid);\n    lookupOrOmit(b, 'ownerid', ownerid);\n    // 🔴 \"מוצר מקושר\" — נכתב בכל סוגי התשלום (רגיל / פריסה / הוראת קבע),\n    //    אך **רק** כשהמוצר זוהה בוודאות. שדה לא חובה — עדיף ריק מאשר שגוי.\n    lookupOrOmit(b, 'pcfrelatedproduct', productId);\n    return b;\n  }\n\n  function buildDocBody(opts) {\n    const b = {\n      name: cut(opts.name, 190),\n      pcfReference: S(ev.asmachta),\n      pcfPaymetStatus: opts.status,\n      pcfsStatusUpdateTime: ev.nowISO,\n      pcfPaymentType: opts.paymentType,\n      pcftaxincludecode: 1,\n      pcfPayed: opts.net,\n      pcfPayedIncludingVAT: opts.gross,\n      pcfCreatedByPersonOrSystem: 2,\n      pcfExternalSoftwareID1: opts.idemKey,\n      pcfExternalSoftwareID2: S(ev.transactionCode) || 'GROW',\n    };\n    // 🔴 08/09/2026 — \"סוג תשלום\" (pcfPaymentCategory) נכתב רק על רשומת התשלום\n    //    (1039), לא כאן. תיעוד תשלום (1018) הוא נגזרת: מגיע דרך pcfPaymentCollection\n    //    לרשומת האב, ואין טעם לשכפל את הסיווג על כל תיעוד — כפילות מיותרת (אליאל, 08/09).\n    // מספר מסמך מגיע רק מוובהוק החשבונית הנפרד — לא ממולא כאן.\n    if (S(ev.invoiceNumber)) b.pcfInvoiceNumber1 = S(ev.invoiceNumber);\n    // \"בתשלום ששולם — תאריך התשלום. בעתידיים — טרם למלא.\" (אפיון אליאל)\n    // 🔴 אומת חי 19/08: השמטת השדה גורמת לפיירברי למלא אותו בתאריך היצירה.\n    // חייבים לשלוח null מפורש כדי שיישאר ריק.\n    b.pcfPaymentDate = opts.paymentDate || null;\n    lookupOrOmit(b, 'pcfAccountid', accountid);\n    lookupOrOmit(b, 'pcfSale', saleid);\n    lookupOrOmit(b, 'ownerid', ownerid);\n    if (opts.paymentRef) b.pcfPaymentCollection = opts.paymentRef;\n    return b;\n  }\n\n  function noteOp(ref, text) {\n    if (!saleid) { warnings.push('אין תהליך מכירה — ההערה לא צורפה אליו.'); return null; }\n    return add({\n      ref, kind: 'create', object: 'note', label: 'הערה על תהליך המכירה',\n      body: { notetext: text, objectid: saleid, objecttypecode: 4 },\n    });\n  }\n  // הערה על רשומה שנוצרת באותה ריצה (מזהה כ-@ref) או על רשומה קיימת (GUID)\n  // 🔴 \"מספר תשלומים\" בהוראת קבע: הערך נכתב בפעולת **עדכון** נפרדת ולא בגוף\n  //    היצירה, כי POST עם 0 + סכום מפיל את פיירברי (חלוקה באפס בשדה המחושב)\n  //    ואילו PUT עם אותו ערך עובר תקין. אומת חי 19/08.\n  function soCountOnCreate() {\n    return cfg.STANDING_ORDER_COUNT_VIA_UPDATE ? null : cfg.STANDING_ORDER_PAYMENTS_COUNT;\n  }\n  function addSoCountUpdate(payRef) {\n    const cnt = cfg.STANDING_ORDER_PAYMENTS_COUNT;\n    if (!cfg.STANDING_ORDER_COUNT_VIA_UPDATE) return;\n    if (cnt === null || cnt === undefined) return;\n    add({ ref: 'soCount', kind: 'update', object: '1039', recordIdRef: payRef,\n      label: 'השלמת \"מספר תשלומים\" בהוראת הקבע', body: { pcfNumberOfPayments: cnt } });\n  }\n\n  function noteOn(ref, targetRef, objectTypeCode, label, text) {\n    return add({\n      ref, kind: 'create', object: 'note', label,\n      body: { notetext: text, objectid: targetRef, objecttypecode: objectTypeCode },\n    });\n  }\n\n  function taskOp(ref, subject, description) {\n    const b = {\n      subject: cut(subject, 190),\n      description: cut(description, 4000),\n      statuscode: cfg.DEFAULT_TASK_STATUS,\n      prioritycode: cfg.DEFAULT_TASK_PRIORITY,\n      tasktypecode: cfg.DEFAULT_TASK_TYPE,\n      scheduledend: ev.todayISO,\n      pcfCreatedByPersonOrSystem: 2,\n      pcfExternalSoftwareID1: `${ev.idemKeyBase}-TASK-${ref}`,\n    };\n    lookupOrOmit(b, 'pcfSale', saleid);\n    lookupOrOmit(b, 'pcfClient', accountid);\n    lookupOrOmit(b, 'ownerid', ownerid);\n    return add({ ref, kind: 'create', object: '10', label: 'משימה לנציג', body: b });\n  }\n\n  const couponLine = ev.couponDiscount > 0\n    ? `<br>קופון: <b>${ev.couponCode || 'ללא קוד'}</b> · הנחה: <b>${money(ev.couponDiscount)}</b>` +\n      `${ev.listedTotal ? ` (מחיר מחירון ${money(ev.listedTotal)})` : ''}` +\n      `<br><i>מקור נתוני הקופון: ${ev.couponSource}</i>`\n    : '';\n  const execLink = ev.executionUrl\n    ? `<a href=\"${ev.executionUrl}\">${ev.executionUrl}</a>`\n    : '(אין קישור execution)';\n\n  // ---------- 6. אידמפוטנטיות ----------\n  // אם כבר קיימת רשומת 1039 עם אותו מפתח — זו מסירה חוזרת של גרואו. לא יוצרים כלום.\n  const dup = txPayments.find((p) => S(p.pcfExternalSoftwareID1) === ev.idemKeyBase);\n  // 🔴 מסמך שכבר נוצר מאותה חשבונית — גרואו מוסר את הוובהוק יותר מפעם אחת\n  // ובלי הבדיקה הזו נוצרות רשומות מסמך כפולות. (נתפס חי 19/08.)\n  const dupInvoice = recentDocs.find((p) => S(p.pcfExternalSoftwareID1) === ev.idemKeyBase);\n  const dupDoc = docs.find((p) => S(p.pcfExternalSoftwareID1).indexOf(ev.idemKeyBase) === 0);\n  // 🔴 חיוב מתוך הוראת קבע אינו יוצר רשומת 1039 חדשה — רק תיעוד תשלום.\n  // לכן מסירה חוזרת שלו לא נתפסת ע\"י בדיקת ה-1039 ותייצר תיעוד כפול.\n  // הבדיקה כאן היא על התאמה **מדויקת** של המפתח: תיעודי פריסה נושאים סיומת -1/-2/…\n  const dupPayDoc = docs.find((p) => S(p.pcfExternalSoftwareID1) === ev.idemKeyBase);\n\n  // 🔴 אם גרואו ישתמש באותה אסמכתא גם בחיובי ההמשך של פריסה, בדיקת הכפילות\n  // הייתה בולעת אותם בשקט. לכן: אסמכתא מוכרת + סכום שתואם חיוב בודד +\n  // קיים תיעוד שממתין לפירעון ⇒ זה חיוב המשך, לא מסירה חוזרת.\n  let dupIsInstallment = false;\n  if (dup && ev.eventType !== 'INVOICE' && ev.isSuccess) {\n    const total = parseFloat(dup.pcfNeedToPayIncludingVat) || 0;\n    const cnt = parseInt(dup.pcfNumberOfPayments, 10) || 1;\n    const per = cnt > 0 ? round2(total / cnt) : total;\n    const pend = docs.filter((x) => S(x.pcfPaymentCollection) === S(dup.customobject1039id))\n                     .filter((x) => pickNum(x.pcfPaymetStatus, DS_LABELS) === 3);\n    if (cnt > 1 && pend.length > 0 && Math.abs(per - (ev.grossTotal || 0)) <= 1 &&\n        (ev.grossTotal || 0) < total - 0.01) {\n      dupIsInstallment = true;\n      decisions.push('אותה אסמכתא, אך הסכום תואם חיוב בודד מתוך הפריסה — מטופל כחיוב המשך ולא כמסירה חוזרת.');\n    }\n  }\n\n  if (!dupIsInstallment && (dup || dupPayDoc || (ev.eventType === 'INVOICE' && (dupInvoice || dupDoc)))) {\n    // 🔴 אותה עסקה מגיעה מגרואו פעמיים, בשני פורמטים, כשלכל אחד מזהה אחר:\n    //    paymentLinks נושא transactionId ואת המוצר; legacy נושא transactionCode\n    //    (וזה המזהה שוובהוק החשבונית יגיע איתו).\n    //    לכן המסירה השנייה לא נזרקת — היא **משלימה** את מה שחסר ברשומה הקיימת.\n    let enriched = [];\n    if (dup) {\n      const upd = {};\n      const curCode = S(dup.pcfExternalSoftwareID2);\n      if (S(ev.transactionCode) && curCode !== S(ev.transactionCode) && (!curCode || curCode === 'GROW')) {\n        upd.pcfExternalSoftwareID2 = S(ev.transactionCode);\n        enriched.push('מזהה עסקה legacy (לשיוך החשבונית)');\n      }\n      if (S(ev.transactionId) && !S(dup.pcfID)) {\n        upd.pcfID = S(ev.transactionId);\n        enriched.push('מזהה חיוב');\n      }\n      if (Object.keys(upd).length) {\n        add({ ref: 'enrich', kind: 'update', object: '1039',\n          recordId: S(dup.customobject1039id),\n          label: 'השלמת מזהי GROW ברשומת התשלום הקיימת', body: upd });\n      }\n    }\n    decisions.push('DUPLICATE');\n    return [{ json: {\n      ...ev, branch: 'DUPLICATE', ops, warnings, decisions,\n      summary: enriched.length\n        ? `מסירה חוזרת של אותה עסקה — לא נוצרה רשומה חדשה. הושלמו ברשומה הקיימת: ${enriched.join(', ')}.`\n        : (dupInvoice\n            ? `החשבונית ${ev.invoiceNumber} כבר נקלטה בעבר (מסמך קיים) — לא נוצרה רשומה כפולה.`\n            : (!dup && dupPayDoc\n                ? 'החיוב הזה כבר נקלט בעבר (קיים תיעוד תשלום עם אותה אסמכתא) — לא נוצר תיעוד כפול.'\n                : 'הוובהוק כבר עובד בעבר (אותה אסמכתא) — לא נוצרה שום רשומה.')),\n      accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid,\n    } }];\n  }\n\n  // ---------- 7. ניתוב ----------\n  let branch = dupIsInstallment ? 'INSTALLMENT_CHARGE' : ev.eventType;\n\n  // רשומת התשלום המקורית עבור חיוב המשך\n  // 🔴 מספר התשלום בתוך הפריסה מקודד במזהה החיצוני של התיעוד: GROW-{אסמכתא}-{N}.\n  //    זהו ה-ID של התשלום הבודד, והוא המפתח היחיד לשיוך חיוב לתיעוד.\n  function installmentIndexOf(x) {\n    const m = /-(\\d+)$/.exec(S(x.pcfExternalSoftwareID1));\n    return m ? parseInt(m[1], 10) : null;\n  }\n\n  function docsOfPayment(paymentId) {\n    return docs.filter((x) => S(x.pcfPaymentCollection) === S(paymentId));\n  }\n\n  function pendingDocsFor(paymentId) {\n    // מיון דטרמיניסטי: קודם לפי מספר התשלום שבמזהה, ורק בהיעדרו לפי תאריך החיוב.\n    // (createdon אינו מבחין — כל התיעודים נוצרים באותה שנייה. נתפס חי 19/08.)\n    const idx = (x) => { const i = installmentIndexOf(x); return i === null ? 999999 : i; };\n    const key = (x) => S(x.pcfPaymentDate) || S(x.createdon) || '';\n    return docsOfPayment(paymentId)\n      .filter((x) => pickNum(x.pcfPaymetStatus, DS_LABELS) === 3)\n      .sort((a, b) => (idx(a) - idx(b)) || key(a).localeCompare(key(b)));\n  }\n\n  // 🔴 בחירת התיעוד שייפרע — **לפי מזהה בלבד**.\n  //    התשלום הבא בתור = כמות התיעודים שכבר נפרעו + 1, ומחפשים את התיעוד\n  //    שהמזהה שלו מסתיים במספר הזה. אין בחירה לפי סכום ואין \"הראשון ברשימה\".\n  function selectInstallmentTarget(srcId) {\n    const all = docsOfPayment(srcId);\n    const pend = pendingDocsFor(srcId);\n    if (!pend.length) return { target: null, why: 'אין תיעוד תשלום שממתין לפירעון תחת התשלום המקור' };\n    const paid = all.filter((x) => pickNum(x.pcfPaymetStatus, DS_LABELS) === 1).length;\n    const expectIdx = paid + 1;\n    const byId = pend.find((x) => installmentIndexOf(x) === expectIdx);\n    if (byId) return { target: byId, why: `שויך לפי מזהה התיעוד — תשלום ${expectIdx} בפריסה` };\n    const indexed = pend.filter((x) => installmentIndexOf(x) !== null);\n    if (indexed.length) {\n      return { target: indexed[0],\n        why: `שויך לפי מזהה התיעוד — התשלום הממתין הנמוך ביותר (${installmentIndexOf(indexed[0])})`,\n        note: `התשלום המצופה היה ${expectIdx} ולא נמצא ממתין בשם הזה.` };\n    }\n    // 🔴 כלל קשיח, בלי מתג: אין מזהה תשלום ⇒ לא נוגעים. גם כשיש מועמד יחיד.\n    //    \"המועמד היחיד\" הוא בדיוק ההיגיון שהצמיד חשבונית של לקוחה אחת\n    //    לתשלום של לקוחה אחרת ב-20/08. הוא נפסל בכל המערכת.\n    return { target: null, blocked: true,\n      why: pend.length > 1\n        ? 'יש יותר מתיעוד ממתין אחד ולאף אחד אין מזהה תשלום — אסור לנחש'\n        : 'לתיעוד הממתין אין מזהה תשלום — שיוך אפשרי רק לפי מזהה חד-ערכי' };\n  }\n\n  // סכום החיוב הבודד המצופה מרשומת תשלום נתונה\n  function expectedInstallment(pay) {\n    const total = parseFloat(pay.pcfNeedToPayIncludingVat) || 0;\n    const cnt = parseInt(pay.pcfNumberOfPayments, 10) || 1;\n    return cnt > 0 ? round2(total / cnt) : total;\n  }\n  function hasPending(pay) { return pendingDocsFor(pay.customobject1039id).length > 0; }\n\n  function findSourcePayment() {\n    if (txPayment) return txPayment;\n    // 🔴 חיוב הוראת קבע נושא directDebitId — מזהה חד-ערכי של ההוראה.\n    // אם לא נמצאה רשומה איתו, **אסור** לנחש לפי סכום: הניחוש עלול לזקוף את\n    // החיוב לתוכנית תשלומים אחרת של אותה לקוחה ולסמן תשלום עתידי כנפרע.\n    // (נתפס חי 19/08 — חיוב הו\"ק עדכן תיעוד של תוכנית 6 שבועות.)\n    if (S(ev.directDebitId)) {\n      const byDD = openPays.find((p) => S(p.pcfID) === S(ev.directDebitId));\n      return byDD || null;\n    }\n    // 🔴 מכאן והלאה — **רק מזהים**. אין דירוג לפי סכום ואין \"התוכנית האחרונה\n    //    שנפתחה\": שתיהן זקפו חיוב לתוכנית הלא נכונה וסימנו תשלום עתידי כנפרע.\n    //    (נתפס חי 19/08.) אם אין מזהה שמקשר — אין שיוך, ונפתחת משימה לנציג.\n    const byKey = (fn) => openPays.find(fn) || null;\n    if (S(ev.asmachta)) {\n      const m = byKey((p) => S(p.pcfExternalSoftwareID1) === `GROW-${S(ev.asmachta)}`);\n      if (m) return m;\n    }\n    if (S(ev.transactionCode)) {\n      const m = byKey((p) => S(p.pcfExternalSoftwareID2) === S(ev.transactionCode)\n                          || S(p.pcfID) === S(ev.transactionCode));\n      if (m) return m;\n    }\n    if (S(ev.transactionId)) {\n      const m = byKey((p) => S(p.pcfID) === S(ev.transactionId));\n      if (m) return m;\n    }\n    return null;\n  }\n\n  // תשלום רגיל: האם זה למעשה תשלום 2+ מתוך פריסה קיימת?\n  if (branch === 'PAYMENT') {\n    const src = findSourcePayment();\n    if (src && S(src.pcfID) !== S(ev.transactionId)) {\n      const pend = pendingDocsFor(src.customobject1039id);\n      const perInst = round2((ev.grossTotal || 0));\n      const expected = round2((parseFloat(src.pcfNeedToPayIncludingVat) || 0) / (parseInt(src.pcfNumberOfPayments, 10) || 1));\n      if (pend.length > 0 && Math.abs(perInst - expected) <= 1) {\n        branch = 'INSTALLMENT_CHARGE';\n        decisions.push(`זוהה תשלום המשך מתוך פריסה קיימת (תשלום מקור ${S(src.customobject1039id)}, סכום מצופה ${expected}).`);\n      }\n    }\n  }\n\n  // 🔴 דיווח על כישלון זיהוי מוצר — חייב לקרות **אחרי** בדיקת הכפילות\n  //    (כדי לא לפתוח משימה על מסירה חוזרת) ולפני הענפים, כדי שיחול על כולם.\n  if (productUnidentified && !dup && !dupPayDoc) {\n    warnings.push(`🔴 לא זוהה מוצר עבור התשלום. תיאור החיוב מגרואו: \"${ev.growProductName || ev.descriptionText || '(ריק)'}\". ` +\n      'הרשומות נכתבות עם \"מוצר לא מזוהה\", ו**שרשרת הקמת המוצר לא תרוץ** — אין ליווי, אין קבוצה, אין תפריט ואין הודעת וולקאם.');\n    taskOp('taskNoProduct', `לא זוהה מוצר ברכישה · ${custLabel}`,\n      `התקבל תשלום שלא ניתן היה לשייך לאף מוצר בקטלוג, ולכן שרשרת הקמת המוצר לא רצה.\\n\\n` +\n      `תיאור החיוב בגרואו: \"${ev.growProductName || ev.descriptionText || '(ריק)'}\"\\n` +\n      `סכום: ${money(ev.grossTotal)} · אסמכתא: ${ev.asmachta || '—'}\\n\\n` +\n      `🔴 מה צריך לעשות:\\n` +\n      `1. לזהות איזה מוצר נרכש, ולעדכן אותו ברשומת התשלום ובתהליך המכירה.\\n` +\n      `2. להקים ידנית את מה שלא קם: תהליך ליווי, שיוך לקבוצה, תפריט והודעת וולקאם.\\n\\n` +\n      `למניעה בפעם הבאה: תיאור התשלום בגרואו חייב להכיל את שם המוצר כפי שהוא בקטלוג ` +\n      `(למשל \"תוכנית המשך אונליין\"), או שיוגדר מזהה GROW על המוצר בפיירברי.\\n` +\n      `ריצה: ${ev.executionUrl}`);\n  }\n\n  // ============================ ענף A — רכישה רגילה, תשלום חדש ============================\n  if (branch === 'PAYMENT') {\n    if (!ev.isSuccess) {\n      return [{ json: { ...ev, branch: 'PAYMENT_FAILED', ops: [], warnings, decisions,\n        summary: 'התשלום לא עבר — לא נוצרה שום רשומה בפיירברי.',\n        accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n    }\n    const n = ev.installmentsTotal;\n    const payName = `התשלום של ${custLabel} | ${productName} | ${money(ev.grossTotal)} | ${n} תשלומים`;\n    const lastChargeDate = n > 1\n      ? addMonthsISO(ev.paymentDateISO, (n - 1) * (cfg.INSTALLMENT_INTERVAL_MONTHS || 1))\n      : ev.paymentDateISO;\n    const payRef = add({\n      ref: 'payment', kind: 'create', object: '1039', label: 'יצירת תשלום (1039)',\n      body: buildPaymentBody({\n        name: payName, chargeId: ev.chargeId, paymentType: ev.fbPaymentType,\n        // רכישה בתשלום אחד = \"רגיל\" · פריסה ל-2+ תשלומים = \"תשלומים\".\n        paymentCategory: n > 1 ? 2 : 1,\n        // תשלום אחד שנפרע ⇒ הרשומה נסגרת מיד. פריסה ⇒ נשארת \"בתהליך פירעון\".\n        status: n === 1 ? 2 : 1,\n        numberOfPayments: n, net: ev.netTotal, gross: ev.grossTotal,\n        firstPaymentDate: ev.paymentDateISO, idemKey: ev.idemKeyBase,\n        lastPaymentDate: lastChargeDate,\n        nextPaymentDate: n > 1 ? addMonthsISO(ev.paymentDateISO, cfg.INSTALLMENT_INTERVAL_MONTHS || 1) : null,\n      }),\n    });\n\n    // 🔴 אומת חי 19/08: גרואו שולח את לוח החיובים המדויק — firstPaymentSum\n    // ו-periodicalPaymentSum. חלוקה שווה בסכום הכולל מייצרת סכומים שגויים\n    // (למשל 2.35 ב-4 תשלומים = 0.61 + 0.58×3, ולא 0.5875×4).\n    const vatDiv = 1 + (ev.vatPercent / 100);\n    const usesGrowSchedule = n > 1 && ev.firstPayGross > 0 && ev.periodicalGross > 0 &&\n      Math.abs(ev.firstPayGross + ev.periodicalGross * (n - 1) - ev.grossTotal) <= 0.05;\n    if (usesGrowSchedule) {\n      decisions.push(`לוח החיובים נלקח מגרואו: ${ev.firstPayGross} ראשון + ${ev.periodicalGross} × ${n - 1}.`);\n    }\n    for (let i = 0; i < n; i++) {\n      const grossPer = usesGrowSchedule\n        ? (i === 0 ? ev.firstPayGross : ev.periodicalGross)\n        : round2(ev.grossTotal / n);\n      add({\n        ref: `doc${i + 1}`, kind: 'create', object: '1018',\n        label: `יצירת תיעוד תשלום ${i + 1}/${n} (1018)`,\n        body: buildDocBody({\n          name: `תיעוד התשלום של ${custLabel} | ${productName}`,\n          status: i === 0 ? 1 : 3,                 // 1 נפרע בהצלחה · 3 ממתין לפירעון\n          paymentType: ev.fbPaymentType,\n          net: round4(grossPer / vatDiv), gross: grossPer,\n          // תאריך החיוב של כל תשלום — הראשון היום, והבאים בהפרש חודשי.\n          paymentDate: i === 0\n            ? ev.paymentDateISO\n            : addMonthsISO(ev.paymentDateISO, i * (cfg.INSTALLMENT_INTERVAL_MONTHS || 1)),\n          paymentRef: payRef,\n          idemKey: `${ev.idemKeyBase}-${i + 1}`,\n        }),\n      });\n    }\n\n    const noteHtml = `<div dir=\"rtl\">התשלום נוצר אוטומטית לאחר קליטת תשלום מ-GROW.<br>` +\n      `מוצר: <b>${productName}</b> · סכום: <b>${money(ev.grossTotal)}</b> · ${n} תשלומים · אסמכתא: ${ev.asmachta || '—'}` +\n      couponLine + `<br>ריצת n8n: ${execLink}</div>`;\n    noteOp('note', noteHtml);\n    // הערה גם על רשומת התשלום עצמה ועל כל תיעוד תשלום (דרישת אליאל 19/08)\n    // 🔴 מושמט כשהחשבון נוצר באותה ריצה (accountNewlyCreated): פעולת התשלום\n    // עצמה כבר תלויה גם בחשבון החדש וגם בעסקה החדשה (שני refs, לא אחד),\n    // ולכן היא נופלת לגל 3 — והערה שתלויה *בה* תצטרך גל רביעי שלא קיים\n    // במנגנון (ראו \"הפרדת פעולת האב\": שלושה גלים ליניאריים בלבד).\n    // ההערה הכללית על תהליך המכירה (למעלה) כבר נושאת את אותו תוכן בדיוק,\n    // כך שהמידע לא הולך לאיבוד — רק לא משוכפל על התשלום/התיעוד עצמם.\n    if (!accountNewlyCreated) {\n      noteOn('notePay', payRef, 1039, 'הערה על רשומת התשלום', noteHtml);\n      for (let i = 0; i < n; i++) {\n        noteOn(`noteDoc${i + 1}`, `@doc${i + 1}`, 1018,\n          `הערה על תיעוד תשלום ${i + 1}/${n}`,\n          `<div dir=\"rtl\">תיעוד התשלום נוצר אוטומטית לאחר תשלום מ-GROW.<br>` +\n          `מוצר: <b>${productName}</b> · תשלום ${i + 1} מתוך ${n}` + couponLine +\n          `<br>ריצת n8n: ${execLink}</div>`);\n      }\n    }\n\n    if (!accountFound || !saleFound) {\n      taskOp('taskLink', `שיוך ידני לתשלום מ-GROW · ${custLabel}`,\n        `התקבל תשלום מגרואו שלא ניתן היה לשייך אוטומטית.\\n` +\n        `${!accountFound ? '• לא נמצאה לקוחה לפי הטלפון ' + (ev.phone || '(חסר)') + '\\n' : ''}` +\n        `${!saleFound ? '• לא נמצא תהליך מכירה פתוח\\n' : ''}` +\n        `סכום: ${money(ev.grossTotal)} · מוצר: ${productName} · אסמכתא: ${ev.asmachta}\\n` +\n        `שם מגרואו: ${ev.fullName} · טלפון: ${ev.phone}\\nריצה: ${ev.executionUrl}`);\n    }\n\n    decisions.push('ענף A — רכישה רגילה, תשלום חדש');\n    return [{ json: { ...ev, branch: 'NEW_PURCHASE', ops, warnings, decisions,\n      summary: `נוצר תשלום אחד ו-${n} תיעודי תשלום.`,\n      accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid,\n      nextWorkflowUrl: cfg.PRODUCT_SETUP_WEBHOOK_URL } }];\n  }\n\n  // ============ ענף B — תשלום קיים מתוך פריסה · ענף D — חיוב מתוך הו\"ק · ענף F — כשל ============\n  if (branch === 'INSTALLMENT_CHARGE' || branch === 'RECURRING_CHARGE' || branch === 'RECURRING_FAILED') {\n    let src = findSourcePayment();\n\n    // ============================================================================\n    // חיוב הו\"ק שאין לו רשומת הוראת קבע בפיירברי — שני מקרים שונים לגמרי:\n    //\n    //   א. ההוראה **הוקמה ברגע זה** (הלקוחה עברה בעמוד תשלום).\n    //      אומת חי 20/08: paymentSource=\"Payment Links\".\n    //      זו רכישה חדשה לכל דבר ⇒ נוצרת רשומת הו\"ק, נרשם החיוב הראשון,\n    //      ומופעל התהליך המקצועי להקמת המוצר.\n    //      🔴 גרואו **לא** שולחת וובהוק הקמה נפרד — החיוב הראשון הוא האירוע היחיד.\n    //\n    //   ב. חיוב חוזר של הוראה **ותיקה** שהוקמה לפני המערכת.\n    //      paymentSource=\"מערכת חיצונית\". הרשומה נוצרת רטרואקטיבית עם\n    //      pcfID = מזהה ההו\"ק בגרואו, שהוא מפתח האיחוד במעבר הנתונים.\n    // ============================================================================\n    // ג. ההוראה הוקמה **ידנית מתוך מערכת גרואו** (בק-אופיס). paymentSource\n    //    זהה לחיוב חוזר, אבל מזהה ההו\"ק אינו מוכר לפיירברי — כלומר זו הוראה\n    //    חדשה, ולכן רכישה חדשה לכל דבר. (אליאל, 14/09/2026)\n    const soFromBackOffice = !src && ev.isBackOfficeSource === true && S(ev.directDebitId) && ev.isSuccess;\n    const soIsNewSetup = (!src && ev.isSetupSource === true && S(ev.directDebitId) && ev.isSuccess)\n      || soFromBackOffice;\n\n    if (!src && ev.eventType === 'RECURRING_CHARGE' && S(ev.directDebitId) && ev.isSuccess\n        && (soIsNewSetup || cfg.SELF_HEAL_STANDING_ORDER)) {\n      const monthlyGross = round2(ev.grossTotal);\n      const retroTag = soIsNewSetup ? '' : (cfg.RETRO_PREFIX || '');\n      const soRef = add({\n        ref: 'payment', kind: 'create', object: '1039',\n        label: soIsNewSetup ? 'יצירת הוראת קבע (1039)' : 'יצירת רשומת הוראת קבע רטרואקטיבית',\n        body: buildPaymentBody({\n          name: `${retroTag}הוראת הקבע של ${custLabel} | ${productName} | ${money(monthlyGross)} | חיוב חודשי`,\n          // 🔴 08/09/2026 — \"הוראת קבע\" היא סוג תשלום, לא אמצעי תשלום. אמצעי\n          // התשלום בפועל לא ידוע מהאירוע של גרואו ⇒ ברירת מחדל אשראי (1),\n          // כפי שאליאל תיקן ידנית ברטרו על 364 הרשומות הקיימות ב-1039.\n          chargeId: ev.directDebitId, paymentType: 1, paymentCategory: 3,\n          numberOfPayments: soCountOnCreate(),\n          net: round4(monthlyGross / (1 + ev.vatPercent / 100)), gross: monthlyGross,\n          firstPaymentDate: ev.paymentDateISO,\n          idemKey: `GROW-DD-${ev.directDebitId}`,\n        }),\n      });\n      addSoCountUpdate(soRef);\n      add({\n        ref: 'doc1', kind: 'create', object: '1018', label: 'יצירת תיעוד תשלום הו\"ק (1018)',\n        body: buildDocBody({\n          name: `תיעוד התשלום הו\"ק של ${custLabel} | ${productName}`,\n          status: 1, paymentType: 1,\n          net: round4(monthlyGross / (1 + ev.vatPercent / 100)), gross: monthlyGross,\n          paymentDate: ev.paymentDateISO, paymentRef: soRef, idemKey: ev.idemKeyBase,\n        }),\n      });\n      if (soIsNewSetup) {\n        decisions.push(soFromBackOffice\n          ? 'הוראת הקבע הוקמה ידנית מתוך מערכת גרואו — מזהה ההוראה לא היה מוכר לפיירברי, ולכן זו רכישה חדשה.'\n          : 'הוראת הקבע הוקמה עכשיו (מקור התשלום: עמוד תשלום) — נוצרה רשומת הוראת קבע ונרשם החיוב הראשון.');\n        noteOp('note', `<div dir=\"rtl\">${soFromBackOffice ? 'הוקמה הוראת קבע ידנית במערכת גרואו' : 'הוקמה הוראת קבע ב-GROW'} ונקלט החיוב הראשון.<br>` +\n          `מוצר: <b>${productName}</b> · חיוב חודשי: <b>${money(monthlyGross)}</b> · מזהה הו\"ק: ${ev.directDebitId}` +\n          couponLine + `<br>ריצת n8n: ${execLink}</div>`);\n        noteOn('notePay', soRef, 1039, 'הערה על רשומת הוראת הקבע',\n          `<div dir=\"rtl\">רשומת הוראת הקבע נוצרה אוטומטית מהחיוב הראשון.<br>` +\n          `מזהה הו\"ק בגרואו: ${ev.directDebitId}<br>ריצת n8n: ${execLink}</div>`);\n        if (!accountFound || !saleFound) {\n          taskOp('taskLink', `שיוך ידני להוראת קבע מ-GROW · ${custLabel}`,\n            `הוקמה הוראת קבע בגרואו שלא ניתן היה לשייך אוטומטית.\\n` +\n            `${!accountFound ? '• לא נמצאה לקוחה לפי הטלפון ' + (ev.phone || '(חסר)') + '\\n' : ''}` +\n            `${!saleFound ? '• לא נמצא תהליך מכירה פתוח\\n' : ''}` +\n            `חיוב חודשי: ${money(monthlyGross)} · מוצר: ${productName}\\nריצה: ${ev.executionUrl}`);\n        }\n        // 🔴 רכישה חדשה ⇒ מפעילים את התהליך המקצועי להקמת המוצר.\n        return [{ json: { ...ev,\n          branch: soFromBackOffice ? 'STANDING_ORDER_BACKOFFICE' : 'STANDING_ORDER_SETUP',\n          ops, warnings, decisions,\n          summary: soFromBackOffice\n            ? 'הוקמה הוראת קבע מתוך מערכת גרואו ונרשם החיוב הראשון.'\n            : 'הוקמה הוראת קבע ונרשם החיוב הראשון.',\n          accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid,\n          nextWorkflowUrl: cfg.PRODUCT_SETUP_WEBHOOK_URL } }];\n      }\n\n      warnings.push(`לא נמצאה רשומת הוראת קבע עם מזהה ${ev.directDebitId} — נוצרה רשומה רטרואקטיבית מתוך נתוני החיוב. יש לאמת את הסכום ואת תאריך ההקמה.`);\n      taskOp('taskAutoSO', `אימות הוראת קבע שנוצרה אוטומטית · ${custLabel}`,\n        `התקבל חיוב הוראת קבע שלא נמצאה לו רשומה בפיירברי, ולכן ההוראה נוצרה רטרואקטיבית.\\n` +\n        `מזהה הו\"ק בגרואו: ${ev.directDebitId} · חיוב: ${money(monthlyGross)} · אסמכתא: ${ev.asmachta}\\n\\n` +\n        `🔴 במעבר הנתונים יש לאחד את הרשומה הזו עם ההוראה מה-CRM הישן\\n` +\n        `לפי מזהה ההו\"ק (שדה \"מזהה\" ברשומת התשלום) — ולא ליצור רשומה שנייה.\\n\\n` +\n        `יש לאמת מול גרואו את תאריך ההקמה, הסכום החודשי והמוצר.\\nריצה: ${ev.executionUrl}`);\n      decisions.push('ענף D — חיוב הו\"ק · רשומת ההוראה נוצרה רטרואקטיבית');\n      noteOp('note', `<div dir=\"rtl\">התקבל חיוב הוראת קבע מ-GROW.<br>` +\n        `מוצר: <b>${productName}</b> · סכום: <b>${money(monthlyGross)}</b> · מזהה הו\"ק: ${ev.directDebitId}<br>` +\n        `<i>רשומת ההוראה לא הייתה קיימת ונוצרה אוטומטית — לאיחוד במעבר הנתונים.</i><br>ריצת n8n: ${execLink}</div>`);\n      return [{ json: { ...ev, branch: 'STANDING_ORDER_SELF_HEAL', ops, warnings, decisions,\n        summary: 'נוצרה רשומת הוראת קבע רטרואקטיבית ותיעוד תשלום לחיוב שהתקבל.',\n        accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n    }\n\n    if (!src) {\n      // 🔴 עד לאחר מעבר הנתונים מה-CRM הישן — המשימה היא הרשומה היחידה שנוצרת.\n      //    היא נושאת את כל מה שנדרש כדי להשלים את השיוך אחרי המעבר:\n      //    טלפון + סכום + 4 ספרות הכרטיס = צירוף חד-ערכי לכל הוראת קבע ב-GROW.\n      taskOp('taskNoSrc', `[להשלמה אחרי המעבר] חיוב מגרואו ללא רשומת תשלום · ${custLabel}`,\n        `התקבל חיוב המשך מגרואו אך לא נמצאה רשומת \"תשלום\" (1039) מקושרת.\\n` +\n        `ההוראה/הפריסה הוקמה לפני שהמערכת הזו עלתה. הרשומה תגיע במעבר הנתונים (04–05/09).\\n\\n` +\n        `סוג אירוע: ${ev.eventType} · מזהה הו\"ק: ${ev.directDebitId || '—'} · אסמכתא: ${ev.asmachta || '—'}\\n` +\n        `סכום: ${money(ev.grossTotal)} · טלפון: ${ev.phone} · 4 ספרות: ${ev.cardSuffix || '—'}\\n` +\n        `מוצר: ${productName} · תיאור בגרואו: ${ev.growProductName || ev._raw?.paymentDesc || '—'}\\n` +\n        `ריצה: ${ev.executionUrl}`);\n      warnings.push('לא נמצאה רשומת תשלום מקור — נפתחה משימה בלבד.');\n      return [{ json: { ...ev, branch: branch + '_NO_SOURCE', ops, warnings, decisions,\n        summary: 'לא נמצאה רשומת תשלום מקור — נפתחה משימה לטיפול ידני.',\n        accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n    }\n\n    const srcType = pickNum(src.pcfPaymentType, PT_LABELS);\n    const srcCategory = pickNum(src.pcfPaymentCategory, PC_LABELS);\n    const srcId = S(src.customobject1039id);\n    // 🔴 08/09/2026 — הזיהוי \"האם זו הוראת קבע\" עבר מ\"אמצעי תשלום\"=7 ל\"סוג\n    // תשלום\"=3 (השדה הנכון). srcType===7 נשאר כרשת ביטחון לרשומות שטרם\n    // הוגרו/תוקנו (למשל מהמעבר מה-CRM הישן) ואין להן עדיין pcfPaymentCategory.\n    const isStandingOrder = srcCategory === 3 || srcType === 7;\n    const paid = ev.isSuccess;\n\n    if (isStandingOrder && branch !== 'RECURRING_FAILED') {\n      // ---- ענף D: תשלום חדש מתוך הוראת קבע קיימת → יוצרים תיעוד תשלום חדש ----\n      add({\n        ref: 'doc1', kind: 'create', object: '1018', label: 'יצירת תיעוד תשלום הו\"ק (1018)',\n        body: buildDocBody({\n          name: `תיעוד התשלום הו\"ק של ${custLabel} | ${productName}`,\n          status: paid ? 1 : 4,\n          paymentType: 1,\n          net: ev.netTotal, gross: ev.grossTotal,\n          paymentDate: paid ? ev.paymentDateISO : null,\n          paymentRef: srcId,\n          idemKey: ev.idemKeyBase,\n        }),\n      });\n      decisions.push('ענף D — חיוב מתוך הוראת קבע קיימת');\n    } else {\n      // ---- ענף B / F: עדכון תיעוד תשלום קיים שממתין לפירעון ----\n      // 🔴 הבחירה נעשית **לפי מזהה התיעוד בלבד**. אין \"הראשון ברשימה\".\n      const sel = selectInstallmentTarget(srcId);\n      const target = sel.target;\n      if (sel.why) decisions.push(sel.why);\n      if (sel.note) warnings.push(sel.note);\n\n      if (!target && sel.blocked) {\n        // אסור לנחש: לא נוגעים בשום רשומה קיימת ולא יוצרים רשומה כספית חדשה.\n        warnings.push('לא ניתן היה לזהות בוודאות את התשלום שנפרע — לא בוצע שום עדכון.');\n        taskOp('taskAmbiguous', `חיוב מגרואו שלא ניתן לשייך לתשלום ספציפי · ${custLabel}`,\n          `התקבל חיוב על סך ${money(ev.grossTotal)} תחת תשלום ${srcId},\\n` +\n          `אך יש יותר מתיעוד תשלום אחד שממתין לפירעון ולאף אחד מהם אין מזהה תשלום.\\n` +\n          `אסור לנחש — יש לסמן ידנית איזה תשלום נפרע.\\n` +\n          `אסמכתא: ${ev.asmachta || '—'} · תאריך: ${ev.paymentDateISO || '—'}\\nריצה: ${ev.executionUrl}`);\n        return [{ json: { ...ev, branch: 'INSTALLMENT_AMBIGUOUS', ops, warnings, decisions, sourcePaymentId: srcId,\n          summary: 'לא ניתן היה לזהות בוודאות איזה תשלום נפרע — נפתחה משימה, לא בוצע עדכון.',\n          accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n      }\n\n      if (!target) {\n        warnings.push('לא נמצא תיעוד תשלום שממתין לפירעון תחת התשלום המקור — נוצר תיעוד חדש במקום עדכון.');\n        add({\n          ref: 'doc1', kind: 'create', object: '1018', label: 'יצירת תיעוד תשלום (חלופה לעדכון)',\n          body: buildDocBody({\n            name: `תיעוד התשלום של ${custLabel} | ${productName}`,\n            // 🔴 08/09/2026 — לענף הזה מגיעים רק כשאין הוראת קבע (isStandingOrder=false),\n            // אך srcType עדיין עלול לשאת את הערך הישן 7 ברשומות שטרם תוקנו —\n            // ולכן אסור להעביר אותו כמו שהוא הלאה כ\"אמצעי תשלום\".\n            status: paid ? 1 : 4,\n            paymentType: srcType === 7 ? 1 : (srcType || ev.fbPaymentType),\n            net: ev.netTotal, gross: ev.grossTotal,\n            paymentDate: paid ? ev.paymentDateISO : null,\n            paymentRef: srcId, idemKey: ev.idemKeyBase,\n          }),\n        });\n      } else {\n        const upd = {\n          pcfPaymetStatus: paid ? 1 : 4,\n          pcfsStatusUpdateTime: ev.nowISO,\n          pcfExternalSoftwareID1: ev.idemKeyBase,\n        };\n        if (S(ev.asmachta)) upd.pcfReference = S(ev.asmachta);\n        if (paid) upd.pcfPaymentDate = ev.paymentDateISO;\n        add({\n          ref: 'docUpdate', kind: 'update', object: '1018',\n          recordId: S(target.customobject1018id), label: 'עדכון סטטוס תיעוד תשלום (1018)',\n          body: upd,\n        });\n      }\n      decisions.push(paid ? 'ענף B — תשלום המשך שנפרע בהצלחה' : 'ענף B/F — תשלום המשך שלא עבר');\n    }\n\n    // ── סגירת רשומת התשלום כשכל התיעודים נפרעו ──────────────────────────\n    // רק לפריסות אשראי. הוראת קבע היא פתוחה מעצם טבעה ולעולם לא נסגרת כאן.\n    if (paid && srcId && !isStandingOrder) {\n      const allDocs = docsOfPayment(srcId);\n      const settledId = ops.find((o) => o.ref === 'docUpdate')\n        ? S(ops.find((o) => o.ref === 'docUpdate').recordId) : '';\n      const stillOpen = allDocs.filter((x) => S(x.customobject1018id) !== settledId &&\n        pickNum(x.pcfPaymetStatus, DS_LABELS) !== 1);\n      if (settledId && allDocs.length && !stillOpen.length) {\n        add({ ref: 'payClose', kind: 'update', object: '1039', recordId: srcId,\n          label: 'סגירת רשומת התשלום (1039) — כל התשלומים נפרעו',\n          body: { pcfStatus: 2, pcfstatusupdatedate: ev.nowISO } });\n        decisions.push('כל תיעודי התשלום תחת התשלום הזה נפרעו — הרשומה סומנה כ\"נפרע בהצלחה\".');\n      }\n    }\n\n    if (!paid) {\n      taskOp('taskFail', `תשלום לא עבר · ${custLabel} · ${money(ev.grossTotal)}`,\n        `חיוב מגרואו נכשל ודורש טיפול.\\n` +\n        `סיבה: ${ev.failureMessage || 'לא צוינה'} · ניסיונות חיוב: ${ev.chargeAttempts || '—'}\\n` +\n        `מוצר: ${productName} · תשלום מקור: ${srcId}\\nריצה: ${ev.executionUrl}`);\n    }\n\n    const chargeNote = `<div dir=\"rtl\">${paid ? 'התקבל חיוב' : '⚠️ חיוב נכשל'} מ-GROW ועודכן אוטומטית.<br>` +\n      `מוצר: <b>${productName}</b> · סכום: <b>${money(ev.grossTotal)}</b> · אסמכתא: ${ev.asmachta || '—'}` +\n      `${paid ? '' : '<br>סיבה: ' + (ev.failureMessage || 'לא צוינה')}` + couponLine +\n      `<br>ריצת n8n: ${execLink}</div>`;\n    noteOp('note', chargeNote);\n    // הערה על תיעוד התשלום עצמו — בין אם נוצר חדש ובין אם עודכן קיים\n    const docTarget = ops.find((o) => o.ref === 'docUpdate') ? ops.find((o) => o.ref === 'docUpdate').recordId\n                    : (ops.find((o) => o.ref === 'doc1') ? '@doc1' : '');\n    if (docTarget) noteOn('noteDoc', docTarget, 1018, 'הערה על תיעוד התשלום', chargeNote);\n    // הערה על רשומת התשלום המקורית\n    if (srcId) noteOn('notePay', srcId, 1039, 'הערה על רשומת התשלום', chargeNote);\n\n    return [{ json: { ...ev, branch: isStandingOrder && branch !== 'RECURRING_FAILED' ? 'STANDING_ORDER_CHARGE' : 'INSTALLMENT_UPDATE',\n      ops, warnings, decisions, sourcePaymentId: srcId,\n      summary: paid ? 'תיעוד התשלום עודכן/נוצר כנפרע בהצלחה.' : 'תיעוד התשלום סומן כלא עבר ונפתחה משימה לנציג.',\n      accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n  }\n\n  // ============================ ענף C — הקמת הוראת קבע ============================\n  if (branch === 'STANDING_ORDER_SETUP') {\n    if (!ev.isSuccess) {\n      return [{ json: { ...ev, branch: 'STANDING_ORDER_FAILED', ops: [], warnings, decisions,\n        summary: 'הקמת הוראת הקבע לא הצליחה — לא נוצרה שום רשומה.',\n        accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n    }\n    const monthlyGross = round2(ev.periodicalGross || ev.grossTotal);\n    const monthlyNet = round4(monthlyGross / (1 + ev.vatPercent / 100));\n    const payName = `הוראת הקבע של ${custLabel} | ${productName} | ${money(monthlyGross)} | חיוב חודשי`;\n    const payRef = add({\n      ref: 'payment', kind: 'create', object: '1039', label: 'יצירת הוראת קבע (1039)',\n      body: buildPaymentBody({\n        name: payName,\n        chargeId: ev.directDebitId || ev.chargeId,\n        paymentType: 1, paymentCategory: 3, numberOfPayments: soCountOnCreate(),\n        net: monthlyNet, gross: monthlyGross,\n        firstPaymentDate: ev.paymentDateISO, idemKey: ev.idemKeyBase,\n      }),\n    });\n    addSoCountUpdate(payRef);\n\n    if (cfg.CREATE_DOC_ON_STANDING_ORDER_SETUP) {\n      add({ ref: 'doc1', kind: 'create', object: '1018', label: 'יצירת תיעוד תשלום ראשון להו\"ק',\n        body: buildDocBody({\n          name: `תיעוד התשלום הו\"ק של ${custLabel} | ${productName}`,\n          status: 1, paymentType: 1, net: monthlyNet, gross: monthlyGross,\n          paymentDate: ev.paymentDateISO, paymentRef: payRef, idemKey: `${ev.idemKeyBase}-1`,\n        }) });\n    } else {\n      warnings.push('לפי האפיון — בהקמת הוראת קבע לא נוצר תיעוד תשלום. החיוב הראשון ייקלט כאירוע חיוב נפרד.');\n    }\n\n    const soNote = `<div dir=\"rtl\">הוראת קבע נוצרה אוטומטית לאחר הקמה ב-GROW.<br>` +\n      `מוצר: <b>${productName}</b> · חיוב חודשי: <b>${money(monthlyGross)}</b> · מזהה הו\"ק: ${ev.directDebitId || '—'}` +\n      couponLine + `<br>ריצת n8n: ${execLink}</div>`;\n    noteOp('note', soNote);\n    noteOn('notePay', payRef, 1039, 'הערה על רשומת הוראת הקבע', soNote);\n\n    if (!accountFound || !saleFound) {\n      taskOp('taskLink', `שיוך ידני להוראת קבע מ-GROW · ${custLabel}`,\n        `הוקמה הוראת קבע בגרואו שלא ניתן היה לשייך אוטומטית.\\n` +\n        `${!accountFound ? '• לא נמצאה לקוחה לפי הטלפון ' + (ev.phone || '(חסר)') + '\\n' : ''}` +\n        `${!saleFound ? '• לא נמצא תהליך מכירה פתוח\\n' : ''}` +\n        `חיוב חודשי: ${money(monthlyGross)} · מוצר: ${productName}\\nריצה: ${ev.executionUrl}`);\n    }\n\n    decisions.push('ענף C — הקמת הוראת קבע');\n    return [{ json: { ...ev, branch: 'STANDING_ORDER_SETUP', ops, warnings, decisions,\n      summary: 'נוצרה רשומת הוראת קבע.',\n      accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid,\n      nextWorkflowUrl: cfg.PRODUCT_SETUP_WEBHOOK_URL } }];\n  }\n\n  // ============================ ענף E — מסמך חשבונאי ============================\n  if (branch === 'INVOICE') {\n    const prefixMapEarly = cfg.DOC_TYPE_BY_PREFIX || {};\n    const numEarly = S(ev.invoiceNumber);\n    const docTypeEarly = prefixMapEarly[numEarly.slice(0, 2)] || ctx.docTypeLabel ||\n                         cfg.DOC_TYPE_DEFAULT || 'מסמך חשבונאי';\n\n    if (!txPayment) {\n      // ============================================================================\n      // 🔴 20/08/2026 — מסמך שלא שויך **עדיין נשמר**.\n      // קודם נפתחה רק משימה, והמסמך עצמו נעלם מהמערכת לגמרי (נתפס חי בזיכוי\n      // של סער). זה לא ניחוש: מספר המסמך, הסוג והקישור ידועים בוודאות —\n      // מה שלא ידוע הוא הלקוחה והתשלום, ואותם פשוט לא כותבים.\n      // ============================================================================\n      // ── שיוך מתוך גוף ה-PDF ─────────────────────────────────────────\n      // 🔴 שני מזהים חד-ערכיים **מודפסים** במסמך, ולכן מותרים לשיוך:\n      //    1. מספר המסמך המקורי — \"זיכוי עבור חשבונית מס קבלה מספר 49680\".\n      //    2. טלפון הלקוחה (הוזרם כבר לחיפוש הלקוחה בשלב מוקדם יותר).\n      //    אין כאן ניחוש: שניהם כתובים במסמך עצמו.\n      // 🔴 שני נתיבים לאיתור המסמך המקורי לפי המספר שמודפס בזיכוי:\n      //    א. רשומת מסמך (1038) עם GROW-INV-{מספר} — מסמכים שנקלטו במערכת הזו.\n      //    ב. תיעוד תשלום (1018) שבשדה \"מספר מסמך\" שלו מופיע אותו מספר —\n      //       כך נתפסים גם מסמכים שהגיעו מה-CRM הישן ואין להם רשומת 1038.\n      const refLabel = S(ev.docRefType) ? `${S(ev.docRefType)} ${S(ev.docRefNumber)}` : S(ev.docRefNumber);\n      const srcDoc = S(ev.docRefNumber)\n        ? refDocs.find((d) => S(d.pcfExternalSoftwareID1) === `GROW-INV-${S(ev.docRefNumber)}`)\n        : null;\n      const srcRec = (!srcDoc && S(ev.docRefNumber))\n        ? refRecs.find((d) => S(d.pcfInvoiceNumber1) === S(ev.docRefNumber))\n        : null;\n\n      const linkAccount = S(srcDoc && srcDoc.pcfaccountid) ||\n                          S(srcRec && srcRec.pcfAccountid) || accountid;\n      const linkPayment = S(srcDoc && srcDoc.pcfPaymentCollection) ||\n                          S(srcRec && srcRec.pcfPaymentCollection);\n      const linkRecord  = S(srcDoc && srcDoc.pcfPaymentRecord) ||\n                          S(srcRec && srcRec.customobject1018id);\n      const linkSale    = S(srcDoc && srcDoc.pcfLinkedSale) ||\n                          S(srcRec && srcRec.pcfSale) || saleid;\n\n      if (srcDoc) {\n        decisions.push(`המסמך המקורי (${refLabel}) זוהה לפי רשומת המסמך — השיוך הועתק ממנו.`);\n      } else if (srcRec) {\n        decisions.push(`המסמך המקורי (${refLabel}) זוהה לפי \"מספר מסמך\" בתיעוד התשלום — השיוך הועתק ממנו.`);\n      } else if (S(ev.docRefNumber)) {\n        warnings.push(`במסמך מופיעה הפניה ל${refLabel ? '-' + refLabel : 'מסמך ' + S(ev.docRefNumber)}, ` +\n          'אך הוא לא נמצא בפיירברי — לא ברשומות המסמכים ולא בתיעודי התשלום.');\n      }\n      if (!srcDoc && accountFound && S(ev.docPhone)) {\n        decisions.push(`הלקוחה זוהתה לפי הטלפון שמודפס במסמך (${S(ev.docPhone)}).`);\n      }\n      if (S(ev.docPhoneWhy)) warnings.push(`זיהוי טלפון מהמסמך: ${S(ev.docPhoneWhy)}`);\n      if (ev.docTextFound === false && ev.eventType === 'INVOICE') {\n        warnings.push('לא ניתן היה לקרוא את ה-PDF של המסמך — השיוך נעשה בלי נתוני המסמך.');\n      }\n\n      const matchedSomething = !!(linkAccount || linkPayment);\n\n      let docRefUnmatched = '';\n      if (cfg.CREATE_UNMATCHED_DOCUMENT !== false) {\n        const ub = {\n          name: cut(matchedSomething\n            ? `${docTypeEarly} - ${ev.invoiceNumber} - ${custLabel}`\n            : `${docTypeEarly} - ${ev.invoiceNumber} - ⚠️ לא משויך`, 190),\n          pcfDocumentType: cut(docTypeEarly, 190),\n          pcfLinkToDocument: S(ev.invoiceUrl),\n          pcfCreatedByPersonOrSystem: 2,\n          pcfExternalSoftwareID1: ev.idemKeyBase,\n          pcfExternalSoftwareID2: 'GROW',\n        };\n        // 🔴 מה שלא זוהה בוודאות — לא נכתב.\n        lookupOrOmit(ub, 'pcfaccountid', linkAccount);\n        lookupOrOmit(ub, 'pcfLinkedSale', linkSale);\n        lookupOrOmit(ub, 'pcfPaymentCollection', linkPayment);\n        lookupOrOmit(ub, 'pcfPaymentRecord', linkRecord);\n        docRefUnmatched = add({ ref: 'documentUnmatched', kind: 'create', object: '1038',\n          label: matchedSomething ? 'יצירת מסמך (1038)' : 'יצירת מסמך לא משויך (1038)', body: ub });\n        decisions.push(matchedSomething\n          ? 'המסמך נשמר בפיירברי ושויך לפי המזהים שמודפסים בו.'\n          : 'המסמך נשמר בפיירברי בלי שיוך — השיוך ידני.');\n      }\n\n      // ── רישום הזיכוי ────────────────────────────────────────────────\n      // 🔴 אומת חי 20/08: השדות \"סה\"כ הוחזר\" באובייקט 1039 הם **שדות מחושבים**.\n      //    כתיבה אליהם מחזירה 200 ופשוט לא נשמרת — הם נגזרים מרשומות תיעוד\n      //    התשלום. הדרך הנכונה לרשום זיכוי היא ליצור תיעוד תשלום בסטטוס\n      //    \"זיכוי בוצע בהצלחה\" (2), ופיירברי מחשבת את הסכום בעצמה.\n      //    נבדק: תיעוד זיכוי של 0.16 ⇒ \"סה\"כ הוחזר כולל מע\"מ\" התעדכן לבד.\n      if (cfg.WRITE_REFUND_ON_CREDIT === true && ev.docIsCredit &&\n          linkPayment && ev.docRefundAmount > 0) {\n        const refundKey = `${ev.idemKeyBase}-REFUND`;\n        const already = docs.find((x) => S(x.pcfExternalSoftwareID1) === refundKey);\n        // 🔴 אומת חי 23/08: \"סה\"כ הוחזר\" באובייקט 1039 מסוכם מכל תיעוד בסטטוס\n        //    \"זיכוי בוצע בהצלחה\". אם גם התיעוד המקורי יסומן וגם ייווצר תיעוד\n        //    זיכוי נפרד — הסכום נספר **פעמיים** (נמדד: 1.98 במקום 0.99).\n        //    לכן תיעוד זיכוי נפרד נוצר **רק** כשהתיעוד המקורי לא זוהה.\n        if (already) {\n          decisions.push('תיעוד הזיכוי כבר קיים — לא נוצר שוב.');\n        } else if (linkRecord) {\n          decisions.push('הזיכוי נרשם על תיעוד התשלום המקורי — לא נוצר תיעוד נפרד (מונע ספירה כפולה).');\n        } else {\n          const gross = round2(ev.docRefundAmount);\n          const rb = {\n            name: cut(`זיכוי של ${custLabel} | ${docTypeEarly} ${ev.invoiceNumber}`, 190),\n            pcfPaymetStatus: 2,                 // זיכוי בוצע בהצלחה\n            pcfsStatusUpdateTime: ev.nowISO,\n            pcfPaymentDate: ev.paymentDateISO || ev.nowISO,\n            pcftaxincludecode: 1,\n            pcfPayed: round4(gross / (1 + ev.vatPercent / 100)),\n            pcfPayedIncludingVAT: gross,\n            pcfInvoiceNumber1: S(ev.invoiceNumber),\n            pcfCreatedByPersonOrSystem: 2,\n            pcfExternalSoftwareID1: refundKey,\n            pcfExternalSoftwareID2: 'GROW',\n          };\n          lookupOrOmit(rb, 'pcfAccountid', linkAccount);\n          lookupOrOmit(rb, 'pcfPaymentCollection', linkPayment);\n          lookupOrOmit(rb, 'pcfSale', linkSale);\n          lookupOrOmit(rb, 'ownerid', ownerid);\n          add({ ref: 'refund', kind: 'create', object: '1018',\n            label: 'יצירת תיעוד זיכוי (1018)', body: rb });\n          decisions.push(`נרשם תיעוד זיכוי של ${money(gross)} תחת התשלום — \"סה\"כ הוחזר\" יתעדכן אוטומטית.`);\n        }\n\n        // ── עדכון תיעוד התשלום המקורי ────────────────────────────────\n        // 🔴 דרישת אליאל 23/08: התיעוד שזוכה לא יכול להישאר \"נפרע בהצלחה\".\n        //    מעדכנים גם את הסטטוס וגם את \"סכום זיכוי\" (pcfrefundtotal),\n        //    כדי שיהיה אפשר להשוות מול \"סכום ששולם\" ולראות אם הזיכוי מלא.\n        const origRec = linkRecord\n          ? docs.find((x) => S(x.customobject1018id).toUpperCase() === linkRecord.toUpperCase())\n          : null;\n        const gross2 = round2(ev.docRefundAmount);\n        const prevRefund = origRec ? Number(origRec.pcfrefundtotal || 0) : 0;\n\n        if (!linkRecord) {\n          warnings.push('לא זוהה תיעוד התשלום המקורי — הסטטוס שלו לא עודכן.');\n        } else if (prevRefund > 0 && Math.abs(prevRefund - gross2) > 0.01) {\n          // 🔴 זיכוי שני בסכום אחר — לא דורסים סכום קיים בשקט.\n          warnings.push(`בתיעוד התשלום המקורי כבר רשום זיכוי של ${money(prevRefund)}, ` +\n            `והמסמך הנוכחי הוא על ${money(gross2)}. הסכום לא נדרס.`);\n          taskOp('taskRefundOnRefund', `זיכוי נוסף על תיעוד שכבר זוכה · ${custLabel}`,\n            `התקבל ${docTypeEarly} ${ev.invoiceNumber} על סך ${money(gross2)},\\n` +\n            `אך בתיעוד התשלום המקורי כבר רשום זיכוי של ${money(prevRefund)}.\\n` +\n            `יש לקבוע ידנית את סכום הזיכוי המצטבר.\\nריצה: ${ev.executionUrl}`);\n        } else {\n          const paidGross = origRec ? Number(origRec.pcfPayedIncludingVAT || 0) : 0;\n          const partial = paidGross > 0 && gross2 + 0.01 < paidGross;\n          add({ ref: 'origRefund', kind: 'update', object: '1018', recordId: linkRecord,\n            label: 'עדכון תיעוד התשלום המקורי — זיכוי',\n            body: { pcfPaymetStatus: 2, pcfrefundtotal: gross2, pcfsStatusUpdateTime: ev.nowISO } });\n          decisions.push(partial\n            ? `תיעוד התשלום המקורי עודכן ל\"זיכוי בוצע בהצלחה\" עם סכום זיכוי ${money(gross2)} מתוך ${money(paidGross)} ששולמו (זיכוי חלקי).`\n            : `תיעוד התשלום המקורי עודכן ל\"זיכוי בוצע בהצלחה\" עם סכום זיכוי ${money(gross2)}.`);\n          if (partial) {\n            warnings.push(`זיכוי חלקי — ${money(gross2)} מתוך ${money(paidGross)}. נפתחה משימה לאימות.`);\n            taskOp('taskPartialRefund', `זיכוי חלקי לבדיקה · ${custLabel} · ${docTypeEarly} ${ev.invoiceNumber}`,\n              `סכום הזיכוי (${money(gross2)}) קטן מהסכום ששולם בתיעוד (${money(paidGross)}).\\n` +\n              `תיעוד התשלום סומן \"זיכוי בוצע בהצלחה\" ושדה \"סכום זיכוי\" מולא בסכום המדויק.\\n` +\n              `יש לוודא שזו אכן הכוונה.\\nריצה: ${ev.executionUrl}`);\n          }\n        }\n      } else if (ev.docIsCredit && !linkPayment) {\n        warnings.push('זוהה מסמך זיכוי אך התשלום לא זוהה בוודאות — לא נרשם תיעוד זיכוי.');\n      }\n\n      taskOp('taskNoMatch', `${docTypeEarly} מגרואו ${matchedSomething ? 'לבדיקה' : 'ללא תשלום מתאים'} · מסמך ${ev.invoiceNumber} · ${custLabel}`,\n        `התקבל מסמך מגרואו שלא ניתן היה לשייך לרשומת תשלום בפיירברי.\\n\\n` +\n        `סוג המסמך: ${docTypeEarly}\\n` +\n        `מספר מסמך: ${ev.invoiceNumber}\\n` +\n        `קישור למסמך: ${ev.invoiceUrl}\\n` +\n        `מזהה העסקה שהמסמך שלח: ${ev.transactionCode}\\n\\n` +\n        (docRefUnmatched\n          ? `רשומת המסמך **נוצרה** בפיירברי בלי שיוך. יש לפתוח את הקישור, לזהות את\\n` +\n            `הלקוחה, ולשייך את הרשומה ללקוחה ולתשלום.\\n\\n`\n          : `לא נמצאה רשומת \"תשלום\" עם המזהה הזה. יש לפתוח את הקישור, לזהות את הלקוחה,\\n` +\n            `וליצור/לשייך ידנית רשומת מסמך.\\n\\n`) +\n        `שים לב: בזיכוי גרואו פותחת עסקה **חדשה** עם מזהה חדש, שאינו קשור לעסקה\\n` +\n        `המקורית. לכן שיוך אוטומטי בלתי אפשרי כל עוד identifyParam ריק.\\n\\n` +\n        `ריצת n8n: ${ev.executionUrl}`);\n      warnings.push(docRefUnmatched\n        ? 'לא נמצאה רשומת תשלום עם מזהה העסקה — המסמך נוצר בלי שיוך ונפתחה משימה.'\n        : 'לא נמצאה רשומת תשלום עם מזהה העסקה שהתקבל בחשבונית — נפתחה משימה.');\n      return [{ json: { ...ev, branch: 'INVOICE_NO_MATCH', ops, warnings, decisions,\n        docTypeResolved: docTypeEarly,\n        docRefNumber: S(ev.docRefNumber), docPhone: S(ev.docPhone),\n        matchedFromDocument: matchedSomething,\n        summary: !docRefUnmatched\n          ? 'לא נמצא תשלום מתאים לחשבונית — נפתחה משימה לטיפול ידני.'\n          : (matchedSomething\n             ? `${docTypeEarly} ${ev.invoiceNumber} נשמר ושויך לפי המזהים שבמסמך.`\n             : `${docTypeEarly} ${ev.invoiceNumber} נשמר בפיירברי בלי שיוך — נפתחה משימה לשיוך ידני.`),\n        accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n    }\n    const paymentId = S(txPayment.customobject1039id);\n    // תיעוד התשלום המתאים: העדכני ביותר שנפרע בהצלחה תחת אותו תשלום; אחרת האחרון.\n    const linked = docs.filter((x) => S(x.pcfPaymentCollection) === paymentId);\n    const paidDocs = linked.filter((x) => pickNum(x.pcfPaymetStatus, DS_LABELS) === 1)\n      .sort((a, b) => String(b.createdon || '').localeCompare(String(a.createdon || '')));\n    const docRec = paidDocs[0] || linked[linked.length - 1] || null;\n    if (!docRec) warnings.push('נמצא תשלום אך לא נמצא תיעוד תשלום מקושר — המסמך ייווצר בלי שיוך לתיעוד.');\n\n    const docType = docTypeEarly;\n    const body = {\n      name: cut(`${docType} - ${ev.invoiceNumber} - ${custLabel}`, 190),\n      // סוג המסמך בשדה ייעודי, לא רק בתוך השם — כדי שאפשר יהיה לסנן ולדווח לפיו\n      pcfDocumentType: cut(docType, 190),\n      pcfLinkToDocument: S(ev.invoiceUrl),\n      pcfCreatedByPersonOrSystem: 2,\n      pcfExternalSoftwareID1: ev.idemKeyBase,\n      pcfExternalSoftwareID2: 'GROW',\n    };\n    lookupOrOmit(body, 'pcfaccountid', accountid);\n    lookupOrOmit(body, 'pcfLinkedSale', saleid);\n    lookupOrOmit(body, 'pcfPaymentCollection', paymentId);\n    if (docRec) lookupOrOmit(body, 'pcfPaymentRecord', S(docRec.customobject1018id));\n    lookupOrOmit(body, 'ownerid', ownerid);\n\n    add({ ref: 'document', kind: 'create', object: '1038', label: 'יצירת מסמך (1038)', body });\n\n    // השלמת \"מספר מסמך\" על תיעוד התשלום\n    if (docRec) {\n      add({ ref: 'docNumber', kind: 'update', object: '1018',\n        recordId: S(docRec.customobject1018id), label: 'עדכון מספר מסמך בתיעוד התשלום',\n        body: { pcfInvoiceNumber1: S(ev.invoiceNumber) } });\n    }\n\n    decisions.push('ענף E — מסמך חשבונאי');\n    return [{ json: { ...ev, branch: 'INVOICE', ops, warnings, decisions,\n      summary: 'נוצרה רשומת מסמך ושויכה לתשלום ולתיעוד התשלום.',\n      accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n  }\n\n  // ============================ לא מזוהה ============================\n  taskOp('taskUnknown', 'וובהוק מגרואו שלא זוהה — נדרשת בדיקה',\n    `התקבל וובהוק מגרואו שלא תואם לאף אחד מהפורמטים המוכרים.\\n` +\n    `payload:\\n${JSON.stringify(ev._raw).slice(0, 3000)}\\nריצה: ${ev.executionUrl}`);\n  warnings.push('סוג הוובהוק לא זוהה — נפתחה משימת בדיקה עם ה-payload הגולמי.');\n  return [{ json: { ...ev, branch: 'UNKNOWN', ops, warnings, decisions,\n    summary: 'סוג הוובהוק לא זוהה. נפתחה משימה עם ה-payload המלא כדי שנוכל להשלים את הענף.',\n    accountid, accountName: custLabel, accountEmail, saleid, productName, productId, ownerid } }];\n}\n\n\n// ── הכרעת מצב ההרצה ──────────────────────────────────────────────────────\n// DRY_RUN גלובלי נשאר true, אבל חשבון שמופיע ברשימת הבדיקה המורשית רץ מלא.\n// ההכרעה נעשית כאן ולא בצומת הנירמול, כי לוובהוק החשבונית אין טלפון —\n// הזיהוי שלו אפשרי רק אחרי שנמצאה רשומת התשלום ומתוכה הלקוחה.\nfunction LOGIC(ctx) {\n  const out = PLAN_CORE(ctx);\n  const ev = ctx.ev;\n  const cfg = ev._cfg || {};\n  const j = out[0].json;\n  const up = (x) => String(x || '').toUpperCase();\n  const phones = cfg.LIVE_TEST_PHONES || [];\n  const accts = (cfg.LIVE_TEST_ACCOUNT_IDS || []).map(up);\n  const names = (cfg.LIVE_TEST_ACCOUNT_NAMES || []).map((x) => String(x || '').trim());\n  let live = (ev.phone && phones.indexOf(ev.phone) !== -1)\n          || (j.accountid && accts.indexOf(up(j.accountid)) !== -1)\n          // 🔴 התאמה לפי שם הלקוחה — שורדת מחיקה ויצירה מחדש של הרשומה,\n          //    ולכן היא הרשת שתופסת את וובהוק החשבונית שאין בו טלפון.\n          || (j.accountName && names.indexOf(String(j.accountName).trim()) !== -1);\n  // חשבונית יתומה — נפתחת משימה בפועל כדי שהמסמך לא ייעלם בשקט\n  if (!live && cfg.ALWAYS_LIVE_UNMATCHED_INVOICE && j.branch === 'INVOICE_NO_MATCH') {\n    live = true;\n    j.decisions.push('חשבונית שלא שויכה — נפתחת משימה בפועל (משימה בלבד, ללא רשומה כספית).');\n  }\n\n  j.liveTest = !!live;\n  j.DRY_RUN = cfg.DRY_RUN && !live;\n  j.decisions = j.decisions || [];\n  if (live) {\n    j.decisions.push('🔴 חשבון בדיקה מורשה — הריצה מתבצעת בפועל והרשומות ייווצרו בפיירברי.');\n  } else if (cfg.DRY_RUN) {\n    j.decisions.push('DRY_RUN — הלקוחה אינה ברשימת הבדיקה המורשית, לא נכתבה שום רשומה.');\n  }\n  return out;\n}\n\n// ==== N8N BINDING ====\nconst __ctx = {\n  ev: $('קריאת פרטי המסמך').first().json,\n  accountResp:      $('חיפוש לקוחה לפי טלפון (1)').first().json,\n  txPaymentResp:    $('חיפוש תשלום לפי מזהה עסקה (1039)').first().json,\n  saleResp:         $('חיפוש תהליך מכירה (4)').first().json,\n  openPaymentsResp: $('חיפוש תשלומים של הלקוחה (1039)').first().json,\n  docsResp:         $('חיפוש תיעודי תשלום (1018)').first().json,\n  productResp:      $('קטלוג המוצרים (14)').first().json,\n  existingDocResp:  $('מסמכים אחרונים (1038)').first().json,\n  refDocResp:       $('מסמך המקור לפי מספר (1038)').first().json,\n  refRecordResp:    $('תיעוד המקור לפי מספר מסמך (1018)').first().json,\n  // תווית סוג המסמך נקבעת ב-DOC_TYPE_BY_PREFIX שבבלוק ה-Config\n  docTypeLabel: '',\n};\nreturn LOGIC(__ctx);\n"
+   },
+   "id": "בניית תוכנית פעולה",
+   "name": "בניית תוכנית פעולה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1360,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose",
+      "version": 2
+     },
+     "conditions": [
+      {
+       "id": "dry",
+       "leftValue": "={{ $json.DRY_RUN }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ],
+     "combinator": "and"
+    },
+    "options": {}
+   },
+   "id": "מצב בדיקה (DRY_RUN)?",
+   "name": "מצב בדיקה (DRY_RUN)?",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    1580,
+    300
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ { success: true, dryRun: true, note: \"DRY_RUN=true — לא נכתבה שום רשומה לפיירברי. זו תצוגה מקדימה של כל הפעולות שהיו מתבצעות.\", branch: $json.branch, eventType: $json.eventType, routing: { webhookKey: $json.webhookKey, matched: $json.webhookKeyLabel, classifiedBy: $json.classifiedBy }, summary: $json.summary, decisions: $json.decisions, warnings: $json.warnings, account: { id: $json.accountid, name: $json.accountName }, saleid: $json.saleid, product: $json.productName, amounts: { gross: $json.grossTotal, net: $json.netTotal, installments: $json.installmentsTotal }, plannedOperations: $json.ops, executionUrl: $json.executionUrl } }}",
+    "options": {
+     "responseCode": 200
+    }
+   },
+   "id": "תגובה · תצוגה מקדימה",
+   "name": "תגובה · תצוגה מקדימה",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    1800,
+    180
+   ]
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · צומת 9 — פירוק תוכנית הפעולה לשלושה גלי ביצוע\n// ============================================================================\n// גל 1: רשומת האב (התשלום) — כולם מפנים אליה.\n// גל 2: כל מה שמפנה לאב או לא מפנה לכלום (תיעודי תשלום, מסמך, משימה, הערות).\n// גל 3: כל מה שמפנה לרשומה שנוצרה בגל 2 (הערות על תיעודי תשלום).\n// אין לולאה — שלושה שלבים ליניאריים מספיקים לכל הענפים.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const base = plan._cfg.FIREBERRY_BASE;\n  const ops = Array.isArray(plan.ops) ? plan.ops : [];\n\n  const NOOP = {\n    _noop: true,\n    method: 'POST',\n    url: `${base}/api/v3/query`,\n    body: { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 },\n    label: 'ללא פעולת אב — קריאת קריאה-בלבד לשמירת רציפות',\n    ref: '_noop',\n  };\n\n  // 🔒 מנעול בטיחות שני: תוכנית שאינה מסומנת לכתיבה לא מייצרת שום קריאת כתיבה.\n  if (plan.DRY_RUN !== false) {\n    return [{ json: Object.assign({}, NOOP, { _childOps: [], _wave3Ops: [], _blocked: true,\n      label: '🔒 נחסם — התוכנית אינה מסומנת לכתיבה בפועל' }) }];\n  }\n\n  const refsIn = (op) => {\n    const out = [];\n    const walk = (v) => {\n      if (typeof v === 'string' && v.charAt(0) === '@') out.push(v.slice(1));\n      else if (Array.isArray(v)) v.forEach(walk);\n      else if (v && typeof v === 'object') Object.keys(v).forEach((k) => walk(v[k]));\n    };\n    walk(op.body);\n    // הפניה במזהה הרשומה של פעולת עדכון (למשל: עדכון שדה ברשומת האב שנוצרה זה עתה)\n    if (op.recordIdRef) out.push(String(op.recordIdRef).replace(/^@/, ''));\n    return out;\n  };\n\n  const referenced = new Set();\n  ops.forEach((o) => refsIn(o).forEach((r) => referenced.add(r)));\n\n  const parentOp = ops.find((o) => referenced.has(o.ref)) || null;\n  const parentRef = parentOp ? parentOp.ref : null;\n\n  const rest = ops.filter((o) => !parentRef || o.ref !== parentRef);\n  const wave2 = rest.filter((o) => refsIn(o).every((r) => r === parentRef));\n  const wave3 = rest.filter((o) => refsIn(o).some((r) => r !== parentRef));\n\n  function toRequest(op) {\n    // פעולת אב לעולם אינה תלויה בהפניה, ולכן recordIdRef אינו רלוונטי כאן.\n    const url = op.kind === 'update'\n      ? `${base}/api/record/${op.object}/${op.recordId}`\n      : `${base}/api/record/${op.object}`;\n    return {\n      _noop: false, ref: op.ref, label: op.label, object: op.object,\n      kind: op.kind, recordId: op.recordId || '',\n      method: op.kind === 'update' ? 'PUT' : 'POST',\n      url, body: op.body,\n    };\n  }\n\n  const parentReq = parentOp ? toRequest(parentOp) : NOOP;\n\n  return [{\n    json: Object.assign({}, parentReq, {\n      _childOps: wave2,\n      _wave3Ops: wave3,\n      _planRef: { branch: plan.branch, summary: plan.summary },\n    }),\n  }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({ plan: $('בניית תוכנית פעולה').first().json });\n"
+   },
+   "id": "הפרדת פעולת האב",
+   "name": "הפרדת פעולת האב",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    1800,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.method }}",
+    "url": "={{ $json.url }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.body) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "יצירת רשומת האב בפיירברי",
+   "name": "יצירת רשומת האב בפיירברי",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2020,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "🔴 דלוק. כותב לפיירברי רק כשהתוכנית מסומנת liveTest (LIVE_TEST_PHONES / LIVE_TEST_ACCOUNT_IDS)."
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "https://api.fireberry.com/api/v3/query",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify({ objectType: Number(($('הפרדת פעולת האב').first().json.object) || 1039), fields: [{name: ({\"1\":\"accountid\",\"2\":\"contactid\",\"4\":\"opportunityid\",\"6\":\"activityid\",\"10\":\"taskid\",\"14\":\"productid\"}[String(($('הפרדת פעולת האב').first().json.object) || 1039)] || (\"customobject\" + (($('הפרדת פעולת האב').first().json.object) || 1039) + \"id\"))},{name:\"name\"},{name:\"pcfExternalSoftwareID1\"},{name:\"createdon\"}], filter: [{ type: \"and\", conditions: [{fieldName:\"pcfExternalSoftwareID1\", operator:\"eq\", value: ((($('הפרדת פעולת האב').first().json.body || {}).pcfExternalSoftwareID1) || \"___none___\")}]}], orderBy: [{name:\"createdon\", order:\"desc\"}], pageSize: 5, pageNumber: 1 }) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000
+    }
+   },
+   "id": "אימות יצירת האב (400 שנכתב)",
+   "name": "אימות יצירת האב (400 שנכתב)",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2130,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   }
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · צומת 11 — חילוץ מזהה רשומת האב ובניית פעולות גל 2\n// ============================================================================\n// מבנה התשובה של POST /api/record/{objectType} אינו מתועד באופן יציב —\n// לכן חילוץ המזהה עובר כמה נתיבים אפשריים, ובנפילה מוחלטת ההפניה מושמטת\n// והרשומה התלויה לא נוצרת יתומה.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\n// 🔴 14/09/2026 — לא לכל אובייקט בפיירברי המזהה נקרא customobject{N}id.\n// לאובייקטי הליבה יש שם משלהם. חוסר המיפוי הזה גרם לכך שיצירת **תהליך\n// מכירה** כרשומת אב \"הצליחה\" אבל המזהה לא חולץ: הרשומות התלויות נוצרו\n// בלי שיוך, תיעוד התשלום לא נוצר כלל, והתהליך המקצועי לא הופעל.\nconst ID_FIELD_BY_OBJECT = {\n  '1': 'accountid', '2': 'contactid', '4': 'opportunityid', '6': 'activityid',\n  '9': 'systemuserid', '10': 'taskid', '13': 'salesorderid', '14': 'productid',\n  'note': 'noteid',\n};\nfunction idKeysFor(object) {\n  const o = String(object);\n  const keys = [];\n  if (ID_FIELD_BY_OBJECT[o]) keys.push(ID_FIELD_BY_OBJECT[o]);\n  keys.push('customobject' + o + 'id');\n  return keys;\n}\n\nfunction extractRecordId(resp, object) {\n  if (!resp || typeof resp !== 'object') return '';\n  const keys = idKeysFor(object);\n  const cands = [];\n  for (let i = 0; i < keys.length; i++) {\n    const k = keys[i];\n    cands.push(\n      resp[k],\n      resp.data && resp.data[k],\n      resp.Record && resp.Record[k],\n      resp.data && resp.data.Record && resp.data.Record[k],\n      resp.data && resp.data.Data && resp.data.Data[0] && resp.data.Data[0][k]\n    );\n  }\n  cands.push(\n    resp.id, resp._id, resp.noteid,\n    resp.data && resp.data.id, resp.data && resp.data._id,\n    resp.data && resp.data.Record && resp.data.Record.noteid\n  );\n  for (const c of cands) {\n    const v = (c === undefined || c === null) ? '' : String(c).trim();\n    if (v && /^[0-9a-fA-F-]{30,}$/.test(v)) return v;\n  }\n  return '';\n}\n\nfunction resolveRefs(value, refs) {\n  if (typeof value === 'string' && value.charAt(0) === '@') {\n    const key = value.slice(1);\n    return refs[key] !== undefined ? refs[key] : '';\n  }\n  if (Array.isArray(value)) return value.map((v) => resolveRefs(v, refs));\n  if (value && typeof value === 'object') {\n    const out = {};\n    for (const k of Object.keys(value)) {\n      const rv = resolveRefs(value[k], refs);\n      // לא כותבים הפניה ריקה — פיירברי מחזיר 403 על שדה מזהה שאינו GUID\n      if (rv === '' && typeof value[k] === 'string' && value[k].charAt(0) === '@') continue;\n      out[k] = rv;\n    }\n    return out;\n  }\n  return value;\n}\n\nfunction buildRequest(op, refs, base) {\n  // 🔴 פעולת עדכון יכולה לכוון לרשומה שנוצרה בגל קודם (recordIdRef).\n  //    אם ההפניה לא נפתרה — אסור לשלוח PUT לכתובת בלי מזהה; הפעולה מושתקת.\n  const rid = op.recordIdRef ? String(refs[String(op.recordIdRef).replace(/^@/, '')] || '') : String(op.recordId || '');\n  if (op.kind === 'update' && !rid) {\n    return {\n      _noop: true, ref: op.ref, label: `${op.label} — דולג (מזהה הרשומה לא נפתר)`,\n      object: op.object, kind: op.kind, recordId: '',\n      method: 'POST', url: `${base}/api/v3/query`,\n      body: { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 },\n    };\n  }\n  const url = op.kind === 'update'\n    ? `${base}/api/record/${op.object}/${rid}`\n    : `${base}/api/record/${op.object}`;\n  return {\n    _noop: false, ref: op.ref, label: op.label, object: op.object,\n    kind: op.kind, recordId: rid,\n    method: op.kind === 'update' ? 'PUT' : 'POST',\n    url, body: resolveRefs(op.body, refs),\n  };\n}\n\nfunction LOGIC(ctx) {\n  const parent = ctx.parent;\n  const createResp = ctx.createResp;\n  const plan = ctx.plan;\n  const base = plan._cfg.FIREBERRY_BASE;\n\n  const NOOP = {\n    _noop: true, ref: '_noop', label: 'אין פעולות בגל זה',\n    method: 'POST', url: `${base}/api/v3/query`,\n    body: { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 },\n  };\n\n  if (parent._blocked || plan.DRY_RUN !== false) {\n    return [{ json: Object.assign({}, NOOP, { _blocked: true, _wave3Ops: [],\n      label: '🔒 נחסם — התוכנית אינה מסומנת לכתיבה בפועל' }) }];\n  }\n\n  let parentId = parent._noop ? '' : extractRecordId(createResp, parent.object);\n  let parentRecovered = false;\n\n  // 🔴 ממצא 19/08 — פיירברי עלול להחזיר HTTP 400 ולכתוב את הרשומה בכל זאת.\n  // לכן כשחילוץ המזהה נכשל, בודקים בשאילתת האימות אם הרשומה בכל זאת נוצרה.\n  if (!parent._noop && !parentId) {\n    if (parent.kind === 'update' && parent.recordId) {\n      parentId = String(parent.recordId);\n    } else {\n      const rows = (ctx.verifyResp && Array.isArray(ctx.verifyResp.data)) ? ctx.verifyResp.data : [];\n      const key = `customobject${parent.object}id`;\n      const hit = rows.find((r) => r && r[key]);\n      if (hit) { parentId = String(hit[key]); parentRecovered = true; }\n    }\n  }\n\n  const parentFailed = !parent._noop && !parentId;\n  const refs = {};\n  if (parent.ref) refs[parent.ref] = parentId;\n\n  const childOps = Array.isArray(parent._childOps) ? parent._childOps : [];\n  const wave3 = Array.isArray(parent._wave3Ops) ? parent._wave3Ops : [];\n  const extra = { _parentId: parentId, _parentFailed: parentFailed, _parentRecovered: parentRecovered, _wave3Ops: wave3 };\n\n  if (childOps.length === 0) return [{ json: Object.assign({}, NOOP, extra) }];\n  return childOps.map((op) => ({ json: Object.assign(buildRequest(op, refs, base), extra) }));\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  parent: $('הפרדת פעולת האב').first().json,\n  createResp: $('יצירת רשומת האב בפיירברי').first().json,\n  verifyResp: $input.first().json,\n  plan: $('בניית תוכנית פעולה').first().json,\n});\n"
+   },
+   "id": "בניית פעולות הבנים",
+   "name": "בניית פעולות הבנים",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    2240,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.method }}",
+    "url": "={{ $json.url }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.body) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000,
+     "batching": {
+      "batch": {
+       "batchSize": 1,
+       "batchInterval": 300
+      }
+     }
+    }
+   },
+   "id": "ביצוע פעולות בפיירברי",
+   "name": "ביצוע פעולות בפיירברי",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2460,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "🔴 דלוק. כותב לפיירברי רק כשהתוכנית מסומנת liveTest (LIVE_TEST_PHONES / LIVE_TEST_ACCOUNT_IDS)."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · צומת 13 — בניית פעולות גל 3\n// ============================================================================\n// פעולות שתלויות ברשומות שנוצרו בגל 2 (הערות על תיעודי תשלום).\n// ההצמדה בין בקשה לתשובה נעשית לפי סדר הפריטים — צומת ה-HTTP של n8n\n// מחזיר פריט אחד לכל פריט נכנס, באותו סדר.\n// ============================================================================\n\n// ==== LOGIC (pure) ====\n// 🔴 14/09/2026 — לא לכל אובייקט בפיירברי המזהה נקרא customobject{N}id.\n// לאובייקטי הליבה יש שם משלהם. חוסר המיפוי הזה גרם לכך שיצירת **תהליך\n// מכירה** כרשומת אב \"הצליחה\" אבל המזהה לא חולץ: הרשומות התלויות נוצרו\n// בלי שיוך, תיעוד התשלום לא נוצר כלל, והתהליך המקצועי לא הופעל.\nconst ID_FIELD_BY_OBJECT = {\n  '1': 'accountid', '2': 'contactid', '4': 'opportunityid', '6': 'activityid',\n  '9': 'systemuserid', '10': 'taskid', '13': 'salesorderid', '14': 'productid',\n  'note': 'noteid',\n};\nfunction idKeysFor(object) {\n  const o = String(object);\n  const keys = [];\n  if (ID_FIELD_BY_OBJECT[o]) keys.push(ID_FIELD_BY_OBJECT[o]);\n  keys.push('customobject' + o + 'id');\n  return keys;\n}\n\nfunction extractRecordId(resp, object) {\n  if (!resp || typeof resp !== 'object') return '';\n  const keys = idKeysFor(object);\n  const cands = [];\n  for (let i = 0; i < keys.length; i++) {\n    const k = keys[i];\n    cands.push(\n      resp[k],\n      resp.data && resp.data[k],\n      resp.Record && resp.Record[k],\n      resp.data && resp.data.Record && resp.data.Record[k],\n      resp.data && resp.data.Data && resp.data.Data[0] && resp.data.Data[0][k]\n    );\n  }\n  cands.push(\n    resp.id, resp._id, resp.noteid,\n    resp.data && resp.data.id, resp.data && resp.data._id,\n    resp.data && resp.data.Record && resp.data.Record.noteid\n  );\n  for (const c of cands) {\n    const v = (c === undefined || c === null) ? '' : String(c).trim();\n    if (v && /^[0-9a-fA-F-]{30,}$/.test(v)) return v;\n  }\n  return '';\n}\n\nfunction resolveRefs(value, refs) {\n  if (typeof value === 'string' && value.charAt(0) === '@') {\n    const key = value.slice(1);\n    return refs[key] !== undefined ? refs[key] : '';\n  }\n  if (Array.isArray(value)) return value.map((v) => resolveRefs(v, refs));\n  if (value && typeof value === 'object') {\n    const out = {};\n    for (const k of Object.keys(value)) {\n      const rv = resolveRefs(value[k], refs);\n      if (rv === '' && typeof value[k] === 'string' && value[k].charAt(0) === '@') continue;\n      out[k] = rv;\n    }\n    return out;\n  }\n  return value;\n}\n\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const base = plan._cfg.FIREBERRY_BASE;\n  const reqs = ctx.childReqs || [];\n  const resps = ctx.childResps || [];\n\n  const NOOP = {\n    _noop: true, ref: '_noop', label: 'אין פעולות בגל 3',\n    method: 'POST', url: `${base}/api/v3/query`,\n    body: { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 },\n  };\n\n  if (plan.DRY_RUN !== false) return [{ json: Object.assign({}, NOOP, { _blocked: true }) }];\n\n  const refs = {};\n  reqs.forEach((r, i) => {\n    if (!r || r._noop || !r.ref) return;\n    refs[r.ref] = r.kind === 'update' ? r.recordId : extractRecordId(resps[i], r.object);\n  });\n  // ההפניה לרשומת האב עדיין נחוצה גם בגל 3\n  const parentId = (reqs[0] && reqs[0]._parentId) || '';\n  const parentRef = ctx.parentRef;\n  if (parentRef && parentId) refs[parentRef] = parentId;\n\n  const ops = (reqs[0] && reqs[0]._wave3Ops) || [];\n  if (!ops.length) return [{ json: NOOP }];\n\n  return ops.map((op) => {\n    const rid = op.recordIdRef\n      ? String(refs[String(op.recordIdRef).replace(/^@/, '')] || '')\n      : String(op.recordId || '');\n    const url = op.kind === 'update'\n      ? `${base}/api/record/${op.object}/${rid}`\n      : `${base}/api/record/${op.object}`;\n    const body = resolveRefs(op.body, refs);\n    // 🔴 14/09/2026 — הבדיקה `!body.objectid` נכונה **רק להערה**: הערה בלי\n    //    רשומת יעד היא חסרת ערך. אבל היא הוחלה על *כל* יצירה בגל 3, ולכן\n    //    \"תיעוד תשלום\" (1018) — שאין לו objectid כלל, הקישורים שלו הם\n    //    pcfPaymentCollection/pcfSale — דולג **תמיד** כשהוא נפל לגל 3.\n    //    זה קרה בכל רכישה שבה רשומת האב היא תהליך מכירה חדש: התשלום נרשם,\n    //    אבל תיעוד התשלום לא נוצר בכלל. אם קישור לא נפתר — הרשומה נוצרת\n    //    בכל זאת (עדיף רשומה לא משויכת על פני כסף שלא נרשם).\n    const needsObjectId = String(op.object) === 'note';\n    const missing = op.kind === 'update' ? !rid : (needsObjectId && !body.objectid);\n    return { json: {\n      _noop: !!missing, ref: op.ref, label: op.label + (missing ? ' (דולג — לא נמצא מזהה יעד)' : ''),\n      object: op.object, kind: op.kind, recordId: rid,\n      method: missing ? 'POST' : (op.kind === 'update' ? 'PUT' : 'POST'),\n      url: missing ? NOOP.url : url,\n      body: missing ? NOOP.body : body,\n    } };\n  });\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  plan: $('בניית תוכנית פעולה').first().json,\n  parentRef: $('הפרדת פעולת האב').first().json.ref,\n  childReqs: $('בניית פעולות הבנים').all().map((i) => i.json),\n  childResps: $input.all().map((i) => i.json),\n});\n"
+   },
+   "id": "בניית פעולות גל 3",
+   "name": "בניית פעולות גל 3",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    2680,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "={{ $json.method }}",
+    "url": "={{ $json.url }}",
+    "authentication": "genericCredentialType",
+    "genericAuthType": "httpHeaderAuth",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.body) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 30000,
+     "batching": {
+      "batch": {
+       "batchSize": 1,
+       "batchInterval": 300
+      }
+     }
+    }
+   },
+   "id": "ביצוע פעולות גל 3",
+   "name": "ביצוע פעולות גל 3",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    2900,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "גל 3 — הערות על רשומות שנוצרו בגל 2."
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · צומת 15 — סיכום הריצה (שלושת הגלים)\n// ============================================================================\n\n// ==== LOGIC (pure) ====\n// 🔴 14/09/2026 — לא לכל אובייקט בפיירברי המזהה נקרא customobject{N}id.\n// לאובייקטי הליבה יש שם משלהם. חוסר המיפוי הזה גרם לכך שיצירת **תהליך\n// מכירה** כרשומת אב \"הצליחה\" אבל המזהה לא חולץ: הרשומות התלויות נוצרו\n// בלי שיוך, תיעוד התשלום לא נוצר כלל, והתהליך המקצועי לא הופעל.\nconst ID_FIELD_BY_OBJECT = {\n  '1': 'accountid', '2': 'contactid', '4': 'opportunityid', '6': 'activityid',\n  '9': 'systemuserid', '10': 'taskid', '13': 'salesorderid', '14': 'productid',\n  'note': 'noteid',\n};\nfunction idKeysFor(object) {\n  const o = String(object);\n  const keys = [];\n  if (ID_FIELD_BY_OBJECT[o]) keys.push(ID_FIELD_BY_OBJECT[o]);\n  keys.push('customobject' + o + 'id');\n  return keys;\n}\n\nfunction extractRecordId(resp, object) {\n  if (!resp || typeof resp !== 'object') return '';\n  const keys = idKeysFor(object);\n  const cands = [];\n  for (let i = 0; i < keys.length; i++) {\n    const k = keys[i];\n    cands.push(\n      resp[k],\n      resp.data && resp.data[k],\n      resp.Record && resp.Record[k],\n      resp.data && resp.data.Record && resp.data.Record[k],\n      resp.data && resp.data.Data && resp.data.Data[0] && resp.data.Data[0][k]\n    );\n  }\n  cands.push(\n    resp.id, resp._id, resp.noteid,\n    resp.data && resp.data.id, resp.data && resp.data._id,\n    resp.data && resp.data.Record && resp.data.Record.noteid\n  );\n  for (const c of cands) {\n    const v = (c === undefined || c === null) ? '' : String(c).trim();\n    if (v && /^[0-9a-fA-F-]{30,}$/.test(v)) return v;\n  }\n  return '';\n}\n\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const parent = ctx.parent;\n\n  const looksLikeError = (r) => {\n    if (!r || typeof r !== 'object') return true;\n    if (r.success === false) return true;\n    if (r.Message || r.message) return true;\n    if (r.error) return true;\n    return false;\n  };\n\n  const results = [];\n  if (!parent._noop && !parent._blocked) {\n    results.push({\n      wave: 1, ref: parent.ref, label: parent.label, object: parent.object, kind: parent.kind,\n      // 🔴 אם הרשומה שוחזרה בשאילתת האימות — הפעולה הצליחה בפועל אף שקוד התשובה היה שגיאה.\n      ok: ctx.parentRecovered ? true : !looksLikeError(ctx.parentResp),\n      recovered: !!ctx.parentRecovered,\n      recordId: ctx.parentId || '', response: ctx.parentResp,\n    });\n  }\n  const pair = (reqs, resps, wave) => {\n    (reqs || []).forEach((req, i) => {\n      if (!req || req._noop || req._blocked) return;\n      results.push({\n        wave, ref: req.ref, label: req.label, object: req.object, kind: req.kind,\n        ok: !looksLikeError(resps[i]), recordId: req.recordId || '', response: resps[i],\n      });\n    });\n  };\n  pair(ctx.childReqs, ctx.childResps, 2);\n  pair(ctx.wave3Reqs, ctx.wave3Resps, 3);\n\n  const failed = results.filter((r) => !r.ok);\n  const parentFailed = (ctx.childReqs || []).some((r) => r && r._parentFailed);\n\n  // ---------- תיקון שורש 14/09/2026 — פתרון @ref לפני החזרה החוצה ----------\n  // 🔴 plan.accountid/plan.saleid יכולים להיות מחרוזת-הפניה גולמית (\"@newAccount\")\n  // כשהחשבון/העסקה נוצרו רק בריצה הזו (למשל תיקון \"לקוחה חדשה\" 14/09). מפת\n  // ה-refs שנבנתה בתוך צמתי הגלים היא ארעית ולא זמינה כאן — לכן בונים אותה\n  // מחדש מהתוצאות שכבר נאספו למעלה (results), בדיוק כמו ב\"בניית פעולות גל 3\".\n  const refsMap = {};\n  if (parent.ref) refsMap[parent.ref] = ctx.parentId || '';\n  (ctx.childReqs || []).forEach((r, i) => {\n    if (!r || r._noop || !r.ref) return;\n    refsMap[r.ref] = r.kind === 'update' ? (r.recordId || '') : extractRecordId((ctx.childResps || [])[i], r.object);\n  });\n  (ctx.wave3Reqs || []).forEach((r, i) => {\n    if (!r || r._noop || !r.ref) return;\n    refsMap[r.ref] = r.kind === 'update' ? (r.recordId || '') : extractRecordId((ctx.wave3Resps || [])[i], r.object);\n  });\n  const resolveMaybeRef = (val) => {\n    if (typeof val === 'string' && val.charAt(0) === '@') {\n      const key = val.slice(1);\n      return refsMap[key] !== undefined ? refsMap[key] : '';\n    }\n    return val;\n  };\n  const resolvedAccountId = resolveMaybeRef(plan.accountid);\n  const resolvedSaleId = resolveMaybeRef(plan.saleid);\n  // ---------------------------------------------------------------------\n\n  return [{\n    json: {\n      success: failed.length === 0 && !parentFailed,\n      dryRun: false,\n      liveTest: plan.liveTest,\n      branch: plan.branch,\n      summary: plan.summary,\n      decisions: plan.decisions,\n      warnings: plan.warnings,\n      eventType: plan.eventType,\n      routing: { webhookKey: plan.webhookKey, matched: plan.webhookKeyLabel, classifiedBy: plan.classifiedBy },\n      account: { id: resolvedAccountId, name: plan.accountName },\n      saleid: resolvedSaleId,\n      product: plan.productName,\n      coupon: plan.couponDiscount > 0\n        ? { code: plan.couponCode, discount: plan.couponDiscount, source: plan.couponSource, listPrice: plan.listedTotal }\n        : null,\n      transactionId: plan.transactionId,\n      asmachta: plan.asmachta,\n      operations: results,\n      failedCount: failed.length,\n      parentIdMissing: !!parentFailed,\n      parentRecovered: !!ctx.parentRecovered,\n      nextWorkflowUrl: plan.nextWorkflowUrl || '',\n      executionUrl: plan.executionUrl,\n    },\n  }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  plan: $('בניית תוכנית פעולה').first().json,\n  parent: $('הפרדת פעולת האב').first().json,\n  parentResp: $('יצירת רשומת האב בפיירברי').first().json,\n  parentId: ($('בניית פעולות הבנים').first().json || {})._parentId || '',\n  parentRecovered: !!($('בניית פעולות הבנים').first().json || {})._parentRecovered,\n  childReqs: $('בניית פעולות הבנים').all().map((i) => i.json),\n  childResps: $('ביצוע פעולות בפיירברי').all().map((i) => i.json),\n  wave3Reqs: $('בניית פעולות גל 3').all().map((i) => i.json),\n  wave3Resps: $input.all().map((i) => i.json),\n});\n"
+   },
+   "id": "סיכום הריצה",
+   "name": "סיכום הריצה",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    3120,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "jsCode": "// ============================================================================\n// WF-20 · צומת 17 — הפעלת התהליך המקצועי (WF-22) בסיום תשלום מוצלח\n// ============================================================================\n// ההפרדה מכוונת: התשלום והצד המקצועי הם שני תהליכים נפרדים לגמרי, שמדברים\n// דרך וובהוק. כך אפשר יהיה בעתיד להפעיל את הצד המקצועי מטריגר אחר לגמרי.\n//\n// נורה רק על **רכישה חדשה** ועל **הקמת הוראת קבע** — לא על חיובי המשך,\n// לא על מסמכים חשבונאיים ולא על מסירות חוזרות.\n//\n// 🔴 תיקון שורש 14/09/2026: accountid/saleid נקראים מ-sum (הפלט המפוענח של\n// \"סיכום הריצה\") ולא מ-plan הגולמי. plan.accountid/plan.saleid יכולים להיות\n// מחרוזת-הפניה (\"@newAccount\"/\"@newSale\") כשהחשבון/העסקה נוצרו רק בריצה הזו\n// (למשל לקוחה חדשה לגמרי) — \"סיכום הריצה\" כבר פותר את זה למזהה אמיתי לפני\n// שהוא מגיע לכאן. שימוש ב-plan הגולמי כאן היה שולח \"@newAccount\" מילולית\n// ל-WF-22, ומפיל בשקט את כל שרשרת התהליך המקצועי (קלאודצ'אט/וואטסאפ/ליווי).\n// ============================================================================\n\n// ==== LOGIC (pure) ====\nconst PRO_BRANCHES = ['NEW_PURCHASE', 'STANDING_ORDER_SETUP', 'STANDING_ORDER_BACKOFFICE'];\n\nfunction LOGIC(ctx) {\n  const plan = ctx.plan;\n  const sum = ctx.summary || {};\n  const cfg = plan._cfg;\n  const url = String(cfg.PRODUCT_SETUP_WEBHOOK_URL || '').trim();\n  const IDLE = `${cfg.FIREBERRY_BASE}/api/v3/query`;\n  const idleBody = { objectType: 1039, fields: [{ name: 'customobject1039id' }], pageSize: 1, pageNumber: 1 };\n\n  const skip = (why) => [{ json: Object.assign({}, sum, {\n    proHook: { fired: false, reason: why }, proUrl: IDLE, proBody: idleBody,\n  }) }];\n\n  const accountId = (sum.account && sum.account.id) || '';\n  const saleId = sum.saleid || '';\n\n  if (!url) return skip('לא הוגדרה כתובת לתהליך המקצועי (PRODUCT_SETUP_WEBHOOK_URL ריק)');\n  if (plan.DRY_RUN !== false) return skip('DRY_RUN — התהליך המקצועי לא הופעל');\n  if (PRO_BRANCHES.indexOf(plan.branch) === -1) return skip(`ענף ${plan.branch} אינו רכישה חדשה`);\n  if (sum.success === false) return skip('התשלום לא נקלט במלואו — התהליך המקצועי לא הופעל');\n  if (!accountId) return skip('אין לקוחה משויכת');\n\n  return [{ json: Object.assign({}, sum, {\n    proHook: { fired: true, reason: '' },\n    proUrl: url,\n    proBody: {\n      accountid: accountId,\n      accountName: plan.accountName,\n      phone: plan.phone,\n      email: plan.accountEmail || '',\n      saleid: saleId,\n      productId: plan.productId,\n      productName: plan.productName,\n      grossTotal: plan.grossTotal,\n      asmachta: plan.asmachta,\n      transactionId: plan.transactionId,\n      purchaseDate: plan.paymentDateISO,\n      paymentBranch: plan.branch,\n      executionUrl: plan.executionUrl,\n    },\n  }) }];\n}\n\n// ==== N8N BINDING ====\nreturn LOGIC({\n  plan: $('בניית תוכנית פעולה').first().json,\n  summary: $input.first().json,\n});\n"
+   },
+   "id": "הפעלת התהליך המקצועי",
+   "name": "הפעלת התהליך המקצועי",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    3340,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "method": "POST",
+    "url": "={{ $json.proUrl }}",
+    "sendHeaders": true,
+    "headerParameters": {
+     "parameters": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "sendBody": true,
+    "specifyBody": "json",
+    "jsonBody": "={{ JSON.stringify($json.proBody) }}",
+    "options": {
+     "response": {
+      "response": {
+       "neverError": true
+      }
+     },
+     "timeout": 120000
+    }
+   },
+   "id": "קריאה ל-WF-22",
+   "name": "קריאה ל-WF-22",
+   "type": "n8n-nodes-base.httpRequest",
+   "typeVersion": 4.2,
+   "position": [
+    3560,
+    420
+   ],
+   "credentials": {
+    "httpHeaderAuth": {
+     "id": "BrhjRlBnrstIab7d",
+     "name": "Revital Yaish new CRM"
+    }
+   },
+   "notes": "מפעיל את WF-22 — הראוטר של התהליכים המקצועיים. נורה רק על רכישה חדשה."
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ Object.assign({}, $('סיכום הריצה').first().json, { professionalProcess: Object.assign({}, $('הפעלת התהליך המקצועי').first().json.proHook, { result: $json }) }) }}",
+    "options": {
+     "responseCode": 200
+    }
+   },
+   "id": "תגובה · סיכום",
+   "name": "תגובה · סיכום",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    3780,
+    420
+   ]
+  }
+ ],
+ "connections": {
+  "Webhook · GROW": {
+   "main": [
+    [
+     {
+      "node": "נירמול וסיווג",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "נירמול וסיווג": {
+   "main": [
+    [
+     {
+      "node": "מסמך עם קובץ?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מסמך עם קובץ?": {
+   "main": [
+    [
+     {
+      "node": "הורדת המסמך (PDF)",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "קריאת פרטי המסמך",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קריאת פרטי המסמך": {
+   "main": [
+    [
+     {
+      "node": "מסמך? המתנה לסנכרון",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מסמך? המתנה לסנכרון": {
+   "main": [
+    [
+     {
+      "node": "המתנה לסנכרון גרואו",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "חיפוש לקוחה לפי טלפון (1)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "חיפוש לקוחה לפי טלפון (1)": {
+   "main": [
+    [
+     {
+      "node": "חיפוש תשלום לפי מזהה עסקה (1039)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "חיפוש תשלום לפי מזהה עסקה (1039)": {
+   "main": [
+    [
+     {
+      "node": "מסמכים אחרונים (1038)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מסמכים אחרונים (1038)": {
+   "main": [
+    [
+     {
+      "node": "מסמך המקור לפי מספר (1038)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מסמך המקור לפי מספר (1038)": {
+   "main": [
+    [
+     {
+      "node": "תיעוד המקור לפי מספר מסמך (1018)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "תיעוד המקור לפי מספר מסמך (1018)": {
+   "main": [
+    [
+     {
+      "node": "חיפוש תהליך מכירה (4)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "חיפוש תהליך מכירה (4)": {
+   "main": [
+    [
+     {
+      "node": "חיפוש תשלומים של הלקוחה (1039)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "חיפוש תשלומים של הלקוחה (1039)": {
+   "main": [
+    [
+     {
+      "node": "חיפוש תיעודי תשלום (1018)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "חיפוש תיעודי תשלום (1018)": {
+   "main": [
+    [
+     {
+      "node": "קטלוג המוצרים (14)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קטלוג המוצרים (14)": {
+   "main": [
+    [
+     {
+      "node": "בניית תוכנית פעולה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בניית תוכנית פעולה": {
+   "main": [
+    [
+     {
+      "node": "מצב בדיקה (DRY_RUN)?",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הורדת המסמך (PDF)": {
+   "main": [
+    [
+     {
+      "node": "חילוץ טקסט מהמסמך",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "חילוץ טקסט מהמסמך": {
+   "main": [
+    [
+     {
+      "node": "קריאת פרטי המסמך",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "המתנה לסנכרון גרואו": {
+   "main": [
+    [
+     {
+      "node": "חיפוש לקוחה לפי טלפון (1)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "מצב בדיקה (DRY_RUN)?": {
+   "main": [
+    [
+     {
+      "node": "תגובה · תצוגה מקדימה",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "הפרדת פעולת האב",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הפרדת פעולת האב": {
+   "main": [
+    [
+     {
+      "node": "יצירת רשומת האב בפיירברי",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "יצירת רשומת האב בפיירברי": {
+   "main": [
+    [
+     {
+      "node": "אימות יצירת האב (400 שנכתב)",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "אימות יצירת האב (400 שנכתב)": {
+   "main": [
+    [
+     {
+      "node": "בניית פעולות הבנים",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בניית פעולות הבנים": {
+   "main": [
+    [
+     {
+      "node": "ביצוע פעולות בפיירברי",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ביצוע פעולות בפיירברי": {
+   "main": [
+    [
+     {
+      "node": "בניית פעולות גל 3",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "בניית פעולות גל 3": {
+   "main": [
+    [
+     {
+      "node": "ביצוע פעולות גל 3",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ביצוע פעולות גל 3": {
+   "main": [
+    [
+     {
+      "node": "סיכום הריצה",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "סיכום הריצה": {
+   "main": [
+    [
+     {
+      "node": "הפעלת התהליך המקצועי",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "הפעלת התהליך המקצועי": {
+   "main": [
+    [
+     {
+      "node": "קריאה ל-WF-22",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "קריאה ל-WF-22": {
+   "main": [
+    [
+     {
+      "node": "תגובה · סיכום",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1",
+  "timezone": "Asia/Jerusalem",
+  "saveManualExecutions": true,
+  "saveDataErrorExecution": "all",
+  "saveDataSuccessExecution": "all"
+ },
+ "staticData": null,
+ "meta": null,
+ "pinData": {},
+ "versionId": "302c4e8c-91c2-4572-b479-d697af477188",
+ "triggerCount": 1,
+ "shared": [
+  {
+   "createdAt": "2026-08-19T10:59:07.172Z",
+   "updatedAt": "2026-08-19T10:59:07.172Z",
+   "role": "workflow:owner",
+   "workflowId": "p1AfsAeXcrlhtiNk",
+   "projectId": "8n5t87og6JZ0AXPr",
+   "project": {
+    "createdAt": "2025-08-18T16:54:33.537Z",
+    "updatedAt": "2025-08-18T17:04:43.601Z",
+    "id": "8n5t87og6JZ0AXPr",
+    "name": "Eliel Trabulsky <eliel@vitrue.co.il>",
+    "type": "personal",
+    "icon": null,
+    "description": null,
+    "projectRelations": [
+     {
+      "createdAt": "2025-08-18T16:54:33.538Z",
+      "updatedAt": "2025-08-18T16:54:33.538Z",
+      "role": "project:personalOwner",
+      "userId": "6530ce58-2475-45da-97a4-bf0ec489a180",
+      "projectId": "8n5t87og6JZ0AXPr",
+      "user": {
+       "createdAt": "2025-08-18T16:54:32.972Z",
+       "updatedAt": "2026-09-23T22:00:00.000Z",
+       "id": "6530ce58-2475-45da-97a4-bf0ec489a180",
+       "email": "eliel@vitrue.co.il",
+       "firstName": "Eliel",
+       "lastName": "Trabulsky",
+       "personalizationAnswers": {
+        "version": "v4",
+        "personalization_survey_submitted_at": "2025-08-18T17:04:51.259Z",
+        "personalization_survey_n8n_version": "1.106.3"
+       },
+       "settings": {
+        "userActivated": true,
+        "firstSuccessfulWorkflowId": "9Yey7n3lWYHw4uZL",
+        "userActivatedAt": 1755882878466,
+        "npsSurvey": {
+         "waitingForResponse": true,
+         "ignoredCount": 2,
+         "lastShownAt": 1790084758181
+        },
+        "easyAIWorkflowOnboarded": true
+       },
+       "role": "global:owner",
+       "disabled": false,
+       "mfaEnabled": false,
+       "lastActiveAt": "2026-09-23",
+       "isPending": false
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "tags": []
+}

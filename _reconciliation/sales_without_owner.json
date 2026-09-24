@@ -1,0 +1,79 @@
+[
+ {
+  "opportunityid": "AEC97BC2-A4FC-4FFC-89F9-12F3BD84A94E",
+  "name": "העסקה של עמית בן גיגי",
+  "ownerid": null,
+  "ownername": null,
+  "pcfProductname": "סדנה בוסט",
+  "statuscode": 11,
+  "status": "עסקה נסגרה בהצלחה",
+  "createdon": "2026-09-22T23:55:20.000Z",
+  "_id": "AEC97BC2-A4FC-4FFC-89F9-12F3BD84A94E"
+ },
+ {
+  "opportunityid": "6369185C-93BD-4DD0-9EE8-1698E6A96831",
+  "name": "העסקה של שרית",
+  "ownerid": null,
+  "ownername": null,
+  "pcfProductname": "סדנה בוסט",
+  "statuscode": 11,
+  "status": "עסקה נסגרה בהצלחה",
+  "createdon": "2026-09-23T23:56:21.000Z",
+  "_id": "6369185C-93BD-4DD0-9EE8-1698E6A96831"
+ },
+ {
+  "opportunityid": "538A0842-8265-4329-A145-3B2F1D0E2D0C",
+  "name": "העסקה של שלומית",
+  "ownerid": null,
+  "ownername": null,
+  "pcfProductname": "סדנה בוסט",
+  "statuscode": 11,
+  "status": "עסקה נסגרה בהצלחה",
+  "createdon": "2026-09-22T22:48:19.000Z",
+  "_id": "538A0842-8265-4329-A145-3B2F1D0E2D0C"
+ },
+ {
+  "opportunityid": "7605AED9-1EC1-4FE5-A0C6-846910CA6BC5",
+  "name": "העסקה של הילה ארזי",
+  "ownerid": null,
+  "ownername": null,
+  "pcfProductname": "סדנה בוסט",
+  "statuscode": 11,
+  "status": "עסקה נסגרה בהצלחה",
+  "createdon": "2026-09-23T06:50:29.000Z",
+  "_id": "7605AED9-1EC1-4FE5-A0C6-846910CA6BC5"
+ },
+ {
+  "opportunityid": "4B8C0015-97E9-446D-B97E-9028E7A41966",
+  "name": "העסקה של ויטל זוארץ-פליישר",
+  "ownerid": null,
+  "ownername": null,
+  "pcfProductname": "סדנה בוסט",
+  "statuscode": 11,
+  "status": "עסקה נסגרה בהצלחה",
+  "createdon": "2026-09-22T11:40:31.000Z",
+  "_id": "4B8C0015-97E9-446D-B97E-9028E7A41966"
+ },
+ {
+  "opportunityid": "EA048907-52D3-4FDA-A09B-CF0E2D9EB198",
+  "name": "העסקה של Hila Shmuely",
+  "ownerid": null,
+  "ownername": null,
+  "pcfProductname": "סדנה בוסט",
+  "statuscode": 11,
+  "status": "עסקה נסגרה בהצלחה",
+  "createdon": "2026-09-22T09:34:19.000Z",
+  "_id": "EA048907-52D3-4FDA-A09B-CF0E2D9EB198"
+ },
+ {
+  "opportunityid": "63E2B834-95D5-45C7-B2B4-ED4492CD7384",
+  "name": "העסקה של לינדה שם טוב",
+  "ownerid": null,
+  "ownername": null,
+  "pcfProductname": "סדנה בוסט",
+  "statuscode": 11,
+  "status": "עסקה נסגרה בהצלחה",
+  "createdon": "2026-09-24T07:01:19.000Z",
+  "_id": "63E2B834-95D5-45C7-B2B4-ED4492CD7384"
+ }
+]
