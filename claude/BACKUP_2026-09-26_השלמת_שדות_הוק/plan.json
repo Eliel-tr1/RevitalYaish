@@ -1,0 +1,1793 @@
+{
+ "1039": [
+  {
+   "id": "67233709-031E-4B20-A872-01D24F1D380B",
+   "record": {
+    "pcfSale": "5F0A6247-BF44-452E-89FC-4B3399183D32",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "ורד נח"
+  },
+  {
+   "id": "37B90761-B870-4548-AD69-04CEA2C4FCB7",
+   "record": {
+    "pcfSale": "F5B31BD4-4415-4360-A7EF-C685DEB24AB1",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "שרון מאיר"
+  },
+  {
+   "id": "1D7E33C3-94FD-4779-B23B-0B2BE2E1F3EB",
+   "record": {
+    "pcfSale": "9822815A-FE44-407A-95EA-82A4B1FB2944",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 151.6949,
+    "pcfNeedToPayIncludingVat": 179.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "מיה פרובשטיין"
+  },
+  {
+   "id": "5CF8C5B7-5B5D-4925-86AC-258343B3CD96",
+   "record": {
+    "pcfSale": "E7E78B57-C833-4904-A6BA-E5E2E1C5DB18",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אילנה גליקליך"
+  },
+  {
+   "id": "9E142BC7-1A23-4190-BCF3-27199F8248D2",
+   "record": {
+    "pcfSale": "4E220B31-3E6D-40CF-971C-72007F4E005D",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אילה כהן"
+  },
+  {
+   "id": "81EF467B-AB08-4F48-A1F4-3A07935F03CA",
+   "record": {
+    "pcfSale": "FA509124-D2FE-40C3-9062-F18640CF43CF",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "רעיה טובול"
+  },
+  {
+   "id": "2A1786E5-A6CF-4975-9262-3A10B180CA43",
+   "record": {
+    "pcfSale": "3CFEA9DB-533D-4F01-9964-7A10369790BF",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "בתיה אהרון"
+  },
+  {
+   "id": "C0B08A16-CD72-4A9A-B9AD-42946EECEDD6",
+   "record": {
+    "pcfSale": "43015D45-F1A8-4752-A93B-87A00B425AF8",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "שלומית אברהם שוקר"
+  },
+  {
+   "id": "7F28AD30-9599-4644-8FBE-446CC618AD11",
+   "record": {
+    "pcfSale": "508BB248-583A-42E4-9F0D-FF42FDBEEE3F",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "רחל גבאי"
+  },
+  {
+   "id": "7D7040C1-3082-4667-8761-4CE93C93696C",
+   "record": {
+    "pcfSale": "532B9BA3-F503-4E0A-B257-26DE2EA49CB1",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "מרתה דוד"
+  },
+  {
+   "id": "EF4BAA37-F84B-484F-9218-4F4DC6D90E77",
+   "record": {
+    "pcfSale": "31268BCE-5B72-495B-8929-7D9C4B8D272D",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "דקלה אביבי"
+  },
+  {
+   "id": "5FB11D33-E2FD-4B7A-B473-532B85DADDF6",
+   "record": {
+    "pcfSale": "DA330C48-158F-4931-9803-BA4567852BA3",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 254.2373,
+    "pcfNeedToPayIncludingVat": 300.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "חופית כהן"
+  },
+  {
+   "id": "6A7AAE30-792D-43E9-AA71-5507C553224E",
+   "record": {
+    "pcfSale": "A35DA513-EE0E-412F-AAEF-BA4223598D7D",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0
+   },
+   "_who": "דנה אליהו"
+  },
+  {
+   "id": "B4D33B25-17EF-4010-B744-5D2E7DDA67B4",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "C91537CA-07D0-4E07-B1B2-5DADD7EDAB33",
+   "record": {
+    "pcfSale": "0D52F843-C36D-4A83-A8CE-8B82A3DF0C32",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "מדלן בן עמי"
+  },
+  {
+   "id": "9EE66CC0-98D6-45E2-979C-600436F01D20",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "0337D276-CA14-40DF-B298-696A44B6EB5D",
+   "record": {
+    "pcfSale": "A9870E8F-4C35-46CC-99A7-1889F89E137D",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "לירון גבריאלוב"
+  },
+  {
+   "id": "E44FF30F-5D81-4657-B186-6A77166568D8",
+   "record": {
+    "pcfSale": "0D4CA549-D673-4038-9ADC-E1394C97EE94",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "רוחמה סעידי"
+  },
+  {
+   "id": "CC8D1005-2FE5-4325-9286-6C6E055AFC35",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "77B64560-6089-40AE-B005-6FC42BC8FF68",
+   "record": {
+    "pcfSale": "A07EEDF5-DDF9-46DE-95B8-6FEE228431AE",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 211.0169,
+    "pcfNeedToPayIncludingVat": 249.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אופירה שלום"
+  },
+  {
+   "id": "4DAFB00D-0AFB-4655-B113-7411BC24A23B",
+   "record": {
+    "pcfSale": "F391F0E2-BFB5-42BC-AC6E-494ED73F14B6",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 166.9492,
+    "pcfNeedToPayIncludingVat": 197.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "קרן פיטוסי"
+  },
+  {
+   "id": "F8AC02B8-35F5-4631-8C9A-758FF9CCE7EC",
+   "record": {
+    "pcfSale": "97C65AA3-D25F-4A83-A999-287B05A0B972",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "שירה יסכה תורג'מן"
+  },
+  {
+   "id": "A1B514C1-AAF3-45D3-9169-79B3FC8B9F9E",
+   "record": {
+    "pcfSale": "281812EE-7573-48AE-9297-A42FD7035BE5",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 134.7458,
+    "pcfNeedToPayIncludingVat": 159.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "נינה ציוני"
+  },
+  {
+   "id": "D832BA5B-2990-4CB9-A77B-7C4953B1B82B",
+   "record": {
+    "pcfSale": "9CB61FC5-9A54-46CA-A885-915CAF6055CB",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "גלית שמואל"
+  },
+  {
+   "id": "45F89519-1993-4008-A308-80557E8AE940",
+   "record": {
+    "pcfSale": "A3790302-C0C1-48FB-AD79-472C8FD481B1",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "יעל לוק"
+  },
+  {
+   "id": "F5CEF466-604F-419E-8F17-85922A85E9BF",
+   "record": {
+    "pcfSale": "6225A524-73EB-4429-BB88-4C066682B573",
+    "pcfrelatedproduct": "D75FC748-EB3F-45E1-8673-8BAE43629ED9",
+    "pcfNeedToPay": 464.4068,
+    "pcfNeedToPayIncludingVat": 548.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "חופית דאקר"
+  },
+  {
+   "id": "4E028415-687D-46F3-9FB2-8682A53CE611",
+   "record": {
+    "pcfSale": "7F70FD42-6768-481B-9749-6FC3626A32FF",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 293.2203,
+    "pcfNeedToPayIncludingVat": 346.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אוסנת טנסקי"
+  },
+  {
+   "id": "8BA42D9A-1271-462E-B79C-9337ABE9E9E0",
+   "record": {
+    "pcfSale": "DCA0B3E2-9338-44BF-8320-C857E018241C",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "מרגלית דרור"
+  },
+  {
+   "id": "A0187815-B261-469C-A3AD-94D5EF18954F",
+   "record": {
+    "pcfSale": "3CF0B943-69AC-429A-BA06-22359815D020",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "גלי זפרני"
+  },
+  {
+   "id": "F7A4BA75-ED47-4464-A7FE-A19BF96F29A6",
+   "record": {
+    "pcfSale": "569C891D-4FEC-4A77-9EE9-91832468B13A",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "שרה קויאט"
+  },
+  {
+   "id": "25D7B0A4-936B-400C-8E95-A362FD1FDA69",
+   "record": {
+    "pcfSale": "251A6CA8-1F3C-4577-985C-BDF5EB17A45F",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "יעל קראוס"
+  },
+  {
+   "id": "F6C54AAD-58BA-426C-943F-A9F408D3ADD5",
+   "record": {
+    "pcfSale": "7F70FD42-6768-481B-9749-6FC3626A32FF",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 151.6949,
+    "pcfNeedToPayIncludingVat": 179.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אוסנת טנסקי"
+  },
+  {
+   "id": "E2354934-BDF1-4D49-86E3-B2475E044743",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "87BA3182-F845-47C8-8E19-B346A629D532",
+   "record": {
+    "pcfSale": "D4B6981B-BBDE-433C-9897-2743C4E027AE",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "שרון קוניאק"
+  },
+  {
+   "id": "0CE05D45-4328-4659-8E34-B56E2713E8A8",
+   "record": {
+    "pcfSale": "CC9ED638-80DF-4847-9679-E957BCD6A143",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "ענת פוליבודה"
+  },
+  {
+   "id": "C97626F9-FA6B-4BEB-AB61-B5FABE4ED6E9",
+   "record": {
+    "pcfSale": "5CA862BB-359D-4D05-B2AE-B61F74829E2D",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "ברקת יתום"
+  },
+  {
+   "id": "82A009B6-022B-4D28-814A-BA7FBE398BC7",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 304.2373,
+    "pcfNeedToPayIncludingVat": 359.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "EEB375CE-2A97-4243-9311-BAE2A399F22D",
+   "record": {
+    "pcfSale": "9791BC82-12CA-4F46-B2E1-A2A024E0D751",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "עמית ששון"
+  },
+  {
+   "id": "83B93DB3-9D33-4A3F-85B1-BB5DE9B0BE8A",
+   "record": {
+    "pcfSale": "7089FB1B-A4D4-4FA4-A52F-9FC446E4AEFE",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אודליה קודיש"
+  },
+  {
+   "id": "122A4381-1090-4A3C-BB9E-BD2208EBD0D3",
+   "record": {
+    "pcfSale": "23C6E411-E580-462A-BF63-77273B986326",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "טניה אינס"
+  },
+  {
+   "id": "C22FA1A4-A3C5-432C-B193-BF41272C4815",
+   "record": {
+    "pcfSale": "AB79FA74-BBE0-4844-9DEA-1B9DD9449DBC",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "עירית אברשטרק"
+  },
+  {
+   "id": "0C5967C4-6A23-4207-B588-C0B7F5635226",
+   "record": {
+    "pcfSale": "E73B2427-351A-4D3F-A21C-E251C0381BE5",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "ליטל מרציאנו"
+  },
+  {
+   "id": "96B37E36-903E-4B4D-967E-C1D9F4269A74",
+   "record": {
+    "pcfSale": "9836E899-D359-4862-8365-ECC87821E7B4",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "ליה סגל"
+  },
+  {
+   "id": "3CF860BF-A68B-468F-A553-C365FB47F3EC",
+   "record": {
+    "pcfSale": "9F5E7A72-A402-4002-90D2-75F5274FCC3B",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "שושי ראובני לוי"
+  },
+  {
+   "id": "8A6B3F89-7E4D-427C-991D-C6DE6FF5D873",
+   "record": {
+    "pcfSale": "77D6D44E-EFF2-4A26-B97A-E4346792A676",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אשרת מוסקוביץ'"
+  },
+  {
+   "id": "FA928EFA-2843-4AF7-9CAC-C880F39D414E",
+   "record": {
+    "pcfSale": "AA791AF5-202C-4728-A4C6-95D14AFF337B",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 550.0,
+    "pcfNeedToPayIncludingVat": 649.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "סמדר בן עזרא"
+  },
+  {
+   "id": "D3B1004D-293B-490F-AF7A-C9A546D92BD3",
+   "record": {
+    "pcfSale": "0E4ABE6B-1DAA-4157-B3B2-6820930F39C5",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "לימור חמו"
+  },
+  {
+   "id": "183C14B2-663C-48CF-98AF-D90436EF8022",
+   "record": {
+    "pcfSale": "C94E2E88-CF61-4CD9-8E7A-320B447B240B",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "רחל דסטה"
+  },
+  {
+   "id": "F20A3023-F8BE-48E6-B4BD-E7D4A35C27A3",
+   "record": {
+    "pcfSale": "E6D51404-B6EF-48EC-8776-2F0269EF8D6F",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אלכס זיגדון"
+  },
+  {
+   "id": "4574A960-E8D8-4480-9896-E8E0A2138D11",
+   "record": {
+    "pcfSale": "087A0147-22CB-4D18-8D6A-0C47CDD5C298",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אביבית יפרח"
+  },
+  {
+   "id": "F92DB0CF-9392-4732-A810-E96D1572E761",
+   "record": {
+    "pcfSale": "1B4EEC7C-AF8B-47E2-A129-D6E2C0D4DDAC",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+    "pcfNeedToPay": 134.7458,
+    "pcfNeedToPayIncludingVat": 159.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אילנית פיילאוב"
+  },
+  {
+   "id": "B6EA8469-36CD-4AB9-B457-ED0119E477EF",
+   "record": {
+    "pcfSale": "D6AD54D3-9E0A-4C69-8151-434AAF509A95",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "אסטל בילר"
+  },
+  {
+   "id": "FA68C0A5-46D6-4553-ABB8-FCE948C10EEF",
+   "record": {
+    "pcfSale": "AC31E911-2F37-470F-B0E3-2BCBE0A1A3AF",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "זהבה כהן"
+  },
+  {
+   "id": "B27D49E2-206C-4585-B755-077360D73033",
+   "record": {
+    "pcfSale": "7FD1C194-1956-4C81-A570-E7D89941790B",
+    "pcfrelatedproduct": "D2CE0670-275A-4EF9-96BA-167F5CA053D6",
+    "pcfNeedToPay": 295.7627,
+    "pcfNeedToPayIncludingVat": 349.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "יפעת מרקו"
+  },
+  {
+   "id": "81687746-DFBB-4E74-8464-A2D0D5D75E00",
+   "record": {
+    "pcfSale": "C4EACF7C-9520-47E5-BC86-C2B8F021B556",
+    "pcfrelatedproduct": "BF672C30-27BA-4860-8877-241E8C6EBA8C",
+    "pcfNeedToPay": 0.8475,
+    "pcfNeedToPayIncludingVat": 1.0,
+    "pcfPaymentCategory": 3
+   },
+   "_who": "סער וינברג"
+  },
+  {
+   "id": "2BE1931B-CAE6-4922-8B6E-C3C49BFD5963",
+   "record": {
+    "pcfSale": "9DE4D2D4-8D41-4B6B-9984-C2298AEA25A9"
+   },
+   "_who": "סורינה גרושקו"
+  },
+  {
+   "id": "D3B50861-1324-4527-8F52-E1CE685AB607",
+   "record": {
+    "pcfSale": "447FD126-8F80-4BDB-A484-9B55BDBC0C71",
+    "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375"
+   },
+   "_who": "אורית אזולאי"
+  }
+ ],
+ "1018": [
+  {
+   "id": "078FDBCD-962F-4636-9752-1EEC082D29F2",
+   "record": {
+    "pcfSale": "5F0A6247-BF44-452E-89FC-4B3399183D32"
+   },
+   "_who": "ורד נח"
+  },
+  {
+   "id": "E22E00BC-A261-476C-8484-41FC153ACA4B",
+   "record": {
+    "pcfSale": "5F0A6247-BF44-452E-89FC-4B3399183D32"
+   },
+   "_who": "ורד נח"
+  },
+  {
+   "id": "F3CFDFBA-048E-4BE5-AF2E-B14BB57160B0",
+   "record": {
+    "pcfSale": "F5B31BD4-4415-4360-A7EF-C685DEB24AB1"
+   },
+   "_who": "שרון מאיר"
+  },
+  {
+   "id": "99F6B5A8-0181-4451-980B-C4543EDDE02C",
+   "record": {
+    "pcfSale": "F5B31BD4-4415-4360-A7EF-C685DEB24AB1"
+   },
+   "_who": "שרון מאיר"
+  },
+  {
+   "id": "86D69904-A516-4C2C-B50C-749D85C9C167",
+   "record": {
+    "pcfSale": "9822815A-FE44-407A-95EA-82A4B1FB2944"
+   },
+   "_who": "מיה פרובשטיין"
+  },
+  {
+   "id": "5DBA932D-BE82-4FC4-93BC-2749EFB44A05",
+   "record": {
+    "pcfSale": "E7E78B57-C833-4904-A6BA-E5E2E1C5DB18"
+   },
+   "_who": "אילנה גליקליך"
+  },
+  {
+   "id": "81AC8807-02E9-486B-8EC5-EEB907FE438C",
+   "record": {
+    "pcfSale": "E7E78B57-C833-4904-A6BA-E5E2E1C5DB18"
+   },
+   "_who": "אילנה גליקליך"
+  },
+  {
+   "id": "02B66559-A78C-4CB6-81FE-29C6EED82C8F",
+   "record": {
+    "pcfSale": "4E220B31-3E6D-40CF-971C-72007F4E005D"
+   },
+   "_who": "אילה כהן"
+  },
+  {
+   "id": "BC5F7610-5E74-42D0-8469-4E07CEC79689",
+   "record": {
+    "pcfSale": "4E220B31-3E6D-40CF-971C-72007F4E005D"
+   },
+   "_who": "אילה כהן"
+  },
+  {
+   "id": "89977F4E-CDC7-4136-A9F0-E7652435A7F6",
+   "record": {
+    "pcfSale": "4E220B31-3E6D-40CF-971C-72007F4E005D"
+   },
+   "_who": "אילה כהן"
+  },
+  {
+   "id": "8572F2AF-F974-46CB-9069-F7D3F80AAF75",
+   "record": {
+    "pcfSale": "4E220B31-3E6D-40CF-971C-72007F4E005D"
+   },
+   "_who": "אילה כהן"
+  },
+  {
+   "id": "7B45B02F-2733-45CF-875B-09AEF5EFCB72",
+   "record": {
+    "pcfSale": "FA509124-D2FE-40C3-9062-F18640CF43CF"
+   },
+   "_who": "רעיה טובול"
+  },
+  {
+   "id": "44058332-4638-4FF7-B944-18B7C0C5759E",
+   "record": {
+    "pcfSale": "FA509124-D2FE-40C3-9062-F18640CF43CF"
+   },
+   "_who": "רעיה טובול"
+  },
+  {
+   "id": "8379F7B1-E674-4525-B1E2-8F8CF9D5DAD4",
+   "record": {
+    "pcfSale": "FA509124-D2FE-40C3-9062-F18640CF43CF"
+   },
+   "_who": "רעיה טובול"
+  },
+  {
+   "id": "10AAE89D-5131-44BA-8ACA-1A34735CFED8",
+   "record": {
+    "pcfSale": "3CFEA9DB-533D-4F01-9964-7A10369790BF"
+   },
+   "_who": "בתיה אהרון"
+  },
+  {
+   "id": "07726372-D7C7-47BC-AB83-2EEF74175319",
+   "record": {
+    "pcfSale": "3CFEA9DB-533D-4F01-9964-7A10369790BF"
+   },
+   "_who": "בתיה אהרון"
+  },
+  {
+   "id": "0AE4F21B-7EA4-454E-9854-626629F7254A",
+   "record": {
+    "pcfSale": "3CFEA9DB-533D-4F01-9964-7A10369790BF"
+   },
+   "_who": "בתיה אהרון"
+  },
+  {
+   "id": "CE378C39-3652-4FC8-8ED6-D91D31AC640D",
+   "record": {
+    "pcfSale": "3CFEA9DB-533D-4F01-9964-7A10369790BF"
+   },
+   "_who": "בתיה אהרון"
+  },
+  {
+   "id": "DE87600C-709F-4506-A7FA-027700D00B91",
+   "record": {
+    "pcfSale": "43015D45-F1A8-4752-A93B-87A00B425AF8"
+   },
+   "_who": "שלומית אברהם שוקר"
+  },
+  {
+   "id": "DCD01B95-2061-4775-8F02-0B849C8C3A1F",
+   "record": {
+    "pcfSale": "43015D45-F1A8-4752-A93B-87A00B425AF8"
+   },
+   "_who": "שלומית אברהם שוקר"
+  },
+  {
+   "id": "1711D3A2-1E36-48DF-9372-C46B3A4859D6",
+   "record": {
+    "pcfSale": "43015D45-F1A8-4752-A93B-87A00B425AF8"
+   },
+   "_who": "שלומית אברהם שוקר"
+  },
+  {
+   "id": "D5CB67AE-E0AC-45B1-8715-106C63F7D33E",
+   "record": {
+    "pcfSale": "508BB248-583A-42E4-9F0D-FF42FDBEEE3F"
+   },
+   "_who": "רחל גבאי"
+  },
+  {
+   "id": "207E79BD-58C6-4315-B9AA-1F30665B7FEF",
+   "record": {
+    "pcfSale": "508BB248-583A-42E4-9F0D-FF42FDBEEE3F"
+   },
+   "_who": "רחל גבאי"
+  },
+  {
+   "id": "CC52D311-5F66-4065-AA3B-4C75F3BDCF36",
+   "record": {
+    "pcfSale": "508BB248-583A-42E4-9F0D-FF42FDBEEE3F"
+   },
+   "_who": "רחל גבאי"
+  },
+  {
+   "id": "89C2DC29-9483-4181-A185-52BCFBACBD03",
+   "record": {
+    "pcfSale": "508BB248-583A-42E4-9F0D-FF42FDBEEE3F"
+   },
+   "_who": "רחל גבאי"
+  },
+  {
+   "id": "80AFCB50-5547-4186-97C3-580E2D97B7E5",
+   "record": {
+    "pcfSale": "532B9BA3-F503-4E0A-B257-26DE2EA49CB1"
+   },
+   "_who": "מרתה דוד"
+  },
+  {
+   "id": "510B19CB-DDEA-44D5-A8C3-282562005AE7",
+   "record": {
+    "pcfSale": "31268BCE-5B72-495B-8929-7D9C4B8D272D"
+   },
+   "_who": "דקלה אביבי"
+  },
+  {
+   "id": "F313218B-6535-4C03-823E-2CD741F73066",
+   "record": {
+    "pcfSale": "31268BCE-5B72-495B-8929-7D9C4B8D272D"
+   },
+   "_who": "דקלה אביבי"
+  },
+  {
+   "id": "77CCB5AD-6C86-477E-A94E-4DD9D263338E",
+   "record": {
+    "pcfSale": "31268BCE-5B72-495B-8929-7D9C4B8D272D"
+   },
+   "_who": "דקלה אביבי"
+  },
+  {
+   "id": "A8E92495-9180-41B0-9FE7-7DD57759D640",
+   "record": {
+    "pcfSale": "31268BCE-5B72-495B-8929-7D9C4B8D272D"
+   },
+   "_who": "דקלה אביבי"
+  },
+  {
+   "id": "36D63A14-50CB-410D-98FC-9B8AB06005DF",
+   "record": {
+    "pcfSale": "31268BCE-5B72-495B-8929-7D9C4B8D272D"
+   },
+   "_who": "דקלה אביבי"
+  },
+  {
+   "id": "6F4192B8-860D-4A26-A1DA-AF4B1FD0B6A8",
+   "record": {
+    "pcfSale": "31268BCE-5B72-495B-8929-7D9C4B8D272D"
+   },
+   "_who": "דקלה אביבי"
+  },
+  {
+   "id": "29866DD7-B516-43E3-B50C-104987BBAFA8",
+   "record": {
+    "pcfSale": "DA330C48-158F-4931-9803-BA4567852BA3"
+   },
+   "_who": "חופית כהן"
+  },
+  {
+   "id": "D356B12A-AF28-48A1-8B86-1132D0598657",
+   "record": {
+    "pcfSale": "DA330C48-158F-4931-9803-BA4567852BA3"
+   },
+   "_who": "חופית כהן"
+  },
+  {
+   "id": "9D36DEA2-B477-46A4-860F-1282403DE6DA",
+   "record": {
+    "pcfSale": "DA330C48-158F-4931-9803-BA4567852BA3"
+   },
+   "_who": "חופית כהן"
+  },
+  {
+   "id": "103C654E-801C-47E1-9566-692F0048CB78",
+   "record": {
+    "pcfSale": "DA330C48-158F-4931-9803-BA4567852BA3"
+   },
+   "_who": "חופית כהן"
+  },
+  {
+   "id": "601DE65F-7BE8-4E96-941D-A4241CCEC145",
+   "record": {
+    "pcfSale": "DA330C48-158F-4931-9803-BA4567852BA3"
+   },
+   "_who": "חופית כהן"
+  },
+  {
+   "id": "3205C468-CBD3-4F50-9D51-CF3CC0046B3F",
+   "record": {
+    "pcfSale": "DA330C48-158F-4931-9803-BA4567852BA3"
+   },
+   "_who": "חופית כהן"
+  },
+  {
+   "id": "B2CFFEDB-957F-4315-9BF6-587FB908CD8D",
+   "record": {
+    "pcfSale": "A35DA513-EE0E-412F-AAEF-BA4223598D7D"
+   },
+   "_who": "דנה אליהו"
+  },
+  {
+   "id": "D360146C-93F2-4FC9-ABDD-049CA4003E2C",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007"
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "83225443-AA33-46EA-96E9-21316AE51083",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007"
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "5DCAB28A-467D-4D8D-89A4-30E40E9BD8AB",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007"
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "E75B8B4F-69A7-41B3-94F4-7A8780B79E27",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007"
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "57DCD941-D76E-46F4-9A37-9FD97B497AC8",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007"
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "7AA65AEC-835E-4079-96EE-A989C60B72FF",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007"
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "199E164E-B209-4159-AC2B-F3F38000978E",
+   "record": {
+    "pcfSale": "DAA73985-91FB-48A2-A2B2-9024B3AA5007"
+   },
+   "_who": "חני ציטאיאט"
+  },
+  {
+   "id": "E0F700C4-82CD-42EE-BD83-6652B20E68F7",
+   "record": {
+    "pcfSale": "0D52F843-C36D-4A83-A8CE-8B82A3DF0C32"
+   },
+   "_who": "מדלן בן עמי"
+  },
+  {
+   "id": "808FAB36-D37F-416F-A7C3-A323B5232150",
+   "record": {
+    "pcfSale": "0D52F843-C36D-4A83-A8CE-8B82A3DF0C32"
+   },
+   "_who": "מדלן בן עמי"
+  },
+  {
+   "id": "FD3A8DE3-2B80-4257-95D9-02AA01D92844",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE"
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "628D5A1C-6536-45B9-A357-0A3754132EBA",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE"
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "4D04F2BD-3387-4F70-82D5-0F5D4D2C9B44",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE"
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "9E084F12-069D-4D2B-B997-29E5ABD8F1E9",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE"
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "E8BE5A83-BA91-42E9-8BCB-37ACDD62E6B4",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE"
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "ACAB0489-C61F-44E8-8FCA-601E923DB8EC",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE"
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "3449D4EB-89D3-4032-A0C9-FC9CB6079D91",
+   "record": {
+    "pcfSale": "749833E1-0992-4BFB-A3DF-5B0D1C3D6EFE"
+   },
+   "_who": "נועה פיירשטיין"
+  },
+  {
+   "id": "DF5E4BC1-ACE0-4E20-9CE6-888A681C7F40",
+   "record": {
+    "pcfSale": "A9870E8F-4C35-46CC-99A7-1889F89E137D"
+   },
+   "_who": "לירון גבריאלוב"
+  },
+  {
+   "id": "AE9D7EB8-398A-44DC-A995-D72107092F09",
+   "record": {
+    "pcfSale": "A9870E8F-4C35-46CC-99A7-1889F89E137D"
+   },
+   "_who": "לירון גבריאלוב"
+  },
+  {
+   "id": "C1E1D735-13C8-4B08-9A79-D14C539E42A6",
+   "record": {
+    "pcfSale": "0D4CA549-D673-4038-9ADC-E1394C97EE94"
+   },
+   "_who": "רוחמה סעידי"
+  },
+  {
+   "id": "27E94EFA-D869-4895-A480-F177188B80CE",
+   "record": {
+    "pcfSale": "0D4CA549-D673-4038-9ADC-E1394C97EE94"
+   },
+   "_who": "רוחמה סעידי"
+  },
+  {
+   "id": "2A50C062-DD7A-4D5C-BB21-08EED1703634",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "9685AA6D-C6B5-499B-AC73-2F995A2A4C45",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "68FFC034-2C81-4C7E-B548-35F276DB1AD5",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "F0C5317E-AD6D-4F67-9DFC-36FFAF06C2A2",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "6AAE2A25-E558-4BB2-A231-469100C531A4",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "F13C0070-C868-4872-B681-5E0AAA7B4683",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "3EC0AAE4-C3F8-4419-8493-76CCF8FEA443",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "62763EED-CFB0-46D3-A40B-F2279B935152",
+   "record": {
+    "pcfSale": "BDCBAD78-40D0-44B3-B135-275D515F4AD3"
+   },
+   "_who": "חגית בדני"
+  },
+  {
+   "id": "13C738E3-F207-4728-8CB2-15DB9D65BB3A",
+   "record": {
+    "pcfSale": "A07EEDF5-DDF9-46DE-95B8-6FEE228431AE"
+   },
+   "_who": "אופירה שלום"
+  },
+  {
+   "id": "1D66C19D-7CBB-44E0-8A6C-1580DE29D808",
+   "record": {
+    "pcfSale": "F391F0E2-BFB5-42BC-AC6E-494ED73F14B6"
+   },
+   "_who": "קרן פיטוסי"
+  },
+  {
+   "id": "F8974EE8-3D07-4275-8E3A-1C0C2FC583EE",
+   "record": {
+    "pcfSale": "F391F0E2-BFB5-42BC-AC6E-494ED73F14B6"
+   },
+   "_who": "קרן פיטוסי"
+  },
+  {
+   "id": "B86D52F2-55AC-4C62-80C5-2A5F10CC5CC4",
+   "record": {
+    "pcfSale": "F391F0E2-BFB5-42BC-AC6E-494ED73F14B6"
+   },
+   "_who": "קרן פיטוסי"
+  },
+  {
+   "id": "8922F486-6EA8-408A-B687-54B9C59AA890",
+   "record": {
+    "pcfSale": "F391F0E2-BFB5-42BC-AC6E-494ED73F14B6"
+   },
+   "_who": "קרן פיטוסי"
+  },
+  {
+   "id": "8713E66C-DE36-4FB6-B844-BB6179870925",
+   "record": {
+    "pcfSale": "F391F0E2-BFB5-42BC-AC6E-494ED73F14B6"
+   },
+   "_who": "קרן פיטוסי"
+  },
+  {
+   "id": "15F21B13-41D8-40B3-B985-968C26C83BB6",
+   "record": {
+    "pcfSale": "97C65AA3-D25F-4A83-A999-287B05A0B972"
+   },
+   "_who": "שירה יסכה תורג'מן"
+  },
+  {
+   "id": "C70DC41F-5FE9-42F2-9120-075D929F1655",
+   "record": {
+    "pcfSale": "281812EE-7573-48AE-9297-A42FD7035BE5"
+   },
+   "_who": "נינה ציוני"
+  },
+  {
+   "id": "FA134228-CA75-4F20-B820-4D9A2634D980",
+   "record": {
+    "pcfSale": "281812EE-7573-48AE-9297-A42FD7035BE5"
+   },
+   "_who": "נינה ציוני"
+  },
+  {
+   "id": "07641ECD-CC89-4014-ABE4-6BE65D391919",
+   "record": {
+    "pcfSale": "281812EE-7573-48AE-9297-A42FD7035BE5"
+   },
+   "_who": "נינה ציוני"
+  },
+  {
+   "id": "97FD8058-A0AF-4548-AC7E-C2168AA4BBF1",
+   "record": {
+    "pcfSale": "281812EE-7573-48AE-9297-A42FD7035BE5"
+   },
+   "_who": "נינה ציוני"
+  },
+  {
+   "id": "9382C87A-C62F-47B9-AABE-F61EFD5955D1",
+   "record": {
+    "pcfSale": "281812EE-7573-48AE-9297-A42FD7035BE5"
+   },
+   "_who": "נינה ציוני"
+  },
+  {
+   "id": "32D352D6-2C0F-41E7-ABA8-03E7D5FA92C7",
+   "record": {
+    "pcfSale": "9CB61FC5-9A54-46CA-A885-915CAF6055CB"
+   },
+   "_who": "גלית שמואל"
+  },
+  {
+   "id": "EFEC8710-9621-4CED-96C8-2680AF512CB8",
+   "record": {
+    "pcfSale": "9CB61FC5-9A54-46CA-A885-915CAF6055CB"
+   },
+   "_who": "גלית שמואל"
+  },
+  {
+   "id": "EE5E8FC2-C00F-4CDB-AC98-497481BD0A1B",
+   "record": {
+    "pcfSale": "9CB61FC5-9A54-46CA-A885-915CAF6055CB"
+   },
+   "_who": "גלית שמואל"
+  },
+  {
+   "id": "8066FB56-3D60-4118-9A28-9EB6E86DEC46",
+   "record": {
+    "pcfSale": "9CB61FC5-9A54-46CA-A885-915CAF6055CB"
+   },
+   "_who": "גלית שמואל"
+  },
+  {
+   "id": "3245BFE3-17F3-4239-937E-EECECD7E1B1D",
+   "record": {
+    "pcfSale": "9CB61FC5-9A54-46CA-A885-915CAF6055CB"
+   },
+   "_who": "גלית שמואל"
+  },
+  {
+   "id": "C86DD374-97A1-4A27-B618-F87766D2E2F9",
+   "record": {
+    "pcfSale": "9CB61FC5-9A54-46CA-A885-915CAF6055CB"
+   },
+   "_who": "גלית שמואל"
+  },
+  {
+   "id": "523B9E48-2D6F-41BD-96AC-06A2A29E1D83",
+   "record": {
+    "pcfSale": "A3790302-C0C1-48FB-AD79-472C8FD481B1"
+   },
+   "_who": "יעל לוק"
+  },
+  {
+   "id": "72886785-4C8A-4986-B7CE-565DCA00778D",
+   "record": {
+    "pcfSale": "A3790302-C0C1-48FB-AD79-472C8FD481B1"
+   },
+   "_who": "יעל לוק"
+  },
+  {
+   "id": "755DA837-D0EC-4F63-8593-B994CD32A78D",
+   "record": {
+    "pcfSale": "6225A524-73EB-4429-BB88-4C066682B573"
+   },
+   "_who": "חופית דאקר"
+  },
+  {
+   "id": "230D0005-54AD-4E7F-BEB0-4D53D0DFFC53",
+   "record": {
+    "pcfSale": "7F70FD42-6768-481B-9749-6FC3626A32FF"
+   },
+   "_who": "אוסנת טנסקי"
+  },
+  {
+   "id": "78A881F5-FAF2-42E4-89D9-C1EB8743424F",
+   "record": {
+    "pcfSale": "7F70FD42-6768-481B-9749-6FC3626A32FF"
+   },
+   "_who": "אוסנת טנסקי"
+  },
+  {
+   "id": "2C21ACD7-8014-4F89-993D-CECD2DF5F82D",
+   "record": {
+    "pcfSale": "DCA0B3E2-9338-44BF-8320-C857E018241C"
+   },
+   "_who": "מרגלית דרור"
+  },
+  {
+   "id": "56630F9C-938D-4B33-AE34-12E4693892E7",
+   "record": {
+    "pcfSale": "3CF0B943-69AC-429A-BA06-22359815D020"
+   },
+   "_who": "גלי זפרני"
+  },
+  {
+   "id": "2A20700F-CC7A-4AF0-8F5D-9DDA6181B4DB",
+   "record": {
+    "pcfSale": "3CF0B943-69AC-429A-BA06-22359815D020"
+   },
+   "_who": "גלי זפרני"
+  },
+  {
+   "id": "1E748D49-268B-4D9D-B98D-0A09F3CDACA7",
+   "record": {
+    "pcfSale": "569C891D-4FEC-4A77-9EE9-91832468B13A"
+   },
+   "_who": "שרה קויאט"
+  },
+  {
+   "id": "244F531E-2F75-4BE7-BC7E-2949F0787BCC",
+   "record": {
+    "pcfSale": "569C891D-4FEC-4A77-9EE9-91832468B13A"
+   },
+   "_who": "שרה קויאט"
+  },
+  {
+   "id": "1D626A86-8197-45FF-83AC-9893A591CB68",
+   "record": {
+    "pcfSale": "569C891D-4FEC-4A77-9EE9-91832468B13A"
+   },
+   "_who": "שרה קויאט"
+  },
+  {
+   "id": "6A4AAAC0-7106-4CEC-B4B0-3E2DA49215F9",
+   "record": {
+    "pcfSale": "251A6CA8-1F3C-4577-985C-BDF5EB17A45F"
+   },
+   "_who": "יעל קראוס"
+  },
+  {
+   "id": "BE92B3B5-63D2-4CAC-BF34-5C209505FC08",
+   "record": {
+    "pcfSale": "251A6CA8-1F3C-4577-985C-BDF5EB17A45F"
+   },
+   "_who": "יעל קראוס"
+  },
+  {
+   "id": "26EA70D0-A0BB-4A07-8588-84F718CA637D",
+   "record": {
+    "pcfSale": "251A6CA8-1F3C-4577-985C-BDF5EB17A45F"
+   },
+   "_who": "יעל קראוס"
+  },
+  {
+   "id": "A65913CB-3652-432B-BCFB-B63D51997547",
+   "record": {
+    "pcfSale": "251A6CA8-1F3C-4577-985C-BDF5EB17A45F"
+   },
+   "_who": "יעל קראוס"
+  },
+  {
+   "id": "6B7759D2-92C8-42A4-9DB0-E8A94CC965EC",
+   "record": {
+    "pcfSale": "7F70FD42-6768-481B-9749-6FC3626A32FF"
+   },
+   "_who": "אוסנת טנסקי"
+  },
+  {
+   "id": "0BD90FAE-7C4C-437B-BCDC-177864025321",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532"
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "E83CA3AA-728E-41E7-8670-2139702C8F65",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532"
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "00955CE0-82C0-42EB-A504-CFEAD728CE31",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532"
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "31D5C26F-A819-418C-A470-E07BF9B61168",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532"
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "44556A05-6A7D-4D33-A85C-62341BD53F64",
+   "record": {
+    "pcfSale": "D4B6981B-BBDE-433C-9897-2743C4E027AE"
+   },
+   "_who": "שרון קוניאק"
+  },
+  {
+   "id": "0CD6B359-403B-423F-A153-A1F648A8F836",
+   "record": {
+    "pcfSale": "D4B6981B-BBDE-433C-9897-2743C4E027AE"
+   },
+   "_who": "שרון קוניאק"
+  },
+  {
+   "id": "D0A578ED-7A78-49F9-A72F-22D815EC87FE",
+   "record": {
+    "pcfSale": "CC9ED638-80DF-4847-9679-E957BCD6A143"
+   },
+   "_who": "ענת פוליבודה"
+  },
+  {
+   "id": "B58B68D1-CA08-478D-810E-7921ED4BBF23",
+   "record": {
+    "pcfSale": "CC9ED638-80DF-4847-9679-E957BCD6A143"
+   },
+   "_who": "ענת פוליבודה"
+  },
+  {
+   "id": "1E769D4F-B775-4EE2-95AB-CA55772454FE",
+   "record": {
+    "pcfSale": "CC9ED638-80DF-4847-9679-E957BCD6A143"
+   },
+   "_who": "ענת פוליבודה"
+  },
+  {
+   "id": "F0573094-0266-4038-BB86-DE09D60B187F",
+   "record": {
+    "pcfSale": "CC9ED638-80DF-4847-9679-E957BCD6A143"
+   },
+   "_who": "ענת פוליבודה"
+  },
+  {
+   "id": "53D9E6A6-0B8F-4BAE-A20F-8464A5F2995D",
+   "record": {
+    "pcfSale": "5CA862BB-359D-4D05-B2AE-B61F74829E2D"
+   },
+   "_who": "ברקת יתום"
+  },
+  {
+   "id": "60DE7B5F-82A2-4CC7-ADE9-84FDFF573011",
+   "record": {
+    "pcfSale": "5CA862BB-359D-4D05-B2AE-B61F74829E2D"
+   },
+   "_who": "ברקת יתום"
+  },
+  {
+   "id": "A43D8CB7-3C64-48C5-88EA-B6CBDECC0817",
+   "record": {
+    "pcfSale": "5CA862BB-359D-4D05-B2AE-B61F74829E2D"
+   },
+   "_who": "ברקת יתום"
+  },
+  {
+   "id": "742CA366-2483-4C69-B1E6-C26DEE469A49",
+   "record": {
+    "pcfSale": "5CA862BB-359D-4D05-B2AE-B61F74829E2D"
+   },
+   "_who": "ברקת יתום"
+  },
+  {
+   "id": "DA6866FF-750A-4625-8630-EA06EDAC9BEB",
+   "record": {
+    "pcfSale": "5CA862BB-359D-4D05-B2AE-B61F74829E2D"
+   },
+   "_who": "ברקת יתום"
+  },
+  {
+   "id": "48D1C92E-7325-4120-B603-F936C3AC1EBC",
+   "record": {
+    "pcfSale": "5CA862BB-359D-4D05-B2AE-B61F74829E2D"
+   },
+   "_who": "ברקת יתום"
+  },
+  {
+   "id": "22C6CCCA-A072-4A2D-9A2F-4D54C34371FE",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532"
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "E4A54211-1A8E-4AA1-8512-F614C6AD91A8",
+   "record": {
+    "pcfSale": "E959FEB0-3C03-4236-B149-80599CEC8532"
+   },
+   "_who": "נטלי בינמין"
+  },
+  {
+   "id": "382BD9FC-D418-4EB4-B85F-C7E3E5F6F475",
+   "record": {
+    "pcfSale": "9791BC82-12CA-4F46-B2E1-A2A024E0D751"
+   },
+   "_who": "עמית ששון"
+  },
+  {
+   "id": "32DB8F74-ED3A-42C1-98AA-17B407213C69",
+   "record": {
+    "pcfSale": "7089FB1B-A4D4-4FA4-A52F-9FC446E4AEFE"
+   },
+   "_who": "אודליה קודיש"
+  },
+  {
+   "id": "88FB3E54-F243-4B09-9966-C899FCF806E4",
+   "record": {
+    "pcfSale": "7089FB1B-A4D4-4FA4-A52F-9FC446E4AEFE"
+   },
+   "_who": "אודליה קודיש"
+  },
+  {
+   "id": "FEE0160E-6CF4-4DB6-8964-E052B9721761",
+   "record": {
+    "pcfSale": "7089FB1B-A4D4-4FA4-A52F-9FC446E4AEFE"
+   },
+   "_who": "אודליה קודיש"
+  },
+  {
+   "id": "F594E4E7-DA63-4516-BCAA-9CC85D41763C",
+   "record": {
+    "pcfSale": "23C6E411-E580-462A-BF63-77273B986326"
+   },
+   "_who": "טניה אינס"
+  },
+  {
+   "id": "2E5265F0-C2C4-4FCA-910A-F7B6B7A2AC91",
+   "record": {
+    "pcfSale": "AB79FA74-BBE0-4844-9DEA-1B9DD9449DBC"
+   },
+   "_who": "עירית אברשטרק"
+  },
+  {
+   "id": "397D2427-9C72-4831-B21E-13431B3C51F8",
+   "record": {
+    "pcfSale": "E73B2427-351A-4D3F-A21C-E251C0381BE5"
+   },
+   "_who": "ליטל מרציאנו"
+  },
+  {
+   "id": "C82877B8-D241-4DCE-86D6-809883B61C94",
+   "record": {
+    "pcfSale": "E73B2427-351A-4D3F-A21C-E251C0381BE5"
+   },
+   "_who": "ליטל מרציאנו"
+  },
+  {
+   "id": "37318918-6C94-4DE7-957D-B975D7C53331",
+   "record": {
+    "pcfSale": "9836E899-D359-4862-8365-ECC87821E7B4"
+   },
+   "_who": "ליה סגל"
+  },
+  {
+   "id": "38D90C31-CE8D-4013-83FC-D28D18DCC433",
+   "record": {
+    "pcfSale": "9836E899-D359-4862-8365-ECC87821E7B4"
+   },
+   "_who": "ליה סגל"
+  },
+  {
+   "id": "BC4AF9CB-27D7-4569-A45D-7DDEA51F3917",
+   "record": {
+    "pcfSale": "9F5E7A72-A402-4002-90D2-75F5274FCC3B"
+   },
+   "_who": "שושי ראובני לוי"
+  },
+  {
+   "id": "663F643D-84D4-42CB-8013-5F6E51F6462A",
+   "record": {
+    "pcfSale": "77D6D44E-EFF2-4A26-B97A-E4346792A676"
+   },
+   "_who": "אשרת מוסקוביץ'"
+  },
+  {
+   "id": "35DDF474-BBF1-4319-A986-D48558E6EFDD",
+   "record": {
+    "pcfSale": "77D6D44E-EFF2-4A26-B97A-E4346792A676"
+   },
+   "_who": "אשרת מוסקוביץ'"
+  },
+  {
+   "id": "237AF9DB-C2A8-4E45-8F06-E8E229D2C29B",
+   "record": {
+    "pcfSale": "77D6D44E-EFF2-4A26-B97A-E4346792A676"
+   },
+   "_who": "אשרת מוסקוביץ'"
+  },
+  {
+   "id": "6AD56ACC-6F45-4AC5-8CEE-016615964602",
+   "record": {
+    "pcfSale": "AA791AF5-202C-4728-A4C6-95D14AFF337B"
+   },
+   "_who": "סמדר בן עזרא"
+  },
+  {
+   "id": "325319F4-ED33-4E2A-BE92-01921B4826A4",
+   "record": {
+    "pcfSale": "AA791AF5-202C-4728-A4C6-95D14AFF337B"
+   },
+   "_who": "סמדר בן עזרא"
+  },
+  {
+   "id": "0A15730C-878E-4EB1-8D5E-8E6CAB8C25DD",
+   "record": {
+    "pcfSale": "0E4ABE6B-1DAA-4157-B3B2-6820930F39C5"
+   },
+   "_who": "לימור חמו"
+  },
+  {
+   "id": "E224B368-CAFC-403A-82EA-8E8CC0F7789C",
+   "record": {
+    "pcfSale": "0E4ABE6B-1DAA-4157-B3B2-6820930F39C5"
+   },
+   "_who": "לימור חמו"
+  },
+  {
+   "id": "DC583F7A-6093-4086-8568-2B9C65D86236",
+   "record": {
+    "pcfSale": "C94E2E88-CF61-4CD9-8E7A-320B447B240B"
+   },
+   "_who": "רחל דסטה"
+  },
+  {
+   "id": "CEDC6338-24AF-43BC-8D73-32389B234FAF",
+   "record": {
+    "pcfSale": "C94E2E88-CF61-4CD9-8E7A-320B447B240B"
+   },
+   "_who": "רחל דסטה"
+  },
+  {
+   "id": "62B99A6C-A2AB-4D33-8908-38D3CAAD44A8",
+   "record": {
+    "pcfSale": "C94E2E88-CF61-4CD9-8E7A-320B447B240B"
+   },
+   "_who": "רחל דסטה"
+  },
+  {
+   "id": "488D3A83-16C2-476E-BD05-860E1DC82D93",
+   "record": {
+    "pcfSale": "C94E2E88-CF61-4CD9-8E7A-320B447B240B"
+   },
+   "_who": "רחל דסטה"
+  },
+  {
+   "id": "5F5351DF-2D05-4915-8BF3-A4C73C4BF0D5",
+   "record": {
+    "pcfSale": "C94E2E88-CF61-4CD9-8E7A-320B447B240B"
+   },
+   "_who": "רחל דסטה"
+  },
+  {
+   "id": "C9C7C7C2-E61D-470B-A92C-3B3C6C23AE03",
+   "record": {
+    "pcfSale": "E6D51404-B6EF-48EC-8776-2F0269EF8D6F"
+   },
+   "_who": "אלכס זיגדון"
+  },
+  {
+   "id": "6EDD9FF8-ED6A-4D50-A0CC-6D34DF44451A",
+   "record": {
+    "pcfSale": "E6D51404-B6EF-48EC-8776-2F0269EF8D6F"
+   },
+   "_who": "אלכס זיגדון"
+  },
+  {
+   "id": "1FC9E36E-716D-4483-B7B0-848F5954065F",
+   "record": {
+    "pcfSale": "E6D51404-B6EF-48EC-8776-2F0269EF8D6F"
+   },
+   "_who": "אלכס זיגדון"
+  },
+  {
+   "id": "FEE36009-C69C-42F0-A59C-D70C4610DF18",
+   "record": {
+    "pcfSale": "E6D51404-B6EF-48EC-8776-2F0269EF8D6F"
+   },
+   "_who": "אלכס זיגדון"
+  },
+  {
+   "id": "2C022E26-917F-45BF-B7F6-FBBC5ABCA8DE",
+   "record": {
+    "pcfSale": "E6D51404-B6EF-48EC-8776-2F0269EF8D6F"
+   },
+   "_who": "אלכס זיגדון"
+  },
+  {
+   "id": "E6BF4B81-E0A4-4015-A7A0-7619BA40E324",
+   "record": {
+    "pcfSale": "087A0147-22CB-4D18-8D6A-0C47CDD5C298"
+   },
+   "_who": "אביבית יפרח"
+  },
+  {
+   "id": "217A9911-8022-4C70-8727-0B60F0B29804",
+   "record": {
+    "pcfSale": "1B4EEC7C-AF8B-47E2-A129-D6E2C0D4DDAC"
+   },
+   "_who": "אילנית פיילאוב"
+  },
+  {
+   "id": "A4504D49-316A-4F46-B285-635F8CFE72C2",
+   "record": {
+    "pcfSale": "1B4EEC7C-AF8B-47E2-A129-D6E2C0D4DDAC"
+   },
+   "_who": "אילנית פיילאוב"
+  },
+  {
+   "id": "3DAC4A7E-9E82-4FC0-A3A0-D20EC177384D",
+   "record": {
+    "pcfSale": "1B4EEC7C-AF8B-47E2-A129-D6E2C0D4DDAC"
+   },
+   "_who": "אילנית פיילאוב"
+  },
+  {
+   "id": "057BFA6D-5BB8-46CD-8526-EE534669F36F",
+   "record": {
+    "pcfSale": "1B4EEC7C-AF8B-47E2-A129-D6E2C0D4DDAC"
+   },
+   "_who": "אילנית פיילאוב"
+  },
+  {
+   "id": "0016E56E-D104-4E07-9F25-6F865B94DDBC",
+   "record": {
+    "pcfSale": "D6AD54D3-9E0A-4C69-8151-434AAF509A95"
+   },
+   "_who": "אסטל בילר"
+  },
+  {
+   "id": "C188C913-BA83-4F88-9160-C5B7837E9137",
+   "record": {
+    "pcfSale": "D6AD54D3-9E0A-4C69-8151-434AAF509A95"
+   },
+   "_who": "אסטל בילר"
+  },
+  {
+   "id": "0B2177C9-950A-4FBC-93A4-EB9AB48A46FD",
+   "record": {
+    "pcfSale": "D6AD54D3-9E0A-4C69-8151-434AAF509A95"
+   },
+   "_who": "אסטל בילר"
+  },
+  {
+   "id": "37836B97-7117-4086-8EB3-2A2AD1A87F87",
+   "record": {
+    "pcfSale": "AC31E911-2F37-470F-B0E3-2BCBE0A1A3AF"
+   },
+   "_who": "זהבה כהן"
+  },
+  {
+   "id": "39F94BD7-0AEC-4427-B96D-4AA033244A0A",
+   "record": {
+    "pcfSale": "AC31E911-2F37-470F-B0E3-2BCBE0A1A3AF"
+   },
+   "_who": "זהבה כהן"
+  },
+  {
+   "id": "99CB85C4-DE63-4813-816F-924B0FF714FF",
+   "record": {
+    "pcfSale": "AC31E911-2F37-470F-B0E3-2BCBE0A1A3AF"
+   },
+   "_who": "זהבה כהן"
+  },
+  {
+   "id": "9E6855E5-D979-4600-BE1C-BE4CAAAA4556",
+   "record": {
+    "pcfSale": "AC31E911-2F37-470F-B0E3-2BCBE0A1A3AF"
+   },
+   "_who": "זהבה כהן"
+  },
+  {
+   "id": "06857B00-A577-4846-B2B1-5010A08E50A2",
+   "record": {
+    "pcfSale": "7FD1C194-1956-4C81-A570-E7D89941790B"
+   },
+   "_who": "יפעת מרקו"
+  },
+  {
+   "id": "6998B299-11C1-4F1F-B42A-F7627DC38C0C",
+   "record": {
+    "pcfSale": "7FD1C194-1956-4C81-A570-E7D89941790B"
+   },
+   "_who": "יפעת מרקו"
+  },
+  {
+   "id": "1123FDCB-3813-49DF-8849-AF7D923F6A09",
+   "record": {
+    "pcfSale": "447FD126-8F80-4BDB-A484-9B55BDBC0C71"
+   },
+   "_who": "אורית אזולאי"
+  }
+ ],
+ "4": [
+  {
+   "id": "1FCC01D5-2AA2-46DB-91E9-7BC57D91E259",
+   "record": {
+    "statuscode": 11
+   },
+   "_who": "מלי מאזוז",
+   "_prev": 2
+  },
+  {
+   "id": "C4EACF7C-9520-47E5-BC86-C2B8F021B556",
+   "record": {
+    "statuscode": 11
+   },
+   "_who": "סער וינברג",
+   "_prev": 2
+  },
+  {
+   "id": "9DE4D2D4-8D41-4B6B-9984-C2298AEA25A9",
+   "record": {
+    "statuscode": 11
+   },
+   "_who": "סורינה גרושקו",
+   "_prev": 2
+  },
+  {
+   "id": "447FD126-8F80-4BDB-A484-9B55BDBC0C71",
+   "record": {
+    "statuscode": 11
+   },
+   "_who": "אורית אזולאי",
+   "_prev": 2
+  }
+ ]
+}

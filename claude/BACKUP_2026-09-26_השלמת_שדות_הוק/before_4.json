@@ -1,0 +1,62 @@
+[
+ {
+  "opportunityid": "1FCC01D5-2AA2-46DB-91E9-7BC57D91E259",
+  "name": "העסקה של מלי מאזוז",
+  "accountid": "D2F0FA89-4D05-48FF-B3F2-50113C3369FD",
+  "accountname": "מלי מאזוז",
+  "statuscode": 2,
+  "status": "ליד חדש",
+  "pcfProduct": null,
+  "pcfProductname": null,
+  "createdon": "2026-09-16T19:39:25.000Z",
+  "pcfclosedate": null,
+  "ownerid": "3F38DCD5-EF74-4706-9933-347EF966292D",
+  "ownername": "לימור מולא",
+  "_id": "1FCC01D5-2AA2-46DB-91E9-7BC57D91E259"
+ },
+ {
+  "opportunityid": "447FD126-8F80-4BDB-A484-9B55BDBC0C71",
+  "name": "תהליך המכירה של אורית אזולאי",
+  "accountid": "370CFB82-C943-4351-B259-696C652CCAC4",
+  "accountname": "אורית אזולאי",
+  "statuscode": 2,
+  "status": "ליד חדש",
+  "pcfProduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+  "pcfProductname": "תוכנית המשך אונליין",
+  "createdon": "2026-09-18T08:19:57.000Z",
+  "pcfclosedate": null,
+  "ownerid": "5C1CA7DA-389A-497D-8AFD-7E8C109DCC44",
+  "ownername": "עתליה פיסטוקצי",
+  "_id": "447FD126-8F80-4BDB-A484-9B55BDBC0C71"
+ },
+ {
+  "opportunityid": "9DE4D2D4-8D41-4B6B-9984-C2298AEA25A9",
+  "name": "העסקה של סורינה גרושקו",
+  "accountid": "F9128494-6C97-4B5B-9FDE-589D633E6123",
+  "accountname": "סורינה גרושקו",
+  "statuscode": 2,
+  "status": "ליד חדש",
+  "pcfProduct": null,
+  "pcfProductname": null,
+  "createdon": "2026-09-14T14:10:37.000Z",
+  "pcfclosedate": null,
+  "ownerid": "AD60EB58-D590-4FF8-B86E-BF01E13A7EFC",
+  "ownername": "רבקה נונו",
+  "_id": "9DE4D2D4-8D41-4B6B-9984-C2298AEA25A9"
+ },
+ {
+  "opportunityid": "C4EACF7C-9520-47E5-BC86-C2B8F021B556",
+  "name": "העסקה של סער וינברג",
+  "accountid": "F0F93BEA-813B-4238-BB1B-33B787A1FFCD",
+  "accountname": "סער וינברג",
+  "statuscode": 2,
+  "status": "ליד חדש",
+  "pcfProduct": "BF672C30-27BA-4860-8877-241E8C6EBA8C",
+  "pcfProductname": "הו\"ק טסט",
+  "createdon": "2026-09-20T06:40:26.000Z",
+  "pcfclosedate": null,
+  "ownerid": "0FA826FA-CBC8-4BA5-9CD4-3E59F129F4DE",
+  "ownername": "לימור לוי",
+  "_id": "C4EACF7C-9520-47E5-BC86-C2B8F021B556"
+ }
+]
