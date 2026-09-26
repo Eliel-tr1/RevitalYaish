@@ -1,0 +1,65 @@
+{
+ "1039": [
+  {
+   "customobject1039id": "7EF0E0AA-882D-4A15-A969-0EA64E176D29",
+   "name": "הוראת הקבע של אירן צנסטי | תוכנית המשך אונליין | 349 ₪ | חיוב חודשי",
+   "pcfAccountid": null,
+   "pcfAccountidname": null,
+   "pcfSale": null,
+   "pcfSalename": null,
+   "pcfrelatedproduct": "58A4D4F9-5921-4BFC-BA8E-518877FAA375",
+   "pcfrelatedproductname": "תוכנית המשך אונליין",
+   "pcfNeedToPay": 295.7627,
+   "pcfNeedToPayIncludingVat": 348.999986,
+   "pcfPaymentCategory": 3,
+   "pcfPaymentCategoryname": "הוראת קבע",
+   "pcfPaymentType": 1,
+   "pcfPaymentTypename": "אשראי",
+   "pcfExternalSoftwareID1": "GROW-DD-52609501",
+   "pcfNumberOfPayments": 1,
+   "createdon": "2026-09-05T19:39:18.000Z",
+   "pcfStatus": 1,
+   "pcfStatusname": "בתהליך פירעון",
+   "_id": "7EF0E0AA-882D-4A15-A969-0EA64E176D29"
+  },
+  {
+   "customobject1039id": "E9329248-E09E-4124-8CB0-0EC6F8AF0EA2",
+   "name": "הוראת הקבע של מלי מאזוז | מוצר לא מזוהה | 349 ₪ | חיוב חודשי",
+   "pcfAccountid": "D2F0FA89-4D05-48FF-B3F2-50113C3369FD",
+   "pcfAccountidname": "מלי מאזוז",
+   "pcfSale": "1FCC01D5-2AA2-46DB-91E9-7BC57D91E259",
+   "pcfSalename": "העסקה של מלי מאזוז",
+   "pcfrelatedproduct": null,
+   "pcfrelatedproductname": null,
+   "pcfNeedToPay": 295.7627,
+   "pcfNeedToPayIncludingVat": 348.999986,
+   "pcfPaymentCategory": 3,
+   "pcfPaymentCategoryname": "הוראת קבע",
+   "pcfPaymentType": 1,
+   "pcfPaymentTypename": "אשראי",
+   "pcfExternalSoftwareID1": "GROW-DD-53108924",
+   "pcfNumberOfPayments": 1,
+   "createdon": "2026-09-16T19:39:26.000Z",
+   "pcfStatus": 2,
+   "pcfStatusname": "נפרע בהצלחה",
+   "_id": "E9329248-E09E-4124-8CB0-0EC6F8AF0EA2"
+  }
+ ],
+ "4": [
+  {
+   "opportunityid": "1FCC01D5-2AA2-46DB-91E9-7BC57D91E259",
+   "name": "העסקה של מלי מאזוז",
+   "accountid": "D2F0FA89-4D05-48FF-B3F2-50113C3369FD",
+   "accountname": "מלי מאזוז",
+   "statuscode": 11,
+   "status": "עסקה נסגרה בהצלחה",
+   "pcfProduct": null,
+   "pcfProductname": null,
+   "createdon": "2026-09-16T19:39:25.000Z",
+   "pcfclosedate": "2026-09-26T14:21:15.000Z",
+   "ownerid": "3F38DCD5-EF74-4706-9933-347EF966292D",
+   "ownername": "לימור מולא",
+   "_id": "1FCC01D5-2AA2-46DB-91E9-7BC57D91E259"
+  }
+ ]
+}
