@@ -48,6 +48,11 @@ button,select,input{font-family:inherit}
 .admin-bulk select{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:6px 9px;border-radius:8px;font-size:12.5px}
 th.chkcol,td.chkcol{width:28px;text-align:center}
 th.sortable{cursor:pointer;user-select:none}
+.panel.collapsible>summary{cursor:pointer;font-size:14.5px;font-weight:600;list-style:none;display:flex;align-items:center;gap:8px}
+.panel.collapsible>summary::-webkit-details-marker{display:none}
+.panel.collapsible>summary::before{content:"◂";color:var(--ink-3);font-size:12px}
+.panel.collapsible[open]>summary::before{content:"▾"}
+.panel.collapsible[open]>summary{margin-bottom:8px}
 th.sortable:hover{color:var(--brand)}
 .tab-lock{font-size:10px;opacity:.7;margin-inline-end:2px}
 
@@ -952,6 +957,7 @@ VIEW.web.after = () => {
    תאריך סיום אפקטיבי = השדה "תאריך סיום פרימיום" (pcfPremiumEndDate). ללקוחה שעדיין בפרימיום
    והשדה ריק אצלה, נופלים לתאריך סיום הליווי. המרה = התוכנית הנוכחית היא המשך/מתקדמים, או
    שנרכש מוצר "תוכנית המשך" (קטגוריה ראשית 102) אחרי תחילת הפרימיום. בלי מגבלת זמן. */
+let menuPanelOpen = false;
 const TEST_PRODUCT_ID = "bf672c30-27ba-4860-8877-241e8c6eba8c";
 function premiumCycles(d) {
   const contProd = new Set(d.products.filter((p) => p.product_type === 3 && p.id !== TEST_PRODUCT_ID).map((p) => p.id));
@@ -993,7 +999,7 @@ VIEW.coach = () => {
   const cyc = premiumCycles(d).filter((x) => anyOf(f.mentor, x.c.ownername) && inR(x.end, b));
   const conv = cyc.filter((x) => x.state === "conv"), open = cyc.filter((x) => x.state === "open"), lost = cyc.filter((x) => x.state === "lost");
   const rate = cyc.length ? (conv.length / cyc.length) * 100 : null;
-  const inCoach = d.coaching.filter((x) => (x.status === 2 || x.status === 4) && anyOf(f.mentor, x.ownername));
+  const inCoach = d.coaching.filter((x) => x.status === 2 && anyOf(f.mentor, x.ownername));
   const byProg = groupCount(inCoach, (x) => x.program_label || "ללא תוכנית");
   const mNames = uniq(cyc.map((x) => x.c.ownername || "ללא מנטורית"));
   const board = mNames.map((m) => {
@@ -1006,7 +1012,7 @@ VIEW.coach = () => {
   const rangeTxt = heDate(b[0]) + " עד " + heDate(b[1]);
   const single = f.mentor.length === 1 ? f.mentor[0] : null;
 
-  const outcome = (x) => x.state === "conv" ? '<span class="pill ok">הומרה להמשך</span>' : x.state === "open" ? '<span class="pill warn">טרם הוכרע</span>' : '<span class="pill crit">לא המשיכה</span>';
+  const outcome = (x) => x.state === "conv" ? '<span class="pill ok">הומרה להמשך</span>' : x.state === "open" ? '<span class="pill warn">עוד לא הומרה</span>' : '<span class="pill crit">לא המשיכה</span>';
   const listRows = (arr) => arr.slice().sort((p, q) => p.end.localeCompare(q.end)).map((x) =>
     "<tr data-fb=\"" + FB_URL(1051, x.c.id) + "\"><td>" + esc(x.c.name || EMPTY) + "</td><td>" + esc(x.c.account_name || EMPTY) + "</td><td>" + heDate(x.end) + "</td><td>" +
     (x.convDate ? heDate(x.convDate) : x.state === "conv" ? '<span class="muted">לא ידוע</span>' : x.state === "open" ? "טרם" : "לא") + "</td><td>" + outcome(x) +
@@ -1019,18 +1025,17 @@ VIEW.coach = () => {
   const premiumHTML = `
   <h2 class="page">לוח 4 · ליווי ולקוחות <span>המרת פרימיום להמשך לפי "תאריך סיום פרימיום" בטווח ${rangeTxt}. המרה = רכישת תוכנית המשך אחרי הפרימיום, בלי מגבלת זמן. מסנן המנטורית והטווח חלים על החלק הזה.</span></h2>
   <div class="kpis">
-    ${kpi("בליווי כרגע", num(inCoach.length), "", '<div class="d flat">' + (byProg.map((p) => esc(p[0]) + " " + p[1]).join(" · ") || "&nbsp;") + "</div>")}
-    ${kpi("מסיימות פרימיום בטווח", num(cyc.length), "", '<div class="d flat">' + num(upcoming.length) + " לקראת סיום · " + num(closed.length) + " נסגרו</div>")}
+    ${kpi("בליווי פעיל", num(inCoach.length), "", '<div class="d flat">' + (byProg.map((p) => esc(p[0]) + " " + p[1]).join(" · ") || "&nbsp;") + "</div>")}
+    ${kpi("מסיימות פרימיום בטווח", num(cyc.length), "", '<div class="d flat">' + num(closed.length) + " כבר סיימו · " + num(upcoming.length) + " עוד מסיימות בטווח</div>")}
     ${rate === null ? kpiEmpty("הומרו להמשך", "אין פרימיום שמסתיים בטווח") : kpi("הומרו להמשך", pct(rate, 0), "%", '<div class="d flat">' + num(conv.length) + " מתוך " + num(cyc.length) + "</div>")}
-    ${kpi("טרם הוכרע", num(open.length), "", '<div class="d flat">סיום עוד לא הגיע, אין רכישת המשך</div>')}
     ${kpi("הסתיימו ללא המשך", num(lost.length), "", '<div class="d flat">תאריך הסיום עבר, אין רכישת המשך</div>')}
   </div>
   <div class="grid">
     ${panel("השוואת מנטוריות · יחס המרה להמשך", "הומרו ÷ מסיימות פרימיום בטווח. \"מובילה\" ו\"מאחור\" מסומנות רק למנטוריות עם 3 סיומים לפחות. לחיצה על שורה מסננת למנטורית.",
-      board.length ? '<div class="tw"><table><thead><tr><th>מנטורית</th><th>מסיימות</th><th>הומרו</th><th>טרם הוכרע</th><th>לא המשיכו</th><th>יחס המרה</th></tr></thead><tbody>' +
+      board.length ? '<div class="tw"><table><thead><tr><th>מנטורית</th><th>מסיימות</th><th>הומרו להמשך</th><th>יחס המרה</th></tr></thead><tbody>' +
       board.map((r) => '<tr class="mentor-row" data-mentor="' + esc(r.m) + '" style="cursor:pointer"><td>' + esc(r.m) +
         (r.m === leader ? ' <span class="pill ok">מובילה</span>' : r.m === trailer ? ' <span class="pill crit">מאחור</span>' : "") +
-        "</td><td>" + num(r.total) + "</td><td>" + num(r.conv) + "</td><td>" + num(r.open) + "</td><td>" + num(r.lost) +
+        "</td><td>" + num(r.total) + "</td><td>" + num(r.conv) +
         '</td><td><div class="bar-cell" title="' + pct(r.rate, 0) + '%"><i style="width:' + Math.min(100, r.rate) + "%;background:" + S8()[2] + '"></i></div> ' + pct(r.rate, 0) + "%</td></tr>").join("") +
       "</tbody></table></div>" : emptyBox("אין פרימיום שמסתיים בטווח", "הרחב את טווח התאריכים"), "w12")}
     ${single
@@ -1058,13 +1063,13 @@ VIEW.coach = () => {
   </div>
   <div class="grid">
     ${panel("עומס פר מנטורית", "GROUP BY מנטורית, פעיל מול הסתיים", mentors.length ? cv("c_c2", true) + '<div class="legend"><span><i style="background:' + S8()[0] + '"></i>בליווי</span><span><i style="background:' + S8()[2] + '"></i>הסתיים</span><span><i style="background:' + S8()[3] + '"></i>אחר</span></div>' : emptyBox("אין מנטוריות", "אין שיוך בעלות ברשומות"), "w12")}
-    ${panel("צריכות תפריט וטרם קיבלו", "ליווי פעיל, עברו יותר מיומיים מתחילת הליווי, אין תאריך שליחת תפריט",
-      needMenu.length ? '<div class="tw"><table><thead><tr><th>לקוחה</th><th>מנטורית</th><th>תוכנית</th><th>תחילת ליווי</th><th>ימים</th><th>סוג הכשל</th></tr></thead><tbody>' +
+    <details class="panel w12 collapsible" id="menuPanel"${menuPanelOpen ? " open" : ""}><summary>צריכות תפריט וטרם קיבלו (${needMenu.length})</summary><div class="sub">ליווי פעיל, עברו יותר מיומיים מתחילת הליווי, אין תאריך שליחת תפריט</div>${needMenu.length ? '<div class="tw"><table><thead><tr><th>לקוחה</th><th>מנטורית</th><th>תוכנית</th><th>תחילת ליווי</th><th>ימים</th><th>סוג הכשל</th></tr></thead><tbody>' +
       needMenu.map((x) => "<tr data-fb=\"" + FB_URL(1051, x.id) + "\"><td>" + esc(x.account_name || x.name) + "</td><td>" + esc(x.ownername || EMPTY) + "</td><td>" + esc(x.program_label || EMPTY) + "</td><td>" + heShort(x.start_date) + "</td><td>" + daysBetween(x.start_date, todayISO()) + '</td><td><span class="pill ' + (anyMenu.has(x.id) ? "warn" : "crit") + '">' + (anyMenu.has(x.id) ? "הוקצה ולא נשלח" : "ללא הקצאה כלל") + "</span></td></tr>").join("") +
-      "</tbody></table></div>" : emptyBox("אין דגלים", "כל הליוויים הפעילים קיבלו תפריט"), "w12")}
+      "</tbody></table></div>" : emptyBox("אין דגלים", "כל הליוויים הפעילים קיבלו תפריט")}</details>
   </div>`;
 };
 VIEW.coach.after = () => {
+  const mp = $("#menuPanel"); if (mp) mp.addEventListener("toggle", () => { menuPanelOpen = mp.open; });
   $$("#view tr.mentor-row").forEach((tr) => tr.addEventListener("click", () => { ST.f.mentor = [tr.dataset.mentor]; buildFilters(); render(); window.scrollTo({ top: 0 }); }));
   const s = slice(), C8 = S8(); const co = s.coaching;
   const mentors = uniq(co.map((x) => x.ownername));
