@@ -1041,14 +1041,12 @@ VIEW.coach = () => {
 
   /* ===== תפעול ליווי ===== */
   const active = C.filter((x) => x.status === 2);
-  const noEnd = active.filter((x) => !x.est_end_date || x.est_end_date === "2099-12-31");
   const sent = new Set(d.menus.filter((m) => m.sent_ts || m.msg_sent).map((m) => m.coaching_id));
   const anyMenu = new Set(d.menus.map((m) => m.coaching_id));
   const CUTOVER = "2026-09-13";
   const needMenu = active.filter((x) => x.start_date && x.start_date >= CUTOVER && daysBetween(x.start_date, today) > 2 && !sent.has(x.id));
   const premNoMenu = active.filter((x) => x.start_date && x.start_date >= CUTOVER && x.program === 2 && !anyMenu.has(x.id));
   const hotGroups = d.groups.filter((g) => g.capacity && g.current_count !== null && g.current_count / g.capacity >= 0.9);
-  const byStatus = groupCount(C, (x) => x.status_label);
   const mentors = uniq(C.map((x) => x.ownername));
 
   return premiumHTML + `
@@ -1058,19 +1056,8 @@ VIEW.coach = () => {
     ${flag(premNoMenu.length ? "crit" : "ok", premNoMenu.length, "פרימיום ללא הקצאת תפריט כלל", "")}
     ${flag(hotGroups.length ? "warn" : "ok", hotGroups.length, "קבוצות WhatsApp מעל 90% תפוסה", "קיבולת מול נוכחי")}
   </div>
-  <div class="kpis">
-    ${kpi("סך הליוויים אי פעם", num(C.length), "", '<div class="d flat">ללא פילטר סטטוס</div>')}
-    ${kpi("סיימו בוסט ולא המירו", num(cnt(C, (x) => x.status === 8)), "", '<div class="d flat">סטטוס 8</div>')}
-    ${kpi("ללא תאריך סיום", num(noEnd.length), "", '<div class="d flat">ליווי פעיל בלי תאריך סיום</div>')}
-  </div>
   <div class="grid">
-    ${panel("פילוח סטטוס ליווי", "GROUP BY סטטוס", byStatus.length ? cv("c_c1", true) + '<div id="lg_c1"></div>' : emptyBox("אין רשומות ליווי", "המסננים הנוכחיים לא מחזירים אף ליווי"), "w5")}
-    ${panel("עומס פר מנטורית", "GROUP BY מנטורית, פעיל מול הסתיים", mentors.length ? cv("c_c2", true) + '<div class="legend"><span><i style="background:' + S8()[0] + '"></i>בליווי</span><span><i style="background:' + S8()[2] + '"></i>הסתיים</span><span><i style="background:' + S8()[3] + '"></i>אחר</span></div>' : emptyBox("אין מנטוריות", "אין שיוך בעלות ברשומות"), "w7")}
-    ${panel("תפוסת קבוצות WhatsApp", "נוכחי מול קיבולת", d.groups.length ? '<div class="tw"><table><thead><tr><th>קבוצה</th><th>תוכנית</th><th>מנטורית</th><th>תפוסה</th><th>פנוי</th></tr></thead><tbody>' +
-      d.groups.slice(0, 12).map((g) => { const r = g.capacity ? (g.current_count || 0) / g.capacity : null;
-        return "<tr data-fb=\"" + FB_URL(1068, g.id) + "\"><td>" + esc(g.name) + "</td><td>" + esc(g.program_label || EMPTY) + "</td><td>" + esc(g.ownername || EMPTY) + "</td><td>" +
-        (r === null ? '<span class="muted">לא הוגדרה קיבולת</span>' : '<div class="bar-cell" title="' + (g.current_count || 0) + "/" + g.capacity + '"><i style="width:' + Math.min(100, r * 100) + "%;background:" + (r >= 0.9 ? cssv("--warn") : S8()[2]) + '"></i></div>') +
-        "</td><td>" + (g.available === null || g.available === undefined ? EMPTY : num(g.available)) + "</td></tr>"; }).join("") + "</tbody></table></div>" : emptyBox("אין קבוצות", ""), "w12")}
+    ${panel("עומס פר מנטורית", "GROUP BY מנטורית, פעיל מול הסתיים", mentors.length ? cv("c_c2", true) + '<div class="legend"><span><i style="background:' + S8()[0] + '"></i>בליווי</span><span><i style="background:' + S8()[2] + '"></i>הסתיים</span><span><i style="background:' + S8()[3] + '"></i>אחר</span></div>' : emptyBox("אין מנטוריות", "אין שיוך בעלות ברשומות"), "w12")}
     ${panel("צריכות תפריט וטרם קיבלו", "ליווי פעיל, עברו יותר מיומיים מתחילת הליווי, אין תאריך שליחת תפריט",
       needMenu.length ? '<div class="tw"><table><thead><tr><th>לקוחה</th><th>מנטורית</th><th>תוכנית</th><th>תחילת ליווי</th><th>ימים</th><th>סוג הכשל</th></tr></thead><tbody>' +
       needMenu.map((x) => "<tr data-fb=\"" + FB_URL(1051, x.id) + "\"><td>" + esc(x.account_name || x.name) + "</td><td>" + esc(x.ownername || EMPTY) + "</td><td>" + esc(x.program_label || EMPTY) + "</td><td>" + heShort(x.start_date) + "</td><td>" + daysBetween(x.start_date, todayISO()) + '</td><td><span class="pill ' + (anyMenu.has(x.id) ? "warn" : "crit") + '">' + (anyMenu.has(x.id) ? "הוקצה ולא נשלח" : "ללא הקצאה כלל") + "</span></td></tr>").join("") +
@@ -1080,8 +1067,6 @@ VIEW.coach = () => {
 VIEW.coach.after = () => {
   $$("#view tr.mentor-row").forEach((tr) => tr.addEventListener("click", () => { ST.f.mentor = [tr.dataset.mentor]; buildFilters(); render(); window.scrollTo({ top: 0 }); }));
   const s = slice(), C8 = S8(); const co = s.coaching;
-  const bs = groupCount(co, (x) => x.status_label);
-  if (bs.length) { mk("c_c1", donutCfg(bs.map((x) => x[0]), bs.map((x) => x[1]), C8)); $("#lg_c1").innerHTML = legend(bs.map((x) => x[0]), C8, bs.map((x) => x[1])); }
   const mentors = uniq(co.map((x) => x.ownername));
   if (mentors.length) mk("c_c2", stackCfg(mentors, [
     { label: "בליווי", data: mentors.map((m) => cnt(co, (x) => x.ownername === m && x.status === 2)), backgroundColor: C8[0] },
