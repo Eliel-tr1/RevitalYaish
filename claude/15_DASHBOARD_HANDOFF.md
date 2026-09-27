@@ -10,8 +10,8 @@
 
 | מה | היכן |
 |---|---|
-| **הדשבורד (כתובת עבודה)** | `https://klobimzmuurzbimfkubr.supabase.co/functions/v1/app` |
-| **הדשבורד (יעד)** | `https://ai.vitrue.co.il/` — ⏳ ממתין להעלאת `index.html` ל-web root |
+| **הדשבורד (כתובת חיה, מ-16/09/2026)** | `https://lp.revitalyaish.co.il/dashboard/` · FTP של UPress, קובץ `dashboard/index.html` |
+| ~~הדשבורד (כתובת עבודה ישנה)~~ | `https://klobimzmuurzbimfkubr.supabase.co/functions/v1/app` · 🔴 **שבורה:** Supabase כופה `text/plain` על כל Edge Function, והדפדפן מציג קוד. ראה `CHANGELOG_2026-09-27_…` |
 | סיסמת כניסה | `revital2026` — **להחלפה לפני מסירה ללקוחה** (ראה §6) |
 | פרויקט Supabase | `revital-dashboard` · ref `klobimzmuurzbimfkubr` · eu-central-1 · 10$/חודש |
 | API הדשבורד | `POST /functions/v1/dash-api` |
@@ -223,6 +223,7 @@ body:   {"full": true}     ← משיכה מלאה במקום דלתא
 | 14 | נוסף זיהוי כפילויות UTM ושמות קמפיין פגומים כדגלים בלוח |
 | 15 | Storage bucket `dash` — קריאה ציבורית, **כתיבה אנונימית סגורה** |
 | 16 | בדיקות דפדפן מלאות — דסקטופ + מובייל, 0 שגיאות |
+| 17 | **27/09/2026** · שדה `1051.pcfPremiumEndDate` + מילוי רטרו 1,259 רשומות · WF-25 שומר את תאריך סיום הפרימיום לפני הדריסה · `fb-sync` v17, `dash-api` v12 · לוח 4 נבנה מחדש סביב המרת פרימיום להמשך. **כתיבה לפיירברי באישור סהר.** פירוט: `CHANGELOG_2026-09-27_תאריך_סיום_פרימיום_והמרה_להמשך.md` |
 
 ---
 
